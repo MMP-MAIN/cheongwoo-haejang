@@ -1,0 +1,18 @@
+{
+  "name": "cheongwoo-haejang",
+  "version": "1.0.0",
+  "private": true,
+  "description": "청우해장 — 대구 중구 약전골목 한식당 공식 홈페이지",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "images": "node tools/optimize-images.mjs",
+    "all": "npm run images && npm run build"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

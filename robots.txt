@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# 운영 문서 — 색인 제외
+Disallow: /README.md
+Disallow: /MARKETING.md
+Disallow: /DOMAIN.md
+Disallow: /PLACE-정보-붙여넣기.md
+Disallow: /src/
+Disallow: /build.mjs
+
+Sitemap: https://cheongwoohaejang.com/sitemap.xml

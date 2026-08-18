@@ -1,0 +1,70 @@
+# ---------------------------------------------------------------------------
+# main 에 푸시하면 자동으로 빌드해서 GitHub Pages 에 올립니다.
+#
+# 순서:  npm ci → npm run images(sharp, AVIF/WebP) → node build.mjs → 배포
+#
+# 로컬에서 이미 images/opt 와 HTML 을 커밋해 두었으므로, 여기서 다시 만드는
+# 것은 「누가 src/ 만 고치고 빌드를 잊었을 때」의 안전장치입니다.
+# 저장소 Settings → Pages → Source 를 「GitHub Actions」 로 두어야 동작합니다.
+# ---------------------------------------------------------------------------
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # 사진 최적화 → HTML 생성. 둘 다 결과물을 작업 트리에 씁니다.
+      - run: npm run all
+
+      # 배포에 필요 없는 것은 빼고 올립니다.
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          rsync -a \
+            --exclude node_modules \
+            --exclude .git \
+            --exclude .github \
+            --exclude tools \
+            --exclude src \
+            --exclude build.mjs \
+            --exclude package.json \
+            --exclude package-lock.json \
+            --exclude '*.md' \
+            ./ _site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

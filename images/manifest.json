@@ -1,0 +1,476 @@
+{
+  "images/cheongwoo-01.jpg": {
+    "w": 1600,
+    "h": 1067,
+    "src": "images/cheongwoo-01.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-01-360.avif",
+        "bytes": 9977
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-01-720.avif",
+        "bytes": 33588
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-01-1080.avif",
+        "bytes": 75676
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-01-1600.avif",
+        "bytes": 185904
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-01-360.webp",
+        "bytes": 17870
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-01-720.webp",
+        "bytes": 64106
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-01-1080.webp",
+        "bytes": 144284
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-01-1600.webp",
+        "bytes": 293768
+      }
+    ]
+  },
+  "images/cheongwoo-02.jpg": {
+    "w": 1600,
+    "h": 1067,
+    "src": "images/cheongwoo-02.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-02-360.avif",
+        "bytes": 9787
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-02-720.avif",
+        "bytes": 32747
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-02-1080.avif",
+        "bytes": 72446
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-02-1600.avif",
+        "bytes": 177101
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-02-360.webp",
+        "bytes": 17272
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-02-720.webp",
+        "bytes": 68230
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-02-1080.webp",
+        "bytes": 155514
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-02-1600.webp",
+        "bytes": 320220
+      }
+    ]
+  },
+  "images/cheongwoo-03.jpg": {
+    "w": 1600,
+    "h": 1067,
+    "src": "images/cheongwoo-03.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-03-360.avif",
+        "bytes": 8081
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-03-720.avif",
+        "bytes": 25799
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-03-1080.avif",
+        "bytes": 61036
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-03-1600.avif",
+        "bytes": 166828
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-03-360.webp",
+        "bytes": 12872
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-03-720.webp",
+        "bytes": 44706
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-03-1080.webp",
+        "bytes": 108136
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-03-1600.webp",
+        "bytes": 230746
+      }
+    ]
+  },
+  "images/cheongwoo-04.jpg": {
+    "w": 1067,
+    "h": 1600,
+    "src": "images/cheongwoo-04.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 540,
+        "path": "images/opt/cheongwoo-04-360.avif",
+        "bytes": 18692
+      },
+      {
+        "w": 720,
+        "h": 1080,
+        "path": "images/opt/cheongwoo-04-720.avif",
+        "bytes": 75504
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 540,
+        "path": "images/opt/cheongwoo-04-360.webp",
+        "bytes": 33532
+      },
+      {
+        "w": 720,
+        "h": 1080,
+        "path": "images/opt/cheongwoo-04-720.webp",
+        "bytes": 140376
+      }
+    ]
+  },
+  "images/cheongwoo-05.jpg": {
+    "w": 1600,
+    "h": 1067,
+    "src": "images/cheongwoo-05.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-05-360.avif",
+        "bytes": 7472
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-05-720.avif",
+        "bytes": 25564
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-05-1080.avif",
+        "bytes": 64022
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-05-1600.avif",
+        "bytes": 167776
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-05-360.webp",
+        "bytes": 13128
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-05-720.webp",
+        "bytes": 47176
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-05-1080.webp",
+        "bytes": 111362
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-05-1600.webp",
+        "bytes": 241936
+      }
+    ]
+  },
+  "images/cheongwoo-06.jpg": {
+    "w": 1600,
+    "h": 1067,
+    "src": "images/cheongwoo-06.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-06-360.avif",
+        "bytes": 9515
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-06-720.avif",
+        "bytes": 34382
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-06-1080.avif",
+        "bytes": 80258
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-06-1600.avif",
+        "bytes": 195630
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-06-360.webp",
+        "bytes": 16376
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-06-720.webp",
+        "bytes": 64402
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-06-1080.webp",
+        "bytes": 149666
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-06-1600.webp",
+        "bytes": 304014
+      }
+    ]
+  },
+  "images/cheongwoo-07.jpg": {
+    "w": 1067,
+    "h": 1600,
+    "src": "images/cheongwoo-07.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 540,
+        "path": "images/opt/cheongwoo-07-360.avif",
+        "bytes": 19881
+      },
+      {
+        "w": 720,
+        "h": 1080,
+        "path": "images/opt/cheongwoo-07-720.avif",
+        "bytes": 80695
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 540,
+        "path": "images/opt/cheongwoo-07-360.webp",
+        "bytes": 35008
+      },
+      {
+        "w": 720,
+        "h": 1080,
+        "path": "images/opt/cheongwoo-07-720.webp",
+        "bytes": 149146
+      }
+    ]
+  },
+  "images/cheongwoo-08.jpg": {
+    "w": 1600,
+    "h": 1067,
+    "src": "images/cheongwoo-08.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-08-360.avif",
+        "bytes": 8575
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-08-720.avif",
+        "bytes": 29594
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-08-1080.avif",
+        "bytes": 73197
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-08-1600.avif",
+        "bytes": 190527
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/cheongwoo-08-360.webp",
+        "bytes": 14210
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/cheongwoo-08-720.webp",
+        "bytes": 55260
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/cheongwoo-08-1080.webp",
+        "bytes": 136004
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/cheongwoo-08-1600.webp",
+        "bytes": 284822
+      }
+    ]
+  },
+  "images/cheongwoo-09.jpg": {
+    "w": 1067,
+    "h": 1600,
+    "src": "images/cheongwoo-09.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 540,
+        "path": "images/opt/cheongwoo-09-360.avif",
+        "bytes": 9233
+      },
+      {
+        "w": 720,
+        "h": 1080,
+        "path": "images/opt/cheongwoo-09-720.avif",
+        "bytes": 48269
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 540,
+        "path": "images/opt/cheongwoo-09-360.webp",
+        "bytes": 13780
+      },
+      {
+        "w": 720,
+        "h": 1080,
+        "path": "images/opt/cheongwoo-09-720.webp",
+        "bytes": 114578
+      }
+    ]
+  },
+  "images/cheongwoo-10.jpg": {
+    "w": 1067,
+    "h": 1600,
+    "src": "images/cheongwoo-10.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 540,
+        "path": "images/opt/cheongwoo-10-360.avif",
+        "bytes": 15919
+      },
+      {
+        "w": 720,
+        "h": 1080,
+        "path": "images/opt/cheongwoo-10-720.avif",
+        "bytes": 65457
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 540,
+        "path": "images/opt/cheongwoo-10-360.webp",
+        "bytes": 26232
+      },
+      {
+        "w": 720,
+        "h": 1080,
+        "path": "images/opt/cheongwoo-10-720.webp",
+        "bytes": 118484
+      }
+    ]
+  }
+}
