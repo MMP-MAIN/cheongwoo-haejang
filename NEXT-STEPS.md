@@ -52,18 +52,34 @@ main 에 합쳐진 적이 없어서 옛 URL 이 애초에 살아 있지 않았�
 메뉴 줄마다 썸네일이 붙습니다 (`menu[].img`). 더 좋은 원본을 받으면 같은 파일명으로 덮고
 `npm run images && node build.mjs`.
 
-### 4. 검색엔진 등록 ★ 다음 할 일 (도메인 연결 끝났으니 지금 하면 됩니다)
+### 4. 검색엔진 등록 — 구글 ✅ / 네이버 ★ 사장님(또는 운영자) 손 필요
 
-`README.md` 5번 절차대로. 소유확인 코드는 `assets/config.js` 가 아니라
-**`src/store.mjs`** 에 넣어야 `<meta>` 태그가 됩니다.
+**구글 서치콘솔 ✅ 2026-08-18 완료**
+- URL 접두어 속성 `https://cheongwoohaejang.com/` 소유확인 (HTML 파일 + meta 태그 둘 다)
+- sitemap.xml 제출 → 성공, 페이지 5개 발견
+- 도메인 속성(`cheongwoohaejang.com`)도 만들어 두었으나 DNS TXT 미인증 상태.
+  가비아 DNS 에 TXT `@` = `google-site-verification=ucPfF2Kfn43TwqNxO72CR-TdrTEGyaWWvG9I_b9Qs58`
+  를 넣고 서치콘솔에서 「확인」 누르면 됩니다 (선택 사항 — URL 접두어 속성으로 이미 충분).
 
-### 5. 광고 픽셀 ID 입력 후 캠페인
+**네이버 서치어드바이저 — 자동화 불가 (브라우저 정책으로 naver 도메인 차단). 3분 걸립니다:**
+1. https://searchadvisor.naver.com → 로그인 → 웹마스터 도구 → 사이트 등록: `https://cheongwoohaejang.com`
+2. 소유확인 → **HTML 태그** 선택 → `<meta name="naver-site-verification" content="XXXX" />` 의 XXXX 값을 복사
+3. 그 값을 `src/store.mjs` 의 `naverSiteVerification: ''` 에 넣고 → `node build.mjs` → 커밋·푸시 (1분 뒤 배포)
+4. 서치어드바이저로 돌아가 「소유확인」 → 요청 → **사이트맵 제출**: `https://cheongwoohaejang.com/sitemap.xml`
+5. 같은 화면에서 **RSS 제출은 건너뛰고**, 「웹 페이지 수집」에서 `https://cheongwoohaejang.com/` 수집 요청
 
-`assets/config.js` 에 메타 픽셀 · 구글 광고 · GA4 ID 입력.
-캠페인 설계와 제외 키워드는 `MARKETING.md`.
+**그 다음이 진짜 큰 한 방:** 네이버 스마트플레이스(사장님 계정) → 업체 정보 → **홈페이지**에
+`https://cheongwoohaejang.com` 입력. 플레이스 리뷰 3,251건의 신뢰가 홈페이지로 옮겨옵니다.
+카카오맵·구글 비즈니스 프로필도 같은 방식.
 
-**도메인 연결을 끝낸 뒤에 광고를 시작해야 합니다.** 먼저 돌리고 나중에 옮기면
-전환 학습이 초기화되고 리마케팅 모수를 잃습니다.
+### 5. 광고 픽셀 ✅ 메타 완료 / 구글·GA4 남음
+
+- **메타 픽셀 ✅** 데이터 세트 「청우해장 웹사이트」 ID `4502054576777925` (MPmarketing 소유,
+  광고 계정 661052520659038 연결). `assets/config.js` 에 입력·배포·라이브 발사 확인.
+- 지금 돌아가는 **냉면 광고(master 계정, ₩30/클릭)** 는 네이버 플레이스로 링크돼 있어 픽셀이
+  안 울립니다. **그대로 두기로 했습니다.** 다음 광고부터 랜딩을 홈페이지로 잡으면 픽셀·리마케팅이 쌓입니다.
+  그때 master 계정(976230043878568)에도 데이터 세트를 공유해야 합니다 (비즈니스 설정 → 데이터 세트 → 연결된 자산 → 자산 연결).
+- 구글 광고 전환·GA4 는 `assets/config.js` 의 빈 칸. `MARKETING.md` 참고.
 
 ---
 
