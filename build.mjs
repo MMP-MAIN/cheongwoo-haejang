@@ -247,6 +247,66 @@ function jsonLd(lang) {
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': [page, restaurant, faq, crumbs, around] });
 }
 
+
+/* ------------------------------ 약도 (SVG) ------------------------------
+   어르신 손님이 많아 「지도 앱」보다 「종이 약도」가 낫습니다. 실측이 아니라
+   방향과 순서만 맞춘 개념도이고, 글씨를 크게 둡니다. 실제 위치 기준:
+   반월당역 18번 출구(동남쪽) → 북쪽으로 → 약전골목(남성로) 만나면 왼쪽 → 청우해장.
+   좌표 출처: 네이버 지역검색 (2026-08-18). */
+function sketchMap(lang) {
+  const T = {
+    ko: { title: '약도', n: '북', store: '청우해장', road: '남성로 (약전골목)', big: '달구벌대로', station: '반월당역', exit: '18번 출구', dept: '더현대 대구', museum: '약령시 한의약박물관', park1: '약령시서문 공영주차장', park2: '약령시서편 공영주차장', cathedral: '계산성당 방면', gate: '약령시 동문', route: '출구에서 북쪽으로 올라오다 약전골목에서 왼쪽 · 도보 5분', print: '약도 인쇄' },
+    en: { title: 'Sketch map', n: 'N', store: 'Cheongwoo Haejang', road: 'Namseong-ro (Yakjeon-golmok)', big: 'Dalgubeol-daero', station: 'Banwoldang Stn.', exit: 'Exit 18', dept: 'The Hyundai Daegu', museum: 'Yangnyeongsi Museum', park1: 'West Gate public parking', park2: 'East public parking', cathedral: 'to Gyesan Cathedral', gate: 'Yangnyeongsi East Gate', route: 'From Exit 18 walk north, turn left at the herbal alley · 5 min', print: 'Print map' },
+    ja: { title: '略図', n: '北', store: 'チョンウヘジャン', road: '南城路（薬田横丁）', big: '達句伐大路', station: '半月堂駅', exit: '18番出口', dept: 'ザ・現代 大邱', museum: '薬令市韓医薬博物館', park1: '薬令市西門 公営駐車場', park2: '薬令市西便 公営駐車場', cathedral: '桂山聖堂方面', gate: '薬令市 東門', route: '18番出口から北へ、薬田横丁で左折 · 徒歩5分', print: '略図を印刷' },
+    zh: { title: '简图', n: '北', store: '青友解酲', big: '达句伐大路', road: '南城路（药田胡同）', station: '半月堂站', exit: '18号出口', dept: 'The Hyundai 大邱', museum: '药令市韩医药博物馆', park1: '药令市西门公共停车场', park2: '药令市西侧公共停车场', cathedral: '往桂山圣堂', gate: '药令市东门', route: '18号出口向北走，到药田胡同左转 · 步行5分钟', print: '打印简图' },
+    tw: { title: '簡圖', n: '北', store: '青友解酲', big: '達句伐大路', road: '南城路（藥田巷）', station: '半月堂站', exit: '18號出口', dept: 'The Hyundai 大邱', museum: '藥令市韓醫藥博物館', park1: '藥令市西門公有停車場', park2: '藥令市西側公有停車場', cathedral: '往桂山聖堂', gate: '藥令市東門', route: '18號出口向北走，到藥田巷左轉 · 步行 5 分鐘', print: '列印簡圖' },
+  }[lang];
+  const e = esc;
+  return `
+<figure class="sketch" aria-label="${e(T.title)}">
+  <svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Pretendard,-apple-system,'Apple SD Gothic Neo','Noto Sans JP','Noto Sans SC',sans-serif">
+    <title>${e(T.title)} — ${e(T.store)}</title>
+    <rect width="800" height="460" fill="#fbfaf7"/>
+    <!-- 북쪽 표시 -->
+    <g transform="translate(748,44)" fill="#1c1916"><path d="M0-22 L9 8 L0 2 L-9 8Z"/><text y="30" font-size="15" text-anchor="middle" font-weight="700">${e(T.n)}</text></g>
+    <!-- 도로 -->
+    <rect x="0" y="352" width="800" height="34" fill="#e6e1d8"/>
+    <text x="24" y="376" font-size="17" fill="#6b625a" font-weight="600">${e(T.big)}</text>
+    <rect x="0" y="182" width="800" height="24" fill="#ede8df"/>
+    <text x="24" y="200" font-size="16" fill="#6b625a" font-weight="600">${e(T.road)}</text>
+    <rect x="590" y="140" width="22" height="246" fill="#e6e1d8"/>
+    <!-- 계산성당 방면 -->
+    <text x="14" y="168" font-size="14" fill="#8a8178">◀ ${e(T.cathedral)}</text>
+    <!-- 약령시 동문 -->
+    <text x="786" y="168" font-size="14" fill="#8a8178" text-anchor="end">${e(T.gate)} ▶</text>
+    <!-- 주차장 1 (가게 바로 옆) -->
+    <g transform="translate(140,96)"><rect x="-16" y="-16" width="32" height="32" rx="6" fill="#1c3f86"/><text y="7" font-size="20" fill="#fff" text-anchor="middle" font-weight="800">P</text><text y="38" font-size="14" fill="#1c1916" text-anchor="middle">${e(T.park1)}</text></g>
+    <!-- 박물관 -->
+    <g transform="translate(470,128)"><rect x="-26" y="-18" width="52" height="30" rx="4" fill="#d9d2c4"/><text x="0" y="3" font-size="12" text-anchor="middle" fill="#1c1916">MUSEUM</text><text x="0" y="36" font-size="15" text-anchor="middle" fill="#1c1916">${e(T.museum)}</text></g>
+    <!-- 주차장 2 -->
+    <g transform="translate(560,258)"><rect x="-16" y="-16" width="32" height="32" rx="6" fill="#1c3f86"/><text y="7" font-size="20" fill="#fff" text-anchor="middle" font-weight="800">P</text><text x="-26" y="7" font-size="14" fill="#1c1916" text-anchor="end">${e(T.park2)}</text></g>
+    <!-- 더현대 -->
+    <g transform="translate(470,318)"><rect x="-58" y="-24" width="116" height="40" rx="6" fill="#d9d2c4"/><text y="3" font-size="15" text-anchor="middle" fill="#1c1916" font-weight="600">${e(T.dept)}</text></g>
+    <!-- 반월당역 -->
+    <g transform="translate(660,412)"><circle r="16" fill="#1c6b48"/><text y="6" font-size="17" fill="#fff" text-anchor="middle" font-weight="800">M</text><text x="24" y="-2" font-size="18" fill="#1c1916" font-weight="700">${e(T.station)}</text><text x="24" y="19" font-size="15" fill="#1c1916">${e(T.exit)}</text></g>
+    <!-- 경로 (점선) -->
+    <path d="M655 392 L655 300 L601 300 L601 208" fill="none" stroke="#b8843a" stroke-width="5" stroke-dasharray="10 8" stroke-linecap="round"/>
+    <path d="M601 208 L601 194 L318 194" fill="none" stroke="#b8843a" stroke-width="5" stroke-dasharray="10 8" stroke-linecap="round"/>
+    <path d="M330 194 L316 186 L316 202Z" fill="#b8843a"/>
+    <!-- 청우해장 -->
+    <g transform="translate(300,150)">
+      <rect x="-70" y="-30" width="140" height="52" rx="8" fill="#1c1916"/>
+      <text y="4" font-size="22" text-anchor="middle" fill="#fff" font-weight="800">${e(T.store)}</text>
+      <path d="M0 22 L-10 40 L10 40Z" fill="#1c1916"/>
+    </g>
+    <!-- 안내문 -->
+    <rect x="24" y="404" width="560" height="40" rx="8" fill="#fff" stroke="#e6e1d8"/>
+    <text x="42" y="430" font-size="16" fill="#1c1916" font-weight="600">${e(T.route)}</text>
+  </svg>
+  <figcaption class="sketch-cap"><span>${e(T.title)}</span><button type="button" class="printbtn" onclick="window.print()">${e(T.print)}</button></figcaption>
+</figure>`;
+}
+
 /* ------------------------------ 부분 조각들 ------------------------------ */
 const langSwitcher = (lang, cls) => site.langs.map((l) =>
   `<a href="${site.file[l]}" hreflang="${site.hreflang[l]}" lang="${site.hreflang[l]}"${l === lang ? ' class="on" aria-current="true"' : ''} data-track="language" data-track-label="${l}">${{ ko: 'KO', en: 'EN', ja: 'JA', zh: '简', tw: '繁' }[l]}</a>`
@@ -521,6 +581,7 @@ ${hoodSection(lang)}
         <div class="map-wrap">
           <iframe id="map-frame" data-src="${osmEmbed}" title="${esc(L.mapAlt)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+        ${sketchMap(lang)}
         <div class="route-btns">
           <a class="btn btn-ink" href="${links.naverDir}" target="_blank" rel="noopener" data-track="directions" data-track-label="naver">${ICON.pin}${esc(L.visitNaver)}</a>
           ${links.kakaoDir ? `<a class="btn btn-outline" href="${links.kakaoDir}" target="_blank" rel="noopener" data-track="directions" data-track-label="kakao">${esc(L.visitKakao)}</a>` : ''}

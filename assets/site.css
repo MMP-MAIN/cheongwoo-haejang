@@ -353,3 +353,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .parking-list strong{font-weight:600;font-size:.95rem}
 .parking-list .pk-meta{font-size:.82rem;color:var(--amber-deep);white-space:nowrap}
 .parking-list .pk-addr{grid-column:1/-1;font-size:.82rem;color:var(--muted)}
+
+/* ---------- 약도 ---------- */
+.sketch{margin:1rem 0 0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fbfaf7}
+.sketch svg{display:block;width:100%;height:auto}
+.sketch-cap{display:flex;justify-content:space-between;align-items:center;padding:.6rem .95rem;font-size:.86rem;color:var(--muted);border-top:1px solid var(--line);background:#fff}
+.printbtn{font-size:.84rem;font-weight:600;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:.35rem .9rem;background:#fff}
+.printbtn:hover{border-color:var(--ink)}
+@media print{
+  .topbar,.mobile-bar,.hero,.quickbar,.section:not(#visit),.reserve-wrap,.foot,.route-btns,.map-wrap,.printbtn,#lightbox{display:none !important}
+  .sketch{border:0;page-break-inside:avoid}
+  body{background:#fff}
+}
