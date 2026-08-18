@@ -124,6 +124,17 @@
     mapFrame.src = mapFrame.getAttribute('data-src');
   }
 
+  /* ---- 약도 모달 ---- */
+  var sm = $('#sketch-modal');
+  if (sm) {
+    var openSketch = function (e) { e.preventDefault(); sm.hidden = false; document.body.style.overflow = 'hidden'; };
+    var closeSketch = function () { sm.hidden = true; document.body.style.overflow = ''; };
+    $$('[data-open-sketch]').forEach(function (b) { b.addEventListener('click', openSketch); });
+    $$('[data-close-sketch]', sm).forEach(function (b) { b.addEventListener('click', closeSketch); });
+    sm.addEventListener('click', function (e) { if (e.target === sm) closeSketch(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !sm.hidden) closeSketch(); });
+  }
+
   /* ---- 지금 영업 중인지 표시 (한국 시간 기준) ----
      영업시간은 페이지의 data-hours 로 내려옵니다. 시간이 바뀌면
      src/store.mjs 의 hours 만 고치고 다시 빌드하면 여기까지 같이 바뀝니다. ---- */

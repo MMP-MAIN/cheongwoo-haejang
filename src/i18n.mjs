@@ -67,6 +67,7 @@ export const menuNames = {
 
 export const galleryAlt = {
   ko: {
+    queueDay: '점심시간, 청우해장 앞 약전골목에 줄 선 손님들',
     queue: '저녁 무렵 청우해장 앞에 줄 선 손님들',
     exterior: '대구 중구 남성로 청우해장 외관 — 파란 한글 간판과 靑友解酲 한자 간판',
     hall: '청우해장 홀 — 통유리 창가 원목 테이블 좌석',
@@ -80,6 +81,7 @@ export const galleryAlt = {
     door: '청우해장 출입문 — 청우해장 靑友解酲 유리 사인',
   },
   en: {
+    queueDay: 'Lunchtime queue outside Cheongwoo Haejang in the herbal alley',
     queue: 'Guests queuing outside Cheongwoo Haejang in the evening',
     exterior: 'Cheongwoo Haejang storefront on Namseong-ro, Jung-gu, Daegu',
     hall: 'Dining hall with wooden tables along the full-height window',
@@ -93,6 +95,7 @@ export const galleryAlt = {
     door: 'Entrance door with the Cheongwoo Haejang glass signage',
   },
   ja: {
+    queueDay: '昼どき、薬田横丁の店の前に並ぶお客さん',
     queue: '夕方、店の前に並ぶお客さん',
     exterior: '大邱市中区南城路のチョンウヘジャン外観',
     hall: '大きな窓沿いの木製テーブル席',
@@ -106,6 +109,7 @@ export const galleryAlt = {
     door: 'チョンウヘジャンの入口ドア',
   },
   zh: {
+    queueDay: '午餐时间在药田胡同店门口排队的客人',
     queue: '傍晚在店门口排队的客人',
     exterior: '大邱市中区南城路 青友解酲 店面外观',
     hall: '落地窗旁的实木餐桌区',
@@ -143,6 +147,7 @@ export const t = {
       '반월당역에서 걸어 5분. 약전골목 안쪽 <strong>청우해장</strong>은 양지와 사태를 오래 고아 낸 소고기 국물로 <strong>갈비탕</strong>·<strong>해장국</strong>·<strong>평양냉면</strong>을 냅니다. 아침 첫 끼로, 가족 외식으로, 어르신 모시는 자리로. 근대골목투어 중간에 들르기 좋습니다.',
     heroCtaCall: '전화로 예약하기',
     heroCtaDir: '길찾기',
+    heroCtaMap: '약도 보기',
     heroCtaMenu: '메뉴 보기',
     heroScroll: '아래로',
 
@@ -186,7 +191,7 @@ export const t = {
     mapAlt: '청우해장 위치 지도',
     transitTitle: '대중교통',
     transit: [
-      '지하철 1·2호선 <strong>반월당역</strong> 13번 출구 → 도보 약 5분',
+      '지하철 1·2호선 <strong>반월당역</strong> → 「더현대 대구」 방면 출구로 나와 북쪽으로 도보 4분 (18번 출구는 6분)',
       '지하철 1호선 <strong>중앙로역</strong> → 도보 약 8분',
       '<strong>약령시 한의약박물관</strong> 바로 옆 약전골목 안쪽',
     ],
@@ -245,6 +250,7 @@ export const t = {
       'Five minutes on foot from Banwoldang Station, tucked inside Yakjeon-golmok. <strong>Cheongwoo Haejang</strong> is a Korean restaurant built around beef broth simmered from dawn — short rib soup, beef soup, cold noodles in summer. Breakfast, family lunch, or a stop on the Modern History Street walk.',
     heroCtaCall: 'Call to book',
     heroCtaDir: 'Directions',
+    heroCtaMap: 'Sketch map',
     heroCtaMenu: 'See the menu',
     heroScroll: 'Scroll',
 
@@ -288,7 +294,7 @@ export const t = {
     mapAlt: 'Map showing the location of Cheongwoo Haejang',
     transitTitle: 'By metro',
     transit: [
-      '<strong>Banwoldang Station</strong> (Lines 1 & 2), Exit 13 → about 5 min on foot',
+      '<strong>Banwoldang Station</strong> (Lines 1 & 2) → take the exit toward The Hyundai Daegu, then 4 min north on foot',
       '<strong>Jungangno Station</strong> (Line 1) → about 8 min on foot',
       'Inside Yakjeon-golmok, next to the <strong>Yangnyeongsi Herbal Medicine Museum</strong>',
     ],
@@ -347,6 +353,7 @@ export const t = {
       '半月堂駅から徒歩5分、薬田横丁の中ほど。<strong>チョンウヘジャン</strong>は毎朝仕込む牛肉スープが自慢の韓国料理店です。カルビタン、ヘジャンクク、夏は平壌冷麺。朝食にも、ご家族の食事にも、近代路地ツアーの途中にも。',
     heroCtaCall: '電話で予約',
     heroCtaDir: '道順を見る',
+    heroCtaMap: '略図を見る',
     heroCtaMenu: 'メニューを見る',
     heroScroll: 'スクロール',
 
@@ -390,7 +397,7 @@ export const t = {
     mapAlt: 'チョンウヘジャンの位置を示す地図',
     transitTitle: '地下鉄',
     transit: [
-      '地下鉄1・2号線 <strong>半月堂駅</strong> 13番出口 → 徒歩約5分',
+      '地下鉄1・2号線 <strong>半月堂駅</strong> → 「ザ・現代 大邱」方面の出口から北へ徒歩4分',
       '地下鉄1号線 <strong>中央路駅</strong> → 徒歩約8分',
       '<strong>薬令市韓医薬博物館</strong>のすぐ隣、薬田横丁の中',
     ],
@@ -449,6 +456,7 @@ export const t = {
       '从半月堂站步行5分钟，就在药田胡同里。<strong>青友解酲</strong>是一家以牛肉汤为本的韩式餐厅：排骨汤、牛肉汤、夏天有平壤冷面。早餐、家庭聚餐、近代胡同游览途中都合适。',
     heroCtaCall: '电话预订',
     heroCtaDir: '查看路线',
+    heroCtaMap: '查看简图',
     heroCtaMenu: '查看菜单',
     heroScroll: '向下',
 
@@ -492,7 +500,7 @@ export const t = {
     mapAlt: '青友解酲位置地图',
     transitTitle: '地铁',
     transit: [
-      '地铁1、2号线 <strong>半月堂站</strong> 13号出口 → 步行约5分钟',
+      '地铁1、2号线 <strong>半月堂站</strong> → 从往 The Hyundai 大邱的出口出来向北步行 4 分钟',
       '地铁1号线 <strong>中央路站</strong> → 步行约8分钟',
       '<strong>药令市韩医药博物馆</strong>旁，药田胡同内',
     ],

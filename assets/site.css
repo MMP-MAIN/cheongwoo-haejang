@@ -365,3 +365,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .sketch{border:0;page-break-inside:avoid}
   body{background:#fff}
 }
+
+/* ---------- 약도 모달 (히어로 「약도 보기」) ---------- */
+.sketch-modal{position:fixed;inset:0;z-index:90;background:rgba(20,16,12,.7);display:flex;align-items:center;justify-content:center;padding:1rem}
+.sketch-modal[hidden]{display:none}
+.sketch-modal-box{position:relative;width:min(1000px,96vw);background:#fbfaf7;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-lg)}
+.sketch-modal-box svg{display:block;width:100%;height:auto;max-height:86vh}
+.sketch-close{position:absolute;top:.6rem;right:.6rem;background:var(--ink);color:#fff;font-weight:700;font-size:.95rem;padding:.55rem 1rem;border-radius:999px}
+@media print{.sketch-modal{display:none !important}}

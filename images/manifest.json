@@ -473,6 +473,51 @@
       }
     ]
   },
+  "images/cheongwoo-queue-day.jpg": {
+    "w": 1085,
+    "h": 814,
+    "src": "images/cheongwoo-queue-day.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 270,
+        "path": "images/opt/cheongwoo-queue-day-360.avif",
+        "bytes": 10851
+      },
+      {
+        "w": 720,
+        "h": 540,
+        "path": "images/opt/cheongwoo-queue-day-720.avif",
+        "bytes": 36955
+      },
+      {
+        "w": 1080,
+        "h": 810,
+        "path": "images/opt/cheongwoo-queue-day-1080.avif",
+        "bytes": 69941
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 270,
+        "path": "images/opt/cheongwoo-queue-day-360.webp",
+        "bytes": 20106
+      },
+      {
+        "w": 720,
+        "h": 540,
+        "path": "images/opt/cheongwoo-queue-day-720.webp",
+        "bytes": 69796
+      },
+      {
+        "w": 1080,
+        "h": 810,
+        "path": "images/opt/cheongwoo-queue-day-1080.webp",
+        "bytes": 135234
+      }
+    ]
+  },
   "images/cheongwoo-queue.jpg": {
     "w": 800,
     "h": 1066,

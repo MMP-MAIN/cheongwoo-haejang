@@ -24,7 +24,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 2;
+const ASSET_V = 3;
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -249,62 +249,68 @@ function jsonLd(lang) {
 
 
 /* ------------------------------ 약도 (SVG) ------------------------------
-   어르신 손님이 많아 「지도 앱」보다 「종이 약도」가 낫습니다. 실측이 아니라
-   방향과 순서만 맞춘 개념도이고, 글씨를 크게 둡니다. 실제 위치 기준:
-   반월당역 18번 출구(동남쪽) → 북쪽으로 → 약전골목(남성로) 만나면 왼쪽 → 청우해장.
-   좌표 출처: 네이버 지역검색 (2026-08-18). */
+   어르신 손님이 많아 「지도 앱」보다 「종이 약도」가 낫습니다. 실측이 아니라 방향과
+   순서만 맞춘 개념도이고, 글씨를 크게 둡니다. 가장 빠른 길(2026-08-19 확인):
+   반월당역 → 「더현대 대구」 방면 출구 → 백화점 옆 골목으로 북쪽 → 한의약박물관 지나
+   약전골목(남성로)에서 왼쪽 → 청우해장. 약 315m, 도보 4분. (18번 출구는 6분)
+   좌표 출처: 네이버 지역검색. */
 function sketchMap(lang) {
   const T = {
-    ko: { title: '약도', n: '북', store: '청우해장', road: '남성로 (약전골목)', big: '달구벌대로', station: '반월당역', exit: '18번 출구', dept: '더현대 대구', museum: '약령시 한의약박물관', park1: '약령시서문 공영주차장', park2: '약령시서편 공영주차장', cathedral: '계산성당 방면', gate: '약령시 동문', route: '출구에서 북쪽으로 올라오다 약전골목에서 왼쪽 · 도보 5분', print: '약도 인쇄' },
-    en: { title: 'Sketch map', n: 'N', store: 'Cheongwoo Haejang', road: 'Namseong-ro (Yakjeon-golmok)', big: 'Dalgubeol-daero', station: 'Banwoldang Stn.', exit: 'Exit 18', dept: 'The Hyundai Daegu', museum: 'Yangnyeongsi Museum', park1: 'West Gate public parking', park2: 'East public parking', cathedral: 'to Gyesan Cathedral', gate: 'Yangnyeongsi East Gate', route: 'From Exit 18 walk north, turn left at the herbal alley · 5 min', print: 'Print map' },
-    ja: { title: '略図', n: '北', store: 'チョンウヘジャン', road: '南城路（薬田横丁）', big: '達句伐大路', station: '半月堂駅', exit: '18番出口', dept: 'ザ・現代 大邱', museum: '薬令市韓医薬博物館', park1: '薬令市西門 公営駐車場', park2: '薬令市西便 公営駐車場', cathedral: '桂山聖堂方面', gate: '薬令市 東門', route: '18番出口から北へ、薬田横丁で左折 · 徒歩5分', print: '略図を印刷' },
-    zh: { title: '简图', n: '北', store: '青友解酲', big: '达句伐大路', road: '南城路（药田胡同）', station: '半月堂站', exit: '18号出口', dept: 'The Hyundai 大邱', museum: '药令市韩医药博物馆', park1: '药令市西门公共停车场', park2: '药令市西侧公共停车场', cathedral: '往桂山圣堂', gate: '药令市东门', route: '18号出口向北走，到药田胡同左转 · 步行5分钟', print: '打印简图' },
-    tw: { title: '簡圖', n: '北', store: '青友解酲', big: '達句伐大路', road: '南城路（藥田巷）', station: '半月堂站', exit: '18號出口', dept: 'The Hyundai 大邱', museum: '藥令市韓醫藥博物館', park1: '藥令市西門公有停車場', park2: '藥令市西側公有停車場', cathedral: '往桂山聖堂', gate: '藥令市東門', route: '18號出口向北走，到藥田巷左轉 · 步行 5 分鐘', print: '列印簡圖' },
+    ko: { title: '약도', n: '북', store: '청우해장', road: '남성로 · 약전골목', station: '반월당역', dept: '더현대 대구', exit: '더현대 방면 출구', museum: '한의약박물관', park: '공영주차장 (도보 1분)',
+          s1: '반월당역에서 「더현대 대구」 쪽 출구로 나옵니다', s2: '백화점 옆 골목으로 북쪽으로 3분 올라옵니다', s3: '박물관 지나 약전골목에서 왼쪽 → 청우해장', total: '도보 4분', print: '약도 인쇄', close: '닫기' },
+    en: { title: 'Sketch map', n: 'N', store: 'Cheongwoo Haejang', road: 'Namseong-ro · Herbal alley', station: 'Banwoldang Stn.', dept: 'The Hyundai Daegu', exit: 'exit toward The Hyundai', museum: 'Herbal Medicine Museum', park: 'Public parking (1 min)',
+          s1: 'Leave Banwoldang Station by the exit toward The Hyundai Daegu', s2: 'Walk north 3 min along the lane beside the store', s3: 'Past the museum, turn left into the herbal alley → here', total: '4 min on foot', print: 'Print map', close: 'Close' },
+    ja: { title: '略図', n: '北', store: 'チョンウヘジャン', road: '南城路 · 薬田横丁', station: '半月堂駅', dept: 'ザ・現代 大邱', exit: '現代百貨店方面の出口', museum: '韓医薬博物館', park: '公営駐車場（徒歩1分）',
+          s1: '半月堂駅を「ザ・現代 大邱」方面の出口から出ます', s2: '百貨店脇の路地を北へ3分歩きます', s3: '博物館を過ぎ、薬田横丁で左折 → 当店', total: '徒歩4分', print: '略図を印刷', close: '閉じる' },
+    zh: { title: '简图', n: '北', store: '青友解酲', road: '南城路 · 药田胡同', station: '半月堂站', dept: 'The Hyundai 大邱', exit: '往 The Hyundai 的出口', museum: '韩医药博物馆', park: '公共停车场（步行1分钟）',
+          s1: '从半月堂站往「The Hyundai 大邱」方向的出口出来', s2: '沿百货公司旁的小巷向北走 3 分钟', s3: '经过博物馆，在药田胡同左转 → 本店', total: '步行 4 分钟', print: '打印简图', close: '关闭' },
+    tw: { title: '簡圖', n: '北', store: '青友解酲', road: '南城路 · 藥田巷', station: '半月堂站', dept: 'The Hyundai 大邱', exit: '往 The Hyundai 的出口', museum: '韓醫藥博物館', park: '公有停車場（步行 1 分鐘）',
+          s1: '從半月堂站往「The Hyundai 大邱」方向的出口出來', s2: '沿百貨公司旁的小巷向北走 3 分鐘', s3: '經過博物館，在藥田巷左轉 → 本店', total: '步行 4 分鐘', print: '列印簡圖', close: '關閉' },
   }[lang];
   const e = esc;
-  return `
-<figure class="sketch" aria-label="${e(T.title)}">
-  <svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Pretendard,-apple-system,'Apple SD Gothic Neo','Noto Sans JP','Noto Sans SC',sans-serif">
+  const svg = `<svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Pretendard,-apple-system,'Apple SD Gothic Neo','Noto Sans JP','Noto Sans SC',sans-serif">
     <title>${e(T.title)} — ${e(T.store)}</title>
-    <rect width="800" height="460" fill="#fbfaf7"/>
-    <!-- 북쪽 표시 -->
-    <g transform="translate(748,44)" fill="#1c1916"><path d="M0-22 L9 8 L0 2 L-9 8Z"/><text y="30" font-size="15" text-anchor="middle" font-weight="700">${e(T.n)}</text></g>
-    <!-- 도로 -->
-    <rect x="0" y="352" width="800" height="34" fill="#e6e1d8"/>
-    <text x="24" y="376" font-size="17" fill="#6b625a" font-weight="600">${e(T.big)}</text>
-    <rect x="0" y="182" width="800" height="24" fill="#ede8df"/>
-    <text x="24" y="200" font-size="16" fill="#6b625a" font-weight="600">${e(T.road)}</text>
-    <rect x="590" y="140" width="22" height="246" fill="#e6e1d8"/>
-    <!-- 계산성당 방면 -->
-    <text x="14" y="168" font-size="14" fill="#8a8178">◀ ${e(T.cathedral)}</text>
-    <!-- 약령시 동문 -->
-    <text x="786" y="168" font-size="14" fill="#8a8178" text-anchor="end">${e(T.gate)} ▶</text>
-    <!-- 주차장 1 (가게 바로 옆) -->
-    <g transform="translate(140,96)"><rect x="-16" y="-16" width="32" height="32" rx="6" fill="#1c3f86"/><text y="7" font-size="20" fill="#fff" text-anchor="middle" font-weight="800">P</text><text y="38" font-size="14" fill="#1c1916" text-anchor="middle">${e(T.park1)}</text></g>
-    <!-- 박물관 -->
-    <g transform="translate(470,128)"><rect x="-26" y="-18" width="52" height="30" rx="4" fill="#d9d2c4"/><text x="0" y="3" font-size="12" text-anchor="middle" fill="#1c1916">MUSEUM</text><text x="0" y="36" font-size="15" text-anchor="middle" fill="#1c1916">${e(T.museum)}</text></g>
-    <!-- 주차장 2 -->
-    <g transform="translate(560,258)"><rect x="-16" y="-16" width="32" height="32" rx="6" fill="#1c3f86"/><text y="7" font-size="20" fill="#fff" text-anchor="middle" font-weight="800">P</text><text x="-26" y="7" font-size="14" fill="#1c1916" text-anchor="end">${e(T.park2)}</text></g>
-    <!-- 더현대 -->
-    <g transform="translate(470,318)"><rect x="-58" y="-24" width="116" height="40" rx="6" fill="#d9d2c4"/><text y="3" font-size="15" text-anchor="middle" fill="#1c1916" font-weight="600">${e(T.dept)}</text></g>
-    <!-- 반월당역 -->
-    <g transform="translate(660,412)"><circle r="16" fill="#1c6b48"/><text y="6" font-size="17" fill="#fff" text-anchor="middle" font-weight="800">M</text><text x="24" y="-2" font-size="18" fill="#1c1916" font-weight="700">${e(T.station)}</text><text x="24" y="19" font-size="15" fill="#1c1916">${e(T.exit)}</text></g>
-    <!-- 경로 (점선) -->
-    <path d="M655 392 L655 300 L601 300 L601 208" fill="none" stroke="#b8843a" stroke-width="5" stroke-dasharray="10 8" stroke-linecap="round"/>
-    <path d="M601 208 L601 194 L318 194" fill="none" stroke="#b8843a" stroke-width="5" stroke-dasharray="10 8" stroke-linecap="round"/>
-    <path d="M330 194 L316 186 L316 202Z" fill="#b8843a"/>
+    <rect width="800" height="560" fill="#fbfaf7"/>
+    <g transform="translate(756,40)" fill="#1c1916"><path d="M0-20 L9 8 L0 2 L-9 8Z"/><text y="30" font-size="16" text-anchor="middle" font-weight="700">${e(T.n)}</text></g>
+    <!-- 약전골목 (가로) -->
+    <rect x="0" y="150" width="800" height="34" fill="#e9e3d8"/>
+    <text x="22" y="174" font-size="19" fill="#5d554d" font-weight="700">${e(T.road)}</text>
+    <!-- 백화점 옆 골목 (세로) -->
+    <rect x="548" y="150" width="30" height="270" fill="#e9e3d8"/>
+    <!-- 주차장 -->
+    <g transform="translate(96,70)"><rect x="-18" y="-18" width="36" height="36" rx="7" fill="#1c3f86"/><text y="8" font-size="22" fill="#fff" text-anchor="middle" font-weight="800">P</text><text y="44" font-size="15" fill="#1c1916" text-anchor="middle">${e(T.park)}</text></g>
+    <!-- 박물관 (꺾는 지점 표지) -->
+    <g transform="translate(470,236)"><rect x="-64" y="-24" width="128" height="48" rx="6" fill="#d9d2c4"/><text y="7" font-size="17" text-anchor="middle" fill="#1c1916" font-weight="700">${e(T.museum)}</text></g>
+    <!-- 더현대 + 역 -->
+    <g transform="translate(470,455)"><rect x="-84" y="-30" width="168" height="60" rx="8" fill="#d9d2c4"/><text y="7" font-size="19" text-anchor="middle" fill="#1c1916" font-weight="700">${e(T.dept)}</text></g>
+    <g transform="translate(600,455)"><circle r="19" fill="#1c6b48"/><text y="7" font-size="19" fill="#fff" text-anchor="middle" font-weight="800">M</text><text x="28" y="-2" font-size="20" fill="#1c1916" font-weight="700">${e(T.station)}</text><text x="28" y="22" font-size="15" fill="#5d554d">${e(T.exit)}</text></g>
+    <!-- 경로 -->
+    <path d="M563 420 L563 167 L392 167" fill="none" stroke="#b8843a" stroke-width="7" stroke-dasharray="12 9" stroke-linecap="round"/>
+    <path d="M396 167 L378 156 L378 178Z" fill="#b8843a"/>
+    <!-- 번호 표지 -->
+    <g font-size="17" font-weight="800" fill="#fff"><circle cx="563" cy="420" r="15" fill="#b8843a"/><text x="563" y="426" text-anchor="middle">1</text><circle cx="563" cy="300" r="15" fill="#b8843a"/><text x="563" y="306" text-anchor="middle">2</text><circle cx="563" cy="167" r="15" fill="#b8843a"/><text x="563" y="173" text-anchor="middle">3</text></g>
     <!-- 청우해장 -->
-    <g transform="translate(300,150)">
-      <rect x="-70" y="-30" width="140" height="52" rx="8" fill="#1c1916"/>
-      <text y="4" font-size="22" text-anchor="middle" fill="#fff" font-weight="800">${e(T.store)}</text>
-      <path d="M0 22 L-10 40 L10 40Z" fill="#1c1916"/>
+    <g transform="translate(300,104)"><rect x="-90" y="-34" width="180" height="60" rx="9" fill="#1c1916"/><text y="6" font-size="26" text-anchor="middle" fill="#fff" font-weight="800">${e(T.store)}</text><path d="M0 26 L-12 44 L12 44Z" fill="#1c1916"/></g>
+    <!-- 안내 3줄 -->
+    <g transform="translate(22,258)" font-size="17" fill="#1c1916">
+      <circle cx="12" cy="-6" r="13" fill="#b8843a"/><text x="12" y="-1" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">1</text><text x="34" y="0">${e(T.s1)}</text>
+      <circle cx="12" cy="30" r="13" fill="#b8843a"/><text x="12" y="35" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">2</text><text x="34" y="36">${e(T.s2)}</text>
+      <circle cx="12" cy="66" r="13" fill="#b8843a"/><text x="12" y="71" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">3</text><text x="34" y="72">${e(T.s3)}</text>
+      <text x="0" y="112" font-size="20" font-weight="800" fill="#8f6322">${e(T.total)}</text>
     </g>
-    <!-- 안내문 -->
-    <rect x="24" y="404" width="560" height="40" rx="8" fill="#fff" stroke="#e6e1d8"/>
-    <text x="42" y="430" font-size="16" fill="#1c1916" font-weight="600">${e(T.route)}</text>
-  </svg>
-  <figcaption class="sketch-cap"><span>${e(T.title)}</span><button type="button" class="printbtn" onclick="window.print()">${e(T.print)}</button></figcaption>
+  </svg>`;
+  const figure = `
+<figure class="sketch" id="sketch" aria-label="${e(T.title)}">
+  ${svg}
+  <figcaption class="sketch-cap"><span>${e(T.title)}</span><span><button type="button" class="printbtn" data-open-sketch>${e(T.title)} +</button> <button type="button" class="printbtn" onclick="window.print()">${e(T.print)}</button></span></figcaption>
 </figure>`;
+  // 모달은 <body> 끝에 따로 붙입니다 — 섹션 안에 두면 .rv 의 transform 때문에
+  // position:fixed 가 화면이 아니라 섹션 기준이 되어 안 보입니다.
+  const modal = `
+<div class="sketch-modal" id="sketch-modal" role="dialog" aria-modal="true" aria-label="${e(T.title)}" hidden>
+  <div class="sketch-modal-box">${svg}<button type="button" class="sketch-close" data-close-sketch>${e(T.close)}</button></div>
+</div>`;
+  return { figure, modal };
 }
 
 /* ------------------------------ 부분 조각들 ------------------------------ */
@@ -345,7 +351,7 @@ function parkingList(lang) {
 
 function galleryFigures(lang) {
   const alts = galleryAlt[lang];
-  const shape = ['tall', 'wide', '', '', 'tall', '', 'tall', '', '', '', ''];
+  const shape = ['wide', 'tall', '', '', 'tall', '', 'tall', '', '', '', '', ''];
   return gallery.map((g, i) => `
         <figure class="${shape[i]}">
           ${picture(g.src, alts[g.key], {
@@ -488,7 +494,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
     <p class="hero-lede">${L.heroLede}</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="tel:${store.telHref}" data-track="call" data-track-label="hero">${ICON.phone}${esc(L.heroCtaCall)}</a>
-      <a class="btn btn-ghost" href="#visit" data-track="directions" data-track-label="hero-anchor">${ICON.pin}${esc(L.heroCtaDir)}</a>
+      <a class="btn btn-ghost" href="#sketch" data-open-sketch data-track="directions" data-track-label="hero-sketch">${ICON.pin}${esc(L.heroCtaMap)}</a>
       <a class="btn btn-ghost" href="#menu" data-track="menu" data-track-label="hero">${esc(L.heroCtaMenu)}${ICON.arrow}</a>
     </div>
   </div>
@@ -581,7 +587,7 @@ ${hoodSection(lang)}
         <div class="map-wrap">
           <iframe id="map-frame" data-src="${osmEmbed}" title="${esc(L.mapAlt)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        ${sketchMap(lang)}
+        ${sketchMap(lang).figure}
         <div class="route-btns">
           <a class="btn btn-ink" href="${links.naverDir}" target="_blank" rel="noopener" data-track="directions" data-track-label="naver">${ICON.pin}${esc(L.visitNaver)}</a>
           ${links.kakaoDir ? `<a class="btn btn-outline" href="${links.kakaoDir}" target="_blank" rel="noopener" data-track="directions" data-track-label="kakao">${esc(L.visitKakao)}</a>` : ''}
@@ -680,6 +686,7 @@ ${hoodSection(lang)}
 </div>
 
 <!-- 갤러리 확대 -->
+${sketchMap(lang).modal}
 <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="${esc(L.galleryTitle)}">
   <button class="lb-close" type="button" aria-label="Close">&times;</button>
   <button class="lb-nav lb-prev" type="button" aria-label="Previous">&#8249;</button>

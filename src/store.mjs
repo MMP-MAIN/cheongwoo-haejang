@@ -137,6 +137,7 @@ export const parkingLots = [
 
 // 갤러리 — 위코컴퍼니가 시공/촬영한 실제 매장 사진
 export const gallery = [
+  { src: 'images/cheongwoo-queue-day.jpg', key: 'queueDay', w: 1085, h: 814 },  // 인스타 @chungwoo.official (사장님 허락)
   { src: 'images/cheongwoo-queue.jpg', key: 'queue',   w: 800,  h: 1066 },   // 네이버 플레이스 사장님 등록 사진
   { src: 'images/cheongwoo-02.jpg', key: 'exterior',  w: 1600, h: 1067 },
   { src: 'images/cheongwoo-01.jpg', key: 'hall',      w: 1600, h: 1067 },

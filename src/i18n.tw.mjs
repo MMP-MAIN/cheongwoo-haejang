@@ -23,6 +23,7 @@ export const menuNamesTw = {
 };
 
 export const galleryAltTw = {
+  queueDay: '午餐時間在藥田巷店門口排隊的客人',
   queue: '傍晚在店門口排隊的客人',
   exterior: '大邱市中區南城路 青友解酲 店面外觀',
   hall: '落地窗旁的實木餐桌區',
@@ -57,6 +58,7 @@ export const tw = {
     '從<strong>半月堂站</strong>步行 5 分鐘，就在<strong>藥令市</strong>（藥田巷）裡。<strong>青友解酲</strong>是一家以牛肉湯為本的韓式餐廳：排骨湯、牛肉湯、夏天有平壤冷麵，還有大邱十味之一的<strong>辣燉排骨</strong>。早餐、家庭聚餐、近代胡同散步途中都合適。',
   heroCtaCall: '電話訂位',
   heroCtaDir: '查看路線',
+  heroCtaMap: '查看簡圖',
   heroCtaMenu: '查看菜單',
   heroScroll: '向下',
 
@@ -101,7 +103,7 @@ export const tw = {
   mapAlt: '青友解酲位置地圖',
   transitTitle: '捷運',
   transit: [
-    '捷運 1、2 號線 <strong>半月堂站</strong> 13 號出口 → 步行約 5 分鐘',
+    '捷運 1、2 號線 <strong>半月堂站</strong> → 從往 The Hyundai 大邱的出口出來向北步行 4 分鐘',
     '捷運 1 號線 <strong>中央路站</strong> → 步行約 8 分鐘',
     '<strong>藥令市韓醫藥博物館</strong>旁，藥田巷內',
   ],
