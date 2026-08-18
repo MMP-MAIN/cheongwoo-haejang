@@ -26,7 +26,7 @@ export const site = {
   //  네이버 : searchadvisor.naver.com → 웹마스터도구 → 사이트 등록 → HTML 태그
   //  구글   : search.google.com/search-console → 속성 추가 → HTML 태그
   naverSiteVerification: '',
-  googleSiteVerification: '',
+  googleSiteVerification: 'ucPfF2Kfn43TwqNxO72CR-TdrTEGyaWWvG9I_b9Qs58',   // 서치콘솔 URL 접두어 속성 (2026-08-18)
   bingSiteVerification: '',
 
   langs: ['ko', 'en', 'ja', 'zh', 'tw'],
