@@ -14,7 +14,7 @@ export const menuNames = {
   ko: {
     naengmyeon: { n: '청우 평양냉면',       d: '양지와 사태만 고집해 12시간 넘게 우려낸 진한 소고기 육수. 여름 한정 메뉴.' },
     galbitang:  { n: '청우 약전 소갈비탕',  d: '진하고 깊은 국물에 부드러운 갈비. 어르신 모시고 오시기 좋은 대표 메뉴.' },
-    spicy:      { n: '대구 얼큰해장국 (따로국밥)', d: '소 양지를 48시간 이상 고아 만든 대구식 소고기 해장국. 전날 술자리 뒤에 가장 많이 찾습니다.' },
+    spicy:      { n: '대구 얼큰해장국 (따로국밥)', d: '소 양지를 48시간 이상 고아 만든 대구식 소고기 국. 얼큰하지만 속을 편안하게 데워 줍니다.' },
     ribs:       { n: '소갈비찜 마늘폭탄',   d: '특제 소스에 마늘을 듬뿍 올린 갈비찜. 대구식 찜갈비의 매운맛 그대로.' },
     oxtail:     { n: '소꼬리찜',            d: '쫄깃한 소꼬리에 아삭한 부추를 곁들인 새콤한 소꼬리찜. 가족 모임·회식 상차림용.' },
     yukhoe:     { n: '육회비빔밥',          d: '신선한 육회에 청우만의 숙성 간장으로 맛을 낸 비빔밥.' },
@@ -27,7 +27,7 @@ export const menuNames = {
   en: {
     naengmyeon: { n: 'Cheongwoo Pyeongyang Naengmyeon', d: 'Cold buckwheat noodles in a rich beef broth simmered 12+ hours from brisket and shank only. Summer seasonal.' },
     galbitang:  { n: 'Galbi-tang (Beef Short Rib Soup)', d: 'Tender short ribs in a deep, rich broth. Mild — good for kids and elders.' },
-    spicy:      { n: 'Daegu Spicy Haejang-guk',   d: 'Daegu-style beef hangover soup — brisket simmered 48+ hours. Korea’s classic morning-after bowl.' },
+    spicy:      { n: 'Daegu Spicy Beef Soup (Haejang-guk)', d: 'Daegu-style beef soup — brisket simmered 48+ hours, gently spicy. Warming, not fiery.' },
     ribs:       { n: 'Garlic-Bomb Braised Short Ribs', d: 'Braised short ribs in our house sauce, piled with garlic. Daegu-style spicy jjim-galbi.' },
     oxtail:     { n: 'Braised Oxtail',            d: 'Chewy oxtail with crisp chives in a tangy sauce. A table centrepiece for groups.' },
     yukhoe:     { n: 'Yukhoe Bibimbap (Beef Tartare Rice Bowl)', d: 'Fresh raw beef over rice with our own aged soy dressing.' },
@@ -40,7 +40,7 @@ export const menuNames = {
   ja: {
     naengmyeon: { n: '清友 平壌冷麺',           d: '牛バラとスネ肉だけで12時間以上煮出した濃厚な牛肉スープの冷麺。夏季限定。' },
     galbitang:  { n: '薬田 牛カルビタン',       d: '濃厚なスープに柔らかいカルビ。辛くないのでお子様やご年配の方にも。' },
-    spicy:      { n: '大邱 辛口ヘジャンクク',   d: '牛バラを48時間以上煮込んだ大邱式の牛肉スープ。二日酔いの定番です。' },
+    spicy:      { n: '大邱 辛口ヘジャンクク',   d: '牛バラを48時間以上煮込んだ大邱式の牛肉スープ。ピリ辛ですが、体を優しく温めてくれます。' },
     ribs:       { n: 'ニンニク爆弾 牛カルビチム', d: '特製ダレにたっぷりのニンニクをのせた牛カルビの煮込み。大邱式の辛口です。' },
     oxtail:     { n: '牛テールの煮込み',         d: '弾力のある牛テールにシャキシャキのニラ。会食やご家族の集まりに。' },
     yukhoe:     { n: 'ユッケビビンバ',           d: '新鮮なユッケに、自家製の熟成醤油ダレを合わせたビビンバ。' },
@@ -53,7 +53,7 @@ export const menuNames = {
   zh: {
     naengmyeon: { n: '清友平壤冷面',     d: '只用牛腩和牛腱熬煮12小时以上的浓郁牛肉汤底冷面。夏季限定。' },
     galbitang:  { n: '药田牛排骨汤',     d: '浓郁汤底配软嫩牛排骨，不辣，适合老人和小孩。' },
-    spicy:      { n: '大邱香辣解酒汤',   d: '牛腩熬煮48小时以上的大邱式牛肉汤。韩国经典的解酒汤。' },
+    spicy:      { n: '大邱香辣牛肉汤（解酒汤）', d: '牛腩熬煮48小时以上的大邱式牛肉汤。微辣，暖胃舒服。' },
     ribs:       { n: '蒜香炸弹炖牛排骨', d: '特制酱汁配满满蒜瓣的炖牛排骨。大邱式辣味。' },
     oxtail:     { n: '炖牛尾',           d: '有嚼劲的牛尾配爽脆韭菜，酸香开胃。适合家庭聚餐。' },
     yukhoe:     { n: '生牛肉拌饭',       d: '新鲜生牛肉配本店秘制熟成酱油汁的拌饭。' },
@@ -125,9 +125,9 @@ export const t = {
   ko: {
     htmlLang: 'ko',
     langName: '한국어',
-    title: '청우해장 — 대구 약전골목 갈비탕·매운갈비찜·해장국 | 반월당역 대구맛집',
+    title: '청우해장 — 대구 약전골목 한식당 | 갈비탕·평양냉면·해장국 · 반월당역 대구맛집',
     description:
-      `대구 중구 남성로 청우해장. 약령시 약전골목 한식당으로 갈비 산더미 맑은갈비탕, 대구식 매운갈비찜(찜갈비), 맑은·얼큰 해장국, 소꼬리찜을 냅니다. 반월당역 도보 5분, 근대골목투어 코스 대구맛집. 매일 ${H.open}~${H.close}, 전화 예약 053-255-7052.`,
+      `대구 중구 남성로 청우해장. 약령시 약전골목의 소고기 국물 한식당 — 약전 소갈비탕, 청우 평양냉면(여름), 맑은·얼큰 해장국, 소갈비찜 마늘폭탄, 소꼬리찜. 반월당역 도보 5분, 근대골목투어 코스 대구맛집. 매일 ${H.open}~${H.close}, 전화 예약 053-255-7052.`,
     keywords:
       '대구맛집, 대구 맛집, 대구중구맛집, 반월당 맛집, 반월당역 맛집, 약전골목 맛집, 약령시 맛집, 갈비탕, 맑은갈비탕, 대구 갈비탕, 갈비찜, 매운갈비찜, 소갈비찜, 대구찜갈비, 찜갈비, 대구 찜갈비 맛집, 해장국, 얼큰해장국, 맑은해장국, 대구해장국, 소꼬리찜, 아롱사태수육, 평양냉면, 청우해장, 근대골목투어, 대구근대골목, 동성로 맛집, 서문시장 맛집, 대구여행, 대구 가볼만한곳, 대구10미, 대구 한식당, 가족모임 식당 대구',
     ogLocale: 'ko_KR',
@@ -138,9 +138,9 @@ export const t = {
     skip: '본문 바로가기',
 
     heroBadge: '대구 중구 · 약령시 약전골목',
-    heroTitle: '해장에도, 대접에도<br>한 그릇이면 됩니다',
+    heroTitle: '속 편한 소고기 국물,<br>약전골목의 한식당',
     heroLede:
-      '반월당역에서 걸어 5분. 약전골목 안쪽 <strong>청우해장</strong>은 뼈를 오래 고아 낸 맑은 해장국, 갈비 산더미 <strong>갈비탕</strong>, 대구식 <strong>매운갈비찜</strong>을 냅니다. 근대골목투어 중간에, 회식 다음 날 아침에, 어르신 모시는 자리에.',
+      '반월당역에서 걸어 5분. 약전골목 안쪽 <strong>청우해장</strong>은 양지와 사태를 오래 고아 낸 소고기 국물로 <strong>갈비탕</strong>·<strong>해장국</strong>·<strong>평양냉면</strong>을 냅니다. 아침 첫 끼로, 가족 외식으로, 어르신 모시는 자리로. 근대골목투어 중간에 들르기 좋습니다.',
     heroCtaCall: '전화로 예약하기',
     heroCtaDir: '길찾기',
     heroCtaMenu: '메뉴 보기',
@@ -161,7 +161,7 @@ export const t = {
     storyLede:
       '대구 약령시 약전골목, 근대골목투어 길목에 있는 한식당입니다. 관광 오신 분도 근처에서 일하시는 분도 부담 없이 한 끼 드시고 가시라고 문을 열었습니다.',
     story: [
-      { h: '국물이 먼저입니다', p: '아침마다 뼈를 눌러 국물부터 냅니다. 맑은 해장국은 자극 없이, 얼큰 해장국은 다진 양념을 풀어 얼큰하게. 같은 국물에서 두 갈래로 나갑니다.' },
+      { h: '국물이 먼저입니다', p: '아침마다 양지와 사태를 눌러 국물부터 냅니다. 맑은 해장국은 자극 없이, 얼큰 해장국은 다진 양념을 풀어 얼큰하게. 같은 국물에서 두 갈래로 나갑니다. 「해장」이라는 이름이지만 아침·점심 든든한 한 끼로 오시는 분이 더 많습니다.' },
       { h: '어르신 모시기 좋은 상', p: '맑은 갈비탕과 아롱사태수육은 맵지 않습니다. 생신·어버이날·가족 모임 상차림으로 가장 많이 찾으시는 메뉴입니다.' },
       { h: '관광 동선 한가운데', p: '약령시·서문시장·동성로·근대골목 어디서든 걸어서 닿습니다. 근처 호텔 투숙객이 아침·점심으로 들르기 좋은 위치입니다.' },
       { h: '단체도 받습니다', p: '40명 이하 단체 예약이 가능합니다. 점심 웨이팅이 잦으니 인원이 많으면 미리 전화 주세요.' },
@@ -227,11 +227,11 @@ export const t = {
   en: {
     htmlLang: 'en',
     langName: 'English',
-    title: 'Cheongwoo Haejang — Korean Hangover Soup & Short Rib Soup in Daegu',
+    title: 'Cheongwoo Haejang — Korean Beef Soup & Short Rib Soup in Daegu',
     description:
       `A Korean restaurant in Yakjeon-golmok, the herbal medicine alley of central Daegu. Clear and spicy haejang-guk, short rib soup, braised ribs. 5 minutes on foot from Banwoldang Station. Open daily ${H.open}–${H.close}.`,
     keywords:
-      'Daegu restaurant, Daegu food, what to eat in Daegu, haejang-guk, Korean hangover soup, galbitang, Korean beef short rib soup, galbijjim, Daegu braised short ribs, spicy braised ribs, Banwoldang, Yangnyeongsi herbal medicine market, Daegu Modern History Street, Korean restaurant Daegu, Seomun Market food, Daegu 10 tastes',
+      'Daegu restaurant, Daegu food, what to eat in Daegu, haejang-guk, Korean beef soup, galbitang, Korean beef short rib soup, galbijjim, Daegu braised short ribs, spicy braised ribs, Banwoldang, Yangnyeongsi herbal medicine market, Daegu Modern History Street, Korean restaurant Daegu, Seomun Market food, Daegu 10 tastes',
     ogLocale: 'en_US',
     heroAltFood: 'Galbi-tang at Cheongwoo Haejang — beef short ribs piled in clear broth',
 
@@ -240,9 +240,9 @@ export const t = {
     skip: 'Skip to content',
 
     heroBadge: 'Jung-gu, Daegu · Herbal Medicine Alley',
-    heroTitle: 'One bowl.<br>Morning after, or family dinner.',
+    heroTitle: 'Slow beef broth,<br>in Daegu’s herbal alley.',
     heroLede:
-      'Five minutes on foot from Banwoldang Station, tucked inside Yakjeon-golmok. <strong>Cheongwoo Haejang</strong> serves beef bone broth simmered from dawn and short rib soup piled high. A natural stop on the Modern History Street walking course.',
+      'Five minutes on foot from Banwoldang Station, tucked inside Yakjeon-golmok. <strong>Cheongwoo Haejang</strong> is a Korean restaurant built around beef broth simmered from dawn — short rib soup, beef soup, cold noodles in summer. Breakfast, family lunch, or a stop on the Modern History Street walk.',
     heroCtaCall: 'Call to book',
     heroCtaDir: 'Directions',
     heroCtaMenu: 'See the menu',
@@ -342,9 +342,9 @@ export const t = {
     skip: '本文へ',
 
     heroBadge: '大邱・中区 薬令市 薬田横丁',
-    heroTitle: '二日酔いの朝にも、<br>大切な会食にも。',
+    heroTitle: 'じっくり煮出した牛肉スープ、<br>薬田横丁の韓国料理店。',
     heroLede:
-      '半月堂駅から徒歩5分、薬田横丁の中ほど。<strong>チョンウヘジャン</strong>は毎朝仕込む牛骨スープのヘジャンククと、カルビが山盛りのカルビタンをお出しします。近代路地ツアーの途中にどうぞ。',
+      '半月堂駅から徒歩5分、薬田横丁の中ほど。<strong>チョンウヘジャン</strong>は毎朝仕込む牛肉スープが自慢の韓国料理店です。カルビタン、ヘジャンクク、夏は平壌冷麺。朝食にも、ご家族の食事にも、近代路地ツアーの途中にも。',
     heroCtaCall: '電話で予約',
     heroCtaDir: '道順を見る',
     heroCtaMenu: 'メニューを見る',
@@ -444,9 +444,9 @@ export const t = {
     skip: '跳到正文',
 
     heroBadge: '大邱中区 · 药令市药田胡同',
-    heroTitle: '宿醉的早晨，<br>家宴的餐桌。',
+    heroTitle: '慢火熬煮的牛肉汤，<br>药田胡同里的韩式餐厅。',
     heroLede:
-      '从半月堂站步行5分钟，就在药田胡同里。<strong>青友解酲</strong>每天清晨开始熬煮牛骨清汤，排骨汤里堆满牛排骨。近代胡同游览途中的一顿好饭。',
+      '从半月堂站步行5分钟，就在药田胡同里。<strong>青友解酲</strong>是一家以牛肉汤为本的韩式餐厅：排骨汤、牛肉汤、夏天有平壤冷面。早餐、家庭聚餐、近代胡同游览途中都合适。',
     heroCtaCall: '电话预订',
     heroCtaDir: '查看路线',
     heroCtaMenu: '查看菜单',
