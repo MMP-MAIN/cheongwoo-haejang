@@ -1,7 +1,8 @@
 # 이어서 할 일 (인수인계)
 
-> 이 파일은 **맥 로컬에서 새로 연 Claude Code 세션**이 바로 이어받도록 쓴 것입니다.
-> 앞선 작업은 전부 `claude/cheongwoo-haejang-website-n1gwvt` 브랜치에 있습니다.
+> 이 파일은 다음 세션이 바로 이어받도록 쓴 것입니다.
+> **저장소: `MMP-MAIN/cheongwoo-haejang` · 사이트: https://cheongwoohaejang.com** (2026-08-18 라이브)
+> 로컬 작업 폴더: `~/Desktop/클로드 청우해장/cheongwoo-haejang/`
 
 ---
 
@@ -21,46 +22,19 @@
 
 ## 남은 일 — 이 순서대로
 
-### 1. GitHub 저장소 만들고 홈페이지 옮기기 ★ 지금 여기
+### 1. 저장소 분리 + 도메인 연결 ✅ 2026-08-18 완료
 
-**도메인 `cheongwoohaejang.com` 을 가비아에서 이미 구매했습니다.**
+- 저장소 **`MMP-MAIN/cheongwoo-haejang`** (hwanman2 가 아니라 MMP-MAIN 계정 — 크롬 로그인 계정 기준)
+- 가비아 DNS: A ×4 (185.199.108~111.153) + `www` CNAME → `mmp-main.github.io.` — 전파 확인
+- GitHub Pages: Source = **GitHub Actions**, Custom domain = `cheongwoohaejang.com`, **HTTPS 강제 ON**
+- `main` 에 푸시하면 `.github/workflows/deploy.yml` 이 `npm run images → node build.mjs → 배포` 를 자동으로 돌립니다
+- `www.cheongwoohaejang.com` → 루트로 301, `mmp-main.github.io/cheongwoo-haejang/` → 도메인으로 301
 
-GitHub Pages 는 저장소 하나당 커스텀 도메인 하나입니다. 지금 `weco` 저장소에
-도메인을 붙이면 위코컴퍼니 사이트까지 통째로 옮겨가므로, 청우해장만 떼어냅니다.
+**weco 저장소 정리는 필요 없었습니다.** `cheongwoo/` 는 `claude/…` 브랜치에만 있었고
+main 에 합쳐진 적이 없어서 옛 URL 이 애초에 살아 있지 않았습니다. 그 브랜치는 그대로 두면 됩니다.
 
-준비는 끝나 있습니다 — `cheongwoo/` 폴더는 상위 폴더에 의존하지 않습니다
-(사진이 `cheongwoo/images/` 안에 있고 `imgBase` 가 비어 있음).
-
-```bash
-# 1) 저장소 생성 (로컬에서 gh CLI 가 인증돼 있으면 바로 됩니다)
-gh repo create hwanman2/cheongwoo-haejang --public \
-  --description "청우해장 — 대구 중구 약전골목 한식당 공식 홈페이지"
-
-# 2) 폴더만 떼어 새 저장소로
-cd /경로/weco/cheongwoo
-python3 - <<'PY'
-p='src/store.mjs'; s=open(p,encoding='utf-8').read()
-s=s.replace("  customDomain: '',", "  customDomain: 'cheongwoohaejang.com',")
-open(p,'w',encoding='utf-8').write(s)
-PY
-node build.mjs          # CNAME · robots.txt · sitemap 이 새 도메인으로 갱신됩니다
-
-# 3) 새 저장소에 첫 커밋
-rm -rf /tmp/cwh && cp -r . /tmp/cwh && cd /tmp/cwh && rm -rf .git
-git init -b main && git add -A
-git commit -m "청우해장 공식 홈페이지 (5개 언어)"
-git remote add origin https://github.com/hwanman2/cheongwoo-haejang.git
-git push -u origin main
-```
-
-그 다음 **저장소 Settings → Pages → Custom domain** 에 `cheongwoohaejang.com`
-입력하고 **Enforce HTTPS** 체크. (인증서 발급에 최대 24시간)
-
-**가비아 DNS 설정** — `DOMAIN.md` 3번에 값이 있습니다. A 레코드 4개 + www CNAME.
-
-옮긴 뒤 `weco` 저장소에서는 `cheongwoo/` 폴더를 지우고,
-`index.html` 의 포트폴리오 카드 링크를 `https://cheongwoohaejang.com` 으로,
-`sitemap.xml`·`robots.txt` 의 `/weco/cheongwoo/` 항목도 정리해야 합니다.
+**이미지 파이프라인 추가:** `npm run images` (sharp) 가 AVIF/WebP 4크기를 만들고,
+`build.mjs` 가 `<picture>` 로 냅니다. 사진이 바뀔 때만 돌리면 됩니다. README 3번 참고.
 
 ### 2. 영업시간·가격 확정 ✅ 2026-08-18 완료
 
@@ -107,7 +81,7 @@ export const hero = {
 
 메뉴별 사진은 `menu` 배열의 `img: null` 을 채우면 됩니다.
 
-### 4. 검색엔진 등록
+### 4. 검색엔진 등록 ★ 다음 할 일 (도메인 연결 끝났으니 지금 하면 됩니다)
 
 `README.md` 5번 절차대로. 소유확인 코드는 `assets/config.js` 가 아니라
 **`src/store.mjs`** 에 넣어야 `<meta>` 태그가 됩니다.
