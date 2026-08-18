@@ -9,7 +9,7 @@ import { store, hasBreak, hasLastOrder } from './store.mjs';
 const H = store.hours;
 
 export const menuNamesTw = {
-  naengmyeon: { n: '清友平壤冷麵',     d: '只用牛腩和牛腱熬煮 12 小時以上的濃郁牛肉湯頭冷麵。夏天最暢銷。' },
+  naengmyeon: { n: '清友平壤冷麵',     d: '只用牛腩和牛腱熬煮 12 小時以上的濃郁牛肉湯頭冷麵。夏季限定。' },
   galbitang:  { n: '藥田牛排骨湯',     d: '濃郁湯頭配軟嫩帶骨牛排骨，不辣，長輩和小朋友都適合。大邱人從小喝到大的湯。' },
   spicy:      { n: '大邱香辣解酒湯',   d: '牛腩熬煮 48 小時以上的大邱式牛肉湯。韓國經典的解酒湯。' },
   ribs:       { n: '蒜香炸彈燉牛排骨', d: '特製醬汁配滿滿蒜瓣的燉牛排骨。大邱十味「찜갈비」的辣味。' },

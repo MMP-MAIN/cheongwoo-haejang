@@ -110,9 +110,9 @@ export const hasLastOrder = Boolean(store.hours.lastOrder);
 //    카카오맵 등록가와 다른 것: 맑은해장국 11,000(카카오 9,900) · 갈비탕 15,000(카카오 13,000)
 //    → 네이버가 더 최근이고 항목이 많아 네이버를 따랐습니다. README 8번 참고.
 // img 는 스마트플레이스에 사장님이 올린 사진(저작권 문제 없음)입니다.
-// seasonal 이 있으면 「계절 메뉴」 표시가 붙습니다.
+// seasonal: 'summer' | 'winter' 이면 「여름 한정 / 겨울 한정」 표시가 붙습니다.
 export const menu = [
-  { id: 'naengmyeon', price: 12000, img: 'images/food-naengmyeon.jpg', signature: true },
+  { id: 'naengmyeon', price: 12000, img: 'images/food-naengmyeon.jpg', signature: true,  seasonal: 'summer' },
   { id: 'galbitang',  price: 15000, img: 'images/food-galbitang.jpg',  signature: true },
   { id: 'spicy',      price: 12000, img: 'images/food-spicy.jpg',      signature: true },
   { id: 'ribs',       price: 20000, img: 'images/food-ribs.jpg',       signature: true },

@@ -254,7 +254,10 @@ const langSwitcher = (lang, cls) => site.langs.map((l) =>
 
 function menuRows(lang) {
   const L = t[lang], names = menuNames[lang];
-  const seasonalWord = { ko: '겨울 한정', en: 'Winter only', ja: '冬季限定', zh: '冬季限定', tw: '冬季限定' }[lang];
+  const seasonalWords = {
+    winter: { ko: '겨울 한정', en: 'Winter only', ja: '冬季限定', zh: '冬季限定', tw: '冬季限定' },
+    summer: { ko: '여름 한정', en: 'Summer only', ja: '夏季限定', zh: '夏季限定', tw: '夏季限定' },
+  };
   return menu.map((m) => `
       <div class="mrow rv${m.img ? ' has-img' : ''}">
         ${m.img ? `<div class="mimg">${picture(m.img, names[m.id].n, {
@@ -262,7 +265,7 @@ function menuRows(lang) {
           sizes: '(max-width: 700px) 30vw, 140px',
           attrs: 'loading="lazy" decoding="async"',
         })}</div>` : ''}
-        <h3>${esc(names[m.id].n)}${m.signature ? `<span class="tag">${esc(L.menuSignature)}</span>` : ''}${m.seasonal ? `<span class="tag tag-season">${esc(seasonalWord)}</span>` : ''}</h3>
+        <h3>${esc(names[m.id].n)}${m.signature ? `<span class="tag">${esc(L.menuSignature)}</span>` : ''}${m.seasonal ? `<span class="tag tag-season tag-${m.seasonal}">${esc(seasonalWords[m.seasonal][lang])}</span>` : ''}</h3>
         <span class="price${m.price ? '' : ' ask'}">${m.price ? esc(money(m.price, lang)) : esc(L.menuAsk)}</span>
         <p>${esc(names[m.id].d)}</p>
       </div>`).join('');

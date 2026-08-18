@@ -168,6 +168,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .mrow.has-img p{grid-column:2/-1}
 @media (max-width:700px){.mrow.has-img .mimg{width:78px;height:78px}}
 .tag-season{background:#eaf2fb;color:var(--signal)}
+.tag-summer{background:#e8f4ee;color:var(--herb)}
 .mrow:last-child,.mrow:nth-last-child(2):nth-child(odd){border-bottom:0}
 .mrow h3{font-size:1.09rem;font-weight:600;display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
 .mrow p{grid-column:1/-1;color:var(--muted);font-size:.92rem;line-height:1.62;max-width:46ch;margin-top:.28rem}

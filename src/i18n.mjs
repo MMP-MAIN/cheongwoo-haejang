@@ -12,7 +12,7 @@ const H = store.hours;
 export const menuNames = {
   // 이름은 네이버 플레이스에 사장님이 등록한 표기를 따릅니다 (2026-08-18).
   ko: {
-    naengmyeon: { n: '청우 평양냉면',       d: '양지와 사태만 고집해 12시간 넘게 우려낸 진한 소고기 육수. 여름에 가장 많이 나갑니다.' },
+    naengmyeon: { n: '청우 평양냉면',       d: '양지와 사태만 고집해 12시간 넘게 우려낸 진한 소고기 육수. 여름 한정 메뉴.' },
     galbitang:  { n: '청우 약전 소갈비탕',  d: '진하고 깊은 국물에 부드러운 갈비. 어르신 모시고 오시기 좋은 대표 메뉴.' },
     spicy:      { n: '대구 얼큰해장국 (따로국밥)', d: '소 양지를 48시간 이상 고아 만든 대구식 소고기 해장국. 전날 술자리 뒤에 가장 많이 찾습니다.' },
     ribs:       { n: '소갈비찜 마늘폭탄',   d: '특제 소스에 마늘을 듬뿍 올린 갈비찜. 대구식 찜갈비의 매운맛 그대로.' },
@@ -25,7 +25,7 @@ export const menuNames = {
     suyuk:      { n: '아롱사태 수육',       d: '결 좋은 아롱사태를 삶아 얇게 저며 냅니다. 소 17,000원 · 대 22,000원.' },
   },
   en: {
-    naengmyeon: { n: 'Cheongwoo Pyeongyang Naengmyeon', d: 'Cold buckwheat noodles in a rich beef broth simmered 12+ hours from brisket and shank only. Our summer bestseller.' },
+    naengmyeon: { n: 'Cheongwoo Pyeongyang Naengmyeon', d: 'Cold buckwheat noodles in a rich beef broth simmered 12+ hours from brisket and shank only. Summer seasonal.' },
     galbitang:  { n: 'Galbi-tang (Beef Short Rib Soup)', d: 'Tender short ribs in a deep, rich broth. Mild — good for kids and elders.' },
     spicy:      { n: 'Daegu Spicy Haejang-guk',   d: 'Daegu-style beef hangover soup — brisket simmered 48+ hours. Korea’s classic morning-after bowl.' },
     ribs:       { n: 'Garlic-Bomb Braised Short Ribs', d: 'Braised short ribs in our house sauce, piled with garlic. Daegu-style spicy jjim-galbi.' },
@@ -38,7 +38,7 @@ export const menuNames = {
     suyuk:      { n: 'Boiled Beef Shank (Suyuk)', d: 'Slow-boiled beef shank, thinly sliced. Not spicy. Small ₩17,000 · Large ₩22,000.' },
   },
   ja: {
-    naengmyeon: { n: '清友 平壌冷麺',           d: '牛バラとスネ肉だけで12時間以上煮出した濃厚な牛肉スープの冷麺。夏の一番人気。' },
+    naengmyeon: { n: '清友 平壌冷麺',           d: '牛バラとスネ肉だけで12時間以上煮出した濃厚な牛肉スープの冷麺。夏季限定。' },
     galbitang:  { n: '薬田 牛カルビタン',       d: '濃厚なスープに柔らかいカルビ。辛くないのでお子様やご年配の方にも。' },
     spicy:      { n: '大邱 辛口ヘジャンクク',   d: '牛バラを48時間以上煮込んだ大邱式の牛肉スープ。二日酔いの定番です。' },
     ribs:       { n: 'ニンニク爆弾 牛カルビチム', d: '特製ダレにたっぷりのニンニクをのせた牛カルビの煮込み。大邱式の辛口です。' },
@@ -51,7 +51,7 @@ export const menuNames = {
     suyuk:      { n: '牛すね肉のスユク',         d: 'ゆでた牛すね肉を薄切りに。辛さは一切ありません。小 17,000ウォン・大 22,000ウォン。' },
   },
   zh: {
-    naengmyeon: { n: '清友平壤冷面',     d: '只用牛腩和牛腱熬煮12小时以上的浓郁牛肉汤底冷面。夏季最畅销。' },
+    naengmyeon: { n: '清友平壤冷面',     d: '只用牛腩和牛腱熬煮12小时以上的浓郁牛肉汤底冷面。夏季限定。' },
     galbitang:  { n: '药田牛排骨汤',     d: '浓郁汤底配软嫩牛排骨，不辣，适合老人和小孩。' },
     spicy:      { n: '大邱香辣解酒汤',   d: '牛腩熬煮48小时以上的大邱式牛肉汤。韩国经典的解酒汤。' },
     ribs:       { n: '蒜香炸弹炖牛排骨', d: '特制酱汁配满满蒜瓣的炖牛排骨。大邱式辣味。' },
