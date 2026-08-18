@@ -15,12 +15,16 @@ import { writeFileSync, readFileSync, mkdirSync, existsSync, rmSync } from 'node
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { site, store, menu, gallery, hero, ogImage, imgBase, hasBreak } from './src/store.mjs';
+import { site, store, menu, gallery, hero, ogImage, imgBase, hasBreak, parkingLots } from './src/store.mjs';
 import { t, menuNames, galleryAlt } from './src/i18n.mjs';
 import { tw, menuNamesTw, galleryAltTw } from './src/i18n.tw.mjs';
 import { hood, spots } from './src/hood.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
+
+// 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
+// (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
+const ASSET_V = 2;
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -97,8 +101,9 @@ const links = {
     : `https://map.naver.com/p/directions/-/${store.lng},${store.lat},${NAME_ENC}/-/transit`,
 
   // ---- 카카오 ----
-  kakaoPlace: `https://place.map.kakao.com/${store.kakaoPlaceId}`,
-  kakaoDir: `https://map.kakao.com/link/to/${NAME_ENC},${store.lat},${store.lng}`,
+  // ---- 카카오 ---- (kakaoPlaceId 가 비어 있으면 버튼·링크가 전부 빠집니다)
+  kakaoPlace: store.kakaoPlaceId ? `https://place.map.kakao.com/${store.kakaoPlaceId}` : '',
+  kakaoDir: store.kakaoPlaceId ? `https://map.kakao.com/link/to/${NAME_ENC},${store.lat},${store.lng}` : '',
 
   // ---- 구글 ----
   // CID 를 채우면 등록된 비즈니스 프로필로 직행합니다.
@@ -163,7 +168,7 @@ function jsonLd(lang) {
       addressCountry: 'KR',
     },
     geo: { '@type': 'GeoCoordinates', latitude: store.lat, longitude: store.lng },
-    hasMap: [links.naverPlace, links.kakaoPlace, links.googlePlace],
+    hasMap: [links.naverPlace, links.kakaoPlace, links.googlePlace].filter(Boolean),
     openingHoursSpecification: hours,
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: 'Parking', value: store.parking },
@@ -249,17 +254,35 @@ const langSwitcher = (lang, cls) => site.langs.map((l) =>
 
 function menuRows(lang) {
   const L = t[lang], names = menuNames[lang];
+  const seasonalWord = { ko: '겨울 한정', en: 'Winter only', ja: '冬季限定', zh: '冬季限定', tw: '冬季限定' }[lang];
   return menu.map((m) => `
-      <div class="mrow rv">
-        <h3>${esc(names[m.id].n)}${m.signature ? `<span class="tag">${esc(L.menuSignature)}</span>` : ''}</h3>
+      <div class="mrow rv${m.img ? ' has-img' : ''}">
+        ${m.img ? `<div class="mimg">${picture(m.img, names[m.id].n, {
+          w: 640, h: 640,
+          sizes: '(max-width: 700px) 30vw, 140px',
+          attrs: 'loading="lazy" decoding="async"',
+        })}</div>` : ''}
+        <h3>${esc(names[m.id].n)}${m.signature ? `<span class="tag">${esc(L.menuSignature)}</span>` : ''}${m.seasonal ? `<span class="tag tag-season">${esc(seasonalWord)}</span>` : ''}</h3>
         <span class="price${m.price ? '' : ' ask'}">${m.price ? esc(money(m.price, lang)) : esc(L.menuAsk)}</span>
         <p>${esc(names[m.id].d)}</p>
       </div>`).join('');
 }
 
+/* 근처 주차장 목록 — 이름을 누르면 네이버지도 길찾기가 그 주차장으로 열립니다. */
+function parkingList(lang) {
+  if (!parkingLots.length) return '';
+  const walk = { ko: (m) => `도보 ${m}분`, en: (m) => `${m} min walk`, ja: (m) => `徒歩${m}分`, zh: (m) => `步行 ${m} 分钟`, tw: (m) => `步行 ${m} 分鐘` }[lang];
+  const kindWord = { ko: { public: '공영', private: '민영' }, en: { public: 'Public', private: 'Private' }, ja: { public: '公営', private: '民営' }, zh: { public: '公共', private: '民营' }, tw: { public: '公有', private: '民營' } }[lang];
+  return `<ul class="parking-list">${parkingLots.map((p) => {
+    const name = lang === 'ko' ? p.nameKo : p.nameEn;
+    const dir = `https://map.naver.com/p/directions/-/${p.lng},${p.lat},${encodeURIComponent(p.nameKo)}/-/car`;
+    return `<li><a href="${dir}" target="_blank" rel="noopener" data-track="directions" data-track-label="parking-${p.id}"><strong>${esc(name)}</strong><span class="pk-meta">${esc(kindWord[p.kind])} · ${esc(walk(p.walkMin))}</span>${lang === 'ko' ? `<span class="pk-addr">${esc(p.addrKo)}</span>` : ''}</a></li>`;
+  }).join('')}</ul>`;
+}
+
 function galleryFigures(lang) {
   const alts = galleryAlt[lang];
-  const shape = ['wide', '', '', 'tall', '', 'tall', '', '', '', ''];
+  const shape = ['tall', 'wide', '', '', 'tall', '', 'tall', '', '', '', ''];
   return gallery.map((g, i) => `
         <figure class="${shape[i]}">
           ${picture(g.src, alts[g.key], {
@@ -352,11 +375,11 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
 <link rel="preload" as="image" href="${img(hero.src)}" fetchpriority="high" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap" />
-<link rel="stylesheet" href="assets/site.css?v=1" />
+<link rel="stylesheet" href="assets/site.css?v=${ASSET_V}" />
 
 <script>/* 광고·측정 ID 설정 */</script>
-<script src="assets/config.js?v=1"></script>
-<script src="assets/tracking.js?v=1"></script>
+<script src="assets/config.js?v=${ASSET_V}"></script>
+<script src="assets/tracking.js?v=${ASSET_V}"></script>
 
 <script type="application/ld+json">${jsonLd(lang)}</script>
 </head>
@@ -497,7 +520,7 @@ ${hoodSection(lang)}
         </div>
         <div class="route-btns">
           <a class="btn btn-ink" href="${links.naverDir}" target="_blank" rel="noopener" data-track="directions" data-track-label="naver">${ICON.pin}${esc(L.visitNaver)}</a>
-          <a class="btn btn-outline" href="${links.kakaoDir}" target="_blank" rel="noopener" data-track="directions" data-track-label="kakao">${esc(L.visitKakao)}</a>
+          ${links.kakaoDir ? `<a class="btn btn-outline" href="${links.kakaoDir}" target="_blank" rel="noopener" data-track="directions" data-track-label="kakao">${esc(L.visitKakao)}</a>` : ''}
           <a class="btn btn-outline" href="${links.googleDir}" target="_blank" rel="noopener" data-track="directions" data-track-label="google">${esc(L.visitGoogle)}</a>
         </div>
       </div>
@@ -515,6 +538,7 @@ ${hoodSection(lang)}
         <div class="infoitem">
           <h3>${esc(L.parkingTitle)}</h3>
           <p>${esc(L.parkingBody)}</p>
+          ${parkingList(lang)}
         </div>
         <div class="infoitem">
           <h3>${esc(L.quickHours)}</h3>
@@ -571,7 +595,7 @@ ${hoodSection(lang)}
       <nav class="foot-links" aria-label="${esc(L.nav.visit)}">
         <a href="tel:${store.telHref}" data-track="call" data-track-label="footer">${esc(store.telDisplay)}</a>
         <a href="${links.naverPlace}" target="_blank" rel="noopener" data-track="directions" data-track-label="footer-naver">NAVER</a>
-        <a href="${links.kakaoPlace}" target="_blank" rel="noopener" data-track="directions" data-track-label="footer-kakao">KakaoMap</a>
+        ${links.kakaoPlace ? `<a href="${links.kakaoPlace}" target="_blank" rel="noopener" data-track="directions" data-track-label="footer-kakao">KakaoMap</a>` : ''}
         <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="directions" data-track-label="footer-google">Google Maps</a>
         ${store.naverBlogUrl ? `<a href="${store.naverBlogUrl}" target="_blank" rel="noopener" data-track="blog" data-track-label="footer-blog">Blog</a>` : ''}
         ${store.instagramUrl ? `<a href="${store.instagramUrl}" target="_blank" rel="noopener" data-track="blog" data-track-label="footer-instagram">Instagram</a>` : ''}
@@ -600,7 +624,7 @@ ${hoodSection(lang)}
   <p class="lb-cap"></p>
 </div>
 
-<script src="assets/site.js?v=1"></script>
+<script src="assets/site.js?v=${ASSET_V}"></script>
 </body>
 </html>
 `;

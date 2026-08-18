@@ -472,5 +472,545 @@
         "bytes": 118484
       }
     ]
+  },
+  "images/cheongwoo-queue.jpg": {
+    "w": 800,
+    "h": 1066,
+    "src": "images/cheongwoo-queue.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 480,
+        "path": "images/opt/cheongwoo-queue-360.avif",
+        "bytes": 17786
+      },
+      {
+        "w": 720,
+        "h": 959,
+        "path": "images/opt/cheongwoo-queue-720.avif",
+        "bytes": 49215
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 480,
+        "path": "images/opt/cheongwoo-queue-360.webp",
+        "bytes": 31110
+      },
+      {
+        "w": 720,
+        "h": 959,
+        "path": "images/opt/cheongwoo-queue-720.webp",
+        "bytes": 86084
+      }
+    ]
+  },
+  "images/food-arong.jpg": {
+    "w": 2000,
+    "h": 1500,
+    "src": "images/food-arong.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 270,
+        "path": "images/opt/food-arong-360.avif",
+        "bytes": 11328
+      },
+      {
+        "w": 720,
+        "h": 540,
+        "path": "images/opt/food-arong-720.avif",
+        "bytes": 38543
+      },
+      {
+        "w": 1080,
+        "h": 810,
+        "path": "images/opt/food-arong-1080.avif",
+        "bytes": 80994
+      },
+      {
+        "w": 1600,
+        "h": 1200,
+        "path": "images/opt/food-arong-1600.avif",
+        "bytes": 161197
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 270,
+        "path": "images/opt/food-arong-360.webp",
+        "bytes": 20788
+      },
+      {
+        "w": 720,
+        "h": 540,
+        "path": "images/opt/food-arong-720.webp",
+        "bytes": 72500
+      },
+      {
+        "w": 1080,
+        "h": 810,
+        "path": "images/opt/food-arong-1080.webp",
+        "bytes": 148678
+      },
+      {
+        "w": 1600,
+        "h": 1200,
+        "path": "images/opt/food-arong-1600.webp",
+        "bytes": 295330
+      }
+    ]
+  },
+  "images/food-clear.jpg": {
+    "w": 1500,
+    "h": 2000,
+    "src": "images/food-clear.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 480,
+        "path": "images/opt/food-clear-360.avif",
+        "bytes": 8743
+      },
+      {
+        "w": 720,
+        "h": 960,
+        "path": "images/opt/food-clear-720.avif",
+        "bytes": 24621
+      },
+      {
+        "w": 1080,
+        "h": 1440,
+        "path": "images/opt/food-clear-1080.avif",
+        "bytes": 46343
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 480,
+        "path": "images/opt/food-clear-360.webp",
+        "bytes": 13896
+      },
+      {
+        "w": 720,
+        "h": 960,
+        "path": "images/opt/food-clear-720.webp",
+        "bytes": 37648
+      },
+      {
+        "w": 1080,
+        "h": 1440,
+        "path": "images/opt/food-clear-1080.webp",
+        "bytes": 71570
+      }
+    ]
+  },
+  "images/food-galbitang.jpg": {
+    "w": 2000,
+    "h": 1500,
+    "src": "images/food-galbitang.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 270,
+        "path": "images/opt/food-galbitang-360.avif",
+        "bytes": 8042
+      },
+      {
+        "w": 720,
+        "h": 540,
+        "path": "images/opt/food-galbitang-720.avif",
+        "bytes": 23353
+      },
+      {
+        "w": 1080,
+        "h": 810,
+        "path": "images/opt/food-galbitang-1080.avif",
+        "bytes": 44102
+      },
+      {
+        "w": 1600,
+        "h": 1200,
+        "path": "images/opt/food-galbitang-1600.avif",
+        "bytes": 81606
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 270,
+        "path": "images/opt/food-galbitang-360.webp",
+        "bytes": 13880
+      },
+      {
+        "w": 720,
+        "h": 540,
+        "path": "images/opt/food-galbitang-720.webp",
+        "bytes": 41788
+      },
+      {
+        "w": 1080,
+        "h": 810,
+        "path": "images/opt/food-galbitang-1080.webp",
+        "bytes": 79818
+      },
+      {
+        "w": 1600,
+        "h": 1200,
+        "path": "images/opt/food-galbitang-1600.webp",
+        "bytes": 142834
+      }
+    ]
+  },
+  "images/food-jeongol.jpg": {
+    "w": 800,
+    "h": 450,
+    "src": "images/food-jeongol.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 203,
+        "path": "images/opt/food-jeongol-360.avif",
+        "bytes": 7383
+      },
+      {
+        "w": 720,
+        "h": 405,
+        "path": "images/opt/food-jeongol-720.avif",
+        "bytes": 18579
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 203,
+        "path": "images/opt/food-jeongol-360.webp",
+        "bytes": 11974
+      },
+      {
+        "w": 720,
+        "h": 405,
+        "path": "images/opt/food-jeongol-720.webp",
+        "bytes": 29782
+      }
+    ]
+  },
+  "images/food-kalguksu.jpg": {
+    "w": 1024,
+    "h": 1536,
+    "src": "images/food-kalguksu.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 540,
+        "path": "images/opt/food-kalguksu-360.avif",
+        "bytes": 12037
+      },
+      {
+        "w": 720,
+        "h": 1080,
+        "path": "images/opt/food-kalguksu-720.avif",
+        "bytes": 39597
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 540,
+        "path": "images/opt/food-kalguksu-360.webp",
+        "bytes": 18480
+      },
+      {
+        "w": 720,
+        "h": 1080,
+        "path": "images/opt/food-kalguksu-720.webp",
+        "bytes": 63696
+      }
+    ]
+  },
+  "images/food-naengmyeon-table.jpg": {
+    "w": 1500,
+    "h": 2000,
+    "src": "images/food-naengmyeon-table.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 480,
+        "path": "images/opt/food-naengmyeon-table-360.avif",
+        "bytes": 15484
+      },
+      {
+        "w": 720,
+        "h": 960,
+        "path": "images/opt/food-naengmyeon-table-720.avif",
+        "bytes": 46634
+      },
+      {
+        "w": 1080,
+        "h": 1440,
+        "path": "images/opt/food-naengmyeon-table-1080.avif",
+        "bytes": 86522
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 480,
+        "path": "images/opt/food-naengmyeon-table-360.webp",
+        "bytes": 26884
+      },
+      {
+        "w": 720,
+        "h": 960,
+        "path": "images/opt/food-naengmyeon-table-720.webp",
+        "bytes": 77170
+      },
+      {
+        "w": 1080,
+        "h": 1440,
+        "path": "images/opt/food-naengmyeon-table-1080.webp",
+        "bytes": 137200
+      }
+    ]
+  },
+  "images/food-naengmyeon.jpg": {
+    "w": 1329,
+    "h": 1183,
+    "src": "images/food-naengmyeon.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 320,
+        "path": "images/opt/food-naengmyeon-360.avif",
+        "bytes": 10020
+      },
+      {
+        "w": 720,
+        "h": 641,
+        "path": "images/opt/food-naengmyeon-720.avif",
+        "bytes": 28120
+      },
+      {
+        "w": 1080,
+        "h": 961,
+        "path": "images/opt/food-naengmyeon-1080.avif",
+        "bytes": 51113
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 320,
+        "path": "images/opt/food-naengmyeon-360.webp",
+        "bytes": 17986
+      },
+      {
+        "w": 720,
+        "h": 641,
+        "path": "images/opt/food-naengmyeon-720.webp",
+        "bytes": 51260
+      },
+      {
+        "w": 1080,
+        "h": 961,
+        "path": "images/opt/food-naengmyeon-1080.webp",
+        "bytes": 87942
+      }
+    ]
+  },
+  "images/food-oxtail.jpg": {
+    "w": 1500,
+    "h": 2000,
+    "src": "images/food-oxtail.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 480,
+        "path": "images/opt/food-oxtail-360.avif",
+        "bytes": 18036
+      },
+      {
+        "w": 720,
+        "h": 960,
+        "path": "images/opt/food-oxtail-720.avif",
+        "bytes": 60456
+      },
+      {
+        "w": 1080,
+        "h": 1440,
+        "path": "images/opt/food-oxtail-1080.avif",
+        "bytes": 126193
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 480,
+        "path": "images/opt/food-oxtail-360.webp",
+        "bytes": 31606
+      },
+      {
+        "w": 720,
+        "h": 960,
+        "path": "images/opt/food-oxtail-720.webp",
+        "bytes": 110596
+      },
+      {
+        "w": 1080,
+        "h": 1440,
+        "path": "images/opt/food-oxtail-1080.webp",
+        "bytes": 231696
+      }
+    ]
+  },
+  "images/food-ribs.jpg": {
+    "w": 1536,
+    "h": 1024,
+    "src": "images/food-ribs.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/food-ribs-360.avif",
+        "bytes": 11951
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/food-ribs-720.avif",
+        "bytes": 36411
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/food-ribs-1080.avif",
+        "bytes": 66941
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/food-ribs-360.webp",
+        "bytes": 19270
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/food-ribs-720.webp",
+        "bytes": 61348
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/food-ribs-1080.webp",
+        "bytes": 109184
+      }
+    ]
+  },
+  "images/food-spicy.jpg": {
+    "w": 1500,
+    "h": 2000,
+    "src": "images/food-spicy.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 480,
+        "path": "images/opt/food-spicy-360.avif",
+        "bytes": 14178
+      },
+      {
+        "w": 720,
+        "h": 960,
+        "path": "images/opt/food-spicy-720.avif",
+        "bytes": 45112
+      },
+      {
+        "w": 1080,
+        "h": 1440,
+        "path": "images/opt/food-spicy-1080.avif",
+        "bytes": 92772
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 480,
+        "path": "images/opt/food-spicy-360.webp",
+        "bytes": 22128
+      },
+      {
+        "w": 720,
+        "h": 960,
+        "path": "images/opt/food-spicy-720.webp",
+        "bytes": 71926
+      },
+      {
+        "w": 1080,
+        "h": 1440,
+        "path": "images/opt/food-spicy-1080.webp",
+        "bytes": 148014
+      }
+    ]
+  },
+  "images/food-yukhoe.jpg": {
+    "w": 2000,
+    "h": 1500,
+    "src": "images/food-yukhoe.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 270,
+        "path": "images/opt/food-yukhoe-360.avif",
+        "bytes": 13411
+      },
+      {
+        "w": 720,
+        "h": 540,
+        "path": "images/opt/food-yukhoe-720.avif",
+        "bytes": 40424
+      },
+      {
+        "w": 1080,
+        "h": 810,
+        "path": "images/opt/food-yukhoe-1080.avif",
+        "bytes": 74126
+      },
+      {
+        "w": 1600,
+        "h": 1200,
+        "path": "images/opt/food-yukhoe-1600.avif",
+        "bytes": 132708
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 270,
+        "path": "images/opt/food-yukhoe-360.webp",
+        "bytes": 26340
+      },
+      {
+        "w": 720,
+        "h": 540,
+        "path": "images/opt/food-yukhoe-720.webp",
+        "bytes": 79806
+      },
+      {
+        "w": 1080,
+        "h": 810,
+        "path": "images/opt/food-yukhoe-1080.webp",
+        "bytes": 147610
+      },
+      {
+        "w": 1600,
+        "h": 1200,
+        "path": "images/opt/food-yukhoe-1600.webp",
+        "bytes": 259390
+      }
+    ]
   }
 }

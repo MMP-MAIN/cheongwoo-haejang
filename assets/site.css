@@ -4,14 +4,17 @@
    ========================================================================= */
 
 :root{
-  --ink:#171310;
+  /* 2026-08-18 「밝고 깨끗하게」로 조정 — 어두운 블록(빠른정보·예약·푸터)을 전부
+     밝은 톤으로 바꾸고, 먹색은 글씨에만 씁니다. 사진이 주인공이 되도록. */
+  --ink:#1c1916;
   --ink-2:#2b2320;
-  --paper:#faf6ef;
-  --paper-2:#f2ebdf;
-  --line:rgba(23,19,16,.14);
-  --muted:#6f635a;
-  --amber:#c08a3e;      /* 매장 간접조명 */
-  --amber-deep:#9a6a26;
+  --paper:#ffffff;
+  --paper-2:#f7f4ee;
+  --paper-3:#efe9df;    /* 밝은 강조 블록 (예약·푸터) */
+  --line:rgba(28,25,22,.11);
+  --muted:#6b625a;
+  --amber:#b8843a;      /* 매장 간접조명 — 채도 살짝 낮춤 */
+  --amber-deep:#8f6322;
   --signal:#1c3f86;     /* 간판 한글 청색 */
   --herb:#1c6b48;       /* 간판 한자 녹색 */
   --shadow:0 1px 2px rgba(23,19,16,.06),0 8px 28px rgba(23,19,16,.08);
@@ -118,25 +121,25 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
    그래서 어둠을 왼쪽(글씨 쪽)으로 몰아 두고 오른쪽 그릇은 살려 둡니다. */
 .hero--food .hero-veil{
   background:
-    linear-gradient(100deg,rgba(12,8,5,.9) 0%,rgba(12,8,5,.72) 34%,rgba(12,8,5,.24) 62%,rgba(12,8,5,.1) 100%),
-    linear-gradient(180deg,rgba(12,8,5,.5) 0%,rgba(12,8,5,0) 26%,rgba(12,8,5,0) 62%,rgba(12,8,5,.6) 100%);
+    linear-gradient(100deg,rgba(12,8,5,.78) 0%,rgba(12,8,5,.56) 34%,rgba(12,8,5,.16) 62%,rgba(12,8,5,.04) 100%),
+    linear-gradient(180deg,rgba(12,8,5,.34) 0%,rgba(12,8,5,0) 26%,rgba(12,8,5,0) 66%,rgba(12,8,5,.42) 100%);
 }
 .hero--food .hero-inner > *{max-width:640px}
 @media (max-width:860px){
   /* 세로 화면에서는 옆으로 못 피하니 아래쪽을 진하게 덮습니다 */
   .hero--food .hero-veil{
-    background:linear-gradient(180deg,rgba(12,8,5,.6) 0%,rgba(12,8,5,.14) 24%,rgba(12,8,5,.68) 50%,rgba(12,8,5,.95) 100%);
+    background:linear-gradient(180deg,rgba(12,8,5,.44) 0%,rgba(12,8,5,.1) 24%,rgba(12,8,5,.58) 50%,rgba(12,8,5,.9) 100%);
   }
   .hero--food .hero-inner > *{max-width:none}
 }
 
 /* ---------- 빠른 정보 바 ---------- */
-.quickbar{background:var(--ink);color:rgba(255,255,255,.86);padding:1.7rem 0}
+.quickbar{background:var(--paper-2);color:var(--ink);padding:1.7rem 0;border-bottom:1px solid var(--line)}
 .quickgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.quick h3{font-size:.72rem;letter-spacing:.17em;text-transform:uppercase;color:var(--amber);margin-bottom:.42rem;font-weight:600}
+.quick h3{font-size:.72rem;letter-spacing:.17em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:.42rem;font-weight:600}
 .quick p{font-size:.96rem;line-height:1.55}
-.quick small{display:block;color:rgba(255,255,255,.52);font-size:.82rem;margin-top:.16rem}
-.quick a:hover{color:var(--amber)}
+.quick small{display:block;color:var(--muted);font-size:.82rem;margin-top:.16rem}
+.quick a:hover{color:var(--amber-deep)}
 
 /* ---------- 섹션 공통 ---------- */
 .section{padding:6rem 0}
@@ -158,6 +161,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ---------- 메뉴 ---------- */
 .menu-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0 3.2rem}
 .mrow{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;align-items:baseline;padding:1.5rem 0;border-bottom:1px solid var(--line)}
+/* 사진이 있는 줄: 왼쪽에 정사각 썸네일 */
+.mrow.has-img{grid-template-columns:auto 1fr auto;align-items:start}
+.mrow.has-img .mimg{grid-row:1/3;width:96px;height:96px;border-radius:12px;overflow:hidden;background:var(--paper-2);border:1px solid var(--line)}
+.mrow.has-img .mimg img{width:100%;height:100%;object-fit:cover}
+.mrow.has-img p{grid-column:2/-1}
+@media (max-width:700px){.mrow.has-img .mimg{width:78px;height:78px}}
+.tag-season{background:#eaf2fb;color:var(--signal)}
 .mrow:last-child,.mrow:nth-last-child(2):nth-child(odd){border-bottom:0}
 .mrow h3{font-size:1.09rem;font-weight:600;display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
 .mrow p{grid-column:1/-1;color:var(--muted);font-size:.92rem;line-height:1.62;max-width:46ch;margin-top:.28rem}
@@ -210,14 +220,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .copybtn:hover{border-color:var(--signal)}
 
 /* ---------- 예약 ---------- */
-.reserve{background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(2.4rem,5vw,4rem);text-align:center;position:relative;overflow:hidden}
-.reserve::after{content:'靑友解酲';position:absolute;right:-.1em;bottom:-.34em;font-family:var(--serif);font-size:clamp(6rem,17vw,13rem);color:rgba(255,255,255,.038);letter-spacing:.06em;pointer-events:none;white-space:nowrap}
+.reserve{background:var(--paper-3);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:clamp(2.4rem,5vw,4rem);text-align:center;position:relative;overflow:hidden}
+.reserve::after{content:'靑友解酲';position:absolute;right:-.1em;bottom:-.34em;font-family:var(--serif);font-size:clamp(6rem,17vw,13rem);color:rgba(28,25,22,.045);letter-spacing:.06em;pointer-events:none;white-space:nowrap}
 .reserve h2{position:relative;font-family:var(--serif);font-size:clamp(1.7rem,3.4vw,2.4rem)}
-.reserve p{position:relative;margin:1.1rem auto 0;max-width:56ch;color:rgba(255,255,255,.76);font-size:1rem}
+.reserve p{position:relative;margin:1.1rem auto 0;max-width:56ch;color:var(--muted);font-size:1rem}
 .reserve-cta{position:relative;display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:2rem}
-.reserve-note{position:relative;margin-top:1.5rem;font-size:.84rem;color:rgba(255,255,255,.42)}
-.tel-big{position:relative;display:block;margin-top:1.6rem;font-family:var(--serif);font-size:clamp(1.8rem,4.6vw,2.9rem);letter-spacing:.02em;color:var(--amber)}
-.tel-big:hover{color:#e2a851}
+.reserve-note{position:relative;margin-top:1.5rem;font-size:.84rem;color:var(--muted)}
+.tel-big{position:relative;display:block;margin-top:1.6rem;font-family:var(--serif);font-size:clamp(1.8rem,4.6vw,2.9rem);letter-spacing:.02em;color:var(--amber-deep)}
+.tel-big:hover{color:var(--amber)}
+.reserve .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line);backdrop-filter:none}
+.reserve .btn-ghost:hover{border-color:var(--ink)}
 
 /* ---------- FAQ ---------- */
 .faq{max-width:820px}
@@ -229,15 +241,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .faq details p{padding:0 0 1.4rem;color:var(--muted);font-size:.97rem;max-width:70ch}
 
 /* ---------- 푸터 ---------- */
-.foot{background:var(--ink);color:rgba(255,255,255,.56);padding:3.4rem 0 2.4rem;font-size:.88rem}
-.foot-top{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1)}
-.foot-brand{font-family:var(--serif);font-size:1.3rem;color:#fff;display:flex;align-items:baseline;gap:.5rem}
+.foot{background:var(--paper-2);color:var(--muted);padding:3.4rem 0 2.4rem;font-size:.88rem;border-top:1px solid var(--line)}
+.foot-top{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start;padding-bottom:2rem;border-bottom:1px solid var(--line)}
+.foot-brand{font-family:var(--serif);font-size:1.3rem;color:var(--ink);display:flex;align-items:baseline;gap:.5rem}
 .foot-brand .hanja{font-size:.8em;opacity:.5;letter-spacing:.14em}
 .foot-tag{margin-top:.4rem}
 .foot-links{display:flex;flex-wrap:wrap;gap:1.3rem}
-.foot-links a:hover{color:var(--amber)}
+.foot-links a:hover{color:var(--amber-deep)}
 .quick svg,.foot svg{width:16px;height:16px}
-.foot-bottom{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;justify-content:space-between;padding-top:1.6rem;font-size:.82rem;color:rgba(255,255,255,.38)}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;justify-content:space-between;padding-top:1.6rem;font-size:.82rem;color:var(--muted)}
 .foot-bottom a:hover{color:var(--amber)}
 
 /* ---------- 모바일 하단 고정 액션 ---------- */
@@ -332,3 +344,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .open-now[data-state="closed"],
 .open-now[data-state="before"]{background:rgba(255,255,255,.13);color:rgba(255,255,255,.62)}
 .open-now:empty{display:none}
+
+/* ---------- 근처 주차장 ---------- */
+.parking-list{margin-top:.9rem;display:grid;gap:.5rem}
+.parking-list a{display:grid;grid-template-columns:1fr auto;gap:.1rem .8rem;align-items:baseline;padding:.7rem .95rem;border:1px solid var(--line);border-radius:10px;background:#fff;transition:.25s}
+.parking-list a:hover{border-color:var(--ink);box-shadow:var(--shadow);transform:translateY(-1px)}
+.parking-list strong{font-weight:600;font-size:.95rem}
+.parking-list .pk-meta{font-size:.82rem;color:var(--amber-deep);white-space:nowrap}
+.parking-list .pk-addr{grid-column:1/-1;font-size:.82rem;color:var(--muted)}

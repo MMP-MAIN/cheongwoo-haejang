@@ -66,13 +66,16 @@ export const store = {
   lng: 128.5884600,
 
   // ---- 외부 플레이스 식별자 ----
-  // 카카오는 확인 완료. 아래 ID 들은 채우면 링크가 「검색」이 아니라
-  // 「그 가게 페이지」로 바로 꽂힙니다. 비어 있으면 이름+주소 검색으로 동작합니다.
-  kakaoPlaceId: '983201124',
+  // 채우면 링크가 「검색」이 아니라 「그 가게 페이지」로 바로 꽂힙니다.
+  //
+  // ★ 확정본은 네이버 플레이스입니다 (2026-08-18 확인: 리뷰 3,251건 · 4.82점,
+  //   사장님이 스마트플레이스에 직접 등록한 영업시간·메뉴·사진). 카카오맵은
+  //   등록 정보가 오래돼 영업시간·가격이 달라서 홈페이지에서 뺐습니다.
+  naverPlaceId: '1059841507',
 
-  // 네이버지도에서 매장을 열었을 때 주소창의
-  // map.naver.com/p/entry/place/**1234567890** ← 이 숫자
-  naverPlaceId: '',
+  // 카카오맵 — 비워 두면 카카오 길찾기 버튼과 구조화 데이터의 카카오 링크가 빠집니다.
+  // (카카오 등록 정보가 최신이 아니라 일부러 비웠습니다. 다시 쓰려면 '983201124')
+  kakaoPlaceId: '',
 
   // 구글지도에서 매장을 열고 공유 → 링크 복사 하면 나오는
   // maps.app.goo.gl/... 또는 ?cid=1234567890 의 숫자
@@ -83,18 +86,17 @@ export const store = {
   naverBlogUrl: 'https://blog.naver.com/zzyy004',
 
   // ---- 영업 정보 ----
-  // ※ 2026-08-18 카카오맵 「인증 매장」(사업자 정보 확인됨) 등록 정보로 확정했습니다.
-  //    7일 전부 11:00~23:00, 브레이크타임 등록 없음.
-  //    breakStart/breakEnd 가 null 이면 브레이크타임 문구·배지·구조화 데이터가
-  //    전부 자동으로 빠집니다. 브레이크타임이 실제로 있으면 여기에 시간만 넣으세요.
-  //    lastOrder 도 확인되면 넣으세요. null 이면 라스트오더 문구가 나오지 않습니다.
-  hours: { open: '11:00', close: '23:00', breakStart: null, breakEnd: null, lastOrder: null },
+  // ※ 2026-08-18 **네이버 플레이스** 사장님 등록 정보로 확정 (7일 동일).
+  //    카카오맵은 11:00~23:00 · 브레이크 없음으로 돼 있으나 오래된 정보입니다.
+  //    breakStart/breakEnd 를 null 로 두면 브레이크타임 문구·배지·구조화 데이터가
+  //    자동으로 빠지고, lastOrder 가 null 이면 라스트오더 문구가 빠집니다.
+  hours: { open: '11:00', close: '22:00', breakStart: '15:00', breakEnd: '17:00', lastOrder: '21:00' },
   openDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
 
   priceRange: '₩₩',
   currency: 'KRW',
   seats: 40,          // 40명 이하 단체 예약 가능
-  parking: false,     // 전용 주차장 없음 → 인근 공영주차장 (가게 앞 1~2대 가능하다는 제보 있음, 확인 필요)
+  parking: false,     // 전용 주차장 없음. 근처 공영·민영 주차장은 아래 `parkingLots` 참고
 };
 
 // 영업시간 문구용 조각. i18n 이 이 값을 읽어 쓰므로, 위 `hours` 만 고치면
@@ -103,28 +105,39 @@ export const hasBreak = Boolean(store.hours.breakStart && store.hours.breakEnd);
 export const hasLastOrder = Boolean(store.hours.lastOrder);
 
 // 대표 메뉴. price 가 null 이면 "가격 문의" 로 표시됩니다.
-// ※ 2026-08-18, 카카오맵에 **가게가 직접 등록한** 메뉴 6종의 이름·가격·설명을
-//    그대로 반영했습니다. 매장 전체 메뉴는 18종이라 아래에 없는 것도 있습니다.
-//    카카오에 등록되지 않은 메뉴(매운갈비찜·장칼국수·평양냉면)는 리뷰에 등장해
-//    존재는 확실하지만 가격이 확인되지 않아 null 로 둡니다 — 틀린 가격을 적는 것보다
-//    「가격 문의」가 낫습니다.
-// img 는 음식 사진을 확보하면 채우세요. 지금은 매장 사진밖에 없어 비워 둡니다.
+// ※ 2026-08-18 **네이버 플레이스** 에 사장님이 직접 등록한 메뉴 19종에서
+//    대표 11종을 골라 이름·가격·설명·사진을 그대로 옮겼습니다.
+//    카카오맵 등록가와 다른 것: 맑은해장국 11,000(카카오 9,900) · 갈비탕 15,000(카카오 13,000)
+//    → 네이버가 더 최근이고 항목이 많아 네이버를 따랐습니다. README 8번 참고.
+// img 는 스마트플레이스에 사장님이 올린 사진(저작권 문제 없음)입니다.
+// seasonal 이 있으면 「계절 메뉴」 표시가 붙습니다.
 export const menu = [
-  // --- 카카오맵 등록 정보로 확정 (2026-08-18) ---
-  { id: 'spicy',     price: 12000, img: null, signature: true },
-  { id: 'clear',     price: 9900,  img: null, signature: true },
-  { id: 'galbitang', price: 13000, img: null, signature: true },
-  { id: 'yukhoe',    price: 13000, img: null, signature: true },
-  { id: 'oxtail',    price: 47000, img: null, signature: true },
-  { id: 'arong',     price: 18000, img: null, signature: false },
-  // --- 존재는 확인, 가격 미확인 ---
-  { id: 'ribs',      price: null,  img: null, signature: false },
-  { id: 'kalguksu',  price: null,  img: null, signature: false },
-  { id: 'naengmyeon',price: null,  img: null, signature: false },
+  { id: 'naengmyeon', price: 12000, img: 'images/food-naengmyeon.jpg', signature: true },
+  { id: 'galbitang',  price: 15000, img: 'images/food-galbitang.jpg',  signature: true },
+  { id: 'spicy',      price: 12000, img: 'images/food-spicy.jpg',      signature: true },
+  { id: 'ribs',       price: 20000, img: 'images/food-ribs.jpg',       signature: true },
+  { id: 'oxtail',     price: 47000, img: 'images/food-oxtail.jpg',     signature: true },
+  { id: 'yukhoe',     price: 13000, img: 'images/food-yukhoe.jpg',     signature: true },
+  { id: 'clear',      price: 11000, img: 'images/food-clear.jpg',      signature: false },
+  { id: 'kalguksu',   price: 12000, img: 'images/food-kalguksu.jpg',   signature: false, seasonal: 'winter' },
+  { id: 'jeongol',    price: 32000, img: 'images/food-jeongol.jpg',    signature: false },
+  { id: 'arong',      price: 18000, img: 'images/food-arong.jpg',      signature: false },
+  { id: 'suyuk',      price: 17000, img: null,                         signature: false, note: 'small' },   // 소 17,000 · 대 22,000
+];
+
+// 근처 주차장 — 전용 주차장이 없어서 손님이 제일 많이 묻는 것.
+// 2026-08-18 네이버 지역검색으로 확인. 좌표가 있어서 「길찾기」가 그 주차장으로 바로 꽂힙니다.
+// walkMin 은 직선거리 ×1.3 / 분속 80m 로 계산한 도보 시간입니다.
+export const parkingLots = [
+  { id: 'seomun',  nameKo: '약령시서문 공영주차장', nameEn: 'Yangnyeongsi West Gate Public Parking', addrKo: '대구 중구 남성로 33',       lat: 35.8689680, lng: 128.5882798, walkMin: 1, kind: 'public' },
+  { id: 'museum',  nameKo: '약령시한의약박물관 주차장', nameEn: 'Yangnyeongsi Museum Parking',   addrKo: '대구 중구 수동 (달성로 인근)', lat: 35.8687259, lng: 128.5897326, walkMin: 2, kind: 'public' },
+  { id: 'seopyeon',nameKo: '약령시서편 공영주차장', nameEn: 'Yangnyeongsi East Public Parking', addrKo: '대구 중구 남성로 61-2',     lat: 35.8677306, lng: 128.5904823, walkMin: 4, kind: 'public' },
+  { id: 'sehwa',   nameKo: '세화민영주차장',        nameEn: 'Sehwa Private Parking',            addrKo: '대구 중구 남성로 69',       lat: 35.8675988, lng: 128.5908229, walkMin: 4, kind: 'private' },
 ];
 
 // 갤러리 — 위코컴퍼니가 시공/촬영한 실제 매장 사진
 export const gallery = [
+  { src: 'images/cheongwoo-queue.jpg', key: 'queue',   w: 800,  h: 1066 },   // 네이버 플레이스 사장님 등록 사진
   { src: 'images/cheongwoo-02.jpg', key: 'exterior',  w: 1600, h: 1067 },
   { src: 'images/cheongwoo-01.jpg', key: 'hall',      w: 1600, h: 1067 },
   { src: 'images/cheongwoo-05.jpg', key: 'counter',   w: 1600, h: 1067 },
@@ -151,11 +164,11 @@ export const gallery = [
 // position 은 사진에서 어느 부분을 화면 중앙에 둘지 정합니다.
 // (그릇이 아래쪽에 있으면 'center 60%', 위쪽이면 'center 35%')
 export const hero = {
-  src: 'images/cheongwoo-02.jpg',
-  kind: 'exterior',          // 'food' | 'exterior' | 'interior'
-  position: 'center 62%',
-  width: 1600,
-  height: 1067,
+  src: 'images/food-galbitang.jpg',   // 네이버 플레이스 사장님 등록 사진 (2026-08-18)
+  kind: 'food',              // 'food' | 'exterior' | 'interior'
+  position: 'center 55%',
+  width: 2000,
+  height: 1500,
 };
 
 // 카카오톡·네이버 공유 미리보기 카드에 뜨는 사진.

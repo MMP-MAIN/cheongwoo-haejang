@@ -10,58 +10,64 @@ import { store, hasBreak, hasLastOrder } from './store.mjs';
 const H = store.hours;
 
 export const menuNames = {
+  // 이름은 네이버 플레이스에 사장님이 등록한 표기를 따릅니다 (2026-08-18).
   ko: {
-    clear:      { n: '청우 맑은해장국', d: '뼈를 오래 고아 낸 맑은 국물. 자극 없이 속을 데워주는 청우해장의 기본.' },
-    spicy:      { n: '얼큰해장국',      d: '다진 양념을 풀어 낸 얼큰한 국물. 전날 술자리 뒤에 가장 많이 나가는 메뉴.' },
-    galbitang:  { n: '청우 약전 갈비탕', d: '진하고 깊은 국물에 부드러운 갈비. 어르신 모시고 오시기 좋은 대표 메뉴.' },
-    yukhoe:     { n: '청우 육회 비빔밥', d: '신선한 육회에 청우만의 숙성 특제 간장 소스로 맛을 낸 비빔밥.' },
-    arong:      { n: '아롱사태 냉채',    d: '푹 삶아 익힌 아롱사태를 새콤달콤한 청우 특제 냉채 소스에 무쳐 냅니다.' },
-    kalguksu:   { n: '얼큰장칼국수',    d: '된장을 풀어 끓인 얼큰한 칼국수. 국물과 면을 같이 즐기고 싶을 때.' },
-    ribs:       { n: '매운갈비찜',      d: '유튜브 먹방으로 알려진 메뉴. 대구식 찜갈비의 매운맛 그대로, 2~4인 나눠 먹기 좋은 크기입니다.' },
-    oxtail:     { n: '소꼬리찜',        d: '아침부터 눌러 낸 소꼬리. 가족 모임·회식 상차림용.' },
-    suyuk:      { n: '아롱사태수육',    d: '결 좋은 아롱사태를 삶아 얇게 저며 냅니다. 어르신 상에 잘 어울립니다.' },
-    naengmyeon: { n: '평양냉면 · 고기냉국수', d: '여름 한정. 슴슴한 육수의 평양냉면과 고기 고명을 얹은 냉국수.' },
+    naengmyeon: { n: '청우 평양냉면',       d: '양지와 사태만 고집해 12시간 넘게 우려낸 진한 소고기 육수. 여름에 가장 많이 나갑니다.' },
+    galbitang:  { n: '청우 약전 소갈비탕',  d: '진하고 깊은 국물에 부드러운 갈비. 어르신 모시고 오시기 좋은 대표 메뉴.' },
+    spicy:      { n: '대구 얼큰해장국 (따로국밥)', d: '소 양지를 48시간 이상 고아 만든 대구식 소고기 해장국. 전날 술자리 뒤에 가장 많이 찾습니다.' },
+    ribs:       { n: '소갈비찜 마늘폭탄',   d: '특제 소스에 마늘을 듬뿍 올린 갈비찜. 대구식 찜갈비의 매운맛 그대로.' },
+    oxtail:     { n: '소꼬리찜',            d: '쫄깃한 소꼬리에 아삭한 부추를 곁들인 새콤한 소꼬리찜. 가족 모임·회식 상차림용.' },
+    yukhoe:     { n: '육회비빔밥',          d: '신선한 육회에 청우만의 숙성 간장으로 맛을 낸 비빔밥.' },
+    clear:      { n: '맑은 해장국 (소고기맑은국)', d: '맑은 국물로 속을 편안하게. 깊고 깔끔한 나주곰탕 스타일의 해장국.' },
+    kalguksu:   { n: '얼큰 장칼국수',       d: '된장을 풀어 끓인 얼큰한 칼국수. 겨울 계절 메뉴.' },
+    jeongol:    { n: '아롱사태 수육 전골',  d: '아롱사태와 스지를 넣어 끓이는 수육 전골. 2~3인 나눠 먹기 좋습니다.' },
+    arong:      { n: '아롱사태 냉채',       d: '푹 삶아 익힌 아롱사태를 새콤달콤한 청우 특제 냉채 소스에 무쳐 냅니다.' },
+    suyuk:      { n: '아롱사태 수육',       d: '결 좋은 아롱사태를 삶아 얇게 저며 냅니다. 소 17,000원 · 대 22,000원.' },
   },
   en: {
-    clear:      { n: 'Clear Haejang-guk', d: 'Beef bone broth simmered for hours — clean, gentle, no chili. The house basic.' },
-    spicy:      { n: 'Spicy Haejang-guk', d: 'The same broth with house chili paste. Korea’s classic hangover soup.' },
-    galbitang:  { n: 'Galbi-tang (Short Rib Soup)', d: 'Tender short ribs in a deep, rich broth. Mild — good for kids and elders.' },
-    yukhoe:     { n: 'Yukhoe Bibimbap (Beef Tartare Rice Bowl)', d: 'Fresh raw beef over rice with our own aged soy sauce dressing.' },
+    naengmyeon: { n: 'Cheongwoo Pyeongyang Naengmyeon', d: 'Cold buckwheat noodles in a rich beef broth simmered 12+ hours from brisket and shank only. Our summer bestseller.' },
+    galbitang:  { n: 'Galbi-tang (Beef Short Rib Soup)', d: 'Tender short ribs in a deep, rich broth. Mild — good for kids and elders.' },
+    spicy:      { n: 'Daegu Spicy Haejang-guk',   d: 'Daegu-style beef hangover soup — brisket simmered 48+ hours. Korea’s classic morning-after bowl.' },
+    ribs:       { n: 'Garlic-Bomb Braised Short Ribs', d: 'Braised short ribs in our house sauce, piled with garlic. Daegu-style spicy jjim-galbi.' },
+    oxtail:     { n: 'Braised Oxtail',            d: 'Chewy oxtail with crisp chives in a tangy sauce. A table centrepiece for groups.' },
+    yukhoe:     { n: 'Yukhoe Bibimbap (Beef Tartare Rice Bowl)', d: 'Fresh raw beef over rice with our own aged soy dressing.' },
+    clear:      { n: 'Clear Beef Soup (Haejang-guk)', d: 'Clean, gentle beef broth in the Naju-gomtang style. No chili.' },
+    kalguksu:   { n: 'Spicy Doenjang Kalguksu',   d: 'Hand-cut noodles in a spicy soybean-paste broth. Winter seasonal.' },
+    jeongol:    { n: 'Beef Shank Hot Pot (Jeongol)', d: 'Sliced beef shank and tendon in a bubbling hot pot. Good for 2–3.' },
     arong:      { n: 'Chilled Beef Shank (Naengchae)', d: 'Slow-boiled beef shank tossed in our sweet-and-sour chilled dressing. Served cold.' },
-    kalguksu:   { n: 'Spicy Doenjang Kalguksu', d: 'Hand-cut noodles in a spicy soybean-paste broth.' },
-    ribs:       { n: 'Spicy Braised Short Ribs', d: 'The dish that went viral on Korean YouTube. Shareable for 2–4 people.' },
-    oxtail:     { n: 'Braised Oxtail', d: 'Oxtail pressed and braised from early morning. A table centrepiece.' },
-    suyuk:      { n: 'Boiled Beef Shank (Suyuk)', d: 'Slow-boiled beef shank, thinly sliced. Not spicy at all.' },
-    naengmyeon: { n: 'Pyeongyang Naengmyeon / Cold Noodles', d: 'Summer only. Cold buckwheat noodles in a subtle chilled broth.' },
+    suyuk:      { n: 'Boiled Beef Shank (Suyuk)', d: 'Slow-boiled beef shank, thinly sliced. Not spicy. Small ₩17,000 · Large ₩22,000.' },
   },
   ja: {
-    clear:      { n: '澄んだヘジャンクク', d: '牛骨をじっくり煮出した澄んだスープ。辛くないので朝食にも。' },
-    spicy:      { n: '辛口ヘジャンクク',   d: '自家製の薬味を溶いたピリ辛スープ。二日酔いの定番です。' },
-    galbitang:  { n: 'カルビタン（牛カルビスープ）', d: '濃厚なスープに柔らかいカルビ。辛くないのでお子様やご年配の方にも。' },
-    yukhoe:     { n: 'ユッケビビンバ', d: '新鮮なユッケに、自家製の熟成醤油ダレを合わせたビビンバ。' },
-    arong:      { n: '牛すね肉の冷菜', d: 'じっくり茹でた牛すね肉を、自家製の甘酸っぱい冷菜ダレで和えた一品。冷たいまま出します。' },
-    kalguksu:   { n: '辛味噌カルグクス',   d: 'テンジャン（味噌）ベースの辛いスープに手打ち麺。' },
-    ribs:       { n: '辛口カルビチム',     d: '韓国のグルメ動画で話題になった一品。2〜4人でシェアできます。' },
-    oxtail:     { n: '牛テールの煮込み',   d: '早朝から仕込む牛テール。会食やご家族の集まりに。' },
-    suyuk:      { n: '牛すね肉のスユク',   d: 'ゆでた牛すね肉を薄切りに。辛さは一切ありません。' },
-    naengmyeon: { n: '平壌冷麺・肉冷麺',   d: '夏季限定。あっさりしたスープの冷たいそば麺。' },
+    naengmyeon: { n: '清友 平壌冷麺',           d: '牛バラとスネ肉だけで12時間以上煮出した濃厚な牛肉スープの冷麺。夏の一番人気。' },
+    galbitang:  { n: '薬田 牛カルビタン',       d: '濃厚なスープに柔らかいカルビ。辛くないのでお子様やご年配の方にも。' },
+    spicy:      { n: '大邱 辛口ヘジャンクク',   d: '牛バラを48時間以上煮込んだ大邱式の牛肉スープ。二日酔いの定番です。' },
+    ribs:       { n: 'ニンニク爆弾 牛カルビチム', d: '特製ダレにたっぷりのニンニクをのせた牛カルビの煮込み。大邱式の辛口です。' },
+    oxtail:     { n: '牛テールの煮込み',         d: '弾力のある牛テールにシャキシャキのニラ。会食やご家族の集まりに。' },
+    yukhoe:     { n: 'ユッケビビンバ',           d: '新鮮なユッケに、自家製の熟成醤油ダレを合わせたビビンバ。' },
+    clear:      { n: '澄んだ牛肉スープ',         d: '羅州コムタン風の澄んだ牛骨スープ。辛くないので朝食にも。' },
+    kalguksu:   { n: '辛味噌カルグクス',         d: 'テンジャン（味噌）ベースの辛いスープに手打ち麺。冬季限定。' },
+    jeongol:    { n: '牛すね肉の鍋（チョンゴル）', d: '牛すね肉とスジを煮込む鍋。2〜3人でシェアできます。' },
+    arong:      { n: '牛すね肉の冷菜',           d: 'じっくり茹でた牛すね肉を、自家製の甘酸っぱい冷菜ダレで和えた一品。' },
+    suyuk:      { n: '牛すね肉のスユク',         d: 'ゆでた牛すね肉を薄切りに。辛さは一切ありません。小 17,000ウォン・大 22,000ウォン。' },
   },
   zh: {
-    clear:      { n: '清汤解酒汤', d: '牛骨长时间熬煮的清汤，不辣，暖胃，本店基本款。' },
-    spicy:      { n: '香辣解酒汤', d: '加入自制辣酱的浓郁汤底，韩国经典的解酒汤。' },
-    galbitang:  { n: '药田排骨汤', d: '浓郁汤底配软嫩牛排骨，不辣，适合老人和小孩。' },
-    yukhoe:     { n: '生牛肉拌饭', d: '新鲜生牛肉配本店秘制熟成酱油汁的拌饭。' },
-    arong:      { n: '凉拌牛腱', d: '慢炖牛腱拌上本店特制酸甜凉拌汁，凉着上桌。' },
-    kalguksu:   { n: '辣味大酱刀削面', d: '大酱汤底配手工面条，汤面一起享用。' },
-    ribs:       { n: '辣炖牛排骨', d: '因韩国美食视频走红的招牌菜，2〜4 人分享刚好。' },
-    oxtail:     { n: '炖牛尾',     d: '每天清晨开始炖煮的牛尾，适合家庭聚餐。' },
-    suyuk:      { n: '水煮牛腱片', d: '慢煮牛腱切薄片，完全不辣。' },
-    naengmyeon: { n: '平壤冷面 · 肉冷面', d: '夏季限定。清爽汤底的荞麦冷面。' },
+    naengmyeon: { n: '清友平壤冷面',     d: '只用牛腩和牛腱熬煮12小时以上的浓郁牛肉汤底冷面。夏季最畅销。' },
+    galbitang:  { n: '药田牛排骨汤',     d: '浓郁汤底配软嫩牛排骨，不辣，适合老人和小孩。' },
+    spicy:      { n: '大邱香辣解酒汤',   d: '牛腩熬煮48小时以上的大邱式牛肉汤。韩国经典的解酒汤。' },
+    ribs:       { n: '蒜香炸弹炖牛排骨', d: '特制酱汁配满满蒜瓣的炖牛排骨。大邱式辣味。' },
+    oxtail:     { n: '炖牛尾',           d: '有嚼劲的牛尾配爽脆韭菜，酸香开胃。适合家庭聚餐。' },
+    yukhoe:     { n: '生牛肉拌饭',       d: '新鲜生牛肉配本店秘制熟成酱油汁的拌饭。' },
+    clear:      { n: '清汤牛肉汤',       d: '罗州牛骨汤风格的清汤，不辣，暖胃。' },
+    kalguksu:   { n: '辣味大酱刀削面',   d: '大酱汤底配手工面条。冬季限定。' },
+    jeongol:    { n: '牛腱火锅',         d: '牛腱与牛筋一起煮的火锅，适合 2〜3 人分享。' },
+    arong:      { n: '凉拌牛腱',         d: '慢炖牛腱拌上本店特制酸甜凉拌汁，凉着上桌。' },
+    suyuk:      { n: '水煮牛腱片',       d: '慢煮牛腱切薄片，完全不辣。小份 17,000 · 大份 22,000 韩元。' },
   },
 };
 
 export const galleryAlt = {
   ko: {
+    queue: '저녁 무렵 청우해장 앞에 줄 선 손님들',
     exterior: '대구 중구 남성로 청우해장 외관 — 파란 한글 간판과 靑友解酲 한자 간판',
     hall: '청우해장 홀 — 통유리 창가 원목 테이블 좌석',
     counter: '청우해장 매장 안쪽 홀과 메뉴 포스터',
@@ -74,6 +80,7 @@ export const galleryAlt = {
     door: '청우해장 출입문 — 청우해장 靑友解酲 유리 사인',
   },
   en: {
+    queue: 'Guests queuing outside Cheongwoo Haejang in the evening',
     exterior: 'Cheongwoo Haejang storefront on Namseong-ro, Jung-gu, Daegu',
     hall: 'Dining hall with wooden tables along the full-height window',
     counter: 'Inner dining room and menu posters at Cheongwoo Haejang',
@@ -86,6 +93,7 @@ export const galleryAlt = {
     door: 'Entrance door with the Cheongwoo Haejang glass signage',
   },
   ja: {
+    queue: '夕方、店の前に並ぶお客さん',
     exterior: '大邱市中区南城路のチョンウヘジャン外観',
     hall: '大きな窓沿いの木製テーブル席',
     counter: '店内奥のホールとメニューポスター',
@@ -98,6 +106,7 @@ export const galleryAlt = {
     door: 'チョンウヘジャンの入口ドア',
   },
   zh: {
+    queue: '傍晚在店门口排队的客人',
     exterior: '大邱市中区南城路 青友解酲 店面外观',
     hall: '落地窗旁的实木餐桌区',
     counter: '店内后厅与菜单海报',
@@ -146,7 +155,7 @@ export const t = {
     quickAddr: '주소',
     quickTel: '전화',
     quickPark: '주차',
-    quickParkVal: '전용 주차장 없음 · 인근 공영주차장 이용',
+    quickParkVal: '전용 주차장 없음 · 약령시서문 공영주차장 도보 1분',
 
     storyTitle: '청우해장은',
     storyLede:
@@ -183,7 +192,7 @@ export const t = {
     ],
     parkingTitle: '주차',
     parkingBody:
-      '매장 전용 주차장은 없습니다. 약령시 공영주차장 등 인근 유료 주차장을 이용해 주세요. 주말 점심에는 대중교통을 권해 드립니다.',
+      '매장 전용 주차장은 없지만 바로 옆에 공영주차장이 있습니다. 가장 가까운 약령시서문 공영주차장은 가게에서 도보 1분입니다. 아래 이름을 누르면 길찾기가 열립니다.',
 
     reserveTitle: '예약 · 문의',
     reserveLede:
@@ -197,7 +206,7 @@ export const t = {
     faqTitle: '자주 묻는 질문',
     faq: [
       { q: '예약이 되나요?', a: '네, 전화 예약을 받습니다. 40명 이하 단체 예약도 가능합니다. 053-255-7052 로 연락 주세요.' },
-      { q: '주차는 어디에 하나요?', a: '매장 전용 주차장은 없습니다. 약령시 공영주차장 등 인근 유료 주차장을 이용해 주세요.' },
+      { q: '주차는 어디에 하나요?', a: '매장 전용 주차장은 없지만 약령시서문 공영주차장이 도보 1분 거리에 있습니다. 약령시한의약박물관 주차장(2분), 약령시서편 공영주차장(4분)도 가깝습니다. 「오시는 길」에 길찾기 링크가 있습니다.' },
       { q: '브레이크타임이 있나요?', a: hasBreak
           ? `네, ${H.breakStart}~${H.breakEnd} 이 브레이크타임입니다. 마감은 ${H.close} 입니다.`
           : `브레이크타임 없이 ${H.open}부터 ${H.close}까지 계속 영업합니다. 점심과 저녁 사이 한가한 시간에 오셔도 됩니다.` },
@@ -248,7 +257,7 @@ export const t = {
     quickAddr: 'Address',
     quickTel: 'Phone',
     quickPark: 'Parking',
-    quickParkVal: 'No private lot · public car parks nearby',
+    quickParkVal: 'No private lot · public car park 1 min away',
 
     storyTitle: 'About us',
     storyLede:
@@ -285,7 +294,7 @@ export const t = {
     ],
     parkingTitle: 'Parking',
     parkingBody:
-      'We have no private car park. Please use the Yangnyeongsi public car park or another paid lot nearby. On weekend lunchtimes we recommend the metro.',
+      'We have no private car park, but the Yangnyeongsi West Gate public car park is a 1-minute walk away. Tap a name below for directions.',
 
     reserveTitle: 'Booking & enquiries',
     reserveLede:
@@ -299,7 +308,7 @@ export const t = {
     faqTitle: 'Frequently asked',
     faq: [
       { q: 'Can I make a reservation?', a: 'Yes, by phone. We accept group bookings for up to 40 people. Call +82 53-255-7052.' },
-      { q: 'Is there parking?', a: 'There is no private car park. Please use the Yangnyeongsi public car park or another paid lot nearby.' },
+      { q: 'Is there parking?', a: 'No private car park, but the Yangnyeongsi West Gate public car park is a 1-minute walk away, with 2–3 more within 2–4 minutes. See “Getting here” for directions links.' },
       { q: 'Is there a break time?', a: hasBreak
           ? `Yes — ${H.breakStart} to ${H.breakEnd}. We close at ${H.close}.`
           : `No. We serve straight through from ${H.open} to ${H.close}, so the quiet hours between lunch and dinner are fine.` },
@@ -350,7 +359,7 @@ export const t = {
     quickAddr: '住所',
     quickTel: '電話',
     quickPark: '駐車場',
-    quickParkVal: '専用駐車場なし · 近隣の公営駐車場をご利用ください',
+    quickParkVal: '専用駐車場なし · 徒歩1分に公営駐車場',
 
     storyTitle: 'お店について',
     storyLede:
@@ -387,7 +396,7 @@ export const t = {
     ],
     parkingTitle: '駐車場',
     parkingBody:
-      '専用駐車場はございません。薬令市公営駐車場など近隣の有料駐車場をご利用ください。週末のお昼は地下鉄をおすすめします。',
+      '専用駐車場はございませんが、薬令市西門公営駐車場が徒歩1分です。下の名前をタップすると経路案内が開きます。',
 
     reserveTitle: 'ご予約・お問い合わせ',
     reserveLede:
@@ -401,7 +410,7 @@ export const t = {
     faqTitle: 'よくある質問',
     faq: [
       { q: '予約はできますか。', a: 'はい、お電話で承ります。40名以下の団体予約も可能です。+82 53-255-7052 までどうぞ。' },
-      { q: '駐車場はありますか。', a: '専用駐車場はありません。薬令市公営駐車場など近隣の有料駐車場をご利用ください。' },
+      { q: '駐車場はありますか。', a: '専用駐車場はありませんが、薬令市西門公営駐車場が徒歩1分です。他にも徒歩2〜4分に2〜3か所あります。「アクセス」に経路リンクがあります。' },
       { q: '休憩時間はありますか。', a: hasBreak
           ? `はい、${H.breakStart}〜${H.breakEnd} が休憩時間です。閉店は${H.close}です。`
           : `休憩なしで${H.open}から${H.close}まで通しで営業しています。昼と夜の間の空いている時間帯でもご利用いただけます。` },
@@ -452,7 +461,7 @@ export const t = {
     quickAddr: '地址',
     quickTel: '电话',
     quickPark: '停车',
-    quickParkVal: '无专用停车场 · 请使用附近公共停车场',
+    quickParkVal: '无专用停车场 · 步行1分钟有公共停车场',
 
     storyTitle: '关于我们',
     storyLede:
@@ -489,7 +498,7 @@ export const t = {
     ],
     parkingTitle: '停车',
     parkingBody:
-      '本店没有专用停车场。请使用药令市公共停车场等附近的收费停车场。周末午餐时段建议乘坐地铁。',
+      '本店没有专用停车场，但药令市西门公共停车场步行仅 1 分钟。点击下方名称即可打开导航。',
 
     reserveTitle: '预订与咨询',
     reserveLede:
@@ -503,7 +512,7 @@ export const t = {
     faqTitle: '常见问题',
     faq: [
       { q: '可以预订吗？', a: '可以，请致电预订。也接受 40 人以下的团体预订。电话 +82 53-255-7052。' },
-      { q: '有停车场吗？', a: '没有专用停车场。请使用药令市公共停车场等附近的收费停车场。' },
+      { q: '有停车场吗？', a: '没有专用停车场，但药令市西门公共停车场步行仅 1 分钟，附近还有 2〜3 个停车场。「交通」区有导航链接。' },
       { q: '有休息时间吗？', a: hasBreak
           ? `有，${H.breakStart}–${H.breakEnd} 为休息时间。${H.close} 打烊。`
           : `没有。从 ${H.open} 到 ${H.close} 连续营业，午餐和晚餐之间的空闲时段也可以来。` },
