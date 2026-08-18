@@ -36,8 +36,24 @@ jobs:
 
       - run: npm ci
 
-      # 사진 최적화 → HTML 생성. 둘 다 결과물을 작업 트리에 씁니다.
-      - run: npm run all
+      # 사진 최적화는 로컬에서 하고 결과(images/opt, manifest.json)를 커밋합니다.
+      # CI 에서는 manifest 가 없거나 원본 사진이 manifest 보다 새로울 때만 다시 만듭니다
+      # (22장 × 8벌 AVIF/WebP 인코딩에 9분 걸려서, 매번 돌리면 배포가 너무 느립니다).
+      - name: Optimize images (only if stale)
+        run: |
+          # manifest 에 없는 원본 사진이 하나라도 있으면 다시 만듭니다 (mtime 은 checkout 뒤라 못 믿음)
+          if node -e "
+            const fs=require('fs');
+            if(!fs.existsSync('images/manifest.json')) process.exit(1);
+            const m=JSON.parse(fs.readFileSync('images/manifest.json','utf8'));
+            const missing=fs.readdirSync('images').filter(f=>/\\.(jpe?g|png)$/i.test(f)).filter(f=>!m['images/'+f]);
+            if(missing.length){console.log('manifest 에 없는 사진:',missing.join(', '));process.exit(1);}
+          "; then
+            echo "images/opt 최신 → 건너뜀"
+          else
+            npm run images
+          fi
+      - run: node build.mjs
 
       # 배포에 필요 없는 것은 빼고 올립니다.
       - name: Assemble site
