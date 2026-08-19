@@ -99,11 +99,11 @@
 | # | 사진 | 자막 |
 |---|---|---|
 | 1 | `picks/galbijjim-overhead.jpg` | **대구에서 갈비찜 먹어봤다는 분들,**<br>**여기는 와보셨어요?**<br><sub>돌솥에 산더미로 나오는 대구식 찜갈비 · 20,000원</sub> |
-| 2 | `picks/galbijjim-stone.jpg` | — |
+| 2 | `picks/galbijjim-topdown.jpg` | — |
 | 3 | **액션컷** `picks/action-galbijjim-lift.jpg` | 살이 뼈에서 그냥 떨어집니다 |
 | 4 | **스케일컷** `picks/hand-ssam-1.jpg` | 한 점이 손바닥을 채웁니다 |
-| 5 | 상차림 `picks/action-ribs-chopstick2.jpg` | — |
-| 6 | 매장 내부 (`images/cheongwoo-01.jpg`) | 브레이크타임 15시~17시입니다 |
+| 5 | 상차림 `picks/galbijjim-set.jpg` | 반찬은 늘 이만큼 깔립니다 |
+| 6 | `picks/action-ribs-chopstick.jpg` | 밥에 얹으면 이렇게 됩니다 |
 | 7 | **정보 카드** | 대구 중구 남성로 11<br>반월당역 5분 · 11:00~22:00 |
 | 8 | `picks/sign-front.jpg` | 약전골목 청우해장 |
 
@@ -430,3 +430,32 @@
   합니다. 지금은 뚝배기 기준으로만 말할 수 있어서 커버 문구를 그렇게 바꿔 뒀습니다.
 - **간판에 불 들어온 저녁 외관** — 저녁 손님용 소재
 - **웨이팅 줄 정면** — 지금 `cheongwoo-queue-day.jpg` 는 측면입니다
+
+
+---
+
+## 12. 카드 만들기
+
+카드는 `tools/make_cards.py` 가 찍어냅니다. 카피와 사진은 `tools/cards.json` 한 곳에만 있습니다.
+
+```bash
+python3 tools/make_cards.py               # 전체
+python3 tools/make_cards.py A-galbijjim   # 한 세트만
+```
+
+결과는 `cards/<세트이름>/01.jpg ~ 08.jpg` — **1080×1350**, 인스타에 그대로 올리면 됩니다.
+
+카피를 바꾸려면 `cards.json` 에서 그 줄만 고치고 다시 돌리세요.
+
+| 키 | 뜻 |
+|---|---|
+| `head` | 커버 헤드라인 2줄 (배열) |
+| `sub` | 커버 서브라인 1줄 |
+| `line` | 본문 카드 자막 1줄 |
+| `photo` | `cheongwoo-haejang/images/` 기준 경로 |
+| `focus` / `focus_x` | 4:5 로 자를 때 기준점. 0=위·왼쪽, 1=아래·오른쪽 |
+| `scrim` / `scrim_start` | 글씨 뒤 어둠의 세기(기본 150)와 시작 지점(기본 0.50) |
+| `type: "info"` | 정보 카드. `rows` 는 [제목, 내용] 쌍 |
+
+새 세트를 만들려면 `cards.json` 에 키를 하나 더 추가하면 됩니다.
+디자인 규칙(색·폰트·여백)은 스크립트 안에 박혀 있어서 세트가 늘어도 톤이 안 흔들립니다.

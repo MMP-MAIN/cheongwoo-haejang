@@ -18,10 +18,10 @@ window.CW_CONFIG = {
   metaPixelId: '4502054576777925',   // 데이터 세트 「청우해장 웹사이트」 (2026-08-18 생성)
 
   /* ---- 구글 광고 ---- */
-  googleAdsId: '',                 // 예: 'AW-1234567890'
+  googleAdsId: 'AW-11423300289',   // 구글 광고 계정 699-589-9109 (2026-08-19)
   googleAdsLabels: {
-    call: '',                      // 전화 걸기 전환 라벨
-    directions: '',                // 길찾기 전환 라벨
+    call: 'wH3cCKqwkuQcEMH1hscq',  // 「청우해장 전화걸기」
+    directions: 'IlmwCK2wkuQcEMH1hscq', // 「청우해장 길찾기」
     reserve: '',                   // 예약 시도 전환 라벨
     menu: '',                      // 메뉴 조회 전환 라벨(보조 전환 권장)
   },
