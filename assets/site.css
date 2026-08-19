@@ -384,3 +384,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .sketch-modal-box .sketch-img img{max-height:88vh;object-fit:contain}
 .sketch-close{position:absolute;top:.6rem;right:.6rem;background:var(--ink);color:#fff;font-weight:700;font-size:.95rem;padding:.55rem 1rem;border-radius:999px}
 @media print{.sketch-modal{display:none !important}}
+
+/* ---------- 옛 지도·골목 풍경 ---------- */
+.archive{margin-top:3rem}
+.archive-lede{color:var(--muted);max-width:64ch;margin:.6rem 0 1.4rem;font-size:1rem}
+.archive-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.archive-item{margin:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
+.archive-item.wide{grid-column:1/-1}
+.archive-item img{width:100%;height:auto;display:block;aspect-ratio:3/2;object-fit:cover}
+.archive-item.wide img{aspect-ratio:3/1.15}
+.archive-item figcaption{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:.65rem .95rem;font-size:.9rem;font-weight:600}
+.archive-item figcaption small{color:var(--muted);font-weight:400;font-size:.76rem;white-space:nowrap}
+@media (max-width:700px){.archive-grid{grid-template-columns:1fr}.archive-item figcaption{flex-direction:column;gap:.15rem}.archive-item figcaption small{white-space:normal}}
+
+/* 약도 섹션 (대표 메뉴 위) — 여백을 조금 줄여 밀도 있게 */
+.sketch-sec{padding:4.2rem 0 3.6rem}
+.sketch-sec .sketch{margin-top:0}

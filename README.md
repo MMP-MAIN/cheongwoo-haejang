@@ -144,6 +144,19 @@ node build.mjs       # 늘 하던 것
 - `main` 에 푸시하면 GitHub Actions 가 위 세 줄을 자동으로 돌리고 배포합니다
   (`.github/workflows/deploy.yml`). 로컬에서 빌드를 잊어도 안전합니다.
 
+### 약전골목 「옛 지도와 골목 풍경」 사진 출처 (전부 재사용 가능 라이선스)
+
+| 파일 | 출처 | 라이선스 |
+|---|---|---|
+| `images/hood-map-1930.jpg` | 조선총독부 1:10,000 지형도 「대구」(1930), 위키미디어 공용 | 공유저작물(저작권 만료) |
+| `images/hood-mural.jpg` | 약령시 옛 약방 벽화 사진 (Wol), 위키미디어 공용 | CC0 |
+| `images/hood-herbs.jpg` | 약령시 약재 진열 (Wol), 위키미디어 공용 | CC0 |
+| `images/hood-gate.jpg` | 약령문 (User:Mobius6), 위키미디어 공용 | CC BY-SA 4.0 — 캡션에 출처 표기함 |
+
+약령시 자체의 옛 사진(일제강점기 엽서 등)은 위키미디어에 없었습니다. 국립중앙박물관 e뮤지엄·
+공유마당(gongu.copyright.or.kr)에서 「대구 약령시」로 찾으면 공공누리 1유형 자료가 있을 수 있으니,
+발견하면 같은 방식으로 `src/hood.mjs` 의 `hoodImages` 에 추가하세요.
+
 ## 4. 광고 픽셀 붙이기
 
 `assets/config.js` 하나만 고치면 됩니다. 값이 비어 있으면 그 플랫폼 스크립트는

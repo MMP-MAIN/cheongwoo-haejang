@@ -18,13 +18,13 @@ import { fileURLToPath } from 'node:url';
 import { site, store, menu, gallery, hero, ogImage, imgBase, hasBreak, parkingLots } from './src/store.mjs';
 import { t, menuNames, galleryAlt } from './src/i18n.mjs';
 import { tw, menuNamesTw, galleryAltTw } from './src/i18n.tw.mjs';
-import { hood, spots } from './src/hood.mjs';
+import { hood, spots, hoodImages } from './src/hood.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 3;
+const ASSET_V = 4;
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -358,6 +358,17 @@ function hoodSection(lang) {
         ${H.blocks.map((b) => `<article class="story-card rv"><h3>${esc(b.h)}</h3><p>${b.p}</p></article>`).join('\n        ')}
       </div>
 
+      <div class="archive rv">
+        <h3 class="course-title">${esc(H.archiveTitle)}</h3>
+        <p class="archive-lede">${esc(H.archiveLede)}</p>
+        <div class="archive-grid">
+          ${hoodImages.map((im) => `<figure class="archive-item${im.key === 'map1930' ? ' wide' : ''}">
+            ${picture(im.src, H.archive[im.key], { w: im.w, h: im.h, sizes: '(max-width: 700px) 100vw, 50vw', attrs: 'loading="lazy" decoding="async"' })}
+            <figcaption><span>${esc(H.archive[im.key])}</span><small>${esc(im.credit)}</small></figcaption>
+          </figure>`).join('\n          ')}
+        </div>
+      </div>
+
       <div class="course rv">
         <h3 class="course-title">${esc(H.courseTitle)}</h3>
         <ul class="course-list">
@@ -476,7 +487,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
     <p class="hero-lede">${L.heroLede}</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="tel:${store.telHref}" data-track="call" data-track-label="hero">${ICON.phone}${esc(L.heroCtaCall)}</a>
-      <a class="btn btn-ghost" href="#sketch" data-open-sketch data-track="directions" data-track-label="hero-sketch">${ICON.pin}${esc(L.heroCtaMap)}</a>
+      <a class="btn btn-ghost" href="#sketch-sec" data-open-sketch data-track="directions" data-track-label="hero-sketch">${ICON.pin}${esc(L.heroCtaMap)}</a>
       <a class="btn btn-ghost" href="#menu" data-track="menu" data-track-label="hero">${esc(L.heroCtaMenu)}${ICON.arrow}</a>
     </div>
   </div>
@@ -526,6 +537,18 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
   </div>
 </section>
 
+<!-- ================= 약도 (대표 메뉴 위) ================= -->
+<section class="section sketch-sec" id="sketch-sec">
+  <div class="container">
+    <div class="sec-head rv">
+      <span class="sec-kicker">${esc(L.nav.visit)}</span>
+      <h2>${esc(L.heroCtaMap)}</h2>
+      <p>${esc(L.visitLede)}</p>
+    </div>
+    <div class="rv">${sketchMap(lang).figure}</div>
+  </div>
+</section>
+
 <!-- ================= 메뉴 ================= -->
 <section class="section alt" id="menu">
   <div class="container">
@@ -569,7 +592,6 @@ ${hoodSection(lang)}
         <div class="map-wrap">
           <iframe id="map-frame" data-src="${osmEmbed}" title="${esc(L.mapAlt)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        ${sketchMap(lang).figure}
         <div class="route-btns">
           <a class="btn btn-ink" href="${links.naverDir}" target="_blank" rel="noopener" data-track="directions" data-track-label="naver">${ICON.pin}${esc(L.visitNaver)}</a>
           ${links.kakaoDir ? `<a class="btn btn-outline" href="${links.kakaoDir}" target="_blank" rel="noopener" data-track="directions" data-track-label="kakao">${esc(L.visitKakao)}</a>` : ''}

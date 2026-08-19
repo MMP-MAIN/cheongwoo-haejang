@@ -18,6 +18,17 @@ const spots = [
 ];
 export { spots };
 
+// 옛 자료·골목 사진 — 전부 저작권이 깨끗한 것만 (위키미디어 공용, 2026-08-19 확인)
+//  map1930: 조선총독부 1:10,000 지형도 「대구」(1930) — 공유저작물(저작권 만료)
+//  mural:   약령시 옛 약방 벽화 사진 (Wol, CC0)          herbs: 약령시 약재 진열 (Wol, CC0)
+//  gate:    약령문 (Wikimedia Commons User:Mobius6, CC BY-SA 4.0 — 출처 표기 필수)
+export const hoodImages = [
+  { key: 'map1930', src: 'images/hood-map-1930.jpg', w: 1800, h: 1200, credit: '조선총독부 지형도 (1930) · Public domain' },
+  { key: 'mural',   src: 'images/hood-mural.jpg',    w: 2000, h: 1352, credit: 'Wikimedia Commons · CC0' },
+  { key: 'herbs',   src: 'images/hood-herbs.jpg',    w: 1890, h: 1417, credit: 'Wikimedia Commons · CC0' },
+  { key: 'gate',    src: 'images/hood-gate.jpg',     w: 2000, h: 1333, credit: 'Mobius6 / Wikimedia Commons · CC BY-SA 4.0' },
+];
+
 export const hood = {
   ko: {
     kicker: '동네 이야기',
@@ -40,6 +51,9 @@ export const hood = {
     ],
     courseTitle: '걸어서 닿는 곳',
     courseNote: '※ 도보 시간은 청우해장(남성로 11) 기준 대략치입니다.',
+    archiveTitle: '옛 지도와 골목 풍경',
+    archiveLede: '1930년 지형도 속 대구 시가지 — 약령시는 옛 성곽 남쪽 길, 지금의 남성로에 섰습니다. 그 길에서 400년 가까이 약재가 오갔고, 지금은 그 골목에서 국을 끓입니다.',
+    archive: { map1930: '1930년 대구 시가지 지형도 (조선총독부)', mural: '약령시 골목의 옛 약방 벽화', herbs: '약전골목 약재 진열', gate: '약령시 정문 「약령문」' },
     spots: {
       museum:   { n: '약령시한의약박물관', d: '약령시의 역사를 모아 둔 박물관. 매장 바로 옆입니다.' },
       jingolmok:{ n: '진골목', d: '근대 대구 부호들이 살던 좁고 긴 골목.' },
@@ -72,6 +86,9 @@ export const hood = {
     ],
     courseTitle: 'Within walking distance',
     courseNote: '※ Walking times are approximate, measured from our door at 11 Namseong-ro.',
+    archiveTitle: 'Old map, old alley',
+    archiveLede: 'Daegu on a 1930 survey map — Yangnyeongsi grew along the road south of the old town wall, today’s Namseong-ro. Herbs changed hands here for close to 400 years; now we simmer broth on the same lane.',
+    archive: { map1930: 'Daegu city centre, 1930 topographic map', mural: 'Mural of an old herbal pharmacy in Yangnyeongsi', herbs: 'Dried herbs on display in the alley', gate: 'Yangnyeongmun, the market gate' },
     spots: {
       museum:   { n: 'Yangnyeongsi Herbal Medicine Museum', d: 'The history of the herb market, gathered in one building — right next door.' },
       jingolmok:{ n: 'Jin-golmok', d: 'A narrow lane where Daegu’s wealthy merchant families once lived.' },
@@ -104,6 +121,9 @@ export const hood = {
     ],
     courseTitle: '徒歩圏内の見どころ',
     courseNote: '※ 所要時間は南城路11（当店）からのおおよその目安です。',
+    archiveTitle: '古地図と路地の風景',
+    archiveLede: '1930年の地形図に見る大邱市街 — 薬令市は旧城郭の南側の道、今の南城路に立ちました。400年近く薬材が行き交ったこの路地で、今はスープを煮ています。',
+    archive: { map1930: '1930年 大邱市街地形図（朝鮮総督府）', mural: '薬令市の路地に描かれた昔の薬房の壁画', herbs: '薬田横丁の薬材', gate: '薬令市の正門「薬令門」' },
     spots: {
       museum:   { n: '薬令市韓医薬博物館', d: '薬令市の歴史を集めた博物館。当店のすぐ隣です。' },
       jingolmok:{ n: 'チンゴルモク（陣路地）', d: '近代大邱の富豪たちが暮らした細長い路地。' },
@@ -136,6 +156,9 @@ export const hood = {
     ],
     courseTitle: '步行可达',
     courseNote: '※ 步行时间以本店（南城路 11）为起点，仅供参考。',
+    archiveTitle: '老地图与老巷',
+    archiveLede: '1930年地形图上的大邱市区 — 药令市沿着旧城墙南侧的路兴起，也就是今天的南城路。近400年药材在此往来，如今我们在同一条巷子里熬汤。',
+    archive: { map1930: '1930年大邱市区地形图（朝鲜总督府）', mural: '药令市巷子里的老药房壁画', herbs: '药田胡同的药材陈列', gate: '药令市正门「药令门」' },
     spots: {
       museum:   { n: '药令市韩医药博物馆', d: '收藏药令市历史的博物馆，就在本店旁边。' },
       jingolmok:{ n: '真胡同', d: '近代大邱富商聚居的狭长小巷。' },
@@ -168,6 +191,9 @@ export const hood = {
     ],
     courseTitle: '步行可達',
     courseNote: '※ 步行時間以本店（南城路 11）為起點，僅供參考。',
+    archiveTitle: '老地圖與老巷',
+    archiveLede: '1930 年地形圖上的大邱市區 — 藥令市沿著舊城牆南側的路興起，也就是今天的南城路。近 400 年藥材在此往來，如今我們在同一條巷子裡熬湯。',
+    archive: { map1930: '1930 年大邱市區地形圖（朝鮮總督府）', mural: '藥令市巷子裡的老藥房壁畫', herbs: '藥田巷的藥材陳列', gate: '藥令市正門「藥令門」' },
     spots: {
       museum:   { n: '藥令市韓醫藥博物館', d: '收藏藥令市歷史的博物館，就在本店旁邊。' },
       jingolmok:{ n: '真胡同', d: '近代大邱富商聚居的狹長小巷。' },

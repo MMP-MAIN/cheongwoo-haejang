@@ -1058,6 +1058,234 @@
       }
     ]
   },
+  "images/hood-gate.jpg": {
+    "w": 2000,
+    "h": 1333,
+    "src": "images/hood-gate.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/hood-gate-360.avif",
+        "bytes": 11025
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/hood-gate-720.avif",
+        "bytes": 38499
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/hood-gate-1080.avif",
+        "bytes": 77841
+      },
+      {
+        "w": 1600,
+        "h": 1066,
+        "path": "images/opt/hood-gate-1600.avif",
+        "bytes": 146014
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/hood-gate-360.webp",
+        "bytes": 18634
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/hood-gate-720.webp",
+        "bytes": 65136
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/hood-gate-1080.webp",
+        "bytes": 132028
+      },
+      {
+        "w": 1600,
+        "h": 1066,
+        "path": "images/opt/hood-gate-1600.webp",
+        "bytes": 243200
+      }
+    ]
+  },
+  "images/hood-herbs.jpg": {
+    "w": 1890,
+    "h": 1417,
+    "src": "images/hood-herbs.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 270,
+        "path": "images/opt/hood-herbs-360.avif",
+        "bytes": 13182
+      },
+      {
+        "w": 720,
+        "h": 540,
+        "path": "images/opt/hood-herbs-720.avif",
+        "bytes": 43349
+      },
+      {
+        "w": 1080,
+        "h": 810,
+        "path": "images/opt/hood-herbs-1080.avif",
+        "bytes": 81355
+      },
+      {
+        "w": 1600,
+        "h": 1200,
+        "path": "images/opt/hood-herbs-1600.avif",
+        "bytes": 144427
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 270,
+        "path": "images/opt/hood-herbs-360.webp",
+        "bytes": 22676
+      },
+      {
+        "w": 720,
+        "h": 540,
+        "path": "images/opt/hood-herbs-720.webp",
+        "bytes": 74880
+      },
+      {
+        "w": 1080,
+        "h": 810,
+        "path": "images/opt/hood-herbs-1080.webp",
+        "bytes": 139898
+      },
+      {
+        "w": 1600,
+        "h": 1200,
+        "path": "images/opt/hood-herbs-1600.webp",
+        "bytes": 235562
+      }
+    ]
+  },
+  "images/hood-map-1930.jpg": {
+    "w": 1800,
+    "h": 1200,
+    "src": "images/hood-map-1930.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/hood-map-1930-360.avif",
+        "bytes": 13512
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/hood-map-1930-720.avif",
+        "bytes": 47733
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/hood-map-1930-1080.avif",
+        "bytes": 86751
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/hood-map-1930-1600.avif",
+        "bytes": 141786
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 240,
+        "path": "images/opt/hood-map-1930-360.webp",
+        "bytes": 24288
+      },
+      {
+        "w": 720,
+        "h": 480,
+        "path": "images/opt/hood-map-1930-720.webp",
+        "bytes": 89490
+      },
+      {
+        "w": 1080,
+        "h": 720,
+        "path": "images/opt/hood-map-1930-1080.webp",
+        "bytes": 161612
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "path": "images/opt/hood-map-1930-1600.webp",
+        "bytes": 251308
+      }
+    ]
+  },
+  "images/hood-mural.jpg": {
+    "w": 2000,
+    "h": 1352,
+    "src": "images/hood-mural.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 243,
+        "path": "images/opt/hood-mural-360.avif",
+        "bytes": 7375
+      },
+      {
+        "w": 720,
+        "h": 487,
+        "path": "images/opt/hood-mural-720.avif",
+        "bytes": 24199
+      },
+      {
+        "w": 1080,
+        "h": 730,
+        "path": "images/opt/hood-mural-1080.avif",
+        "bytes": 46175
+      },
+      {
+        "w": 1600,
+        "h": 1082,
+        "path": "images/opt/hood-mural-1600.avif",
+        "bytes": 79634
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 243,
+        "path": "images/opt/hood-mural-360.webp",
+        "bytes": 12364
+      },
+      {
+        "w": 720,
+        "h": 487,
+        "path": "images/opt/hood-mural-720.webp",
+        "bytes": 36572
+      },
+      {
+        "w": 1080,
+        "h": 730,
+        "path": "images/opt/hood-mural-1080.webp",
+        "bytes": 64620
+      },
+      {
+        "w": 1600,
+        "h": 1082,
+        "path": "images/opt/hood-mural-1600.webp",
+        "bytes": 108330
+      }
+    ]
+  },
   "images/sketch-map.jpg": {
     "w": 2237,
     "h": 1978,
