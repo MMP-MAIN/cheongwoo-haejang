@@ -232,9 +232,9 @@ export const t = {
   en: {
     htmlLang: 'en',
     langName: 'English',
-    title: 'Cheongwoo Haejang | Korean Restaurant in Daegu — Galbitang, Beef Soup, Naengmyeon near Banwoldang',
+    title: 'Daegu Food | Cheongwoo Haejang — Korean Restaurant near Banwoldang (Galbitang, Beef Soup, Naengmyeon)',
     description:
-      `Looking for what to eat in Daegu? Cheongwoo Haejang is a family-run Korean restaurant in Yangnyeongsi, the 400-year-old herbal medicine alley — galbitang (short rib soup), Daegu beef soup, Pyeongyang naengmyeon in summer, braised ribs. English menu, 5 min from Banwoldang Station, open daily ${H.open}–${H.close}. Call +82-53-255-7052.`,
+      `Daegu food & travel: Cheongwoo Haejang is a family-run Korean restaurant in Yangnyeongsi, the 400-year-old herbal medicine alley — galbitang (short rib soup), Daegu beef soup, Pyeongyang naengmyeon in summer, braised ribs. English menu, 5 min from Banwoldang Station, open daily ${H.open}–${H.close}. Call +82-53-255-7052.`,
     keywords:
       'Daegu restaurant, Daegu food, what to eat in Daegu, haejang-guk, Korean beef soup, galbitang, Korean beef short rib soup, galbijjim, Daegu braised short ribs, spicy braised ribs, Banwoldang, Yangnyeongsi herbal medicine market, Daegu Modern History Street, Korean restaurant Daegu, Seomun Market food, Daegu 10 tastes',
     ogLocale: 'en_US',
@@ -313,6 +313,7 @@ export const t = {
 
     faqTitle: 'Frequently asked',
     faq: [
+      { q: 'What food is Daegu famous for?', a: 'Daegu’s signature dishes are jjim-galbi (spicy braised short ribs), ttaro-gukbap (Daegu-style beef soup) and Pyeongyang-style naengmyeon in summer — all on our menu, a 5-minute walk from Banwoldang Station in the Yangnyeongsi herbal alley.' },
       { q: 'Can I make a reservation?', a: 'Yes, by phone. We accept group bookings for up to 40 people. Call +82 53-255-7052.' },
       { q: 'Is there parking?', a: 'No private car park, but the Yangnyeongsi West Gate public car park is a 1-minute walk away, with 2–3 more within 2–4 minutes. See “Getting here” for directions links.' },
       { q: 'Is there a break time?', a: hasBreak
@@ -335,9 +336,9 @@ export const t = {
   ja: {
     htmlLang: 'ja',
     langName: '日本語',
-    title: 'チョンウヘジャン｜大邱グルメ・薬令市の韓国料理店 — カルビタン・ヘジャンクク・平壌冷麺（半月堂駅）',
+    title: '大邱グルメ・大邱観光の食事に｜チョンウヘジャン — 薬令市の韓国料理店（半月堂 ランチ・カルビタン・冷麺）',
     description:
-      `大邱グルメなら薬令市の韓国料理店チョンウヘジャン。牛骨をじっくり煮出したカルビタン、大邱式ヘジャンクク、夏は平壌冷麺、辛口カルビチム。日本語メニューあり。半月堂駅から徒歩5分、近代路地ツアーの途中に。毎日${H.open}〜${H.close}、電話予約 +82-53-255-7052。`,
+      `大邱観光・大邱グルメなら薬令市の韓国料理店チョンウヘジャン。半月堂のランチにも。牛骨をじっくり煮出したカルビタン、大邱式ヘジャンクク、夏は平壌冷麺、辛口カルビチム。日本語メニューあり。半月堂駅から徒歩5分、近代路地ツアーの途中に。毎日${H.open}〜${H.close}、電話予約 +82-53-255-7052。`,
     keywords:
       '大邱 グルメ, 大邱 レストラン, 大邱 韓国料理, 大邱 名物, ヘジャンクク, カルビタン, カルビチム, 大邱 カルビチム, 辛口カルビチム, 半月堂, 薬令市, 大邱 近代路地, 大邱 旅行, 西門市場 グルメ, 東城路 グルメ, 大邱十味',
     ogLocale: 'ja_JP',
@@ -416,6 +417,7 @@ export const t = {
 
     faqTitle: 'よくある質問',
     faq: [
+      { q: '大邱観光でおすすめの食事は？', a: '大邱の名物はカルビチム（辛口の牛カルビ煮込み）、タロクッパ（大邱式牛肉スープ）、夏の平壌冷麺。当店で全部召し上がれます。半月堂駅から徒歩5分、薬令市の路地です。' },
       { q: '予約はできますか。', a: 'はい、お電話で承ります。40名以下の団体予約も可能です。+82 53-255-7052 までどうぞ。' },
       { q: '駐車場はありますか。', a: '専用駐車場はありませんが、薬令市西門公営駐車場が徒歩1分です。他にも徒歩2〜4分に2〜3か所あります。「アクセス」に経路リンクがあります。' },
       { q: '休憩時間はありますか。', a: hasBreak
@@ -438,7 +440,7 @@ export const t = {
   zh: {
     htmlLang: 'zh-Hans',
     langName: '中文',
-    title: '青友解酲｜大邱美食・药令市韩式餐厅 — 排骨汤・牛肉汤・平壤冷面（半月堂站）',
+    title: '大邱美食・大邱旅游必吃｜青友解酲 — 药令市韩式餐厅（近代胡同旁・半月堂站）',
     description:
       `大邱美食推荐：药令市（药田胡同）的韩式餐厅青友解酲。慢熬牛骨排骨汤、大邱式牛肉汤、夏季平壤冷面、辣炖牛排骨。有中文菜单。半月堂站步行5分钟，近代胡同游览路线上。每天 ${H.open}–${H.close} 营业，电话预订 +82-53-255-7052。`,
     keywords:
@@ -519,6 +521,7 @@ export const t = {
 
     faqTitle: '常见问题',
     faq: [
+      { q: '大邱必吃美食有哪些？', a: '大邱的招牌是炖排骨（辣味牛排骨）、大邱式牛肉汤（따로국밥）和夏天的平壤冷面 — 本店都有。半月堂站步行5分钟，就在药令市胡同里。' },
       { q: '可以预订吗？', a: '可以，请致电预订。也接受 40 人以下的团体预订。电话 +82 53-255-7052。' },
       { q: '有停车场吗？', a: '没有专用停车场，但药令市西门公共停车场步行仅 1 分钟，附近还有 2〜3 个停车场。「交通」区有导航链接。' },
       { q: '有休息时间吗？', a: hasBreak
