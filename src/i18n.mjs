@@ -129,7 +129,7 @@ export const t = {
   ko: {
     htmlLang: 'ko',
     langName: '한국어',
-    title: '청우해장 — 대구 약전골목 한식당 | 갈비탕·평양냉면·해장국 · 반월당역 대구맛집',
+    title: '청우해장 — 대구 약전골목 한식당 | 갈비탕·소갈비찜·평양냉면 · 반월당·동성로 대구맛집',
     description:
       `대구 중구 남성로 청우해장. 약령시 약전골목의 소고기 국물 한식당 — 약전 소갈비탕, 청우 평양냉면(여름), 맑은·얼큰 해장국, 소갈비찜 마늘폭탄, 소꼬리찜. 반월당역 도보 5분, 근대골목투어 코스 대구맛집. 매일 ${H.open}~${H.close}, 전화 예약 053-255-7052.`,
     keywords:
@@ -232,7 +232,7 @@ export const t = {
   en: {
     htmlLang: 'en',
     langName: 'English',
-    title: 'Daegu Food | Cheongwoo Haejang — Korean Restaurant near Banwoldang (Galbitang, Beef Soup, Naengmyeon)',
+    title: 'Korean Restaurant in Daegu | Cheongwoo Haejang — Daegu Food near Banwoldang (Galbitang, Beef Soup, Naengmyeon)',
     description:
       `Daegu food & travel: Cheongwoo Haejang is a family-run Korean restaurant in Yangnyeongsi, the 400-year-old herbal medicine alley — galbitang (short rib soup), Daegu beef soup, Pyeongyang naengmyeon in summer, braised ribs. English menu, 5 min from Banwoldang Station, open daily ${H.open}–${H.close}. Call +82-53-255-7052.`,
     keywords:

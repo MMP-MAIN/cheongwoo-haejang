@@ -66,7 +66,7 @@ export const hood = {
   },
 
   en: {
-    kicker: 'The neighbourhood',
+    kicker: 'Things to do in Daegu — around us',
     title: 'Four centuries of herbal medicine —<br>and a pot of broth in the middle of it',
     lede:
       'Namseong-ro is not just a street. It is the main lane of <strong>Yangnyeongsi</strong>, Daegu’s historic herbal medicine market, and it sits on the route of the <strong>Modern History Street</strong> walking tour.',
@@ -101,7 +101,7 @@ export const hood = {
   },
 
   ja: {
-    kicker: 'この街のこと',
+    kicker: '大邱観光 — お店のまわり',
     title: '350年の薬田横丁、<br>その真ん中でスープを炊く',
     lede:
       '南城路はただの通りではありません。朝鮮時代から漢方薬材が行き交った<strong>薬令市</strong>の本通りであり、今日の<strong>近代路地ツアー</strong>が通る道です。',
@@ -136,7 +136,7 @@ export const hood = {
   },
 
   zh: {
-    kicker: '街区故事',
+    kicker: '大邱景点 — 本店周边',
     title: '三百五十年的药田胡同，<br>我们在正中间熬汤',
     lede:
       '南城路不只是一条路。它是朝鲜时代以来药材往来的<strong>药令市</strong>主街，也是今天<strong>近代胡同游览</strong>路线经过的地方。',
@@ -171,7 +171,7 @@ export const hood = {
   },
 
   tw: {
-    kicker: '街區故事',
+    kicker: '大邱景點 — 本店周邊',
     title: '三百五十年的藥田巷，<br>我們在正中間熬湯',
     lede:
       '南城路不只是一條路。它是朝鮮時代以來藥材往來的<strong>藥令市</strong>主街，也是今天<strong>近代胡同散步</strong>路線經過的地方。',
