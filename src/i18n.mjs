@@ -142,9 +142,9 @@ export const t = {
     skip: '본문 바로가기',
 
     heroBadge: '대구 중구 · 약령시 약전골목',
-    heroTitle: '속 편한 소고기 국물,<br>약전골목의 한식당',
+    heroTitle: '몸을 돌보는 한 그릇,<br>약령시 약전골목에서',
     heroLede:
-      '반월당역에서 걸어 5분. 약전골목 안쪽 <strong>청우해장</strong>은 양지와 사태를 오래 고아 낸 소고기 국물로 <strong>갈비탕</strong>·<strong>해장국</strong>·<strong>평양냉면</strong>을 냅니다. 아침 첫 끼로, 가족 외식으로, 어르신 모시는 자리로. 근대골목투어 중간에 들르기 좋습니다.',
+      '400년 약령시 골목 안, <strong>청우해장</strong>은 양지와 사태를 하루 종일 고아 낸 맑은 소고기 국물로 <strong>갈비탕</strong>·<strong>해장국</strong>·<strong>평양냉면</strong>을 냅니다. 자극은 덜고 국물은 깊게 — 아침 첫 끼로, 어르신 모시는 상으로, 가족의 든든한 외식으로.',
     heroCtaCall: '전화로 예약하기',
     heroCtaDir: '길찾기',
     heroCtaMap: '약도 보기',
@@ -162,9 +162,9 @@ export const t = {
     quickPark: '주차',
     quickParkVal: '전용 주차장 없음 · 약령시서문 공영주차장 도보 1분',
 
-    storyTitle: '청우해장은',
+    storyTitle: '청우해장이 지키는 것',
     storyLede:
-      '대구 약령시 약전골목, 근대골목투어 길목에 있는 한식당입니다. 관광 오신 분도 근처에서 일하시는 분도 부담 없이 한 끼 드시고 가시라고 문을 열었습니다.',
+      '약을 다루던 골목에서 밥을 짓습니다. 화려한 양념보다 오래 고은 국물, 한 그릇으로 속이 편해지는 밥상 — 대구를 찾는 분들과 이 동네 어르신들께 몸이 기억하는 한 끼를 드리는 것이 청우해장의 바람입니다.',
     story: [
       { h: '국물이 먼저입니다', p: '아침마다 양지와 사태를 눌러 국물부터 냅니다. 맑은 해장국은 자극 없이, 얼큰 해장국은 다진 양념을 풀어 얼큰하게. 같은 국물에서 두 갈래로 나갑니다. 「해장」이라는 이름이지만 아침·점심 든든한 한 끼로 오시는 분이 더 많습니다.' },
       { h: '어르신 모시기 좋은 상', p: '맑은 갈비탕과 아롱사태수육은 맵지 않습니다. 생신·어버이날·가족 모임 상차림으로 가장 많이 찾으시는 메뉴입니다.' },
@@ -245,9 +245,9 @@ export const t = {
     skip: 'Skip to content',
 
     heroBadge: 'Jung-gu, Daegu · Herbal Medicine Alley',
-    heroTitle: 'Slow beef broth,<br>in Daegu’s herbal alley.',
+    heroTitle: 'A bowl that looks after you,<br>in Daegu’s herbal alley.',
     heroLede:
-      'Five minutes on foot from Banwoldang Station, tucked inside Yakjeon-golmok. <strong>Cheongwoo Haejang</strong> is a Korean restaurant built around beef broth simmered from dawn — short rib soup, beef soup, cold noodles in summer. Breakfast, family lunch, or a stop on the Modern History Street walk.',
+      'Inside Yangnyeongsi, Daegu’s 400-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> serves clear beef broth simmered all day from brisket and shank — short rib soup, beef soup, cold noodles in summer. Less seasoning, deeper broth: breakfast, a meal with elders, a wholesome family lunch.',
     heroCtaCall: 'Call to book',
     heroCtaDir: 'Directions',
     heroCtaMap: 'Sketch map',
@@ -265,9 +265,9 @@ export const t = {
     quickPark: 'Parking',
     quickParkVal: 'No private lot · public car park 1 min away',
 
-    storyTitle: 'About us',
+    storyTitle: 'What we hold to',
     storyLede:
-      'We are a Korean restaurant inside Yakjeon-golmok, the 400-year-old herbal medicine alley of Daegu, right on the Modern History Street walking route. Visitors and neighbourhood regulars eat side by side.',
+      'We cook in an alley that once dealt in medicine. Long-simmered broth over heavy seasoning, a table that leaves you settled rather than stuffed — our hope is that visitors to Daegu and the neighbourhood’s elders remember one honest bowl.',
     story: [
       { h: 'The broth comes first', p: 'Beef bones go on every morning. The clear haejang-guk is gentle and not spicy; the spicy version is the same broth with our own chili paste stirred in.' },
       { h: 'Easy for elders and children', p: 'The clear short rib soup and the boiled beef shank carry no chili at all. These are what families order for birthdays and holidays.' },
@@ -348,9 +348,9 @@ export const t = {
     skip: '本文へ',
 
     heroBadge: '大邱・中区 薬令市 薬田横丁',
-    heroTitle: 'じっくり煮出した牛肉スープ、<br>薬田横丁の韓国料理店。',
+    heroTitle: '体をいたわる一杯を、<br>薬令市の薬田横丁で。',
     heroLede:
-      '半月堂駅から徒歩5分、薬田横丁の中ほど。<strong>チョンウヘジャン</strong>は毎朝仕込む牛肉スープが自慢の韓国料理店です。カルビタン、ヘジャンクク、夏は平壌冷麺。朝食にも、ご家族の食事にも、近代路地ツアーの途中にも。',
+      '400年の歴史をもつ薬令市の路地で、<strong>チョンウヘジャン</strong>は牛バラとスネ肉を一日かけて煮出した澄んだスープをお出しします。カルビタン、ヘジャンクク、夏は平壌冷麺。刺激は控えめに、スープは深く — 朝食に、ご年配の方との食事に、家族の健やかな外食に。',
     heroCtaCall: '電話で予約',
     heroCtaDir: '道順を見る',
     heroCtaMap: '略図を見る',
@@ -368,9 +368,9 @@ export const t = {
     quickPark: '駐車場',
     quickParkVal: '専用駐車場なし · 徒歩1分に公営駐車場',
 
-    storyTitle: 'お店について',
+    storyTitle: '私たちが大切にしていること',
     storyLede:
-      '大邱・薬令市の薬田横丁、近代路地ツアーの通り道にある韓国料理店です。観光の方も近所の常連さんも、気軽に一杯どうぞ。',
+      'かつて薬を商った路地で、ご飯を炊いています。派手な味付けよりも長く煮出したスープ、一杯で体が落ち着く食卓 — 大邱を訪れる方と地元のご年配の方に、体が覚えている一食をお届けするのが私たちの願いです。',
     story: [
       { h: 'まずスープから', p: '毎朝、牛骨を寸胴にかけるところから始めます。澄んだヘジャンククは辛くなく、辛口は同じスープに自家製の薬味を溶いたものです。' },
       { h: 'ご年配の方にも', p: 'カルビタンと牛すね肉のスユクは全く辛くありません。ご家族のお祝いの席で最も多くご注文いただくメニューです。' },
@@ -451,9 +451,9 @@ export const t = {
     skip: '跳到正文',
 
     heroBadge: '大邱中区 · 药令市药田胡同',
-    heroTitle: '慢火熬煮的牛肉汤，<br>药田胡同里的韩式餐厅。',
+    heroTitle: '一碗照顾身体的汤，<br>在药令市药田胡同。',
     heroLede:
-      '从半月堂站步行5分钟，就在药田胡同里。<strong>青友解酲</strong>是一家以牛肉汤为本的韩式餐厅：排骨汤、牛肉汤、夏天有平壤冷面。早餐、家庭聚餐、近代胡同游览途中都合适。',
+      '在有 400 年历史的药令市胡同里，<strong>青友解酲</strong>用牛腩和牛腱熬上一整天的清汤，做排骨汤、牛肉汤，夏天有平壤冷面。少些刺激，多些汤的深度 — 早餐、陪长辈用餐、一家人安心的外食。',
     heroCtaCall: '电话预订',
     heroCtaDir: '查看路线',
     heroCtaMap: '查看简图',
@@ -471,9 +471,9 @@ export const t = {
     quickPark: '停车',
     quickParkVal: '无专用停车场 · 步行1分钟有公共停车场',
 
-    storyTitle: '关于我们',
+    storyTitle: '我们坚持的',
     storyLede:
-      '我们是一家位于大邱药令市药田胡同的韩式餐厅，就在近代胡同游览路线上。游客与街坊常客同桌而食。',
+      '在曾经卖药的胡同里做饭。比起浓重调味，我们更看重久熬的汤，一碗下去让身体舒坦的一餐 — 让来大邱的客人和街坊长辈记住一碗踏实的汤，是青友解酲的心愿。',
     story: [
       { h: '汤是根本', p: '每天清晨从熬牛骨开始。清汤解酒汤不辣，香辣款是同一锅汤加入自制辣酱。' },
       { h: '适合长辈与孩子', p: '清汤排骨汤和水煮牛腱片完全不辣，是家庭聚餐与寿宴最常点的菜。' },

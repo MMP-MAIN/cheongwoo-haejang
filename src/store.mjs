@@ -25,7 +25,7 @@ export const site = {
   // 값이 있을 때만 <meta> 태그가 생깁니다. 발급받으면 여기 넣고 다시 빌드하세요.
   //  네이버 : searchadvisor.naver.com → 웹마스터도구 → 사이트 등록 → HTML 태그
   //  구글   : search.google.com/search-console → 속성 추가 → HTML 태그
-  naverSiteVerification: '',
+  naverSiteVerification: 'fd001768c8619e0b6edf18ebbfebf52a805cfa8f',   // 서치어드바이저 (2026-08-19)
   googleSiteVerification: 'ucPfF2Kfn43TwqNxO72CR-TdrTEGyaWWvG9I_b9Qs58',   // 서치콘솔 URL 접두어 속성 (2026-08-18)
   bingSiteVerification: '',
 
