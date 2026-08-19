@@ -457,3 +457,43 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - 대만은 「大邱景點」(2,900) ≫ 自由行 · 美食. 홈페이지 번체 페이지는 "景點 옆 맛집" 프레임.
 - 한국어 구글은 네이버보다 훨씬 작지만 순위는 같음: 대구 맛집 > 동성로 맛집 > 대구 여행 > 서문시장 > 근대골목 > 반월당 > 찜갈비. 「대구 갈비탕」(90)·「대구 해장국」(70)은 작고, **「대구 찜갈비」(390)** 이 메뉴 키워드 중 최대 → 한국어 title 에 소갈비찜 추가, 동성로 추가.
 - 계획은 키워드 플래너에 「8월 19, 2026 … 생성된 계획」으로 저장돼 있음. 위치를 바꿔가며 다시 볼 수 있습니다.
+
+## 부록 D. 구글 검색광고 초안 — 외국인 검색 (2026-08-19 작성, 미게시)
+
+계정 699-589-9109 · 캠페인 「청우해장 | 외국인 검색 (EN·JA·ZH)」 · draftId 10209996139
+**상태: 초안(미게시). 예산 단계에서 구글이 본인 인증(비밀번호)을 요구해 멈춤 → 사장님이 인증 후 이어서 진행.**
+
+| 항목 | 설정 |
+|---|---|
+| 목표 / 유형 | 웹사이트 트래픽 / 검색 |
+| 입찰 | 클릭수 최대화, 최대 CPC ₩500 |
+| 네트워크 | 검색만 (디스플레이 OFF) · AI Max OFF |
+| 위치 | 일본 · 대만 · 홍콩 · 싱가포르 · 대한민국 · 미국 |
+| 언어 | 영어 · 일본어 · 중국어(간체·번체) |
+| 일일예산 | **₩5,000~10,000 권장** (구글 추천 ₩13,883 은 무시) |
+| 전환 | AW-11423300289 전화걸기 / 길찾기 (assets/config.js 에 이미 연결) |
+
+### 광고그룹 1 — EN (최종 URL https://cheongwoohaejang.com/en.html, 표시경로 /daegu/korean-food)
+
+키워드(구문검색): "daegu korean restaurant" "korean restaurant daegu" "daegu restaurant" "restaurants in daegu" "daegu food" "things to do in daegu" "what to eat in daegu" "where to eat in daegu" "daegu food guide" "daegu travel" "daegu galbitang" "banwoldang restaurant"
+
+광고제목(12): Korean Restaurant in Daegu · Cheongwoo Haejang · Daegu · Galbitang & Beef Short Ribs · 5 Min from Banwoldang Station · English Menu · Family Friendly · Yangnyeongsi Herbal Market · Open Daily 11:00–22:00 · Best Daegu Restaurant Pick · Daegu Food: Beef Rib Soup · What to Eat in Daegu · Things to Do in Daegu · Eat · Reserve by Phone · Groups OK
+
+설명(4): Traditional Korean beef soups & braised short ribs in Daegu's historic Yangnyeongsi alley. / Near Banwoldang & Dongseongno. Non-spicy options for kids & elders. English menu online. / Family-run Korean restaurant. Slow-simmered beef bone broth, made fresh every morning. / Reservations & groups up to 40 welcome. Call +82-53-255-7052 or view the English menu.
+
+사이트링크(4): English Menu → #menu · Directions & Map → #visit · FAQ for Travelers → #faq · Photos & Herb Alley → #gallery · 업체명 Cheongwoo Haejang
+
+### 광고그룹 2 — JA (게시 후 추가, 최종 URL /ja.html)
+키워드: "大邱 観光" "大邱 グルメ" "テグ 観光" "テグ グルメ" "大邱 レストラン" "大邱 韓国料理" "大邱 カルビタン" "大邱 旅行 食事"
+광고제목 예: 大邱グルメ・薬令市の韓国料理店 / 大邱観光の食事に｜青友解酲 / カルビタン・チムカルビ / 半月堂駅から徒歩5分 / 日本語メニューあり / 毎日 11:00–22:00
+설명 예: 大邱の薬令市（薬田通り）にある韓国料理店。牛骨スープのカルビタンと大邱名物チムカルビ。日本語メニューをスマホで見せるだけで注文OK。
+
+### 광고그룹 3 — ZH (게시 후 추가, 최종 URL /tw.html 번체 · /zh.html 간체)
+키워드: "大邱景點" "大邱美食" "大邱自由行" "大邱旅游" "大邱必吃" "大邱餐廳" "大邱韓式料理" "大邱排骨湯"
+광고제목 예: 大邱美食・藥令市韓式餐廳 / 大邱自由行必吃｜青友解酲 / 排骨湯・辣燉排骨 / 半月堂站步行5分鐘 / 有中文菜單 / 每天 11:00–22:00
+설명 例: 大邱藥令市（藥田巷）的韓式餐廳。牛骨清湯排骨湯與大邱十味辣燉排骨。把中文菜單拿給店員看就能點餐。
+
+### 게시 전 확인
+1. 본인 인증 통과 → 예산 ₩5,000~10,000/일 입력 → 검토 → **게시 버튼은 사장님 확인 후**.
+2. 게시 직후 캠페인 상태를 「일시중지」로 두고 JA·ZH 광고그룹 추가 → 검토 후 사용 설정.
+3. 첫 2주는 검색어 보고서에서 레시피성 검색어(beef broth 등)를 제외 키워드로 넣기.
