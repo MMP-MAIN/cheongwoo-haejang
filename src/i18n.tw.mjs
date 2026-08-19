@@ -40,7 +40,7 @@ export const galleryAltTw = {
 export const tw = {
   htmlLang: 'zh-Hant',
   langName: '繁體中文',
-  title: '青友解酲 — 大邱藥令市辣燉排骨・排骨湯・解酒湯｜半月堂站大邱美食',
+  title: '青友解酲｜大邱美食・藥令市韓式餐廳 — 排骨湯・辣燉排骨・平壤冷麵（半月堂站）',
   description:
     `大邱藥令市（藥田巷）的韓式餐廳，半月堂站步行 5 分鐘。大邱十味之一的辣燉排骨（찜갈비）、堆滿牛排骨的清湯排骨湯、清湯與香辣解酒湯。就在近代胡同散步路線上，藥令市韓醫藥博物館旁邊。每天 ${H.open}–${H.close}，可電話訂位。`,
   keywords:

@@ -232,9 +232,9 @@ export const t = {
   en: {
     htmlLang: 'en',
     langName: 'English',
-    title: 'Cheongwoo Haejang — Korean Beef Soup & Short Rib Soup in Daegu',
+    title: 'Cheongwoo Haejang | Korean Restaurant in Daegu — Galbitang, Beef Soup, Naengmyeon near Banwoldang',
     description:
-      `A Korean restaurant in Yakjeon-golmok, the herbal medicine alley of central Daegu. Clear and spicy haejang-guk, short rib soup, braised ribs. 5 minutes on foot from Banwoldang Station. Open daily ${H.open}–${H.close}.`,
+      `Looking for what to eat in Daegu? Cheongwoo Haejang is a family-run Korean restaurant in Yangnyeongsi, the 400-year-old herbal medicine alley — galbitang (short rib soup), Daegu beef soup, Pyeongyang naengmyeon in summer, braised ribs. English menu, 5 min from Banwoldang Station, open daily ${H.open}–${H.close}. Call +82-53-255-7052.`,
     keywords:
       'Daegu restaurant, Daegu food, what to eat in Daegu, haejang-guk, Korean beef soup, galbitang, Korean beef short rib soup, galbijjim, Daegu braised short ribs, spicy braised ribs, Banwoldang, Yangnyeongsi herbal medicine market, Daegu Modern History Street, Korean restaurant Daegu, Seomun Market food, Daegu 10 tastes',
     ogLocale: 'en_US',
@@ -335,9 +335,9 @@ export const t = {
   ja: {
     htmlLang: 'ja',
     langName: '日本語',
-    title: 'チョンウヘジャン — 大邱・薬田横丁のヘジャンククとカルビタン',
+    title: 'チョンウヘジャン｜大邱グルメ・薬令市の韓国料理店 — カルビタン・ヘジャンクク・平壌冷麺（半月堂駅）',
     description:
-      `大邱中区南城路の韓国料理店。牛骨をじっくり煮出したヘジャンクク、カルビが山盛りのカルビタン、辛口カルビチム。半月堂駅から徒歩5分、近代路地ツアーの途中に。毎日${H.open}〜${H.close}。`,
+      `大邱グルメなら薬令市の韓国料理店チョンウヘジャン。牛骨をじっくり煮出したカルビタン、大邱式ヘジャンクク、夏は平壌冷麺、辛口カルビチム。日本語メニューあり。半月堂駅から徒歩5分、近代路地ツアーの途中に。毎日${H.open}〜${H.close}、電話予約 +82-53-255-7052。`,
     keywords:
       '大邱 グルメ, 大邱 レストラン, 大邱 韓国料理, 大邱 名物, ヘジャンクク, カルビタン, カルビチム, 大邱 カルビチム, 辛口カルビチム, 半月堂, 薬令市, 大邱 近代路地, 大邱 旅行, 西門市場 グルメ, 東城路 グルメ, 大邱十味',
     ogLocale: 'ja_JP',
@@ -438,9 +438,9 @@ export const t = {
   zh: {
     htmlLang: 'zh-Hans',
     langName: '中文',
-    title: '青友解酲 — 大邱药田胡同的解酒汤与排骨汤',
+    title: '青友解酲｜大邱美食・药令市韩式餐厅 — 排骨汤・牛肉汤・平壤冷面（半月堂站）',
     description:
-      `位于大邱中区南城路的韩式餐厅。清汤与香辣解酒汤、堆满牛排骨的排骨汤、辣炖牛排骨。半月堂站步行5分钟，近代胡同游览路线上。每天 ${H.open}–${H.close} 营业。`,
+      `大邱美食推荐：药令市（药田胡同）的韩式餐厅青友解酲。慢熬牛骨排骨汤、大邱式牛肉汤、夏季平壤冷面、辣炖牛排骨。有中文菜单。半月堂站步行5分钟，近代胡同游览路线上。每天 ${H.open}–${H.close} 营业，电话预订 +82-53-255-7052。`,
     keywords:
       '大邱美食, 大邱美食推荐, 大邱必吃, 大邱餐厅, 大邱韩餐, 大邱自由行, 解酒汤, 排骨汤, 炖排骨, 辣炖排骨, 大邱炖排骨, 半月堂, 药令市, 大邱近代胡同, 大邱旅游, 大邱景点, 西门市场美食, 东城路美食, 大邱十味',
     ogLocale: 'zh_CN',
