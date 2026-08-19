@@ -268,37 +268,19 @@ function sketchMap(lang) {
           s1: '從半月堂站往「The Hyundai 大邱」方向的出口出來', s2: '沿百貨公司旁的小巷向北走 3 分鐘', s3: '經過博物館，在藥田巷左轉 → 本店', total: '步行 4 分鐘', print: '列印簡圖', close: '關閉' },
   }[lang];
   const e = esc;
-  const svg = `<svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Pretendard,-apple-system,'Apple SD Gothic Neo','Noto Sans JP','Noto Sans SC',sans-serif">
-    <title>${e(T.title)} — ${e(T.store)}</title>
-    <rect width="800" height="560" fill="#fbfaf7"/>
-    <g transform="translate(756,40)" fill="#1c1916"><path d="M0-20 L9 8 L0 2 L-9 8Z"/><text y="30" font-size="16" text-anchor="middle" font-weight="700">${e(T.n)}</text></g>
-    <!-- 약전골목 (가로) -->
-    <rect x="0" y="150" width="800" height="34" fill="#e9e3d8"/>
-    <text x="22" y="174" font-size="19" fill="#5d554d" font-weight="700">${e(T.road)}</text>
-    <!-- 백화점 옆 골목 (세로) -->
-    <rect x="548" y="150" width="30" height="270" fill="#e9e3d8"/>
-    <!-- 주차장 -->
-    <g transform="translate(96,70)"><rect x="-18" y="-18" width="36" height="36" rx="7" fill="#1c3f86"/><text y="8" font-size="22" fill="#fff" text-anchor="middle" font-weight="800">P</text><text y="44" font-size="15" fill="#1c1916" text-anchor="middle">${e(T.park)}</text></g>
-    <!-- 박물관 (꺾는 지점 표지) -->
-    <g transform="translate(470,236)"><rect x="-64" y="-24" width="128" height="48" rx="6" fill="#d9d2c4"/><text y="7" font-size="17" text-anchor="middle" fill="#1c1916" font-weight="700">${e(T.museum)}</text></g>
-    <!-- 더현대 + 역 -->
-    <g transform="translate(470,455)"><rect x="-84" y="-30" width="168" height="60" rx="8" fill="#d9d2c4"/><text y="7" font-size="19" text-anchor="middle" fill="#1c1916" font-weight="700">${e(T.dept)}</text></g>
-    <g transform="translate(600,455)"><circle r="19" fill="#1c6b48"/><text y="7" font-size="19" fill="#fff" text-anchor="middle" font-weight="800">M</text><text x="28" y="-2" font-size="20" fill="#1c1916" font-weight="700">${e(T.station)}</text><text x="28" y="22" font-size="15" fill="#5d554d">${e(T.exit)}</text></g>
-    <!-- 경로 -->
-    <path d="M563 420 L563 167 L392 167" fill="none" stroke="#b8843a" stroke-width="7" stroke-dasharray="12 9" stroke-linecap="round"/>
-    <path d="M396 167 L378 156 L378 178Z" fill="#b8843a"/>
-    <!-- 번호 표지 -->
-    <g font-size="17" font-weight="800" fill="#fff"><circle cx="563" cy="420" r="15" fill="#b8843a"/><text x="563" y="426" text-anchor="middle">1</text><circle cx="563" cy="300" r="15" fill="#b8843a"/><text x="563" y="306" text-anchor="middle">2</text><circle cx="563" cy="167" r="15" fill="#b8843a"/><text x="563" y="173" text-anchor="middle">3</text></g>
-    <!-- 청우해장 -->
-    <g transform="translate(300,104)"><rect x="-90" y="-34" width="180" height="60" rx="9" fill="#1c1916"/><text y="6" font-size="26" text-anchor="middle" fill="#fff" font-weight="800">${e(T.store)}</text><path d="M0 26 L-12 44 L12 44Z" fill="#1c1916"/></g>
-    <!-- 안내 3줄 -->
-    <g transform="translate(22,258)" font-size="17" fill="#1c1916">
-      <circle cx="12" cy="-6" r="13" fill="#b8843a"/><text x="12" y="-1" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">1</text><text x="34" y="0">${e(T.s1)}</text>
-      <circle cx="12" cy="30" r="13" fill="#b8843a"/><text x="12" y="35" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">2</text><text x="34" y="36">${e(T.s2)}</text>
-      <circle cx="12" cy="66" r="13" fill="#b8843a"/><text x="12" y="71" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">3</text><text x="34" y="72">${e(T.s3)}</text>
-      <text x="0" y="112" font-size="20" font-weight="800" fill="#8f6322">${e(T.total)}</text>
-    </g>
-  </svg>`;
+  // 실사 지도: tools/sketch-map.mjs 가 OSM 타일 + 실제 도보 경로로 만든 images/sketch-map.jpg
+  // (지도 라벨은 한국어. 다른 언어는 아래 3단계 안내가 번역돼 나갑니다.)
+  const mapImg = picture('images/sketch-map.jpg', `${T.title} — ${T.store}`, {
+    w: 2237, h: 1978, sizes: '(max-width: 700px) 100vw, 1000px', attrs: 'loading="lazy" decoding="async"',
+  });
+  const steps = `
+    <ol class="sketch-steps">
+      <li><b>1</b><span>${e(T.s1)}</span></li>
+      <li><b>2</b><span>${e(T.s2)}</span></li>
+      <li><b>3</b><span>${e(T.s3)}</span></li>
+    </ol>
+    <p class="sketch-total">${e(T.total)} · <span class="sketch-p">P</span> ${e(T.park)}</p>`;
+  const svg = `<div class="sketch-body"><div class="sketch-img">${mapImg}</div><div class="sketch-side">${steps}</div></div>`;
   const figure = `
 <figure class="sketch" id="sketch" aria-label="${e(T.title)}">
   ${svg}

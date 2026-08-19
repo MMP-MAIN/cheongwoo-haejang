@@ -1057,5 +1057,62 @@
         "bytes": 259390
       }
     ]
+  },
+  "images/sketch-map.jpg": {
+    "w": 2237,
+    "h": 1978,
+    "src": "images/sketch-map.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 318,
+        "path": "images/opt/sketch-map-360.avif",
+        "bytes": 9187
+      },
+      {
+        "w": 720,
+        "h": 637,
+        "path": "images/opt/sketch-map-720.avif",
+        "bytes": 24659
+      },
+      {
+        "w": 1080,
+        "h": 955,
+        "path": "images/opt/sketch-map-1080.avif",
+        "bytes": 44330
+      },
+      {
+        "w": 1600,
+        "h": 1415,
+        "path": "images/opt/sketch-map-1600.avif",
+        "bytes": 78375
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 318,
+        "path": "images/opt/sketch-map-360.webp",
+        "bytes": 12562
+      },
+      {
+        "w": 720,
+        "h": 637,
+        "path": "images/opt/sketch-map-720.webp",
+        "bytes": 36778
+      },
+      {
+        "w": 1080,
+        "h": 955,
+        "path": "images/opt/sketch-map-1080.webp",
+        "bytes": 70004
+      },
+      {
+        "w": 1600,
+        "h": 1415,
+        "path": "images/opt/sketch-map-1600.webp",
+        "bytes": 123122
+      }
+    ]
   }
 }
