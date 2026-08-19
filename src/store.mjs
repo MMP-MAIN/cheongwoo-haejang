@@ -84,7 +84,7 @@ export const store = {
 
   // 구글지도에서 매장을 열고 공유 → 링크 복사 하면 나오는
   // maps.app.goo.gl/... 또는 ?cid=1234567890 의 숫자
-  googleCid: '',
+  googleCid: '14305556628635675431',   // 구글 비즈니스 프로필 (청우해장 4.8★, 이 계정이 소유자) 2026-08-19
 
   naverBookingUrl: '',     // 네이버 예약 URL (있으면 예약 버튼 생성)
   instagramUrl: 'https://www.instagram.com/chungwoo.official/',
