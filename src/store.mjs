@@ -29,6 +29,11 @@ export const site = {
   googleSiteVerification: 'ucPfF2Kfn43TwqNxO72CR-TdrTEGyaWWvG9I_b9Qs58',   // 서치콘솔 URL 접두어 속성 (2026-08-18)
   bingSiteVerification: '',
 
+  // ---- IndexNow 키 (네이버·빙이 지원) ----
+  // 사이트 루트에 <키>.txt 파일이 있고, 그 파일 내용이 키와 같아야 합니다.
+  // tools/indexnow.mjs 가 이 키로 네이버에 URL 색인 요청을 보냅니다.
+  indexNowKey: 'a37cc1cdea8115f6f2f89e39ee9ed47c',
+
   langs: ['ko', 'en', 'ja', 'zh', 'tw'],
   // 언어별 파일명. 기본 언어는 index.html 로 뽑습니다.
   file: { ko: 'index.html', en: 'en.html', ja: 'ja.html', zh: 'zh.html', tw: 'tw.html' },
