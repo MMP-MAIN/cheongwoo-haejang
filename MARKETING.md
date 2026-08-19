@@ -529,3 +529,11 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 | 구글 광고 전환 AW-11423300289 | 전화걸기·길찾기 연결 | ads.google.com → 목표 |
 
 2026-08-20 시점 트래픽: 픽셀 PageView 32 (8/18~20, 작업 확인 접속 다수 포함) · 서치콘솔 노출 집계 전 · 광고 2캠페인 당일 게시(검토중). **실질 외부 유입은 아직 거의 없음 — 다음 주부터 GA4 「획득 → 트래픽 획득」에서 organic/cpc 채널별로 보면 됨.**
+
+### GA4 추가 설정 (2026-08-20 완료)
+- 데이터 보관 2개월 → **14개월**
+- 내부 트래픽 제외: 규칙 「사무실 (환맨)」 IP 121.150.143.36 → 데이터 필터 **활성** (사무실 IP가 바뀌면 규칙 수정 필요)
+- **Google Ads 계정 699-589-9109 연결** (개인 맞춤 광고·자동 태그 사용) — GA4 잠재고객을 광고 리마케팅에 쓸 수 있음
+- **Search Console 속성 연결** (cheongwoohaejang.com) — GA4 보고서 라이브러리에서 Search Console 컬렉션 게시하면 검색어 보고서 표시됨
+- 사이트 이벤트: click_to_call / get_directions / reservation_intent / view_menu / view_gallery / copy_address / language_switch / scroll_deep (assets/tracking.js)
+- ⏳ 남은 것: 실제 방문자가 이벤트를 발생시킨 뒤(1~2일) 관리 → 이벤트에서 click_to_call·get_directions·reservation_intent 옆 **별표**를 눌러 주요 이벤트로 지정 (이 UI는 수집 전 이벤트는 지정 불가)
