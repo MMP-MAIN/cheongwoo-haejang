@@ -27,6 +27,7 @@
       if (titles.length > 1) {
         var ti = 0;
         setInterval(function () {
+          if (document.hidden) return; // 백그라운드 탭에서 타이머가 늘어지며 제목이 빈 채로 남는 것 방지
           heroTitle.classList.add('swap');
           setTimeout(function () {
             ti = (ti + 1) % titles.length;
