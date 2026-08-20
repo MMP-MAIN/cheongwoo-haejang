@@ -152,7 +152,7 @@ function jsonLd(lang) {
     url,
     telephone: '+82-53-255-7052',
     image: gallery.slice(0, 6).map((g) => imgAbs(g.src)),
-    logo: imgAbs(hero.src),
+    logo: imgAbs('images/logo.png'),
     priceRange: store.priceRange,
     currenciesAccepted: store.currency,
     servesCuisine: ['Korean', 'Korean soup', 'Haejang-guk', 'Galbi-tang'],
@@ -438,6 +438,9 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap" />
 <link rel="stylesheet" href="assets/site.css?v=${ASSET_V}" />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="images/logo-icon-192.png" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 
 <script>/* 광고·측정 ID 설정 */</script>
 <script src="assets/config.js?v=${ASSET_V}"></script>
