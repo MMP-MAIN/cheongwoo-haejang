@@ -479,7 +479,9 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 
 광고제목(12): Korean Restaurant in Daegu · Cheongwoo Haejang · Daegu · Galbitang & Beef Short Ribs · 5 Min from Banwoldang Station · English Menu · Family Friendly · Yangnyeongsi Herbal Market · Open Daily 11:00–22:00 · Best Daegu Restaurant Pick · Daegu Food: Beef Rib Soup · What to Eat in Daegu · Things to Do in Daegu · Eat · Reserve by Phone · Groups OK
 
-설명(4): Traditional Korean beef soups & braised short ribs in Daegu's historic Yangnyeongsi alley. / Near Banwoldang & Dongseongno. Non-spicy options for kids & elders. English menu online. / Family-run Korean restaurant. Slow-simmered beef bone broth, made fresh every morning. / Reservations & groups up to 40 welcome. Call +82-53-255-7052 or view the English menu.
+설명(4): Traditional Korean beef soups & braised short ribs in Daegu's historic Yangnyeongsi alley. / Near Banwoldang & Dongseongno. Non-spicy options for kids & elders. English menu online. / Family-run Korean restaurant. Slow-simmered beef bone broth, made fresh every morning. / Reservations & groups up to 40 welcome. Book by phone or see the English menu online.
+
+> **정책 수정 (2026-08-20):** EN 설명4의 전화번호(+82-53-255-7052)가 「광고문안에 기재된 전화번호」 위반 → 번호 삭제. ZH 광고의 ・/｜ 기호가 「구두점 및 기호」 위반 → 、와 공백으로 교체. 두 광고 모두 운영 가능으로 복귀. 광고 텍스트에 전화번호·특수기호 금지 (전화는 전화 애셋으로).
 
 사이트링크(4): English Menu → #menu · Directions & Map → #visit · FAQ for Travelers → #faq · Photos & Herb Alley → #gallery · 업체명 Cheongwoo Haejang
 
