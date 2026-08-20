@@ -18,6 +18,26 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---- 히어로 문구 로테이션 ---- */
+  var heroTitle = $('#hero-title');
+  if (heroTitle && heroTitle.dataset.titles &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    try {
+      var titles = JSON.parse(heroTitle.dataset.titles);
+      if (titles.length > 1) {
+        var ti = 0;
+        setInterval(function () {
+          heroTitle.classList.add('swap');
+          setTimeout(function () {
+            ti = (ti + 1) % titles.length;
+            heroTitle.innerHTML = titles[ti];
+            heroTitle.classList.remove('swap');
+          }, 600);
+        }, 6000);
+      }
+    } catch (e) { /* 문구 데이터가 깨져 있으면 첫 문구 그대로 둡니다 */ }
+  }
+
   /* ---- 모바일 메뉴 ---- */
   var toggle = $('#menubtn'), gnb = $('#gnb');
   if (toggle && gnb) {

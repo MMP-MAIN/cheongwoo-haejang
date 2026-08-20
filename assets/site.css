@@ -99,7 +99,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   color:rgba(255,255,255,.82);margin-bottom:1.1rem
 }
 .eyebrow::before{content:'';width:26px;height:1px;background:var(--amber)}
-.hero h1{font-family:var(--serif);font-size:clamp(2.15rem,6.2vw,4.1rem);font-weight:600;line-height:1.2;letter-spacing:-.025em;text-shadow:0 2px 30px rgba(0,0,0,.4)}
+.hero h1{font-family:var(--serif);font-size:clamp(2.15rem,6.2vw,4.1rem);font-weight:600;line-height:1.2;letter-spacing:-.025em;text-shadow:0 2px 30px rgba(0,0,0,.4);min-height:2.4em;transition:opacity .6s ease,transform .6s ease}
+.hero h1.swap{opacity:0;transform:translateY(8px)}
 .hero-lede{margin-top:1.3rem;font-size:clamp(1rem,1.7vw,1.12rem);color:rgba(255,255,255,.9);max-width:62ch;text-shadow:0 1px 16px rgba(0,0,0,.45)}
 .hero-lede strong{color:#fff;font-weight:600}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.1rem}

@@ -143,6 +143,11 @@ export const t = {
 
     heroBadge: '대구 중구 · 약령시 약전골목',
     heroTitle: '몸을 돌보는 한 그릇,<br>약령시 약전골목에서',
+    heroTitles: [
+      '몸을 돌보는 한 그릇,<br>약령시 약전골목에서',
+      '하루 종일 고아 낸<br>맑은 소고기 국물 한 그릇',
+      '아침 해장부터 가족 외식까지,<br>400년 골목의 밥상',
+    ],
     heroLede:
       '400년 약령시 골목 안, <strong>청우해장</strong>은 양지와 사태를 하루 종일 고아 낸 맑은 소고기 국물로 <strong>갈비탕</strong>·<strong>해장국</strong>·<strong>평양냉면</strong>을 냅니다. 자극은 덜고 국물은 깊게 — 아침 첫 끼로, 어르신 모시는 상으로, 가족의 든든한 외식으로.',
     heroCtaCall: '전화로 예약하기',
@@ -246,6 +251,11 @@ export const t = {
 
     heroBadge: 'Jung-gu, Daegu · Herbal Medicine Alley',
     heroTitle: 'A bowl that looks after you,<br>in Daegu’s herbal alley.',
+    heroTitles: [
+      'A bowl that looks after you,<br>in Daegu’s herbal alley.',
+      'Beef broth simmered all day —<br>clear, deep, and gentle.',
+      'From morning soup to family dinner,<br>steps from Banwoldang.',
+    ],
     heroLede:
       'Inside Yangnyeongsi, Daegu’s 400-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> serves clear beef broth simmered all day from brisket and shank — short rib soup, beef soup, cold noodles in summer. Less seasoning, deeper broth: breakfast, a meal with elders, a wholesome family lunch.',
     heroCtaCall: 'Call to book',
@@ -350,6 +360,11 @@ export const t = {
 
     heroBadge: '大邱・中区 薬令市 薬田横丁',
     heroTitle: '体をいたわる一杯を、<br>薬令市の薬田横丁で。',
+    heroTitles: [
+      '体をいたわる一杯を、<br>薬令市の薬田横丁で。',
+      '一日かけて煮出した、<br>澄んだ深い牛スープ。',
+      '朝の一杯から家族の食事まで、<br>400年の路地の食卓。',
+    ],
     heroLede:
       '400年の歴史をもつ薬令市の路地で、<strong>チョンウヘジャン</strong>は牛バラとスネ肉を一日かけて煮出した澄んだスープをお出しします。カルビタン、ヘジャンクク、夏は平壌冷麺。刺激は控えめに、スープは深く — 朝食に、ご年配の方との食事に、家族の健やかな外食に。',
     heroCtaCall: '電話で予約',
@@ -454,6 +469,11 @@ export const t = {
 
     heroBadge: '大邱中区 · 药令市药田胡同',
     heroTitle: '一碗照顾身体的汤，<br>在药令市药田胡同。',
+    heroTitles: [
+      '一碗照顾身体的汤，<br>在药令市药田胡同。',
+      '慢炖一整天的牛肉清汤，<br>清澈而醇厚。',
+      '从早餐解酒汤到家庭聚餐，<br>400年老巷的餐桌。',
+    ],
     heroLede:
       '在有 400 年历史的药令市胡同里，<strong>青友解酲</strong>用牛腩和牛腱熬上一整天的清汤，做排骨汤、牛肉汤，夏天有平壤冷面。少些刺激，多些汤的深度 — 早餐、陪长辈用餐、一家人安心的外食。',
     heroCtaCall: '电话预订',

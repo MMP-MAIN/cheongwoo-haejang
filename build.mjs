@@ -24,7 +24,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 6;
+const ASSET_V = 7;
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -483,7 +483,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
   <div class="hero-veil"></div>
   <div class="container hero-inner">
     <span class="eyebrow">${esc(L.heroBadge)}</span>
-    <h1>${L.heroTitle}</h1>
+    <h1 id="hero-title" data-titles='${JSON.stringify(L.heroTitles || [L.heroTitle])}'>${(L.heroTitles || [L.heroTitle])[0]}</h1>
     <p class="hero-lede">${L.heroLede}</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="tel:${store.telHref}" data-track="call" data-track-label="hero">${ICON.phone}${esc(L.heroCtaCall)}</a>
