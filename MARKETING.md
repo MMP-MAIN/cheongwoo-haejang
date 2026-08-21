@@ -539,3 +539,5 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - **Search Console 속성 연결** (cheongwoohaejang.com) — GA4 보고서 라이브러리에서 Search Console 컬렉션 게시하면 검색어 보고서 표시됨
 - 사이트 이벤트: click_to_call / get_directions / reservation_intent / view_menu / view_gallery / copy_address / language_switch / scroll_deep (assets/tracking.js)
 - ⏳ 남은 것: 실제 방문자가 이벤트를 발생시킨 뒤(1~2일) 관리 → 이벤트에서 click_to_call·get_directions·reservation_intent 옆 **별표**를 눌러 주요 이벤트로 지정 (이 UI는 수집 전 이벤트는 지정 불가)
+
+> **2026-08-21:** GA4 주요 이벤트 지정 완료 — click_to_call·get_directions·view_menu. reservation_intent 는 첫 수집 후 지정.
