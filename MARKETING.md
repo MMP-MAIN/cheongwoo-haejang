@@ -541,3 +541,10 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - ⏳ 남은 것: 실제 방문자가 이벤트를 발생시킨 뒤(1~2일) 관리 → 이벤트에서 click_to_call·get_directions·reservation_intent 옆 **별표**를 눌러 주요 이벤트로 지정 (이 UI는 수집 전 이벤트는 지정 불가)
 
 > **2026-08-21:** GA4 주요 이벤트 지정 완료 — click_to_call·get_directions·view_menu. reservation_intent 는 첫 수집 후 지정.
+
+> **키워드 확장 (2026-08-22):** 키워드 플래너 조사(KR·EN·JA·ZH-TW) 후 외국인 캠페인에 구문검색 25개 추가 —
+> EN 9(things to do in daegu korea/south korea, daegu tourist attractions, attractions in daegu, things to see in daegu, tourist places in daegu south korea, daegu things to do, place to visit in daegu, places to go in daegu) ·
+> JA 7(テグ韓国観光, 韓国テグ観光, 韓国大邱観光, 大邱旅行, 大邱観光地, 大邱市観光, 大邱観光スポット) ·
+> ZH 9(韓國大邱景點, 大邱景點地圖, 韓國大邱自由行, 大邱景點美食, 大邱早餐, 大邱釜山自由行, 大邱慶州自由行, 大邱親子景點, 大邱西門市場美食).
+> 같은 날 다국어 FAQ에 해당 키워드 문구 반영(en/ja/tw) + 홈 푸터에 대구 여행 가이드(daegu-food-tour.html) 내부 링크 추가.
+> 구글 자동 추천 키워드 35개 일괄 적용은 거절함(검증 안 된 키워드).
