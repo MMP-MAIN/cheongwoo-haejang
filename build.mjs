@@ -720,6 +720,8 @@ for (const lang of site.langs) {
 }
 
 /* 사이트맵 — 5개 언어를 서로 alternate 로 묶어 줍니다. */
+// 가이드(콘텐츠 SEO) 페이지 — 손으로 만든 정적 파일이지만 사이트맵에는 여기서 등록합니다.
+const GUIDES = ['daegu-food-tour.html'];
 const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -730,6 +732,12 @@ ${site.langs.map((l) => `    <xhtml:link rel="alternate" hreflang="${site.hrefla
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${lang === site.defaultLang ? '1.0' : '0.8'}</priority>
+  </url>`).join('\n')}
+${GUIDES.map((g) => `  <url>
+    <loc>${site.baseUrl}${g}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>`).join('\n')}
 </urlset>
 `;
