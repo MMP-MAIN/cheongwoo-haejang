@@ -324,6 +324,7 @@ export const t = {
     faqTitle: 'Frequently asked',
     faq: [
       { q: 'What food is Daegu famous for?', a: 'Daegu’s signature dishes are jjim-galbi (spicy braised short ribs), ttaro-gukbap (Daegu-style beef soup) and Pyeongyang-style naengmyeon in summer — all on our menu, a 5-minute walk from Banwoldang Station in the Yangnyeongsi herbal alley.' },
+      { q: 'What are the best things to see near the restaurant?', a: 'We sit inside Yangnyeongsi Herbal Medicine Alley, one of Daegu’s best-known tourist attractions. Within a 15-minute walk you can visit the Modern History Alley (Cheongna Hill, Gyesan Cathedral) and Seomun Market — easy places to visit on a half-day Daegu travel itinerary, with our table as the lunch stop.' },
       { q: 'Can I make a reservation?', a: 'Yes, by phone. We accept group bookings for up to 40 people. Call +82 53-255-7052.' },
       { q: 'Is there parking?', a: 'No private car park, but the Yangnyeongsi West Gate public car park is a 1-minute walk away, with 2–3 more within 2–4 minutes. See “Getting here” for directions links.' },
       { q: 'Is there a break time?', a: hasBreak
@@ -433,6 +434,7 @@ export const t = {
     faqTitle: 'よくある質問',
     faq: [
       { q: '大邱観光でおすすめの食事は？', a: '大邱の名物はカルビチム（辛口の牛カルビ煮込み）、タロクッパ（大邱式牛肉スープ）、夏の平壌冷麺。当店で全部召し上がれます。半月堂駅から徒歩5分、薬令市の路地です。' },
+      { q: '近くの大邱観光スポットは？', a: '当店は大邱旅行で人気の観光地・薬令市の路地の中にあります。徒歩15分圏内に近代文化横丁（青蘿の丘・桂山聖堂）や西門市場があり、テグ観光の合間の食事にちょうど良い立地です。' },
       { q: '予約はできますか。', a: 'はい、お電話で承ります。40名以下の団体予約も可能です。+82 53-255-7052 までどうぞ。' },
       { q: '駐車場はありますか。', a: '専用駐車場はありませんが、薬令市西門公営駐車場が徒歩1分です。他にも徒歩2〜4分に2〜3か所あります。「アクセス」に経路リンクがあります。' },
       { q: '休憩時間はありますか。', a: hasBreak

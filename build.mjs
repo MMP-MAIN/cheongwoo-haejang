@@ -676,6 +676,7 @@ ${hoodSection(lang)}
         <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="directions" data-track-label="footer-google">Google Maps</a>
         ${store.naverBlogUrl ? `<a href="${store.naverBlogUrl}" target="_blank" rel="noopener" data-track="blog" data-track-label="footer-blog">Blog</a>` : ''}
         ${store.instagramUrl ? `<a href="${store.instagramUrl}" target="_blank" rel="noopener" data-track="blog" data-track-label="footer-instagram">Instagram</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-food-tour.html" data-track="blog" data-track-label="footer-guide">대구 여행 가이드</a>` : ''}
       </nav>
     </div>
     <div class="foot-bottom">
