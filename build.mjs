@@ -25,7 +25,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 10;
+const ASSET_V = 11;
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -487,7 +487,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
   <div class="hero-veil"></div>
   <div class="container hero-inner">
     <span class="eyebrow">${esc(L.heroBadge)}</span>
-    <h1 id="hero-title" data-titles='${JSON.stringify(L.heroTitles || [L.heroTitle])}'>${(L.heroTitles || [L.heroTitle])[0]}</h1>
+    <h1 id="hero-title" data-titles='${JSON.stringify({ a: L.heroTitles || [L.heroTitle], s: L.heroTitlesSummer || [], w: L.heroTitlesWinter || [] })}'>${(L.heroTitles || [L.heroTitle])[0]}</h1>
     <p class="hero-lede">${L.heroLede}</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="tel:${store.telHref}" data-track="call" data-track-label="hero">${ICON.phone}${esc(L.heroCtaCall)}</a>
@@ -741,7 +741,7 @@ for (const lang of site.langs) {
 
 /* 사이트맵 — 5개 언어를 서로 alternate 로 묶어 줍니다. */
 // 가이드(콘텐츠 SEO) 페이지 — 손으로 만든 정적 파일이지만 사이트맵에는 여기서 등록합니다.
-const GUIDES = ['daegu-food-tour.html', 'daegu-food-tour-tw.html'];
+const GUIDES = ['daegu-food-tour.html', 'daegu-food-tour-tw.html', 'daegu-attractions.html'];
 const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">

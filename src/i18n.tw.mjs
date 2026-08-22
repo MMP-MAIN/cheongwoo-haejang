@@ -59,6 +59,8 @@ export const tw = {
     '慢燉一整天的牛肉清湯，<br>清澈而醇厚。',
     '從早餐解酒湯到家庭聚餐，<br>400年老巷的餐桌。',
   ],
+  heroTitlesSummer: ['夏季限定，<br>平壤冷麵'],
+  heroTitlesWinter: ['冬天來一碗<br>熱辣刀削麵'],
   heroLede:
     '在有 400 年歷史的<strong>藥令市</strong>巷子裡，<strong>青友解酲</strong>用牛腩和牛腱熬上一整天的清湯，做排骨湯、牛肉湯，夏天有平壤冷麵，還有大邱十味之一的<strong>辣燉排骨</strong>。少些刺激，多些湯的深度 — 早餐、陪長輩用餐、一家人安心的外食。',
   heroCtaCall: '電話訂位',

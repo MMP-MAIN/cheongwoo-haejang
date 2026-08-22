@@ -148,6 +148,8 @@ export const t = {
       '하루 종일 고아 낸<br>맑은 소고기 국물',
       '해장부터 외식까지,<br>400년 골목의 밥상',
     ],
+    heroTitlesSummer: ['여름 한정 별미,<br>청우 평양냉면'],
+    heroTitlesWinter: ['속까지 뜨끈하게,<br>겨울 얼큰 장칼국수'],
     heroLede:
       '400년 약령시 골목 안, <strong>청우해장</strong>은 양지와 사태를 하루 종일 고아 낸 맑은 소고기 국물로 <strong>갈비탕</strong>·<strong>해장국</strong>·<strong>평양냉면</strong>을 냅니다. 자극은 덜고 국물은 깊게 — 아침 첫 끼로, 어르신 모시는 상으로, 가족의 든든한 외식으로.',
     heroCtaCall: '전화로 예약하기',
@@ -256,6 +258,8 @@ export const t = {
       'Beef broth simmered all day —<br>clear, deep, and gentle.',
       'From morning soup to family dinner,<br>steps from Banwoldang.',
     ],
+    heroTitlesSummer: ['Summer special —<br>Pyeongyang cold noodles.'],
+    heroTitlesWinter: ['Winter warmer —<br>spicy kalguksu noodles.'],
     heroLede:
       'Inside Yangnyeongsi, Daegu’s 400-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> serves clear beef broth simmered all day from brisket and shank — short rib soup, beef soup, cold noodles in summer. Less seasoning, deeper broth: breakfast, a meal with elders, a wholesome family lunch.',
     heroCtaCall: 'Call to book',
@@ -366,6 +370,8 @@ export const t = {
       '一日かけて煮出した、<br>澄んだ深い牛スープ。',
       '朝の一杯から家族の食事まで、<br>400年の路地の食卓。',
     ],
+    heroTitlesSummer: ['夏限定の名物、<br>平壌冷麺。'],
+    heroTitlesWinter: ['冬は熱々の<br>ピリ辛カルグクス。'],
     heroLede:
       '400年の歴史をもつ薬令市の路地で、<strong>チョンウヘジャン</strong>は牛バラとスネ肉を一日かけて煮出した澄んだスープをお出しします。カルビタン、ヘジャンクク、夏は平壌冷麺。刺激は控えめに、スープは深く — 朝食に、ご年配の方との食事に、家族の健やかな外食に。',
     heroCtaCall: '電話で予約',
@@ -476,6 +482,8 @@ export const t = {
       '慢炖一整天的牛肉清汤，<br>清澈而醇厚。',
       '从早餐解酒汤到家庭聚餐，<br>400年老巷的餐桌。',
     ],
+    heroTitlesSummer: ['夏季限定，<br>平壤冷面'],
+    heroTitlesWinter: ['冬天来一碗<br>热辣刀削面'],
     heroLede:
       '在有 400 年历史的药令市胡同里，<strong>青友解酲</strong>用牛腩和牛腱熬上一整天的清汤，做排骨汤、牛肉汤，夏天有平壤冷面。少些刺激，多些汤的深度 — 早餐、陪长辈用餐、一家人安心的外食。',
     heroCtaCall: '电话预订',

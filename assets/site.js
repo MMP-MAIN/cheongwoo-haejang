@@ -23,7 +23,12 @@
   if (heroTitle && heroTitle.dataset.titles &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     try {
-      var titles = JSON.parse(heroTitle.dataset.titles);
+      var td = JSON.parse(heroTitle.dataset.titles);
+      // 계절 문구: 5~9월엔 여름(냉면), 나머지 달엔 겨울(장칼국수) 문구를 섞습니다.
+      var month = new Date().getMonth() + 1;
+      var titles = Array.isArray(td)
+        ? td
+        : td.a.concat(month >= 5 && month <= 9 ? td.s : td.w);
       if (titles.length > 1) {
         var ti = 0;
         setInterval(function () {
