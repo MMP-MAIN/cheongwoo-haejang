@@ -695,6 +695,7 @@ ${hoodSection(lang)}
         ${store.naverBlogUrl ? `<a href="${store.naverBlogUrl}" target="_blank" rel="noopener" data-track="blog" data-track-label="footer-blog">Blog</a>` : ''}
         ${store.instagramUrl ? `<a href="${store.instagramUrl}" target="_blank" rel="noopener" data-track="blog" data-track-label="footer-instagram">Instagram</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-food-tour.html" data-track="blog" data-track-label="footer-guide">대구 여행 가이드</a>` : ''}
+        ${lang === 'tw' ? `<a href="daegu-food-tour-tw.html" data-track="blog" data-track-label="footer-guide">大邱一日遊指南</a>` : ''}
       </nav>
     </div>
     <div class="foot-bottom">
@@ -740,7 +741,7 @@ for (const lang of site.langs) {
 
 /* 사이트맵 — 5개 언어를 서로 alternate 로 묶어 줍니다. */
 // 가이드(콘텐츠 SEO) 페이지 — 손으로 만든 정적 파일이지만 사이트맵에는 여기서 등록합니다.
-const GUIDES = ['daegu-food-tour.html'];
+const GUIDES = ['daegu-food-tour.html', 'daegu-food-tour-tw.html'];
 const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
