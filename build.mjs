@@ -19,12 +19,13 @@ import { site, store, menu, gallery, hero, ogImage, imgBase, hasBreak, parkingLo
 import { t, menuNames, galleryAlt } from './src/i18n.mjs';
 import { tw, menuNamesTw, galleryAltTw } from './src/i18n.tw.mjs';
 import { hood, spots, hoodImages } from './src/hood.mjs';
+import { reviews, reviewsMeta } from './src/reviews.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 9;
+const ASSET_V = 10;
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -578,6 +579,23 @@ ${hoodSection(lang)}
       <p>${esc(L.galleryLede)}</p>
     </div>
     <div class="gal rv">${galleryFigures(lang)}
+    </div>
+  </div>
+</section>
+
+<!-- ================= 손님 후기 ================= -->
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="sec-head rv">
+      <span class="sec-kicker">${esc(reviewsMeta.t[lang].kicker)}</span>
+      <h2>${esc(reviewsMeta.t[lang].title)}</h2>
+      <p class="review-badge"><span class="stars" aria-hidden="true">★★★★★</span> <strong>${reviewsMeta.rating}</strong> / 5 · <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="blog" data-track-label="reviews-google">${esc(reviewsMeta.t[lang].link)} (${reviewsMeta.count})</a></p>
+    </div>
+    <div class="review-grid rv">
+      ${reviews.map((r) => `<blockquote class="review-card">
+        <p>“${esc(r[lang])}”</p>
+        <footer>— ${esc(r.author)} · Google</footer>
+      </blockquote>`).join('\n      ')}
     </div>
   </div>
 </section>

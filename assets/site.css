@@ -401,3 +401,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* 약도 섹션 (대표 메뉴 위) — 여백을 조금 줄여 밀도 있게 */
 .sketch-sec{padding:4.2rem 0 3.6rem}
 .sketch-sec .sketch{margin-top:0}
+
+/* ---- 손님 후기 ---- */
+.review-badge{margin-top:.5rem;color:var(--sub,#6b6156)}
+.review-badge .stars{color:#e0a437;letter-spacing:2px}
+.review-badge a{color:inherit}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:1.6rem}
+.review-card{background:#fff;border:1px solid var(--line,#e6ddcd);border-radius:16px;padding:22px 24px;margin:0}
+.review-card p{font-size:.98rem;line-height:1.75;word-break:keep-all}
+.review-card footer{margin-top:12px;font-size:.82rem;color:var(--sub,#8a7f70)}
