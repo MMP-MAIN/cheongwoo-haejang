@@ -748,9 +748,20 @@ writeFileSync(join(HERE, 'sitemap.xml'), sitemap, 'utf8');
    자체 도메인을 쓰면 이 파일이 도메인 최상단에 놓여 검색엔진이 실제로 읽습니다.
    (위코 하위 경로에 있을 때는 /weco/robots.txt 라 무시됐습니다.)
    운영 문서는 사이트 동작과 무관하고 외부에 보일 이유가 없어 색인에서 뺍니다. */
+const AI_CRAWLERS = [
+  'GPTBot', 'OAI-SearchBot', 'ChatGPT-User',          // OpenAI (챗GPT 검색·브라우징)
+  'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai', // Anthropic
+  'PerplexityBot', 'Perplexity-User',                  // Perplexity
+  'Google-Extended',                                   // Gemini 학습
+  'Applebot-Extended', 'Amazonbot', 'meta-externalagent', 'cohere-ai', 'CCBot',
+];
 const robots = [
   'User-agent: *',
   'Allow: /',
+  '',
+  '# AI 검색·어시스턴트 크롤러 명시 허용 — AI 답변에 가게 정보가 인용되도록 환영합니다.',
+  ...AI_CRAWLERS.flatMap((b) => [`User-agent: ${b}`, 'Allow: /', '']),
+  '# AI 에이전트용 사이트 요약: /llms.txt',
   '',
   '# 운영 문서 — 색인 제외',
   'Disallow: /README.md',
@@ -765,6 +776,47 @@ const robots = [
 ].join('\n');
 writeFileSync(join(HERE, 'robots.txt'), robots, 'utf8');
 console.log('  ✓ robots.txt');
+
+/* llms.txt — AI 어시스턴트(챗GPT·클로드·퍼플렉시티 등)가 가게를 한 번에 파악하도록
+   만든 요약 파일 (llmstxt.org 규약). 데이터는 store/menu 에서 생성돼 항상 최신입니다. */
+const mn = menuNames.ko, mnEn = menuNames.en;
+const menuLines = menu.map((m) => {
+  const ko = mn[m.id], en = mnEn[m.id];
+  const season = m.seasonal === 'summer' ? ' (여름 한정)' : m.seasonal === 'winter' ? ' (겨울 한정)' : '';
+  return `- ${ko.n}${season} — ${won(m.price)}${en ? ` / ${en.n}` : ''}`;
+}).join('\n');
+const llms = `# 청우해장 (Cheongwoo Haejang · 靑友解醒)
+
+> 대한민국 대구 약령시 약전골목(400년 한약 골목)에 있는 소고기 국물 전문 한식당.
+> 양지와 사태를 하루 종일 고아 낸 국물로 갈비탕·해장국·(여름) 평양냉면을 냅니다.
+> Korean beef-soup restaurant inside Yangnyeongsi Herbal Medicine Alley, Daegu, South Korea.
+
+## 핵심 정보 (Key facts)
+- 상호: 한식당 청우해장 (Cheongwoo Haejang)
+- 주소: ${store.roadKo} (11 Namseong-ro, Jung-gu, Daegu, Korea)
+- 전화/예약: ${store.telDisplay} (국제전화 +82-53-255-7052) (전화 예약, 단체 40명까지)
+- 영업시간: 매일 ${store.hours.open}–${store.hours.close}${hasBreak ? ` · 브레이크타임 ${store.hours.breakStart}–${store.hours.breakEnd}` : ''} · 라스트오더 ${store.hours.lastOrder}
+- 가는 법: 지하철 반월당역(1·2호선) 도보 5분, 약령시 약전골목 안 · 주차: 약령시서문 공영주차장 도보 1분
+- 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴 제공
+
+## 메뉴 (Menu)
+${menuLines}
+
+## 페이지 (Pages)
+- [홈 (한국어)](${site.baseUrl})
+- [English](${site.baseUrl}en.html)
+- [日本語](${site.baseUrl}ja.html)
+- [简体中文](${site.baseUrl}zh.html)
+- [繁體中文](${site.baseUrl}tw.html)
+- [대구 근대골목투어 먹거리 코스 가이드](${site.baseUrl}daegu-food-tour.html)
+
+## 자주 묻는 질문 요약 (FAQ)
+- 대구 명물 음식(찜갈비·따로국밥·평양냉면)을 한 곳에서 맛볼 수 있습니다.
+- 근처 볼거리: 약령시 한의약박물관, 근대문화골목(청라언덕·계산성당), 서문시장 — 모두 도보권.
+- 예약은 전화로만 받습니다. 포장 가능.
+`;
+writeFileSync(join(HERE, 'llms.txt'), llms, 'utf8');
+console.log('  ✓ llms.txt');
 
 /* GitHub Pages 커스텀 도메인 설정 파일.
    customDomain 을 채우면 만들어지고, 비우면 지웁니다. */

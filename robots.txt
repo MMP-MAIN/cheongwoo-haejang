@@ -1,6 +1,54 @@
 User-agent: *
 Allow: /
 
+# AI 검색·어시스턴트 크롤러 명시 허용 — AI 답변에 가게 정보가 인용되도록 환영합니다.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# AI 에이전트용 사이트 요약: /llms.txt
+
 # 운영 문서 — 색인 제외
 Disallow: /README.md
 Disallow: /MARKETING.md
