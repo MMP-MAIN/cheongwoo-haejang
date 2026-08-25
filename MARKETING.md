@@ -575,3 +575,8 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
   - All Users(1,056명)와 함께 연결된 두 광고 계정(699, 352)에 자동 공유됨 → 리마케팅 타겟으로 사용 가능
 - [보류] 메타 도메인 인증(cheongwoohaejang.com): business.facebook.com 도메인 메뉴 진입 시 "계정 인증(본인 확인)" 요구 — 사장님이 직접 인증해야 진행 가능
 - [보류] 메타 캐러셀 캠페인 전환 최적화: 캠페인 목표가 '트래픽'이라 전환 최적화로 변경 불가. 새 '전환' 목표 캠페인 생성 필요(기존 소재 재사용, Contact 최적화) — 예산 이동이라 확인 후 진행
+
+## 메타 도메인 인증 완료 (2026-08-25)
+- cheongwoohaejang.com을 메타 비즈니스(MPmarkiting 포트폴리오)에 등록하고 메타태그 방식으로 인증 완료 (상태: Verified)
+- 인증 태그는 src/store.mjs의 fbDomainVerification → build.mjs가 전 언어 페이지 <head>에 삽입
+- 효과: iOS(ATT) 환경 전환 집계 정확도 개선, 웹 이벤트 우선순위(Aggregated Event Measurement) 설정 가능해짐
