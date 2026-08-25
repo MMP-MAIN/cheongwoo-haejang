@@ -405,6 +405,7 @@ function page(lang) {
 ${site.naverSiteVerification ? `<meta name="naver-site-verification" content="${site.naverSiteVerification}" />` : '<!-- 네이버 서치어드바이저 소유확인 코드를 src/store.mjs 의 naverSiteVerification 에 넣으세요 -->'}
 ${site.googleSiteVerification ? `<meta name="google-site-verification" content="${site.googleSiteVerification}" />` : '<!-- 구글 서치콘솔 소유확인 코드를 src/store.mjs 의 googleSiteVerification 에 넣으세요 -->'}
 ${site.bingSiteVerification ? `<meta name="msvalidate.01" content="${site.bingSiteVerification}" />` : ''}
+${site.fbDomainVerification ? `<meta name="facebook-domain-verification" content="${site.fbDomainVerification}" />` : ''}
 <meta name="theme-color" content="#171310" />
 
 <link rel="canonical" href="${url}" />

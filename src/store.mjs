@@ -28,6 +28,8 @@ export const site = {
   naverSiteVerification: 'fd001768c8619e0b6edf18ebbfebf52a805cfa8f',   // 서치어드바이저 (2026-08-19)
   googleSiteVerification: 'ucPfF2Kfn43TwqNxO72CR-TdrTEGyaWWvG9I_b9Qs58',   // 서치콘솔 URL 접두어 속성 (2026-08-18)
   bingSiteVerification: '',
+  //  메타   : business.facebook.com → 설정 → 브랜드 가치 보호 → 도메인 → 메타태그
+  fbDomainVerification: 'o8ljqjmohud3dx9nq41gxlugtxh6bb',   // 메타 도메인 인증 (2026-08-25)
 
   // ---- IndexNow 키 (네이버·빙이 지원) ----
   // 사이트 루트에 <키>.txt 파일이 있고, 그 파일 내용이 키와 같아야 합니다.
