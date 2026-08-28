@@ -580,3 +580,14 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - cheongwoohaejang.com을 메타 비즈니스(MPmarkiting 포트폴리오)에 등록하고 메타태그 방식으로 인증 완료 (상태: Verified)
 - 인증 태그는 src/store.mjs의 fbDomainVerification → build.mjs가 전 언어 페이지 <head>에 삽입
 - 효과: iOS(ATT) 환경 전환 집계 정확도 개선, 웹 이벤트 우선순위(Aggregated Event Measurement) 설정 가능해짐
+
+## [완료] 육상대회 대응 예산 증액 (2026-08-27 실행)
+- 세계마스터즈육상대회(8/21~9/3, 대구스타디움) 기간 외국인 유입 급증 → 사장님 승인 완료
+- 실행할 것: 699-589-9109 계정 "청우해장 | 외국인 검색 (EN·JA·ZH)" 일 예산 ₩7,000 → ₩20,000
+- 9/3 폐회 후 ₩7,000으로 원복할 것
+- 사장님이 직접 ₩20,000으로 변경 완료(구글 본인 인증 필요했음). 9/4 오전 10시 원복 예약 작업 등록됨(scheduled-tasks: revert-google-foreign-budget)
+
+## 색인 요청 + 심층분석 예약 (2026-08-28 새벽)
+- IndexNow로 가이드 3개(daegu-food-tour, daegu-food-tour-tw, daegu-attractions) + 메인 + tw.html 색인 요청 전송 완료 — 빙·네이버·api.indexnow.org 모두 200 응답
+- 구글 색인 요청(GSC URL 검사) + GA4 기기·도시·이벤트 심층 분석은 8/28 오전 11시 예약 작업(ga4-deep-dive-and-indexing)으로 등록 — GA4가 새벽에 빈 페이지를 반환해 보류했음
+- Clarity 설치는 사장님 지시로 제외
