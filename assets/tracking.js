@@ -85,6 +85,34 @@
     try { campaign.referrer_host = new URL(document.referrer).hostname; } catch (e) {}
   }
 
+  /* ---------------------------------------------------------------------
+     1-C. 진입 환경 감지 — GA4 의 「미분류(Unassigned)」를 홈페이지가 직접 분류
+     카톡·인스타 같은 앱 안 브라우저는 리퍼러(출처)를 안 넘기지만,
+     브라우저 지문(User-Agent)에는 자기 이름을 남깁니다. 그걸 읽어서
+     모든 GA4 이벤트에 entry_env 로 붙입니다.
+     값 예시: kakao_inapp · instagram_inapp · facebook_inapp · naver_inapp ·
+              line_inapp · homescreen(홈화면 추가) · bookmark_or_typed(북마크/직접입력) ·
+              referred:도메인 · browser(일반 유입)
+     --------------------------------------------------------------------- */
+  var ENTRY_ENV = (function () {
+    var ua = navigator.userAgent || '';
+    if (/KAKAOTALK/i.test(ua)) return 'kakao_inapp';
+    if (/Instagram/i.test(ua)) return 'instagram_inapp';
+    if (/FBAN|FBAV|FB_IAB/i.test(ua)) return 'facebook_inapp';
+    if (/NAVER\(inapp/i.test(ua)) return 'naver_inapp';
+    if (/ Line\//i.test(ua)) return 'line_inapp';
+    if (/Threads/i.test(ua)) return 'threads_inapp';
+    // 홈 화면에 추가해서 앱처럼 여는 경우
+    try {
+      if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) return 'homescreen';
+    } catch (e) {}
+    // 앱도 아니고 출처도 없으면: 북마크·주소 직접 입력·저장해 둔 링크
+    if (!document.referrer && !campaign.utm_source && !campaign.gclid && !campaign.fbclid) return 'bookmark_or_typed';
+    if (!campaign.utm_source && campaign.referrer_host) return 'referred:' + campaign.referrer_host;
+    return 'browser';
+  })();
+  campaign.entry_env = ENTRY_ENV;   // 전환 이벤트(전화·길찾기)에도 같이 실립니다
+
   /* 세션당 한 번만 세는 전환을 위한 표시 */
   function seenThisSession(key) {
     try {
@@ -142,7 +170,9 @@
 
   if (hasGoogle) {
     inject('https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(CFG.ga4Id || CFG.googleAdsId));
-    if (CFG.ga4Id) gtag('config', CFG.ga4Id, { send_page_view: true });
+    // 진입 환경을 사용자 속성 + 모든 이벤트 매개변수로 붙입니다 (미분류 트래픽 분류용)
+    gtag('set', 'user_properties', { entry_env: ENTRY_ENV });
+    if (CFG.ga4Id) gtag('config', CFG.ga4Id, { send_page_view: true, entry_env: ENTRY_ENV });
     if (CFG.googleAdsId) gtag('config', CFG.googleAdsId, { allow_enhanced_conversions: true });
     log('google loaded', CFG.ga4Id, CFG.googleAdsId);
   }

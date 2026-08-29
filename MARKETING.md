@@ -591,3 +591,9 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - IndexNow로 가이드 3개(daegu-food-tour, daegu-food-tour-tw, daegu-attractions) + 메인 + tw.html 색인 요청 전송 완료 — 빙·네이버·api.indexnow.org 모두 200 응답
 - 구글 색인 요청(GSC URL 검사) + GA4 기기·도시·이벤트 심층 분석은 8/28 오전 11시 예약 작업(ga4-deep-dive-and-indexing)으로 등록 — GA4가 새벽에 빈 페이지를 반환해 보류했음
 - Clarity 설치는 사장님 지시로 제외
+
+## 다국어 가이드 확장 — EN·JA (2026-08-28)
+- 심층분석 결과(방문 절반이 대구 외 지역, EN 페이지 행동률 30%, 해외 방문 5%)에 따라 1번 방향(관광객 다국어 콘텐츠) 실행
+- daegu-food-tour-en.html("Daegu Day Trip" 타겟), daegu-food-tour-ja.html("大邱観光モデルコース" 타겟) 신규 제작·배포
+- 가이드 4개 언어(KO·TW·EN·JA) hreflang 상호 연결 + 푸터 언어 링크, en/ja 메인 푸터에 가이드 링크, 사이트맵 10개 URL로 확장
+- IndexNow(빙·네이버) 색인 요청 완료. 구글 색인 요청은 11시 예약 작업에 EN·JA 포함해 갱신함
