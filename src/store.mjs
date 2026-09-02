@@ -119,17 +119,17 @@ export const hasLastOrder = Boolean(store.hours.lastOrder);
 // img 는 스마트플레이스에 사장님이 올린 사진(저작권 문제 없음)입니다.
 // seasonal: 'summer' | 'winter' 이면 「여름 한정 / 겨울 한정」 표시가 붙습니다.
 export const menu = [
-  { id: 'naengmyeon', price: 12000, img: 'images/food-naengmyeon.jpg', signature: true,  seasonal: 'summer' },
-  { id: 'galbitang',  price: 15000, img: 'images/food-galbitang.jpg',  signature: true },
-  { id: 'spicy',      price: 12000, img: 'images/food-spicy.jpg',      signature: true },
-  { id: 'ribs',       price: 20000, img: 'images/food-ribs.jpg',       signature: true },
-  { id: 'oxtail',     price: 47000, img: 'images/food-oxtail.jpg',     signature: true },
-  { id: 'yukhoe',     price: 13000, img: 'images/food-yukhoe.jpg',     signature: true },
-  { id: 'clear',      price: 11000, img: 'images/food-clear.jpg',      signature: false },
+  { id: 'naengmyeon', price: 13000, img: 'images/food-naengmyeon.jpg', signature: true,  seasonal: 'summer' },
+  { id: 'galbitang',  price: 16000, img: 'images/food-galbitang.jpg',  signature: true },
+  { id: 'spicy',      price: 13000, img: 'images/food-spicy.jpg',      signature: true },
+  { id: 'ribs',       price: 22000, img: 'images/food-ribs.jpg',       signature: true },
+  { id: 'oxtail',     price: 49000, img: 'images/food-oxtail.jpg',     signature: true },
+  { id: 'yukhoe',     price: 14000, img: 'images/food-yukhoe.jpg',     signature: true },
+  { id: 'clear',      price: 12000, img: 'images/food-clear.jpg',      signature: false },
   { id: 'kalguksu',   price: 12000, img: 'images/food-kalguksu.jpg',   signature: false, seasonal: 'winter' },
-  { id: 'jeongol',    price: 32000, img: 'images/food-jeongol.jpg',    signature: false },
-  { id: 'arong',      price: 18000, img: 'images/food-arong.jpg',      signature: false },
-  { id: 'suyuk',      price: 17000, img: null,                         signature: false, note: 'small' },   // 소 17,000 · 대 22,000
+  { id: 'jeongol',    price: 36000, img: 'images/food-jeongol.jpg',    signature: false },
+  { id: 'arong',      price: 19000, img: 'images/food-arong.jpg',      signature: false },
+  { id: 'suyuk',      price: 18000, img: null,                         signature: false, note: 'small' },   // 소 18,000 · 대 23,000 (2026-09-01 인상)
 ];
 
 // 근처 주차장 — 전용 주차장이 없어서 손님이 제일 많이 묻는 것.

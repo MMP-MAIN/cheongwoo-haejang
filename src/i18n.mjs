@@ -22,7 +22,7 @@ export const menuNames = {
     kalguksu:   { n: '얼큰 장칼국수',       d: '된장을 풀어 끓인 얼큰한 칼국수. 겨울 계절 메뉴.' },
     jeongol:    { n: '아롱사태 수육 전골',  d: '아롱사태와 스지를 넣어 끓이는 수육 전골. 2~3인 나눠 먹기 좋습니다.' },
     arong:      { n: '아롱사태 냉채',       d: '푹 삶아 익힌 아롱사태를 새콤달콤한 청우 특제 냉채 소스에 무쳐 냅니다.' },
-    suyuk:      { n: '아롱사태 수육',       d: '결 좋은 아롱사태를 삶아 얇게 저며 냅니다. 소 17,000원 · 대 22,000원.' },
+    suyuk:      { n: '아롱사태 수육',       d: '결 좋은 아롱사태를 삶아 얇게 저며 냅니다. 소 18,000원 · 대 23,000원.' },
   },
   en: {
     naengmyeon: { n: 'Cheongwoo Pyeongyang Naengmyeon', d: 'Cold buckwheat noodles in a rich beef broth simmered 12+ hours from brisket and shank only. Summer seasonal.' },
@@ -35,7 +35,7 @@ export const menuNames = {
     kalguksu:   { n: 'Spicy Doenjang Kalguksu',   d: 'Hand-cut noodles in a spicy soybean-paste broth. Winter seasonal.' },
     jeongol:    { n: 'Beef Shank Hot Pot (Jeongol)', d: 'Sliced beef shank and tendon in a bubbling hot pot. Good for 2–3.' },
     arong:      { n: 'Chilled Beef Shank (Naengchae)', d: 'Slow-boiled beef shank tossed in our sweet-and-sour chilled dressing. Served cold.' },
-    suyuk:      { n: 'Boiled Beef Shank (Suyuk)', d: 'Slow-boiled beef shank, thinly sliced. Not spicy. Small ₩17,000 · Large ₩22,000.' },
+    suyuk:      { n: 'Boiled Beef Shank (Suyuk)', d: 'Slow-boiled beef shank, thinly sliced. Not spicy. Small ₩18,000 · Large ₩23,000.' },
   },
   ja: {
     naengmyeon: { n: '清友 平壌冷麺',           d: '牛バラとスネ肉だけで12時間以上煮出した濃厚な牛肉スープの冷麺。夏季限定。' },
@@ -48,7 +48,7 @@ export const menuNames = {
     kalguksu:   { n: '辛味噌カルグクス',         d: 'テンジャン（味噌）ベースの辛いスープに手打ち麺。冬季限定。' },
     jeongol:    { n: '牛すね肉の鍋（チョンゴル）', d: '牛すね肉とスジを煮込む鍋。2〜3人でシェアできます。' },
     arong:      { n: '牛すね肉の冷菜',           d: 'じっくり茹でた牛すね肉を、自家製の甘酸っぱい冷菜ダレで和えた一品。' },
-    suyuk:      { n: '牛すね肉のスユク',         d: 'ゆでた牛すね肉を薄切りに。辛さは一切ありません。小 17,000ウォン・大 22,000ウォン。' },
+    suyuk:      { n: '牛すね肉のスユク',         d: 'ゆでた牛すね肉を薄切りに。辛さは一切ありません。小 18,000ウォン・大 23,000ウォン。' },
   },
   zh: {
     naengmyeon: { n: '清友平壤冷面',     d: '只用牛腩和牛腱熬煮12小时以上的浓郁牛肉汤底冷面。夏季限定。' },
@@ -61,7 +61,7 @@ export const menuNames = {
     kalguksu:   { n: '辣味大酱刀削面',   d: '大酱汤底配手工面条。冬季限定。' },
     jeongol:    { n: '牛腱火锅',         d: '牛腱与牛筋一起煮的火锅，适合 2〜3 人分享。' },
     arong:      { n: '凉拌牛腱',         d: '慢炖牛腱拌上本店特制酸甜凉拌汁，凉着上桌。' },
-    suyuk:      { n: '水煮牛腱片',       d: '慢煮牛腱切薄片，完全不辣。小份 17,000 · 大份 22,000 韩元。' },
+    suyuk:      { n: '水煮牛腱片',       d: '慢煮牛腱切薄片，完全不辣。小份 18,000 · 大份 23,000 韩元。' },
   },
 };
 
