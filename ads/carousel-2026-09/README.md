@@ -47,7 +47,7 @@
 ## 계절 교체 안내
 - **9월 말** 카드 7(평양냉면) → 얼큰 장칼국수(images/food-kalguksu.jpg)로 교체 권장.
   배지 "겨울 한정", 헤드라인 "속까지 뜨끈한 / 얼큰 장칼국수", 12,000원.
-- 생성 스크립트: scratchpad/make_cards.py (SRC/OUT 경로만 맞추면 재생성 가능)
+- 생성 스크립트: ads/tools/make_cards.py — 레포 루트에서 python3 ads/tools/make_cards.py
 
 ## 주의
 - 리뷰 인용문은 실제 구글 후기(src/reviews.mjs)에서만 가져올 것.
