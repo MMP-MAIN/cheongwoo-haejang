@@ -768,6 +768,42 @@ ${GUIDES.map((g) => `  <url>
 `;
 writeFileSync(join(HERE, 'sitemap.xml'), sitemap, 'utf8');
 
+/* RSS — 네이버 서치어드바이저 「RSS 제출」용. 네이버 웹문서 수집은 사이트맵보다 RSS 를
+   더 잘 따라오므로(2026-09-04 네이버 통합검색 사이트 섹션 강화에 대응) 사이트맵과 같은
+   11개 URL 을 최신순으로 냅니다. 가이드 페이지 제목·설명은 정적 HTML 의 head 에서 읽습니다. */
+const rssEsc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const headOf = (file) => {
+  const h = readFileSync(join(HERE, file), 'utf8');
+  const title = (h.match(/<title>([^<]*)<\/title>/) || [])[1] || file;
+  const desc = (h.match(/name="description" content="([^"]*)"/) || [])[1] || '';
+  return { title: title.replace(/&amp;/g, '&'), desc: desc.replace(/&amp;/g, '&') };
+};
+const rssItems = [
+  ...site.langs.map((lang) => ({ url: abs(site.file[lang]), title: t[lang].title, desc: strip(t[lang].description) })),
+  ...GUIDES.map((g) => ({ url: site.baseUrl + g, ...headOf(g) })),
+];
+const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>${rssEsc(store.legalKo)}</title>
+  <link>${site.baseUrl}</link>
+  <description>${rssEsc(strip(t.ko.description))}</description>
+  <language>ko</language>
+  <lastBuildDate>${new Date(today).toUTCString()}</lastBuildDate>
+  <atom:link href="${site.baseUrl}rss.xml" rel="self" type="application/rss+xml" />
+${rssItems.map((it) => `  <item>
+    <title>${rssEsc(it.title)}</title>
+    <link>${it.url}</link>
+    <guid isPermaLink="true">${it.url}</guid>
+    <description>${rssEsc(it.desc)}</description>
+    <pubDate>${new Date(today).toUTCString()}</pubDate>
+  </item>`).join('\n')}
+</channel>
+</rss>
+`;
+writeFileSync(join(HERE, 'rss.xml'), rss, 'utf8');
+console.log(`  ✓ rss.xml     (${rssItems.length} items)`);
+
 /* robots.txt
    자체 도메인을 쓰면 이 파일이 도메인 최상단에 놓여 검색엔진이 실제로 읽습니다.
    (위코 하위 경로에 있을 때는 /weco/robots.txt 라 무시됐습니다.)
