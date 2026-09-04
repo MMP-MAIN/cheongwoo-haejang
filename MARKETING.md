@@ -643,3 +643,7 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - 동작: 지도 사진 + 3단계 안내 + 주소·전화를 캔버스에서 JPG 한 장(1400px 폭)으로 합침 → ① 공유 시트(아이폰 「이미지 저장」, 안드로이드 갤러리) → ② 다운로드 → ③ 새 탭 + 「길게 눌러 저장」 안내 순으로 폴백. `assets/site.js` 「약도 저장」 블록.
 - GA4 추적: 기존 `directions` 이벤트에 label `sketch-save` / `sketch-save-modal` 로 잡힘. ASSET_V 13.
 - **추적 추가 (2026-09-04 오후):** ① 저장 이미지 오른쪽 아래에 QR + `cheongwoohaejang.com` 인쇄. QR 링크는 `?utm_source=saved_map&utm_medium=qr&utm_campaign=sketch_map&utm_content=<언어>` → 저장한 약도(또는 지인에게 전달된 약도)로 들어온 방문이 GA4 획득 보고서에 소스 `saved_map` 으로 잡힘. QR 파일은 `images/qr/map-<lang>.png` (Python qrcode 로 생성, 최적화 스크립트는 하위 폴더를 건드리지 않음). ② 저장 **완료** 시 GA4 이벤트 `save_map` (label: share / download / fallback / cancel) — 버튼 클릭(`get_directions`, label sketch-save)과 구분. ASSET_V 14.
+
+## SEO 콘텐츠 페이지 추가: 대구 해장국 맛집 (2026-09-04)
+- `daegu-haejangguk.html` 신규. 타깃 키워드: 대구 해장국 맛집 / 약전골목 맛집 / 근대골목·계산성당 점심. 브랜드 스토리(약령시 400년, 한약재로 고아 낸 소고기 국물) + 근대골목투어 동선 연결 + FAQ/Article/Breadcrumb 스키마.
+- 홈 한국어 푸터, sitemap.xml, llms.txt 에 등록. 여행 가이드 2종과 상호 링크. 목적: 홈 하나가 받던 일반 검색어를 전용 페이지로 분산해 "대구 해장국/약전골목" 검색 노출 확보.
