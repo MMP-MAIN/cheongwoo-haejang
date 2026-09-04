@@ -25,7 +25,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 12;
+const ASSET_V = 13;
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -258,15 +258,15 @@ function jsonLd(lang) {
 function sketchMap(lang) {
   const T = {
     ko: { title: '약도', n: '북', store: '청우해장', road: '남성로 · 약전골목', station: '반월당역', dept: '더현대 대구', exit: '더현대 방면 출구', museum: '한의약박물관', park: '공영주차장 (도보 1분)',
-          s1: '반월당역에서 「더현대 대구」 쪽 출구로 나옵니다', s2: '백화점 옆 골목으로 북쪽으로 3분 올라옵니다', s3: '박물관 지나 약전골목에서 왼쪽 → 청우해장', total: '도보 4분', print: '약도 인쇄', close: '닫기' },
+          s1: '반월당역에서 「더현대 대구」 쪽 출구로 나옵니다', s2: '백화점 옆 골목으로 북쪽으로 3분 올라옵니다', s3: '박물관 지나 약전골목에서 왼쪽 → 청우해장', total: '도보 4분', save: '약도 저장', saving: '저장 중…', saveHint: '이미지를 길게 눌러 「이미지 저장」을 누르세요', close: '닫기' },
     en: { title: 'Sketch map', n: 'N', store: 'Cheongwoo Haejang', road: 'Namseong-ro · Herbal alley', station: 'Banwoldang Stn.', dept: 'The Hyundai Daegu', exit: 'exit toward The Hyundai', museum: 'Herbal Medicine Museum', park: 'Public parking (1 min)',
-          s1: 'Leave Banwoldang Station by the exit toward The Hyundai Daegu', s2: 'Walk north 3 min along the lane beside the store', s3: 'Past the museum, turn left into the herbal alley → here', total: '4 min on foot', print: 'Print map', close: 'Close' },
+          s1: 'Leave Banwoldang Station by the exit toward The Hyundai Daegu', s2: 'Walk north 3 min along the lane beside the store', s3: 'Past the museum, turn left into the herbal alley → here', total: '4 min on foot', save: 'Save map', saving: 'Saving…', saveHint: 'Press and hold the image, then tap "Save Image"', close: 'Close' },
     ja: { title: '略図', n: '北', store: 'チョンウヘジャン', road: '南城路 · 薬田横丁', station: '半月堂駅', dept: 'ザ・現代 大邱', exit: '現代百貨店方面の出口', museum: '韓医薬博物館', park: '公営駐車場（徒歩1分）',
-          s1: '半月堂駅を「ザ・現代 大邱」方面の出口から出ます', s2: '百貨店脇の路地を北へ3分歩きます', s3: '博物館を過ぎ、薬田横丁で左折 → 当店', total: '徒歩4分', print: '略図を印刷', close: '閉じる' },
+          s1: '半月堂駅を「ザ・現代 大邱」方面の出口から出ます', s2: '百貨店脇の路地を北へ3分歩きます', s3: '博物館を過ぎ、薬田横丁で左折 → 当店', total: '徒歩4分', save: '略図を保存', saving: '保存中…', saveHint: '画像を長押しして「画像を保存」を選んでください', close: '閉じる' },
     zh: { title: '简图', n: '北', store: '青友解酲', road: '南城路 · 药田胡同', station: '半月堂站', dept: 'The Hyundai 大邱', exit: '往 The Hyundai 的出口', museum: '韩医药博物馆', park: '公共停车场（步行1分钟）',
-          s1: '从半月堂站往「The Hyundai 大邱」方向的出口出来', s2: '沿百货公司旁的小巷向北走 3 分钟', s3: '经过博物馆，在药田胡同左转 → 本店', total: '步行 4 分钟', print: '打印简图', close: '关闭' },
+          s1: '从半月堂站往「The Hyundai 大邱」方向的出口出来', s2: '沿百货公司旁的小巷向北走 3 分钟', s3: '经过博物馆，在药田胡同左转 → 本店', total: '步行 4 分钟', save: '保存简图', saving: '保存中…', saveHint: '长按图片，选择「保存图片」', close: '关闭' },
     tw: { title: '簡圖', n: '北', store: '青友解酲', road: '南城路 · 藥田巷', station: '半月堂站', dept: 'The Hyundai 大邱', exit: '往 The Hyundai 的出口', museum: '韓醫藥博物館', park: '公有停車場（步行 1 分鐘）',
-          s1: '從半月堂站往「The Hyundai 大邱」方向的出口出來', s2: '沿百貨公司旁的小巷向北走 3 分鐘', s3: '經過博物館，在藥田巷左轉 → 本店', total: '步行 4 分鐘', print: '列印簡圖', close: '關閉' },
+          s1: '從半月堂站往「The Hyundai 大邱」方向的出口出來', s2: '沿百貨公司旁的小巷向北走 3 分鐘', s3: '經過博物館，在藥田巷左轉 → 本店', total: '步行 4 分鐘', save: '儲存簡圖', saving: '儲存中…', saveHint: '長按圖片，選擇「儲存影像」', close: '關閉' },
   }[lang];
   const e = esc;
   // 실사 지도: tools/sketch-map.mjs 가 OSM 타일 + 실제 도보 경로로 만든 images/sketch-map.jpg
@@ -283,15 +283,15 @@ function sketchMap(lang) {
     <p class="sketch-total">${e(T.total)} · <span class="sketch-p">P</span> ${e(T.park)}</p>`;
   const svg = `<div class="sketch-body"><div class="sketch-img">${mapImg}</div><div class="sketch-side">${steps}</div></div>`;
   const figure = `
-<figure class="sketch" id="sketch" aria-label="${e(T.title)}">
+<figure class="sketch" id="sketch" aria-label="${e(T.title)}" data-save-title="${e(T.title)} — ${e(T.store)}" data-save-file="${e(T.store.replace(/\s+/g, "-"))}-map.jpg" data-save-addr="${e(store.roadKo)}" data-save-tel="${e(store.telDisplay)}" data-save-saving="${e(T.saving)}" data-save-hint="${e(T.saveHint)}" data-save-label="${e(T.save)}">
   ${svg}
-  <figcaption class="sketch-cap"><span>${e(T.title)}</span><span><button type="button" class="printbtn" data-open-sketch>${e(T.title)} +</button> <button type="button" class="printbtn" onclick="window.print()">${e(T.print)}</button></span></figcaption>
+  <figcaption class="sketch-cap"><span>${e(T.title)}</span><span><button type="button" class="printbtn" data-open-sketch>${e(T.title)} +</button> <button type="button" class="printbtn sketch-save" data-save-sketch data-track="directions" data-track-label="sketch-save">${e(T.save)}</button></span></figcaption>
 </figure>`;
   // 모달은 <body> 끝에 따로 붙입니다 — 섹션 안에 두면 .rv 의 transform 때문에
   // position:fixed 가 화면이 아니라 섹션 기준이 되어 안 보입니다.
   const modal = `
 <div class="sketch-modal" id="sketch-modal" role="dialog" aria-modal="true" aria-label="${e(T.title)}" hidden>
-  <div class="sketch-modal-box">${svg}<button type="button" class="sketch-close" data-close-sketch>${e(T.close)}</button></div>
+  <div class="sketch-modal-box">${svg}<button type="button" class="sketch-close sketch-save-modal" data-save-sketch data-track="directions" data-track-label="sketch-save-modal">${e(T.save)}</button><button type="button" class="sketch-close" data-close-sketch>${e(T.close)}</button></div>
 </div>`;
   return { figure, modal };
 }
