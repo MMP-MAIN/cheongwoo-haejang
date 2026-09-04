@@ -662,3 +662,4 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - 영어(구글): `daegu-beef-soup-en.html` 신설. 근거: 서치콘솔에 "beef rib soup near me"(1위)·"korean spicy beef soup"(11)·"ox tail korean soup"(9) 등 영어 요리명 검색이 이미 잡힘; "best restaurants Daegu"는 TripAdvisor/hotels.com 불가, **"ttaro gukbap Daegu"류 요리명은 소형 사이트가 상위** → 우리 얼큰해장국=따로국밥(대구 10미) 훅. 영어 홈 title 61자·guide 53자로 단축(구글 한도).
 - AI 검색: robots.txt AI 크롤러 전부 허용 + llms.txt(메뉴·가격 최신, 13페이지) 이미 정상. 빙(=ChatGPT 검색)은 IndexNow로 커버, Bing Webmaster 등록은 미정.
 - 다음: gasik.kr(사장님 다른 사이트, 영어 "Restaurants in Daegu" 가이드 보유)에서 청우해장 영어 페이지로 링크 → 정당한 백링크. GBP 영어 설명에 "ttaro gukbap / Daegu 10 delicacies" 문구.
+- 2026-09-05 추가: 번체 `daegu-banwoldang-food-tw.html`("大邱半月堂美食" — 서치콘솔 9위 검색어를 제목으로), 일본어 `daegu-banwoldang-food-ja.html`. 영어 페이지와 hreflang 묶음. 사이트맵 15개·RSS 15개·IndexNow 완료.
