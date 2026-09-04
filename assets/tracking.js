@@ -33,6 +33,9 @@
     language:    { meta: null,            ga4: 'language_switch',    kakao: null,                   label: null,         value: 0 },
     engaged:     { meta: null,            ga4: 'scroll_deep',        kakao: null,                   label: null,         value: 0 },
     blog:        { meta: null,            ga4: 'outbound_blog',      kakao: null,                   label: null,         value: 0 },
+    // 약도 이미지 저장 「완료」 — 버튼 클릭(directions)과 별개로, 실제로 공유/다운로드가
+    // 끝난 순간만 기록합니다. label: share(공유시트) / download / fallback / cancel
+    savemap:     { meta: null,            ga4: 'save_map',           kakao: null,                   label: null,         value: 0 },
   };
 
   /* ---------------------------------------------------------------------

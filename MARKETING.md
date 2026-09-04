@@ -642,3 +642,4 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - 사장님 지시: 인쇄보다 휴대폰 앨범 저장이 낫다. 약도 카드와 모달의 인쇄 버튼을 **약도 저장** 으로 교체 (5개 언어).
 - 동작: 지도 사진 + 3단계 안내 + 주소·전화를 캔버스에서 JPG 한 장(1400px 폭)으로 합침 → ① 공유 시트(아이폰 「이미지 저장」, 안드로이드 갤러리) → ② 다운로드 → ③ 새 탭 + 「길게 눌러 저장」 안내 순으로 폴백. `assets/site.js` 「약도 저장」 블록.
 - GA4 추적: 기존 `directions` 이벤트에 label `sketch-save` / `sketch-save-modal` 로 잡힘. ASSET_V 13.
+- **추적 추가 (2026-09-04 오후):** ① 저장 이미지 오른쪽 아래에 QR + `cheongwoohaejang.com` 인쇄. QR 링크는 `?utm_source=saved_map&utm_medium=qr&utm_campaign=sketch_map&utm_content=<언어>` → 저장한 약도(또는 지인에게 전달된 약도)로 들어온 방문이 GA4 획득 보고서에 소스 `saved_map` 으로 잡힘. QR 파일은 `images/qr/map-<lang>.png` (Python qrcode 로 생성, 최적화 스크립트는 하위 폴더를 건드리지 않음). ② 저장 **완료** 시 GA4 이벤트 `save_map` (label: share / download / fallback / cancel) — 버튼 클릭(`get_directions`, label sketch-save)과 구분. ASSET_V 14.

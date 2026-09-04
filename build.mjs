@@ -25,7 +25,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 13;
+const ASSET_V = 14;
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -283,7 +283,7 @@ function sketchMap(lang) {
     <p class="sketch-total">${e(T.total)} · <span class="sketch-p">P</span> ${e(T.park)}</p>`;
   const svg = `<div class="sketch-body"><div class="sketch-img">${mapImg}</div><div class="sketch-side">${steps}</div></div>`;
   const figure = `
-<figure class="sketch" id="sketch" aria-label="${e(T.title)}" data-save-title="${e(T.title)} — ${e(T.store)}" data-save-file="${e(T.store.replace(/\s+/g, "-"))}-map.jpg" data-save-addr="${e(store.roadKo)}" data-save-tel="${e(store.telDisplay)}" data-save-saving="${e(T.saving)}" data-save-hint="${e(T.saveHint)}" data-save-label="${e(T.save)}">
+<figure class="sketch" id="sketch" aria-label="${e(T.title)}" data-save-title="${e(T.title)} — ${e(T.store)}" data-save-file="${e(T.store.replace(/\s+/g, "-"))}-map.jpg" data-save-addr="${e(store.roadKo)}" data-save-tel="${e(store.telDisplay)}" data-save-saving="${e(T.saving)}" data-save-hint="${e(T.saveHint)}" data-save-label="${e(T.save)}" data-save-qr="images/qr/map-${lang}.png" data-save-url="cheongwoohaejang.com">
   ${svg}
   <figcaption class="sketch-cap"><span>${e(T.title)}</span><span><button type="button" class="printbtn" data-open-sketch>${e(T.title)} +</button> <button type="button" class="printbtn sketch-save" data-save-sketch data-track="directions" data-track-label="sketch-save">${e(T.save)}</button></span></figcaption>
 </figure>`;

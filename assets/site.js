@@ -205,7 +205,10 @@
       var steps = $$('.sketch-steps li span', sketchFig).map(function (s) { return s.textContent.trim(); });
       var total = ($('.sketch-total', sketchFig) || {}).textContent || '';
       total = total.replace(/\s+/g, ' ').trim();
-      return loadImg(src).then(function (im) {
+      var qrSrc = D('qr');
+      var qrP = qrSrc ? loadImg(qrSrc).catch(function () { return null; }) : Promise.resolve(null);
+      return Promise.all([loadImg(src), qrP]).then(function (r) {
+        var im = r[0], qr = r[1];
         var W = 1400, pad = 56;
         var mapH = Math.round(W * im.naturalHeight / im.naturalWidth);
         var c = document.createElement('canvas');
@@ -214,7 +217,7 @@
         ctx.font = '600 40px ' + FONT;
         var stepLines = steps.map(function (t) { return wrap(ctx, t, W - pad * 2 - 90); });
         var stepsH = stepLines.reduce(function (h, ls) { return h + Math.max(ls.length, 1) * 54 + 26; }, 0);
-        var headH = 120, footH = 150;
+        var headH = 120, footH = qr ? 230 : 150;
         c.width = W; c.height = headH + mapH + 40 + stepsH + 70 + footH;
 
         ctx.fillStyle = '#fbfaf7'; ctx.fillRect(0, 0, c.width, c.height);
@@ -242,6 +245,16 @@
         ctx.fillStyle = '#1b1712'; ctx.font = '600 36px ' + FONT;
         ctx.fillText(D('addr'), pad, fy + 52);
         ctx.fillText('☎ ' + D('tel'), pad, fy + 104);
+        if (qr) {
+          // 오른쪽 아래 QR — 저장한 약도를 보고(또는 지인에게 전달받고) 홈페이지로
+          // 들어오면 GA4 에 utm_source=saved_map 으로 잡힙니다.
+          var qs = 190, qx = W - pad - qs, qy = fy + (footH - qs) / 2;
+          ctx.fillStyle = '#fff'; ctx.fillRect(qx - 8, qy - 8, qs + 16, qs + 16);
+          ctx.drawImage(qr, qx, qy, qs, qs);
+          ctx.fillStyle = '#1b1712'; ctx.font = '700 30px ' + FONT; ctx.textAlign = 'right';
+          ctx.fillText(D('url'), qx - 28, fy + footH / 2);
+          ctx.textAlign = 'left';
+        }
         return new Promise(function (ok) { c.toBlob(ok, 'image/jpeg', 0.9); });
       });
     };
@@ -255,9 +268,10 @@
       var done = function () { btns.forEach(function (b) { b.disabled = false; }); btn.textContent = label; };
       composeSketch().then(function (blob) {
         var file = new File([blob], D('file'), { type: 'image/jpeg' });
+        var track = function (how) { if (window.cwTrack) window.cwTrack('savemap', { label: how }); };
         if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-          return navigator.share({ files: [file], title: D('title') }).catch(function (err) {
-            if (err && err.name === 'AbortError') return;   // 사용자가 공유 시트를 닫음
+          return navigator.share({ files: [file], title: D('title') }).then(function () { track('share'); }, function (err) {
+            if (err && err.name === 'AbortError') { track('cancel'); return; }   // 사용자가 공유 시트를 닫음
             throw err;
           });
         }
@@ -265,9 +279,11 @@
         var a = document.createElement('a');
         if ('download' in a) {
           a.href = url; a.download = D('file'); document.body.appendChild(a); a.click(); a.remove();
+          track('download');
         } else {
           window.open(url, '_blank');
           alert(D('hint'));
+          track('fallback');
         }
         setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
       }).catch(function () {
@@ -275,6 +291,7 @@
         var img = $('.sketch-img img', sketchFig);
         if (img) window.open(img.currentSrc || img.src, '_blank');
         alert(D('hint'));
+        if (window.cwTrack) window.cwTrack('savemap', { label: 'fallback' });
       }).then(done, done);
     };
     $$('[data-save-sketch]').forEach(function (b) { b.addEventListener('click', saveSketch); });
