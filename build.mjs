@@ -700,6 +700,7 @@ ${hoodSection(lang)}
         ${lang === 'ko' ? `<a href="daegu-haejangguk.html" data-track="blog" data-track-label="footer-haejangguk">대구 해장국 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-galbitang.html" data-track="blog" data-track-label="footer-galbitang">대구 갈비탕 맛집</a>` : ''}
         ${lang === 'tw' ? `<a href="daegu-food-tour-tw.html" data-track="blog" data-track-label="footer-guide">大邱一日遊指南</a>` : ''}
+        ${lang === 'en' ? `<a href="daegu-beef-soup-en.html" data-track="blog" data-track-label="footer-beefsoup">Ttaro Gukbap &amp; Beef Soup in Daegu</a>` : ''}
         ${lang === 'en' ? `<a href="daegu-food-tour-en.html" data-track="blog" data-track-label="footer-guide">Daegu Day Trip Guide</a>` : ''}
         ${lang === 'ja' ? `<a href="daegu-food-tour-ja.html" data-track="blog" data-track-label="footer-guide">大邱観光モデルコース</a>` : ''}
       </nav>
@@ -747,7 +748,7 @@ for (const lang of site.langs) {
 
 /* 사이트맵 — 5개 언어를 서로 alternate 로 묶어 줍니다. */
 // 가이드(콘텐츠 SEO) 페이지 — 손으로 만든 정적 파일이지만 사이트맵에는 여기서 등록합니다.
-const GUIDES = ['daegu-galbitang.html', 'daegu-haejangguk.html', 'daegu-food-tour.html', 'daegu-food-tour-tw.html', 'daegu-food-tour-en.html', 'daegu-food-tour-ja.html', 'daegu-attractions.html'];
+const GUIDES = ['daegu-beef-soup-en.html', 'daegu-galbitang.html', 'daegu-haejangguk.html', 'daegu-food-tour.html', 'daegu-food-tour-tw.html', 'daegu-food-tour-en.html', 'daegu-food-tour-ja.html', 'daegu-attractions.html'];
 const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -870,6 +871,7 @@ ${menuLines}
 - [简体中文](${site.baseUrl}zh.html)
 - [繁體中文](${site.baseUrl}tw.html)
 - [대구 갈비탕 맛집 — 반월당·더현대 옆 청우 약전 소갈비탕](${site.baseUrl}daegu-galbitang.html)
+- [Ttaro Gukbap & Beef Soup in Daegu — 5 min from Banwoldang (English)](${site.baseUrl}daegu-beef-soup-en.html)
 - [대구 해장국 맛집 — 약전골목 청우해장](${site.baseUrl}daegu-haejangguk.html)
 - [대구 근대골목투어 먹거리 코스 가이드](${site.baseUrl}daegu-food-tour.html)
 
