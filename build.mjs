@@ -113,9 +113,9 @@ const links = {
     : `https://www.google.com/maps/search/?api=1&query=${NAME_ADDR}`,
   googleDir: `https://www.google.com/maps/dir/?api=1&destination=${NAME_ADDR}`,
 };
-// 오픈스트리트맵 임베드 — API 키가 필요 없고 어느 나라에서 접속해도 뜹니다.
-const d = 0.0042;
-const osmEmbed = `https://www.openstreetmap.org/export/embed.html?bbox=${(store.lng - d).toFixed(5)}%2C${(store.lat - d / 1.6).toFixed(5)}%2C${(store.lng + d).toFixed(5)}%2C${(store.lat + d / 1.6).toFixed(5)}&layer=mapnik&marker=${store.lat}%2C${store.lng}`;
+// 구글 지도 임베드 — API 키 없이 쓰는 output=embed 방식. 손님에게 익숙하고
+// 가게 핀·리뷰가 같이 보입니다. (2026-09-04 사장님 요청으로 OSM 에서 교체)
+const osmEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(store.legalKo + ' ' + store.roadKo)}&ll=${store.lat},${store.lng}&z=17&hl=ko&output=embed`;
 
 /* ------------------------------ 아이콘 ------------------------------ */
 const ICON = {
