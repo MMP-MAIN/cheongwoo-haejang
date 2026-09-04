@@ -25,7 +25,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 14;
+const ASSET_V = 15;
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -598,6 +598,7 @@ ${hoodSection(lang)}
         <footer>— ${esc(r.author)} · Google</footer>
       </blockquote>`).join('\n      ')}
     </div>
+    <p class="review-cta rv" style="text-align:center;margin-top:1.6rem"><a class="btn btn-primary" href="${links.googlePlace}" target="_blank" rel="noopener" data-track="reviewintent" data-track-label="write-review">${esc({ ko: '구글 리뷰 남기기', en: 'Write a Google review', ja: 'Googleレビューを書く', zh: '撰写谷歌评价', tw: '撰寫 Google 評論' }[lang])}</a></p>
   </div>
 </section>
 
