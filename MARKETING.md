@@ -654,3 +654,11 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - 프로필 사진 3장뿐 → 요리 사진은 폰 업로드 필요(도구 한계). 공개 검색결과의 메뉴 미리보기가 옛 가격(얼큰 12,000·갈비찜 20,000)을 캐시로 보여줌 — 편집기는 정확, 구글 반영 대기.
 - 홈페이지 오시는 길 지도: OSM → **구글 지도 임베드**(output=embed, 가게 핀) 교체 배포. 구글 프로필 "웹사이트에 지도 추가하기" 카드 대응.
 - 조작 경로 메모: 프로필 편집창(게시물·메뉴)은 Control_Chrome(페이지 JS)로는 불가, **Claude in Chrome 확장(좌표 클릭·타이핑)** 으로 가능. 파일 업로드·수정 드롭다운은 불가.
+
+## 네이버·영어·AI 검색 대비 (2026-09-04~05)
+- 네이버 통합검색 "사이트" 섹션 강화(9/3~)에 대응: **RSS(rss.xml) 생성**, IndexNow 전 페이지(13) 핑, `대구 갈비탕 맛집` 페이지 신설
+  (네이버 연관검색어 "대구 중구 갈비탕·더현대 대구 갈비탕·반월당 갈비탕" 겨냥). 네이버 웹검색은 브랜드명 1위, 일반 키워드는 다이닝코드·식신·블로그가 장악 → 제목 정확일치 페이지 + 수집요청이 열쇠.
+- 서치어드바이저: 사이트 등록·인증 OK. **수집 요청·RSS 제출·사이트맵은 미제출** — 사장님 크롬 사용 중이라 자동화 중단. 남은 3개 붙여넣기(갈비탕·해장국 URL 수집요청, rss.xml, sitemap.xml).
+- 영어(구글): `daegu-beef-soup-en.html` 신설. 근거: 서치콘솔에 "beef rib soup near me"(1위)·"korean spicy beef soup"(11)·"ox tail korean soup"(9) 등 영어 요리명 검색이 이미 잡힘; "best restaurants Daegu"는 TripAdvisor/hotels.com 불가, **"ttaro gukbap Daegu"류 요리명은 소형 사이트가 상위** → 우리 얼큰해장국=따로국밥(대구 10미) 훅. 영어 홈 title 61자·guide 53자로 단축(구글 한도).
+- AI 검색: robots.txt AI 크롤러 전부 허용 + llms.txt(메뉴·가격 최신, 13페이지) 이미 정상. 빙(=ChatGPT 검색)은 IndexNow로 커버, Bing Webmaster 등록은 미정.
+- 다음: gasik.kr(사장님 다른 사이트, 영어 "Restaurants in Daegu" 가이드 보유)에서 청우해장 영어 페이지로 링크 → 정당한 백링크. GBP 영어 설명에 "ttaro gukbap / Daegu 10 delicacies" 문구.
