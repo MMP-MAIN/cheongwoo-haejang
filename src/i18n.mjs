@@ -173,6 +173,7 @@ export const t = {
     storyLede:
       '약을 다루던 골목에서 밥을 짓습니다. 화려한 양념보다 오래 고은 국물, 한 그릇으로 속이 편해지는 밥상 — 대구를 찾는 분들과 이 동네 어르신들께 몸이 기억하는 한 끼를 드리는 것이 청우해장의 바람입니다.',
     story: [
+      { h: '대구탕반, 100년 전 대구의 이름', p: '1929년 잡지 《별건곤》은 「대구의 자랑, 대구탕반」이라는 글을 실었습니다. 소 양지와 사태를 오래 고아 낸 붉은 국물에 대파를 듬뿍 넣은 이 국은 그때 이미 서울 종로에 「대구탕」 간판을 건 집이 서너 곳씩 있을 만큼 전국에 알려진 대구의 맛이었고, 광복 뒤 밥을 따로 내는 「따로국밥」으로 이어져 오늘 대구 10미가 되었습니다. 청우해장의 얼큰 해장국은 그 계보 위에 있습니다 — 같은 양지·사태 국물, 같은 대파와 고추기름을, 대구탕반이 팔리던 옛 도심 약전골목 한복판에서 끓입니다.' },
       { h: '국물이 먼저입니다', p: '아침마다 양지와 사태를 눌러 국물부터 냅니다. 맑은 해장국은 자극 없이, 얼큰 해장국은 다진 양념을 풀어 얼큰하게. 같은 국물에서 두 갈래로 나갑니다. 「해장」이라는 이름이지만 아침·점심 든든한 한 끼로 오시는 분이 더 많습니다.' },
       { h: '어르신 모시기 좋은 상', p: '맑은 갈비탕과 아롱사태수육은 맵지 않습니다. 생신·어버이날·가족 모임 상차림으로 가장 많이 찾으시는 메뉴입니다.' },
       { h: '관광 동선 한가운데', p: '약령시·서문시장·동성로·근대골목 어디서든 걸어서 닿습니다. 근처 호텔 투숙객이 아침·점심으로 들르기 좋은 위치입니다.' },
@@ -283,6 +284,7 @@ export const t = {
     storyLede:
       'We cook in an alley that once dealt in medicine. Long-simmered broth over heavy seasoning, a table that leaves you settled rather than stuffed — our hope is that visitors to Daegu and the neighbourhood’s elders remember one honest bowl.',
     story: [
+      { h: 'Daegu tangban, a name 100 years old', p: 'In 1929 the magazine Byeolgeongon ran a piece titled “Daegu’s pride, Daegu tangban”: a red beef soup of brisket and shank simmered for hours with heaps of green onion, already so well known that Seoul restaurants hung “Daegu-tang” signs. After 1945 it became ttaro gukbap — rice served separately — now one of Daegu’s 10 delicacies. Our Daegu spicy beef soup sits on that lineage: the same brisket-and-shank broth, cooked in the old heart of the city where it was first sold.' },
       { h: 'The broth comes first', p: 'Beef bones go on every morning. The clear haejang-guk is gentle and not spicy; the spicy version is the same broth with our own chili paste stirred in.' },
       { h: 'Easy for elders and children', p: 'The clear short rib soup and the boiled beef shank carry no chili at all. These are what families order for birthdays and holidays.' },
       { h: 'In the middle of the walk', p: 'Yangnyeongsi Herbal Medicine Museum, Seomun Market, Dongseong-ro and the Modern History Street are all within walking distance. Convenient for hotel guests nearby.' },
@@ -395,6 +397,7 @@ export const t = {
     storyLede:
       'かつて薬を商った路地で、ご飯を炊いています。派手な味付けよりも長く煮出したスープ、一杯で体が落ち着く食卓 — 大邱を訪れる方と地元のご年配の方に、体が覚えている一食をお届けするのが私たちの願いです。',
     story: [
+      { h: '大邱湯飯（テグタンバン）、100年前の名', p: '1929年、雑誌《別乾坤》は「大邱の誇り、大邱湯飯」という記事を載せました。牛バラとスネ肉を長時間煮出した赤いスープにネギをたっぷり入れたこの一杯は、当時すでにソウル鍾路に「大邱湯」の看板を掲げる店が数軒あるほど全国に知られた大邱の味で、戦後はご飯を別に出す「タロクッパ」として受け継がれ、今の大邱十味になりました。チョンウヘジャンの辛口牛肉スープはその系譜の上にあります。' },
       { h: 'まずスープから', p: '毎朝、牛骨を寸胴にかけるところから始めます。澄んだヘジャンククは辛くなく、辛口は同じスープに自家製の薬味を溶いたものです。' },
       { h: 'ご年配の方にも', p: 'カルビタンと牛すね肉のスユクは全く辛くありません。ご家族のお祝いの席で最も多くご注文いただくメニューです。' },
       { h: '観光ルートの真ん中', p: '薬令市韓医薬博物館、西門市場、東城路、近代路地。すべて徒歩圏内です。近隣ホテルの朝食・昼食にも。' },
@@ -507,6 +510,7 @@ export const t = {
     storyLede:
       '在曾经卖药的胡同里做饭。比起浓重调味，我们更看重久熬的汤，一碗下去让身体舒坦的一餐 — 让来大邱的客人和街坊长辈记住一碗踏实的汤，是青友解酲的心愿。',
     story: [
+      { h: '大邱汤饭，百年前的大邱之名', p: '1929年，杂志《别乾坤》刊登了《大邱的骄傲——大邱汤饭》一文。用牛腩和牛腱长时间熬出的红汤，加入大量大葱——当时首尔钟路已有好几家挂着“大邱汤”招牌的店，可见其闻名全国。光复后演变为“米饭另上”的따로국밥，成为今天的大邱十味之一。青友解酲的香辣牛肉汤正承接这一脉络。' },
       { h: '汤是根本', p: '每天清晨从熬牛骨开始。清汤解酒汤不辣，香辣款是同一锅汤加入自制辣酱。' },
       { h: '适合长辈与孩子', p: '清汤排骨汤和水煮牛腱片完全不辣，是家庭聚餐与寿宴最常点的菜。' },
       { h: '就在游览路线中间', p: '药令市韩医药博物馆、西门市场、东城路、近代胡同，全都在步行范围内。附近酒店客人早餐午餐皆宜。' },

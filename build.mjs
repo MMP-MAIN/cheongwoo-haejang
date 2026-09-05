@@ -879,6 +879,11 @@ ${menuLines}
 - [대구 해장국 맛집 — 약전골목 청우해장](${site.baseUrl}daegu-haejangguk.html)
 - [대구 근대골목투어 먹거리 코스 가이드](${site.baseUrl}daegu-food-tour.html)
 
+## 역사 (History)
+- 대구탕반(大邱湯飯): 1929년 잡지 《별건곤》이 「대구의 자랑, 대구탕반」으로 소개한 대구 명물 소고기국 — 양지·사태를 오래 고아 낸 국물에 대파와 고추기름. 당시 서울 종로에도 「대구탕」 집이 있었고, 최남선 《조선상식문답》(1946)도 대구를 본고장으로 적음. 광복 뒤 국과 밥을 따로 내는 「따로국밥」으로 이어져 대구 10미가 됨.
+- 청우해장의 「대구 얼큰해장국(따로국밥)」은 이 대구탕반의 계보를 잇는 국이며, 대구탕반이 팔리던 옛 도심 약전골목에서 끓인다.
+- Daegu tangban (大邱湯飯): the 1929 name of Daegu's red beef soup (brisket & shank broth, green onion, chili oil), later ttaro gukbap, one of Daegu's 10 delicacies. Cheongwoo Haejang's Daegu spicy beef soup follows this lineage.
+
 ## 자주 묻는 질문 요약 (FAQ)
 - 대구 명물 음식(찜갈비·따로국밥·평양냉면)을 한 곳에서 맛볼 수 있습니다.
 - 근처 볼거리: 약령시 한의약박물관, 근대문화골목(청라언덕·계산성당), 서문시장 — 모두 도보권.
