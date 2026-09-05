@@ -663,3 +663,4 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - AI 검색: robots.txt AI 크롤러 전부 허용 + llms.txt(메뉴·가격 최신, 13페이지) 이미 정상. 빙(=ChatGPT 검색)은 IndexNow로 커버, Bing Webmaster 등록은 미정.
 - 다음: gasik.kr(사장님 다른 사이트, 영어 "Restaurants in Daegu" 가이드 보유)에서 청우해장 영어 페이지로 링크 → 정당한 백링크. GBP 영어 설명에 "ttaro gukbap / Daegu 10 delicacies" 문구.
 - 2026-09-05 추가: 번체 `daegu-banwoldang-food-tw.html`("大邱半月堂美食" — 서치콘솔 9위 검색어를 제목으로), 일본어 `daegu-banwoldang-food-ja.html`. 영어 페이지와 hreflang 묶음. 사이트맵 15개·RSS 15개·IndexNow 완료.
+- 2026-09-05 브랜드 서사: **대구탕반 계보**(1929 별건곤 → 서울 종로 대구탕 → 1946 조선상식문답 → 따로국밥 → 대구 10미 → 청우해장 얼큰해장국)를 홈 이야기 첫 카드(5개 언어)·해장국 페이지 역사 섹션+FAQ·llms.txt에 반영. **"육개장" 단어 사용 금지**(사장님 지시) — 사이트 전체에서 제거 완료.
