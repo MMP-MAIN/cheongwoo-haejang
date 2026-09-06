@@ -62,3 +62,20 @@
 1. **A군 10개**를 신규 해장국 페이지 + 구글 검색광고 타깃으로. 전환 가장 잘 나옴.
 2. **C군 지역 키워드**는 여행 가이드 콘텐츠로 자연 유입 (광고 X, 비용 대비 손해).
 3. **네이버 검색광고**가 핵심 채널(대구 맛집은 네이버에서 검색) — 별도 채팅에서 A군 키워드 반영 권장.
+
+## 키워드 → 페이지 커버리지 (2026-09-07, 네이버 키워드도구 월간 PC+모바일)
+| 검색어 | 월 검색량 | 담당 페이지 |
+|---|---|---|
+| 아롱사태수육 / 대구수육맛집 | 38,260 / 1,150 | daegu-suyuk.html |
+| 대구종로맛집 / 반월당맛집 / 대구중구맛집 | 10,160 / 8,990 / 6,250 | daegu-banwoldang.html |
+| 소꼬리찜 | 9,180 | daegu-oxtail.html |
+| 대구시내맛집 / 대구한식맛집 / 대구한식당 | 5,220 / 3,330 / 280 | daegu-hansik.html |
+| 대구갈비찜 / 소갈비찜맛집 / 대구찜갈비맛집 / 대구소갈비찜 | 3,270 / 2,880 / 1,400 / 510 | daegu-jjimgalbi.html |
+| 대구국밥맛집 / 대구국밥 / 대구소고기국밥 | 3,030 / 2,810 / 650 | daegu-gukbap.html (+ttarogukbap) |
+| 대구갈비탕맛집 | 2,170 | daegu-galbitang.html |
+| 대구여행코스 / 대구여행맛집 | 2,230 / 210 | daegu-food-tour.html |
+| 대구따로국밥 / 따로국밥맛집 | 800 / 10 | daegu-ttarogukbap.html |
+| 대구해장국 / 대구해장국맛집 | 700 / 700 | daegu-haejangguk.html |
+| 대구가족모임식당 / 대구단체식당 | 400 / 300 | daegu-hansik.html, daegu-oxtail.html |
+| 대구탕반 | <10 (서사용) | daegu-haejangguk.html 역사 섹션 |
+| 大邱半月堂美食 / ttaro gukbap daegu / 大邱 半月堂 グルメ | (구글) | banwoldang-food-tw / beef-soup-en / banwoldang-food-ja |
