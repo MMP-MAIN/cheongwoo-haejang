@@ -702,6 +702,8 @@ ${hoodSection(lang)}
         ${lang === 'ko' ? `<a href="daegu-ttarogukbap.html" data-track="blog" data-track-label="footer-ttaro">대구 따로국밥 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-jjimgalbi.html" data-track="blog" data-track-label="footer-jjimgalbi">대구 찜갈비 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-suyuk.html" data-track="blog" data-track-label="footer-suyuk">대구 수육 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-oxtail.html" data-track="blog" data-track-label="footer-oxtail">대구 소꼬리찜</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-banwoldang.html" data-track="blog" data-track-label="footer-banwoldang">반월당 맛집</a>` : ''}
         ${lang === 'tw' ? `<a href="daegu-banwoldang-food-tw.html" data-track="blog" data-track-label="footer-banwoldang">大邱半月堂美食</a>` : ''}
         ${lang === 'tw' ? `<a href="daegu-food-tour-tw.html" data-track="blog" data-track-label="footer-guide">大邱一日遊指南</a>` : ''}
         ${lang === 'en' ? `<a href="daegu-beef-soup-en.html" data-track="blog" data-track-label="footer-beefsoup">Ttaro Gukbap &amp; Beef Soup in Daegu</a>` : ''}
@@ -753,7 +755,7 @@ for (const lang of site.langs) {
 
 /* 사이트맵 — 5개 언어를 서로 alternate 로 묶어 줍니다. */
 // 가이드(콘텐츠 SEO) 페이지 — 손으로 만든 정적 파일이지만 사이트맵에는 여기서 등록합니다.
-const GUIDES = ['daegu-jjimgalbi.html', 'daegu-suyuk.html', 'daegu-ttarogukbap.html', 'daegu-banwoldang-food-tw.html', 'daegu-banwoldang-food-ja.html', 'daegu-beef-soup-en.html', 'daegu-galbitang.html', 'daegu-haejangguk.html', 'daegu-food-tour.html', 'daegu-food-tour-tw.html', 'daegu-food-tour-en.html', 'daegu-food-tour-ja.html', 'daegu-attractions.html'];
+const GUIDES = ['daegu-banwoldang.html', 'daegu-oxtail.html', 'daegu-jjimgalbi.html', 'daegu-suyuk.html', 'daegu-ttarogukbap.html', 'daegu-banwoldang-food-tw.html', 'daegu-banwoldang-food-ja.html', 'daegu-beef-soup-en.html', 'daegu-galbitang.html', 'daegu-haejangguk.html', 'daegu-food-tour.html', 'daegu-food-tour-tw.html', 'daegu-food-tour-en.html', 'daegu-food-tour-ja.html', 'daegu-attractions.html'];
 const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -878,6 +880,8 @@ ${menuLines}
 - [대구 따로국밥 맛집 — 대구탕반의 계보, 반월당 약전골목](${site.baseUrl}daegu-ttarogukbap.html)
 - [대구 찜갈비 맛집 — 반월당 소갈비찜 마늘폭탄](${site.baseUrl}daegu-jjimgalbi.html)
 - [대구 수육 맛집 — 아롱사태 수육·수육 전골](${site.baseUrl}daegu-suyuk.html)
+- [대구 소꼬리찜 맛집 — 가족 모임 상차림](${site.baseUrl}daegu-oxtail.html)
+- [반월당 맛집·대구 종로 맛집 — 약전골목 청우해장 메뉴 한눈에](${site.baseUrl}daegu-banwoldang.html)
 - [대구 갈비탕 맛집 — 반월당·더현대 옆 청우 약전 소갈비탕](${site.baseUrl}daegu-galbitang.html)
 - [Ttaro Gukbap & Beef Soup in Daegu — 5 min from Banwoldang (English)](${site.baseUrl}daegu-beef-soup-en.html)
 - [大邱半月堂美食 — 藥令市牛肉湯・牛排骨湯 (繁體中文)](${site.baseUrl}daegu-banwoldang-food-tw.html)
