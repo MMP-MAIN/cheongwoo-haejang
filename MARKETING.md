@@ -668,3 +668,4 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - 2026-09-06 추가: `daegu-jjimgalbi.html`(대구 찜갈비 맛집 — 소갈비찜 마늘폭탄, 대구 10미), `daegu-suyuk.html`(대구 수육 맛집 — 아롱사태 수육·전골·냉채, 콜키지). 여행가이드 제목 → "대구 여행 맛집 코스". 사이트맵 18개 · 콘텐츠 페이지 14개. 메뉴별 검색어(해장국·따로국밥·갈비탕·찜갈비·수육) 전부 전용 페이지 확보.
 - 2026-09-06 추가: `daegu-oxtail.html`(대구 소꼬리찜 맛집), `daegu-banwoldang.html`(반월당 맛집·대구 종로 맛집 허브). 사이트맵 20개. 키워드 실측: 아롱사태수육 38,260 · 소꼬리찜 9,180 · 대구종로맛집 10,160 · 반월당맛집 8,990.
 - **AI 검색 진단**: 빙 색인 2페이지뿐(홈·ja) → ChatGPT/Copilot/Perplexity가 인용할 재료가 없음. 조치: Bing Webmaster Tools 등록(MS 로그인 필요, 서치콘솔 가져오기) + 사이트맵 제출 + URL 제출. 구글 색인 8/20 → 서치콘솔 색인 요청. llms.txt·robots(AI 봇 허용)는 정상.
+- 2026-09-06 빙 웹마스터: URL 제출 20개(할당 100/일), 사이트맵 재제출(기존 11 URL 기준→20), rss.xml 제출. IndexNow 접수 185건 확인. **AI Performance(Copilot 인용) 기준선 0** — 2주 뒤 재확인. 빙 색인이 늘면 ChatGPT/Copilot/Perplexity 인용 가능.
