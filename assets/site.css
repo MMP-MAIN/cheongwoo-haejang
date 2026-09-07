@@ -412,3 +412,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .review-card{background:#fff;border:1px solid var(--line,#e6ddcd);border-radius:16px;padding:22px 24px;margin:0}
 .review-card p{font-size:.98rem;line-height:1.75;word-break:keep-all}
 .review-card footer{margin-top:12px;font-size:.82rem;color:var(--sub,#8a7f70)}
+
+/* ---------- 대구 10미 배지 · 히어로 한 줄 · 메뉴별 이야기 카드 (2026-09-07) ---------- */
+.tag-tenmi{background:var(--amber-deep,#a8792f);color:#fff}
+.hero-note{margin-top:.9rem;font-size:.92rem;color:rgba(255,255,255,.88);max-width:52ch}
+.hero-note strong{color:#f3d9a4;font-weight:600}
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.guide-card{display:block;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit;transition:.3s}
+.guide-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.guide-card .gimg{aspect-ratio:4/3;overflow:hidden;background:var(--paper-2)}
+.guide-card .gimg img{width:100%;height:100%;object-fit:cover;display:block}
+.guide-card h3{font-family:var(--serif);font-size:1.08rem;color:var(--herb);margin:.9rem 1.1rem .3rem}
+.guide-card p{color:var(--muted);font-size:.9rem;line-height:1.55;margin:0 1.1rem 1.1rem}
+@media (max-width:1024px){.guide-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.guide-grid{grid-template-columns:1fr}}

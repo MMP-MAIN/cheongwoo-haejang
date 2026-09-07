@@ -63,6 +63,7 @@ export const tw = {
   heroTitlesWinter: ['冬天來一碗<br>熱辣刀削麵'],
   heroLede:
     '在有 400 年歷史的<strong>藥令市</strong>巷子裡，<strong>青友解酲</strong>用牛腩和牛腱熬上一整天的清湯，做排骨湯、牛肉湯，夏天有平壤冷麵，還有大邱十味之一的<strong>辣燉排骨</strong>。少些刺激，多些湯的深度 — 早餐、陪長輩用餐、一家人安心的外食。',
+  heroNote: '承接 1929 年被譽為「大邱的驕傲」的<strong>大邱湯飯</strong>脈絡 — 大邱十味，就在藥令市巷弄裡。',
   heroCtaCall: '電話訂位',
   heroCtaDir: '查看路線',
   heroCtaMap: '查看簡圖',

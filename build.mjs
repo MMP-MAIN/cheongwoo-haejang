@@ -25,7 +25,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 15;
+const ASSET_V = 16;
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -301,6 +301,9 @@ const langSwitcher = (lang, cls) => site.langs.map((l) =>
   `<a href="${site.file[l]}" hreflang="${site.hreflang[l]}" lang="${site.hreflang[l]}"${l === lang ? ' class="on" aria-current="true"' : ''} data-track="language" data-track-label="${l}">${{ ko: 'KO', en: 'EN', ja: 'JA', zh: '简', tw: '繁' }[l]}</a>`
 ).join('');
 
+const TENMI = new Set(['spicy', 'ribs']);   // 대구 10미: 따로국밥·찜갈비
+const TENMI_WORD = { ko: '대구 10미', en: 'Daegu 10-mi', ja: '大邱十味', zh: '大邱十味', tw: '大邱十味' };
+
 function menuRows(lang) {
   const L = t[lang], names = menuNames[lang];
   const seasonalWords = {
@@ -314,10 +317,55 @@ function menuRows(lang) {
           sizes: '(max-width: 700px) 30vw, 140px',
           attrs: 'loading="lazy" decoding="async"',
         })}</div>` : ''}
-        <h3>${esc(names[m.id].n)}${m.signature ? `<span class="tag">${esc(L.menuSignature)}</span>` : ''}${m.seasonal ? `<span class="tag tag-season tag-${m.seasonal}">${esc(seasonalWords[m.seasonal][lang])}</span>` : ''}</h3>
+        <h3>${esc(names[m.id].n)}${TENMI.has(m.id) ? `<span class="tag tag-tenmi">${TENMI_WORD[lang]}</span>` : ''}${m.signature ? `<span class="tag">${esc(L.menuSignature)}</span>` : ''}${m.seasonal ? `<span class="tag tag-season tag-${m.seasonal}">${esc(seasonalWords[m.seasonal][lang])}</span>` : ''}</h3>
         <span class="price${m.price ? '' : ' ask'}">${m.price ? esc(money(m.price, lang)) : esc(L.menuAsk)}</span>
         <p>${esc(names[m.id].d)}</p>
       </div>`).join('');
+}
+
+
+/* 메뉴별 이야기 카드 — 콘텐츠 SEO 페이지로 가는 내부 링크. 언어별로 있는 페이지만. */
+const GUIDE_CARDS = {
+  ko: { title: '메뉴별 이야기', lede: '어떤 국물인지, 누구와 오면 좋은지 — 메뉴마다 따로 적었습니다.', cards: [
+    ['daegu-galbitang.html', 'images/food-galbitang.jpg', '대구 갈비탕 맛집', '하루 종일 고아 낸 국물에 부드러운 갈비. 어르신 모시기 좋은 대표 메뉴.'],
+    ['daegu-ttarogukbap.html', 'images/food-spicy.jpg', '대구 따로국밥', '1929년 대구탕반의 계보를 잇는 대구 10미 — 밥은 따로, 대구식으로.'],
+    ['daegu-haejangguk.html', 'images/food-clear.jpg', '대구 해장국 맛집', '맑은 국물과 얼큰한 국물, 같은 솥에서 두 갈래로. 대구탕반 100년 이야기.'],
+    ['daegu-suyuk.html', 'images/food-jeongol.jpg', '대구 수육 맛집', '결 좋은 아롱사태를 삶아 얇게 저며. 수육·전골·냉채, 술자리와 어르신 상.'],
+    ['daegu-jjimgalbi.html', 'images/food-ribs.jpg', '대구 찜갈비 맛집', '마늘을 산처럼 올린 소갈비찜 마늘폭탄 — 대구 10미 찜갈비의 매운맛.'],
+    ['daegu-oxtail.html', 'images/food-oxtail.jpg', '대구 소꼬리찜', '상 한가운데 놓는 메뉴. 가족 모임·회식 한 상 짜기.'],
+  ] },
+  en: { title: 'Stories by dish', lede: 'What is in the bowl, and who it suits — written dish by dish.', cards: [
+    ['daegu-beef-soup-en.html', 'images/food-spicy.jpg', 'Ttaro Gukbap & Beef Soup in Daegu', 'Daegu’s signature spicy beef soup, one of the city’s 10 delicacies — 5 min from Banwoldang.'],
+    ['daegu-food-tour-en.html', 'images/hood-gate.jpg', 'Daegu Day Trip Food Walk', 'A half-day route from Banwoldang to Seomun Market, planned around where to eat.'],
+  ] },
+  ja: { title: 'メニューの話', lede: 'どんなスープか、誰と来るとよいか — 一品ずつ。', cards: [
+    ['daegu-banwoldang-food-ja.html', 'images/food-galbitang.jpg', '大邱・半月堂グルメ', '薬令市の路地で牛肉スープとカルビタン。半月堂駅から徒歩5分。'],
+    ['daegu-food-tour-ja.html', 'images/hood-gate.jpg', '大邱観光モデルコース', '半月堂→薬令市→西門市場、徒歩半日のグルメさんぽ。'],
+  ] },
+  zh: { title: '菜品故事', lede: '是什么汤、适合和谁来 — 一道一道写。', cards: [
+    ['daegu-banwoldang-food-tw.html', 'images/food-galbitang.jpg', '大邱半月堂美食', '药令市巷子里的牛肉汤与牛排骨汤，半月堂站步行 5 分钟。'],
+    ['daegu-food-tour-tw.html', 'images/hood-gate.jpg', '大邱一日游美食路线', '半月堂→药令市→西门市场，徒步半日。'],
+  ] },
+  tw: { title: '菜色故事', lede: '是什麼湯、適合和誰來 — 一道一道寫。', cards: [
+    ['daegu-banwoldang-food-tw.html', 'images/food-galbitang.jpg', '大邱半月堂美食', '藥令市巷弄裡的牛肉湯與牛排骨湯，半月堂站步行 5 分鐘。'],
+    ['daegu-food-tour-tw.html', 'images/hood-gate.jpg', '大邱一日遊美食路線', '半月堂→藥令市→西門市場，徒步半日。'],
+  ] },
+};
+function guidesSection(lang) {
+  const G = GUIDE_CARDS[lang];
+  if (!G || !G.cards.length) return '';
+  return `<section class="section" id="guides">
+  <div class="container">
+    <div class="sec-head rv">
+      <span class="sec-kicker">${esc(G.title)}</span>
+      <h2>${esc(G.title)}</h2>
+      <p>${esc(G.lede)}</p>
+    </div>
+    <div class="guide-grid rv">
+      ${G.cards.map(([href, src, title, blurb]) => `<a class="guide-card" href="${href}" data-track="blog" data-track-label="home-guide-${href.replace('.html', '')}"><div class="gimg">${picture(src, title, { w: 640, h: 480, sizes: '(max-width: 640px) 100vw, 33vw', attrs: 'loading="lazy" decoding="async"' })}</div><h3>${esc(title)}</h3><p>${esc(blurb)}</p></a>`).join('\n      ')}
+    </div>
+  </div>
+</section>`;
 }
 
 /* 근처 주차장 목록 — 이름을 누르면 네이버지도 길찾기가 그 주차장으로 열립니다. */
@@ -490,6 +538,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
     <span class="eyebrow">${esc(L.heroBadge)}</span>
     <h1 id="hero-title" data-titles='${JSON.stringify({ a: L.heroTitles || [L.heroTitle], s: L.heroTitlesSummer || [], w: L.heroTitlesWinter || [] })}'>${(L.heroTitles || [L.heroTitle])[0]}</h1>
     <p class="hero-lede">${L.heroLede}</p>
+    ${L.heroNote ? `<p class="hero-note">${L.heroNote}</p>` : ''}
     <div class="hero-cta">
       <a class="btn btn-primary" href="tel:${store.telHref}" data-track="call" data-track-label="hero">${ICON.phone}${esc(L.heroCtaCall)}</a>
       <a class="btn btn-ghost" href="#sketch-sec" data-open-sketch data-track="directions" data-track-label="hero-sketch">${ICON.pin}${esc(L.heroCtaMap)}</a>
@@ -567,6 +616,9 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
     <p class="menu-note rv">${esc(L.menuNote)}</p>
   </div>
 </section>
+
+<!-- ================= 메뉴별 이야기 (콘텐츠 페이지 카드) ================= -->
+${guidesSection(lang)}
 
 <!-- ================= 약전골목 이야기 ================= -->
 ${hoodSection(lang)}

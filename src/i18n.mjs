@@ -152,6 +152,7 @@ export const t = {
     heroTitlesWinter: ['속까지 뜨끈하게,<br>겨울 얼큰 장칼국수'],
     heroLede:
       '400년 약령시 골목 안, <strong>청우해장</strong>은 양지와 사태를 하루 종일 고아 낸 맑은 소고기 국물로 <strong>갈비탕</strong>·<strong>해장국</strong>·<strong>평양냉면</strong>을 냅니다. 자극은 덜고 국물은 깊게 — 아침 첫 끼로, 어르신 모시는 상으로, 가족의 든든한 외식으로.',
+    heroNote: '1929년 《별건곤》이 「대구의 자랑」이라 부른 <strong>대구탕반</strong>의 계보를 잇는 따로국밥 — 대구 10미를 약전골목에서.',
     heroCtaCall: '전화로 예약하기',
     heroCtaDir: '길찾기',
     heroCtaMap: '약도 보기',
@@ -263,6 +264,7 @@ export const t = {
     heroTitlesWinter: ['Winter warmer —<br>spicy kalguksu noodles.'],
     heroLede:
       'Inside Yangnyeongsi, Daegu’s 400-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> serves clear beef broth simmered all day from brisket and shank — short rib soup, beef soup, cold noodles in summer. Less seasoning, deeper broth: breakfast, a meal with elders, a wholesome family lunch.',
+    heroNote: 'Our spicy beef soup carries the lineage of <strong>Daegu tangban</strong>, praised as “Daegu’s pride” in 1929 — one of Daegu’s 10 delicacies, in the herbal alley.',
     heroCtaCall: 'Call to book',
     heroCtaDir: 'Directions',
     heroCtaMap: 'Sketch map',
@@ -376,6 +378,7 @@ export const t = {
     heroTitlesWinter: ['冬は熱々の<br>ピリ辛カルグクス。'],
     heroLede:
       '400年の歴史をもつ薬令市の路地で、<strong>チョンウヘジャン</strong>は牛バラとスネ肉を一日かけて煮出した澄んだスープをお出しします。カルビタン、ヘジャンクク、夏は平壌冷麺。刺激は控えめに、スープは深く — 朝食に、ご年配の方との食事に、家族の健やかな外食に。',
+    heroNote: '1929年に「大邱の誇り」と呼ばれた<strong>大邱湯飯</strong>の系譜を継ぐタロクッパ — 大邱十味を薬令市の路地で。',
     heroCtaCall: '電話で予約',
     heroCtaDir: '道順を見る',
     heroCtaMap: '略図を見る',
@@ -489,6 +492,7 @@ export const t = {
     heroTitlesWinter: ['冬天来一碗<br>热辣刀削面'],
     heroLede:
       '在有 400 年历史的药令市胡同里，<strong>青友解酲</strong>用牛腩和牛腱熬上一整天的清汤，做排骨汤、牛肉汤，夏天有平壤冷面。少些刺激，多些汤的深度 — 早餐、陪长辈用餐、一家人安心的外食。',
+    heroNote: '承接1929年被誉为“大邱的骄傲”的<strong>大邱汤饭</strong>脉络 — 大邱十味，就在药令市巷子里。',
     heroCtaCall: '电话预订',
     heroCtaDir: '查看路线',
     heroCtaMap: '查看简图',
