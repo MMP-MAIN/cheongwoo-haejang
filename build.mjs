@@ -706,6 +706,7 @@ ${hoodSection(lang)}
         ${lang === 'ko' ? `<a href="daegu-banwoldang.html" data-track="blog" data-track-label="footer-banwoldang">반월당 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-gukbap.html" data-track="blog" data-track-label="footer-gukbap">대구 국밥 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-hansik.html" data-track="blog" data-track-label="footer-hansik">대구 한식당</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-attractions.html" data-track="blog" data-track-label="footer-attractions">대구 가볼만한 곳</a>` : ''}
         ${lang === 'tw' ? `<a href="daegu-banwoldang-food-tw.html" data-track="blog" data-track-label="footer-banwoldang">大邱半月堂美食</a>` : ''}
         ${lang === 'tw' ? `<a href="daegu-food-tour-tw.html" data-track="blog" data-track-label="footer-guide">大邱一日遊指南</a>` : ''}
         ${lang === 'en' ? `<a href="daegu-beef-soup-en.html" data-track="blog" data-track-label="footer-beefsoup">Ttaro Gukbap &amp; Beef Soup in Daegu</a>` : ''}
@@ -891,7 +892,11 @@ ${menuLines}
 - [大邱半月堂美食 — 藥令市牛肉湯・牛排骨湯 (繁體中文)](${site.baseUrl}daegu-banwoldang-food-tw.html)
 - [大邱 半月堂グルメ — 薬令市の牛肉スープ・カルビタン (日本語)](${site.baseUrl}daegu-banwoldang-food-ja.html)
 - [대구 해장국 맛집 — 약전골목 청우해장](${site.baseUrl}daegu-haejangguk.html)
-- [대구 여행 맛집 코스 — 반월당·약령시·서문시장 근대골목 당일치기](${site.baseUrl}daegu-food-tour.html)
+- [대구 여행 코스·맛집 — 반월당·약령시·서문시장 근대골목 당일치기](${site.baseUrl}daegu-food-tour.html)
+- [Daegu Day Trip: Banwoldang to Seomun Market Food Walk (English)](${site.baseUrl}daegu-food-tour-en.html)
+- [大邱観光モデルコース (日本語)](${site.baseUrl}daegu-food-tour-ja.html)
+- [大邱一日遊美食路線 (繁體中文)](${site.baseUrl}daegu-food-tour-tw.html)
+- [대구 가볼만한 곳 베스트 9](${site.baseUrl}daegu-attractions.html)
 
 ## 역사 (History)
 - 대구탕반(大邱湯飯): 1929년 잡지 《별건곤》이 「대구의 자랑, 대구탕반」으로 소개한 대구 명물 소고기국 — 양지·사태를 오래 고아 낸 국물에 대파와 고추기름. 당시 서울 종로에도 「대구탕」 집이 있었고, 최남선 《조선상식문답》(1946)도 대구를 본고장으로 적음. 광복 뒤 국과 밥을 따로 내는 「따로국밥」으로 이어져 대구 10미가 됨.
