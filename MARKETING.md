@@ -670,3 +670,4 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
 - **AI 검색 진단**: 빙 색인 2페이지뿐(홈·ja) → ChatGPT/Copilot/Perplexity가 인용할 재료가 없음. 조치: Bing Webmaster Tools 등록(MS 로그인 필요, 서치콘솔 가져오기) + 사이트맵 제출 + URL 제출. 구글 색인 8/20 → 서치콘솔 색인 요청. llms.txt·robots(AI 봇 허용)는 정상.
 - 2026-09-06 빙 웹마스터: URL 제출 20개(할당 100/일), 사이트맵 재제출(기존 11 URL 기준→20), rss.xml 제출. IndexNow 접수 185건 확인. **AI Performance(Copilot 인용) 기준선 0** — 2주 뒤 재확인. 빙 색인이 늘면 ChatGPT/Copilot/Perplexity 인용 가능.
 - 2026-09-07 구글 서치콘솔 색인 생성 요청 10개 완료(확장프로그램): 해장국·갈비탕·따로국밥·찜갈비·반월당·수육·소꼬리찜·영어 따로국밥·번체·일본어 반월당. 남은 2개(food-tour-en/ja)는 다음날 할당량으로. 네이버 서치어드바이저 3건은 로그인 세션 문제로 미완.
+- 2026-09-07 검색어 변형 전면 반영: 새 페이지 `daegu-hansik.html`(대구 한식 맛집·한식당), `daegu-gukbap.html`(대구 국밥·소고기국밥 우산). 찜갈비 페이지 제목에 갈비찜, 따로국밥 페이지에 소고기국밥·국밥 동의어 문단, 해장국 keywords 메타, 홈 title 따로국밥. 사이트맵 22개 · 콘텐츠 페이지 18개. KEYWORDS.md에 키워드→페이지 커버리지 표. 라이브 확인 완료.
