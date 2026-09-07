@@ -855,7 +855,8 @@ const mn = menuNames.ko, mnEn = menuNames.en;
 const menuLines = menu.map((m) => {
   const ko = mn[m.id], en = mnEn[m.id];
   const season = m.seasonal === 'summer' ? ' (여름 한정)' : m.seasonal === 'winter' ? ' (겨울 한정)' : '';
-  return `- ${ko.n}${season} — ${won(m.price)}${en ? ` / ${en.n}` : ''}`;
+  const price = m.note === 'small' ? `소 ${won(m.price)} · 대 ${won(23000)}` : won(m.price);
+  return `- ${ko.n}${season} — ${price}${en ? ` / ${en.n}` : ''}`;
 }).join('\n');
 const llms = `# 청우해장 (Cheongwoo Haejang · 靑友解醒)
 
@@ -869,7 +870,7 @@ const llms = `# 청우해장 (Cheongwoo Haejang · 靑友解醒)
 - 전화/예약: ${store.telDisplay} (국제전화 +82-53-255-7052) (전화 예약, 단체 40명까지)
 - 영업시간: 매일 ${store.hours.open}–${store.hours.close}${hasBreak ? ` · 브레이크타임 ${store.hours.breakStart}–${store.hours.breakEnd}` : ''} · 라스트오더 ${store.hours.lastOrder}
 - 가는 법: 지하철 반월당역(1·2호선) 도보 5분, 약령시 약전골목 안 · 주차: 약령시서문 공영주차장 도보 1분
-- 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴 제공
+- 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴 제공, 유아 의자 있음, 단체 40명(전화 예약), 콜키지(주류 반입) 가능, 신용카드·모바일 결제
 
 ## 메뉴 (Menu)
 ${menuLines}
