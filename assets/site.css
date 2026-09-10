@@ -295,7 +295,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .topbar-inner{gap:.45rem}
   .brand{white-space:nowrap;font-size:1.08rem}
   .brand .hanja{display:none}
-  .langsw a{padding:.26rem .34rem;font-size:.75rem}
+  /* 방문자의 100%가 모바일이라 언어 버튼 터치 영역을 넓힙니다 (기존 29×29px) */
+  .langsw a{min-width:40px;min-height:44px;display:flex;align-items:center;justify-content:center;padding:0 .2rem;font-size:.75rem}
   .mobile-bar{display:flex}
   body{padding-bottom:4.6rem}
   .hero{min-height:92svh;padding-bottom:2.6rem}
@@ -426,3 +427,5 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .guide-card p{color:var(--muted);font-size:.9rem;line-height:1.55;margin:0 1.1rem 1.1rem}
 @media (max-width:1024px){.guide-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:640px){.guide-grid{grid-template-columns:1fr}}
+
+.timeline-note{margin:.2rem 0 .9rem;font-size:.88rem;color:var(--muted);border-left:3px solid var(--line);padding-left:.7rem}

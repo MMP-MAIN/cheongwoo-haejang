@@ -54,6 +54,9 @@ export const store = {
   legalKo: '한식당 청우해장',
   branchKo: '진청우해장 종로본점',
 
+  // 창업연도 — 1929년 대구탕반 계보와 매장 연혁을 혼동하지 않도록 명시합니다.
+  founded: 2016,
+
   // 연락처 — 간판 번호(053)를 대표로, 안심번호(0507)는 예비로 둡니다.
   telDisplay: '053-255-7052',
   telHref: '+82532557052',
@@ -138,7 +141,7 @@ export const menu = [
 export const parkingLots = [
   { id: 'seomun',  nameKo: '약령시서문 공영주차장', nameEn: 'Yangnyeongsi West Gate Public Parking', addrKo: '대구 중구 남성로 33',       lat: 35.8689680, lng: 128.5882798, walkMin: 1, kind: 'public' },
   { id: 'museum',  nameKo: '약령시한의약박물관 주차장', nameEn: 'Yangnyeongsi Museum Parking',   addrKo: '대구 중구 수동 (달성로 인근)', lat: 35.8687259, lng: 128.5897326, walkMin: 2, kind: 'public' },
-  { id: 'seopyeon',nameKo: '약령시서편 공영주차장', nameEn: 'Yangnyeongsi East Public Parking', addrKo: '대구 중구 남성로 61-2',     lat: 35.8677306, lng: 128.5904823, walkMin: 4, kind: 'public' },
+  { id: 'seopyeon',nameKo: '약령시서편 공영주차장', nameEn: 'Yangnyeongsi Seopyeon Public Parking', addrKo: '대구 중구 남성로 61-2',     lat: 35.8677306, lng: 128.5904823, walkMin: 4, kind: 'public' },
   { id: 'sehwa',   nameKo: '세화민영주차장',        nameEn: 'Sehwa Private Parking',            addrKo: '대구 중구 남성로 69',       lat: 35.8675988, lng: 128.5908229, walkMin: 4, kind: 'private' },
 ];
 

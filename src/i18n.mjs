@@ -243,7 +243,7 @@ export const t = {
     langName: 'English',
     title: 'Cheongwoo Haejang | Korean Beef Soup & Galbitang in Daegu',
     description:
-      `Family-run Korean restaurant in Yangnyeongsi, Daegu's 400-year-old herbal alley — galbitang, beef soup, summer naengmyeon. 5 min from Banwoldang Station, English menu.`,
+      `Korean restaurant in Yangnyeongsi, Daegu's 400-year-old herbal alley — galbitang, beef soup, summer naengmyeon. 5 min from Banwoldang Station, English menu.`,
     keywords:
       'Daegu restaurant, Daegu food, what to eat in Daegu, haejang-guk, Korean beef soup, galbitang, Korean beef short rib soup, galbijjim, Daegu braised short ribs, spicy braised ribs, Banwoldang, Yangnyeongsi herbal medicine market, Daegu Modern History Street, Korean restaurant Daegu, Seomun Market food, Daegu 10 tastes',
     ogLocale: 'en_US',
@@ -287,7 +287,7 @@ export const t = {
       'We cook in an alley that once dealt in medicine. Long-simmered broth over heavy seasoning, a table that leaves you settled rather than stuffed — our hope is that visitors to Daegu and the neighbourhood’s elders remember one honest bowl.',
     story: [
       { h: 'Daegu tangban, a name 100 years old', p: 'In 1929 the magazine Byeolgeongon ran a piece titled “Daegu’s pride, Daegu tangban”: a red beef soup of brisket and shank simmered for hours with heaps of green onion, already so well known that Seoul restaurants hung “Daegu-tang” signs. After 1945 it became ttaro gukbap — rice served separately — now one of Daegu’s 10 delicacies. Our Daegu spicy beef soup sits on that lineage: the same brisket-and-shank broth, cooked in the old heart of the city where it was first sold.' },
-      { h: 'The broth comes first', p: 'Beef bones go on every morning. The clear haejang-guk is gentle and not spicy; the spicy version is the same broth with our own chili paste stirred in.' },
+      { h: 'The broth comes first', p: 'Brisket and shank go on every morning. The clear haejang-guk is gentle and not spicy; the spicy version is the same broth with our own chili paste stirred in.' },
       { h: 'Easy for elders and children', p: 'The clear short rib soup and the boiled beef shank carry no chili at all. These are what families order for birthdays and holidays.' },
       { h: 'In the middle of the walk', p: 'Yangnyeongsi Herbal Medicine Museum, Seomun Market, Dongseong-ro and the Modern History Street are all within walking distance. Convenient for hotel guests nearby.' },
       { h: 'Groups welcome', p: 'We take group bookings for up to 40 people. Lunch gets busy, so please call ahead for larger parties.' },
@@ -514,7 +514,7 @@ export const t = {
     storyLede:
       '在曾经卖药的胡同里做饭。比起浓重调味，我们更看重久熬的汤，一碗下去让身体舒坦的一餐 — 让来大邱的客人和街坊长辈记住一碗踏实的汤，是青友解酲的心愿。',
     story: [
-      { h: '大邱汤饭，百年前的大邱之名', p: '1929年，杂志《别乾坤》刊登了《大邱的骄傲——大邱汤饭》一文。用牛腩和牛腱长时间熬出的红汤，加入大量大葱——当时首尔钟路已有好几家挂着“大邱汤”招牌的店，可见其闻名全国。光复后演变为“米饭另上”的따로국밥，成为今天的大邱十味之一。青友解酲的香辣牛肉汤正承接这一脉络。' },
+      { h: '大邱汤饭，百年前的大邱之名', p: '1929年，杂志《别乾坤》刊登了《大邱的骄傲——大邱汤饭》一文。用牛腩和牛腱长时间熬出的红汤，加入大量大葱——当时首尔钟路已有好几家挂着“大邱汤”招牌的店，可见其闻名全国。光复后演变为“米饭另上”的 ttarogukbap，成为今天的大邱十味之一。青友解酲的香辣牛肉汤正承接这一脉络。' },
       { h: '汤是根本', p: '每天清晨从熬牛骨开始。清汤解酒汤不辣，香辣款是同一锅汤加入自制辣酱。' },
       { h: '适合长辈与孩子', p: '清汤排骨汤和水煮牛腱片完全不辣，是家庭聚餐与寿宴最常点的菜。' },
       { h: '就在游览路线中间', p: '药令市韩医药博物馆、西门市场、东城路、近代胡同，全都在步行范围内。附近酒店客人早餐午餐皆宜。' },
@@ -559,7 +559,7 @@ export const t = {
 
     faqTitle: '常见问题',
     faq: [
-      { q: '大邱必吃美食有哪些？', a: '大邱的招牌是炖排骨（辣味牛排骨）、大邱式牛肉汤（따로국밥）和夏天的平壤冷面 — 本店都有。半月堂站步行5分钟，就在药令市胡同里。' },
+      { q: '大邱必吃美食有哪些？', a: '大邱的招牌是炖排骨（辣味牛排骨）、大邱式牛肉汤（ttarogukbap）和夏天的平壤冷面 — 本店都有。半月堂站步行5分钟，就在药令市胡同里。' },
       { q: '可以预订吗？', a: '可以，请致电预订。也接受 40 人以下的团体预订。电话 +82 53-255-7052。' },
       { q: '有停车场吗？', a: '没有专用停车场，但药令市西门公共停车场步行仅 1 分钟，附近还有 2〜3 个停车场。「交通」区有导航链接。' },
       { q: '有休息时间吗？', a: hasBreak
