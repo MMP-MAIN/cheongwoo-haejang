@@ -337,6 +337,7 @@ const GUIDE_CARDS = {
     ['daegu-yukhoe.html', 'images/food-yukhoe.jpg', '육회비빔밥', '숙성 간장으로 비빈 담백한 육회. 국물집의 또 다른 얼굴.'],
     ['daegu-dongseongno.html', 'images/cheongwoo-01.jpg', '동성로 맛집', '동성로에서 10분, 줄 없이 국물 있는 밥집. 놀고 나서·해장·부모님 모시고.'],
     ['daegu-modern-alley.html', 'images/hood-gate.jpg', '대구 근대골목 2코스', '청라언덕→계산성당→약령시→진골목, 순서대로. 코스 한가운데가 약전골목입니다.'],
+    ['daegu-family.html', 'images/cheongwoo-01.jpg', '대구 가족외식·부모님 생신', '맵지 않은 소갈비탕과 얼큰한 국을 한 상에. 40석, 단체 40명까지 전화 예약.'],
   ] },
   en: { title: 'Stories by dish', lede: 'What is in the bowl, and who it suits — written dish by dish.', cards: [
     ['daegu-beef-soup-en.html', 'images/food-spicy.jpg', 'Ttaro Gukbap & Beef Soup in Daegu', 'Daegu’s signature spicy beef soup, one of the city’s 10 delicacies — 5 min from Banwoldang.'],
@@ -766,6 +767,7 @@ ${hoodSection(lang)}
         ${lang === 'ko' ? `<a href="daegu-yukhoe.html" data-track="blog" data-track-label="footer-yukhoe">육회비빔밥</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-attractions.html" data-track="blog" data-track-label="footer-attractions">대구 가볼만한 곳</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-modern-alley.html" data-track="blog" data-track-label="footer-alley">대구 근대골목</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-family.html" data-track="blog" data-track-label="footer-family">대구 가족외식</a>` : ''}
         ${lang === 'tw' ? `<a href="daegu-banwoldang-food-tw.html" data-track="blog" data-track-label="footer-banwoldang">大邱半月堂美食</a>` : ''}
         ${lang === 'tw' ? `<a href="daegu-food-tour-tw.html" data-track="blog" data-track-label="footer-guide">大邱一日遊指南</a>` : ''}
         ${lang === 'en' ? `<a href="daegu-beef-soup-en.html" data-track="blog" data-track-label="footer-beefsoup">Ttaro Gukbap &amp; Beef Soup in Daegu</a>` : ''}
@@ -817,7 +819,7 @@ for (const lang of site.langs) {
 
 /* 사이트맵 — 5개 언어를 서로 alternate 로 묶어 줍니다. */
 // 가이드(콘텐츠 SEO) 페이지 — 손으로 만든 정적 파일이지만 사이트맵에는 여기서 등록합니다.
-const GUIDES = ['daegu-dongseongno.html', 'daegu-yukhoe.html', 'daegu-hansik.html', 'daegu-gukbap.html', 'daegu-banwoldang.html', 'daegu-oxtail.html', 'daegu-jjimgalbi.html', 'daegu-suyuk.html', 'daegu-ttarogukbap.html', 'daegu-banwoldang-food-tw.html', 'daegu-banwoldang-food-ja.html', 'daegu-beef-soup-en.html', 'daegu-galbitang.html', 'daegu-haejangguk.html', 'daegu-modern-alley.html', 'daegu-food-tour.html', 'daegu-food-tour-tw.html', 'daegu-food-tour-en.html', 'daegu-food-tour-ja.html', 'daegu-attractions.html'];
+const GUIDES = ['daegu-dongseongno.html', 'daegu-yukhoe.html', 'daegu-hansik.html', 'daegu-gukbap.html', 'daegu-banwoldang.html', 'daegu-oxtail.html', 'daegu-jjimgalbi.html', 'daegu-suyuk.html', 'daegu-ttarogukbap.html', 'daegu-banwoldang-food-tw.html', 'daegu-banwoldang-food-ja.html', 'daegu-beef-soup-en.html', 'daegu-galbitang.html', 'daegu-haejangguk.html', 'daegu-modern-alley.html', 'daegu-family.html', 'daegu-food-tour.html', 'daegu-food-tour-tw.html', 'daegu-food-tour-en.html', 'daegu-food-tour-ja.html', 'daegu-attractions.html'];
 const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -960,6 +962,7 @@ ${menuLines}
 - [大邱一日遊美食路線 (繁體中文)](${site.baseUrl}daegu-food-tour-tw.html)
 - [대구 가볼만한 곳 베스트 9](${site.baseUrl}daegu-attractions.html)
 - [대구 근대골목 2코스 순서와 약령시 약전골목 안내 — 점심·주차까지](${site.baseUrl}daegu-modern-alley.html)
+- [대구 가족외식·부모님 생신 식당 — 아이랑 어른이 한 상에](${site.baseUrl}daegu-family.html)
 
 ## 역사 (History)
 - 대구탕반(大邱湯飯): 1929년 잡지 《별건곤》이 「대구의 자랑, 대구탕반」으로 소개한 대구 명물 소고기국 — 양지·사태를 오래 고아 낸 국물에 대파와 고추기름. 당시 서울 종로에도 「대구탕」 집이 있었고, 최남선 《조선상식문답》(1946)도 대구를 본고장으로 적음. 광복 뒤 국과 밥을 따로 내는 「따로국밥」으로 이어져 대구 10미가 됨.
