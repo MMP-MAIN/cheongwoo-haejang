@@ -332,7 +332,7 @@ const GUIDE_CARDS = {
     ['daegu-ttarogukbap.html', 'images/food-spicy.jpg', '대구 따로국밥', '1929년 대구탕반의 계보를 잇는 대구 10미 — 밥은 따로, 대구식으로.'],
     ['daegu-haejangguk.html', 'images/food-clear.jpg', '대구 해장국 맛집', '맑은 국물과 얼큰한 국물, 같은 솥에서 두 갈래로. 대구탕반 100년 이야기.'],
     ['daegu-suyuk.html', 'images/food-jeongol.jpg', '대구 수육 맛집', '결 좋은 아롱사태를 삶아 얇게 저며. 수육·전골·냉채, 술자리와 어르신 상.'],
-    ['daegu-jjimgalbi.html', 'images/food-ribs.jpg', '대구 찜갈비 맛집', '마늘을 산처럼 올린 소갈비찜 마늘폭탄 — 대구 10미 찜갈비의 매운맛.'],
+    ['daegu-jjimgalbi.html', 'images/food-ribs.jpg', '대구 찜갈비·갈비찜 맛집', '마늘을 산처럼 올린 소갈비찜 마늘폭탄 — 대구 10미 찜갈비의 매운맛.'],
     ['daegu-oxtail.html', 'images/food-oxtail.jpg', '대구 소꼬리찜', '상 한가운데 놓는 메뉴. 가족 모임·회식 한 상 짜기.'],
     ['daegu-yukhoe.html', 'images/food-yukhoe.jpg', '육회비빔밥', '숙성 간장으로 비빈 담백한 육회. 국물집의 또 다른 얼굴.'],
     ['daegu-dongseongno.html', 'images/cheongwoo-01.jpg', '동성로 맛집', '동성로에서 10분, 줄 없이 국물 있는 밥집. 놀고 나서·해장·부모님 모시고.'],
@@ -758,7 +758,7 @@ ${hoodSection(lang)}
         ${lang === 'ko' ? `<a href="daegu-haejangguk.html" data-track="blog" data-track-label="footer-haejangguk">대구 해장국 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-galbitang.html" data-track="blog" data-track-label="footer-galbitang">대구 갈비탕 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-ttarogukbap.html" data-track="blog" data-track-label="footer-ttaro">대구 따로국밥 맛집</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-jjimgalbi.html" data-track="blog" data-track-label="footer-jjimgalbi">대구 찜갈비 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-jjimgalbi.html" data-track="blog" data-track-label="footer-jjimgalbi">대구 갈비찜 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-suyuk.html" data-track="blog" data-track-label="footer-suyuk">대구 수육 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-oxtail.html" data-track="blog" data-track-label="footer-oxtail">대구 소꼬리찜</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-banwoldang.html" data-track="blog" data-track-label="footer-banwoldang">반월당 맛집</a>` : ''}
@@ -945,7 +945,7 @@ ${menuLines}
 - [简体中文](${site.baseUrl}zh.html)
 - [繁體中文](${site.baseUrl}tw.html)
 - [대구 따로국밥 맛집 — 대구탕반의 계보, 반월당 약전골목](${site.baseUrl}daegu-ttarogukbap.html)
-- [대구 찜갈비 맛집 — 반월당 소갈비찜 마늘폭탄](${site.baseUrl}daegu-jjimgalbi.html)
+- [대구 찜갈비·갈비찜 맛집 — 반월당 소갈비찜 마늘폭탄](${site.baseUrl}daegu-jjimgalbi.html)
 - [대구 수육 맛집 — 아롱사태 수육·수육 전골](${site.baseUrl}daegu-suyuk.html)
 - [대구 소꼬리찜 맛집 — 가족 모임 상차림](${site.baseUrl}daegu-oxtail.html)
 - [반월당 맛집·대구 종로 맛집 — 약전골목 청우해장 메뉴 한눈에](${site.baseUrl}daegu-banwoldang.html)
