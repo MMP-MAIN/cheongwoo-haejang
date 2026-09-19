@@ -15,7 +15,7 @@ import { writeFileSync, readFileSync, mkdirSync, existsSync, rmSync } from 'node
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { site, store, menu, gallery, hero, ogImage, imgBase, hasBreak, parkingLots } from './src/store.mjs';
+import { site, store, menu, gallery, hero, ogImage, imgBase, hasBreak, parkingLots, notice, holidayOpen } from './src/store.mjs';
 import { t, menuNames, galleryAlt } from './src/i18n.mjs';
 import { tw, menuNamesTw, galleryAltTw } from './src/i18n.tw.mjs';
 import { hood, spots, hoodImages } from './src/hood.mjs';
@@ -25,7 +25,12 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 17;
+const ASSET_V = 18;
+
+// 빌드 날짜(한국 시간). 사이트맵 lastmod 에 찍히고, 기한이 지난 공지·특별 영업일을 빼는 데 씁니다.
+// `BUILD_DATE=2026-09-28 node build.mjs` 처럼 주면 그 날짜로 빌드한 것처럼 동작합니다(점검용).
+const BUILD_DAY = process.env.BUILD_DATE || new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10); // KST(UTC+9) 기준 날짜 — UTC 로 잡으면 오전 9시 전 빌드가 전날로 찍힙니다.
+const BUILD_NOW = process.env.BUILD_DATE ? Date.parse(`${process.env.BUILD_DATE}T00:00:00+09:00`) : Date.now();
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -144,6 +149,12 @@ function jsonLd(lang) {
         { '@type': 'OpeningHoursSpecification', dayOfWeek: store.openDays, opens: store.hours.open, closes: store.hours.close },
       ];
 
+  // 명절·공휴일에도 평소대로 여는 날(src/store.mjs 의 holidayOpen). 그 날짜의 영업시간을
+  // 「특별 영업시간」으로 한 번 더 못박아 「공휴일 휴무일지도」 하는 추측을 없앱니다.
+  // 브레이크타임은 그날도 그대로라 평소와 같은 구간으로 냅니다. 지난 날짜는 빼고 냅니다.
+  const holidayHours = holidayOpen.filter((d) => d >= BUILD_DAY).flatMap((d) =>
+    hours.map((h) => ({ '@type': 'OpeningHoursSpecification', validFrom: d, validThrough: d, opens: h.opens, closes: h.closes })));
+
   const restaurant = {
     '@type': 'Restaurant',
     '@id': site.baseUrl + '#restaurant',
@@ -172,6 +183,7 @@ function jsonLd(lang) {
     geo: { '@type': 'GeoCoordinates', latitude: store.lat, longitude: store.lng },
     hasMap: [links.naverPlace, links.kakaoPlace, links.googlePlace].filter(Boolean),
     openingHoursSpecification: hours,
+    ...(holidayHours.length ? { specialOpeningHoursSpecification: holidayHours } : {}),
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: 'Parking', value: store.parking },
       { '@type': 'LocationFeatureSpecification', name: 'Group reservations (up to 40)', value: true },
@@ -254,20 +266,22 @@ function jsonLd(lang) {
    어르신 손님이 많아 「지도 앱」보다 「종이 약도」가 낫습니다. 실측이 아니라 방향과
    순서만 맞춘 개념도이고, 글씨를 크게 둡니다. 가장 빠른 길(2026-08-19 확인):
    반월당역 → 「더현대 대구」 방면 출구 → 백화점 옆 골목으로 북쪽 → 한의약박물관 지나
-   약전골목(남성로)에서 왼쪽 → 청우해장. 약 315m, 도보 4분. (18번 출구는 6분)
+   약전골목(남성로)에서 왼쪽 → 청우해장.
+   도보 시간은 카카오맵 도보 길찾기 실측(2026-09): 더현대 대구 382m·약 6분, 반월당역 15번 출구 499m·약 7분.
+   15번 이외의 출구 번호와 구간별 분 수는 확정되지 않아 쓰지 않습니다.
    좌표 출처: 네이버 지역검색. */
 function sketchMap(lang) {
   const T = {
     ko: { title: '약도', n: '북', store: '청우해장', road: '남성로 · 약전골목', station: '반월당역', dept: '더현대 대구', exit: '더현대 방면 출구', museum: '한의약박물관', park: '공영주차장 (도보 1분)',
-          s1: '반월당역에서 「더현대 대구」 쪽 출구로 나옵니다', s2: '백화점 옆 골목으로 북쪽으로 3분 올라옵니다', s3: '박물관 지나 약전골목에서 왼쪽 → 청우해장', total: '출구에서 도보 4분', save: '약도 저장', saving: '저장 중…', saveHint: '이미지를 길게 눌러 「이미지 저장」을 누르세요', close: '닫기' },
+          s1: '반월당역에서 「더현대 대구」 쪽 출구로 나옵니다', s2: '백화점 옆 골목을 따라 북쪽으로 올라옵니다', s3: '박물관 지나 약전골목에서 왼쪽 → 청우해장', total: '더현대 대구에서 도보 약 6분', save: '약도 저장', saving: '저장 중…', saveHint: '이미지를 길게 눌러 「이미지 저장」을 누르세요', close: '닫기' },
     en: { title: 'Sketch map', n: 'N', store: 'Cheongwoo Haejang', road: 'Namseong-ro · Herbal alley', station: 'Banwoldang Stn.', dept: 'The Hyundai Daegu', exit: 'exit toward The Hyundai', museum: 'Herbal Medicine Museum', park: 'Public parking (1 min)',
-          s1: 'Leave Banwoldang Station by the exit toward The Hyundai Daegu', s2: 'Walk north 3 min along the lane beside the store', s3: 'Past the museum, turn left into the herbal alley → here', total: '4 min from the exit', save: 'Save map', saving: 'Saving…', saveHint: 'Press and hold the image, then tap "Save Image"', close: 'Close' },
+          s1: 'Leave Banwoldang Station by the exit toward The Hyundai Daegu', s2: 'Walk north along the lane beside the store', s3: 'Past the museum, turn left into the herbal alley → here', total: 'About 6 min on foot from The Hyundai Daegu', save: 'Save map', saving: 'Saving…', saveHint: 'Press and hold the image, then tap "Save Image"', close: 'Close' },
     ja: { title: '略図', n: '北', store: 'チョンウヘジャン', road: '南城路 · 薬田横丁', station: '半月堂駅', dept: 'ザ・現代 大邱', exit: '現代百貨店方面の出口', museum: '韓医薬博物館', park: '公営駐車場（徒歩1分）',
-          s1: '半月堂駅を「ザ・現代 大邱」方面の出口から出ます', s2: '百貨店脇の路地を北へ3分歩きます', s3: '博物館を過ぎ、薬田横丁で左折 → 当店', total: '出口から徒歩4分', save: '略図を保存', saving: '保存中…', saveHint: '画像を長押しして「画像を保存」を選んでください', close: '閉じる' },
+          s1: '半月堂駅を「ザ・現代 大邱」方面の出口から出ます', s2: '百貨店脇の路地を北へ進みます', s3: '博物館を過ぎ、薬田横丁で左折 → 当店', total: 'ザ・現代 大邱から徒歩約6分', save: '略図を保存', saving: '保存中…', saveHint: '画像を長押しして「画像を保存」を選んでください', close: '閉じる' },
     zh: { title: '简图', n: '北', store: '青友解酲', road: '南城路 · 药田胡同', station: '半月堂站', dept: 'The Hyundai 大邱', exit: '往 The Hyundai 的出口', museum: '韩医药博物馆', park: '公共停车场（步行1分钟）',
-          s1: '从半月堂站往「The Hyundai 大邱」方向的出口出来', s2: '沿百货公司旁的小巷向北走 3 分钟', s3: '经过博物馆，在药田胡同左转 → 本店', total: '出口步行 4 分钟', save: '保存简图', saving: '保存中…', saveHint: '长按图片，选择「保存图片」', close: '关闭' },
+          s1: '从半月堂站往「The Hyundai 大邱」方向的出口出来', s2: '沿百货公司旁的小巷向北走', s3: '经过博物馆，在药田胡同左转 → 本店', total: '距 The Hyundai 大邱步行约6分钟', save: '保存简图', saving: '保存中…', saveHint: '长按图片，选择「保存图片」', close: '关闭' },
     tw: { title: '簡圖', n: '北', store: '青友解酲', road: '南城路 · 藥田巷', station: '半月堂站', dept: 'The Hyundai 大邱', exit: '往 The Hyundai 的出口', museum: '韓醫藥博物館', park: '公有停車場（步行 1 分鐘）',
-          s1: '從半月堂站往「The Hyundai 大邱」方向的出口出來', s2: '沿百貨公司旁的小巷向北走 3 分鐘', s3: '經過博物館，在藥田巷左轉 → 本店', total: '出口步行 4 分鐘', save: '儲存簡圖', saving: '儲存中…', saveHint: '長按圖片，選擇「儲存影像」', close: '關閉' },
+          s1: '從半月堂站往「The Hyundai 大邱」方向的出口出來', s2: '沿百貨公司旁的小巷向北走', s3: '經過博物館，在藥田巷左轉 → 本店', total: '距 The Hyundai 大邱步行約 6 分鐘', save: '儲存簡圖', saving: '儲存中…', saveHint: '長按圖片，選擇「儲存影像」', close: '關閉' },
   }[lang];
   const e = esc;
   // 실사 지도: tools/sketch-map.mjs 가 OSM 타일 + 실제 도보 경로로 만든 images/sketch-map.jpg
@@ -298,6 +312,22 @@ function sketchMap(lang) {
 }
 
 /* ------------------------------ 부분 조각들 ------------------------------ */
+/* 홈 상단 한 줄 공지 (src/store.mjs 의 notice) — 히어로 글머리 위에 얇게 얹습니다.
+   기한(until)이 지나면
+     · 빌드 시점: 아예 안 넣고
+     · 브라우저: 바로 뒤 인라인 스크립트가 화면을 그리기 전에 DOM 에서 지웁니다.
+       재빌드 없이도 그 시각부터 안 보이고, 통째로 빠지므로 빈 자리·뒤늦은 밀림이 없습니다.
+       (assets/site.js 가 data-until 을 한 번 더 확인합니다 — 이중 장치)
+   until 을 잘못 적어 날짜로 못 읽으면 공지를 내지 않습니다(영영 남는 쪽보다 안전). */
+function noticeLine(lang) {
+  if (!notice || !notice.lead || !notice.lead[lang]) return '';
+  const until = Date.parse(notice.until);
+  if (!(until > BUILD_NOW)) return '';
+  const rest = notice.rest && notice.rest[lang];
+  return `<p class="notice" id="notice" data-notice="${esc(notice.id)}" data-until="${esc(notice.until)}"><strong>${esc(notice.lead[lang])}</strong>${rest ? ` · <span>${esc(rest)}</span>` : ''}</p>
+    <script>(function(n){if(n&&Date.now()>=${until})n.parentNode.removeChild(n)})(document.getElementById('notice'))</script>`;
+}
+
 const langSwitcher = (lang, cls) => site.langs.map((l) =>
   `<a href="${site.file[l]}" hreflang="${site.hreflang[l]}" lang="${site.hreflang[l]}"${l === lang ? ' class="on" aria-current="true"' : ''} data-track="language" data-track-label="${l}">${{ ko: 'KO', en: 'EN', ja: 'JA', zh: '简', tw: '繁' }[l]}</a>`
 ).join('');
@@ -336,25 +366,25 @@ const GUIDE_CARDS = {
     ['daegu-oxtail.html', 'images/food-oxtail.jpg', '대구 소꼬리찜', '상 한가운데 놓는 메뉴. 가족 모임·회식 한 상 짜기.'],
     ['daegu-yukhoe.html', 'images/food-yukhoe.jpg', '육회비빔밥', '숙성 간장으로 비빈 담백한 육회. 국물집의 또 다른 얼굴.'],
     ['daegu-10mi.html', 'images/food-spicy.jpg', '대구 10미 안내', '열 가지 음식과 먹는 동네. 그중 따로국밥·대구식 찜갈비 두 가지를 약전골목에서 냅니다.'],
-    ['daegu-dongseongno.html', 'images/cheongwoo-01.jpg', '동성로 맛집', '동성로에서 10분, 줄 없이 국물 있는 밥집. 놀고 나서·해장·부모님 모시고.'],
+    ['daegu-dongseongno.html', 'images/cheongwoo-01.jpg', '동성로 맛집', '동성로 중심에서 도보 약 15분, 줄 없이 국물 있는 밥집. 놀고 나서·해장·부모님 모시고.'],
     ['daegu-modern-alley.html', 'images/hood-gate.jpg', '대구 근대골목 2코스', '청라언덕→계산성당→약령시→진골목, 순서대로. 코스 한가운데가 약전골목입니다.'],
     ['daegu-family.html', 'images/cheongwoo-01.jpg', '대구 가족외식·부모님 생신', '맵지 않은 소갈비탕과 얼큰한 국을 한 상에. 40석, 단체 40명까지 전화 예약.'],
     ['daegu-dongdaegu.html', 'images/food-galbitang.jpg', '동대구역에서 오는 길', '1호선 5정거장, 환승 없이 반월당. 기차 시간에 맞춰 밥 먹는 법.'],
   ] },
   en: { title: 'Stories by dish', lede: 'What is in the bowl, and who it suits — written dish by dish.', cards: [
-    ['daegu-beef-soup-en.html', 'images/food-spicy.jpg', 'Ttaro Gukbap & Beef Soup in Daegu', 'Daegu’s signature spicy beef soup, one of the city’s 10 delicacies — 5 min from Banwoldang.'],
+    ['daegu-beef-soup-en.html', 'images/food-spicy.jpg', 'Ttaro Gukbap & Beef Soup in Daegu', 'Daegu’s signature spicy beef soup, one of the city’s 10 delicacies — about 7 min on foot from Banwoldang Station.'],
     ['daegu-food-tour-en.html', 'images/hood-gate.jpg', 'Daegu Day Trip Food Walk', 'A half-day route from Banwoldang to Seomun Market, planned around where to eat.'],
   ] },
   ja: { title: 'メニューの話', lede: 'どんなスープか、誰と来るとよいか — 一品ずつ。', cards: [
-    ['daegu-banwoldang-food-ja.html', 'images/food-galbitang.jpg', '大邱・半月堂グルメ', '薬令市の路地で牛肉スープとカルビタン。半月堂駅から徒歩5分。'],
+    ['daegu-banwoldang-food-ja.html', 'images/food-galbitang.jpg', '大邱・半月堂グルメ', '薬令市の路地で牛肉スープとカルビタン。半月堂駅から徒歩約7分。'],
     ['daegu-food-tour-ja.html', 'images/hood-gate.jpg', '大邱観光モデルコース', '半月堂→薬令市→西門市場、徒歩半日のグルメさんぽ。'],
   ] },
   zh: { title: '菜品故事', lede: '是什么汤、适合和谁来 — 一道一道写。', cards: [
-    ['daegu-banwoldang-food-tw.html', 'images/food-galbitang.jpg', '大邱半月堂美食', '药令市巷子里的牛肉汤与牛排骨汤，半月堂站步行 5 分钟。'],
+    ['daegu-banwoldang-food-tw.html', 'images/food-galbitang.jpg', '大邱半月堂美食', '药令市巷子里的牛肉汤与牛排骨汤，半月堂站步行约 7 分钟。'],
     ['daegu-food-tour-tw.html', 'images/hood-gate.jpg', '大邱一日游美食路线', '半月堂→药令市→西门市场，徒步半日。'],
   ] },
   tw: { title: '菜色故事', lede: '是什麼湯、適合和誰來 — 一道一道寫。', cards: [
-    ['daegu-banwoldang-food-tw.html', 'images/food-galbitang.jpg', '大邱半月堂美食', '藥令市巷弄裡的牛肉湯與牛排骨湯，半月堂站步行 5 分鐘。'],
+    ['daegu-banwoldang-food-tw.html', 'images/food-galbitang.jpg', '大邱半月堂美食', '藥令市巷弄裡的牛肉湯與牛排骨湯，半月堂站步行約 7 分鐘。'],
     ['daegu-food-tour-tw.html', 'images/hood-gate.jpg', '大邱一日遊美食路線', '半月堂→藥令市→西門市場，徒步半日。'],
   ] },
 };
@@ -542,6 +572,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
   </div>
   <div class="hero-veil"></div>
   <div class="container hero-inner">
+    ${noticeLine(lang)}
     <span class="eyebrow">${esc(L.heroBadge)}</span>
     <h1 id="hero-title" data-titles='${JSON.stringify({ a: L.heroTitles || [L.heroTitle], s: L.heroTitlesSummer || [], w: L.heroTitlesWinter || [] })}'>${(L.heroTitles || [L.heroTitle])[0]}</h1>
     <p class="hero-lede">${L.heroLede}</p>
@@ -570,7 +601,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
     <div class="quick">
       <h3>${esc(L.quickAddr)}</h3>
       <p><a href="${links.naverPlace}" target="_blank" rel="noopener" data-track="directions" data-track-label="quickbar-address">${esc(lang === 'ko' ? store.roadKo : store.roadEn)}</a></p>
-      <small>${esc(lang === 'ko' ? store.areaKo : 'Yakjeon-golmok · 5 min from Banwoldang Stn.')}</small>
+      <small>${esc(lang === 'ko' ? store.areaKo : 'Yakjeon-golmok · about 7 min on foot from Banwoldang Stn.')}</small>
     </div>
     <div class="quick">
       <h3>${esc(L.quickTel)}</h3>
@@ -824,7 +855,7 @@ for (const lang of site.langs) {
 /* 사이트맵 — 5개 언어를 서로 alternate 로 묶어 줍니다. */
 // 가이드(콘텐츠 SEO) 페이지 — 손으로 만든 정적 파일이지만 사이트맵에는 여기서 등록합니다.
 const GUIDES = ['daegu-10mi.html', 'daegu-dongdaegu.html', 'daegu-dongseongno.html', 'daegu-yukhoe.html', 'daegu-hansik.html', 'daegu-gukbap.html', 'daegu-banwoldang.html', 'daegu-oxtail.html', 'daegu-jjimgalbi.html', 'daegu-suyuk.html', 'daegu-ttarogukbap.html', 'daegu-banwoldang-food-tw.html', 'daegu-banwoldang-food-ja.html', 'daegu-beef-soup-en.html', 'daegu-galbitang.html', 'daegu-haejangguk.html', 'daegu-modern-alley.html', 'daegu-family.html', 'daegu-food-tour.html', 'daegu-food-tour-tw.html', 'daegu-food-tour-en.html', 'daegu-food-tour-ja.html', 'daegu-attractions.html'];
-const today = process.env.BUILD_DATE || new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10); // KST(UTC+9) 기준 날짜 — UTC 로 잡으면 오전 9시 전 빌드가 전날로 찍힙니다.
+const today = BUILD_DAY;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${site.langs.map((lang) => `  <url>
@@ -934,7 +965,7 @@ const llms = `# ${store.nameKo} (Cheongwoo Haejang · ${store.nameHanja})
 - 주소: ${store.roadKo} (11 Namseong-ro, Jung-gu, Daegu, Korea)
 - 전화/예약: ${store.telDisplay} (국제전화 +82-53-255-7052) (전화 예약, 단체 40명까지)
 - 영업시간: 매일 ${store.hours.open}–${store.hours.close}${hasBreak ? ` · 브레이크타임 ${store.hours.breakStart}–${store.hours.breakEnd}` : ''} · 라스트오더 ${store.hours.lastOrder}
-- 가는 법: 지하철 반월당역(1·2호선) 도보 5분, 약령시 약전골목 안 · 주차: 약령시서문 공영주차장 도보 1분
+- 가는 법: 더현대 대구에서 도보 약 6분(약 380m) · 지하철 반월당역(1·2호선) 15번 출구에서 도보 약 7분(약 500m) · 중앙로역(1호선)에서 도보 약 10분, 약령시 약전골목 안 · 주차: 약령시서문 공영주차장 도보 1분
 - 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴 제공, 유아 의자 있음, 단체 40명(전화 예약), 콜키지(주류 반입) 가능, 신용카드·모바일 결제
 
 ## 메뉴 (Menu)
@@ -953,10 +984,10 @@ ${menuLines}
 - [반월당 맛집·대구 종로 맛집 — 약전골목 청우해장 메뉴 한눈에](${site.baseUrl}daegu-banwoldang.html)
 - [대구 국밥 맛집 — 소고기국밥·따로국밥·맑은 해장국](${site.baseUrl}daegu-gukbap.html)
 - [대구 한식 맛집·한식당 추천 — 가족모임·단체·외국인 메뉴](${site.baseUrl}daegu-hansik.html)
-- [동성로 맛집 — 줄 없이 국물 있는 밥집, 동성로 도보 10분](${site.baseUrl}daegu-dongseongno.html)
+- [동성로 맛집 — 줄 없이 국물 있는 밥집, 동성로 중심에서 도보 약 15분](${site.baseUrl}daegu-dongseongno.html)
 - [대구 육회비빔밥 맛집 — 숙성 간장 육회 14,000원](${site.baseUrl}daegu-yukhoe.html)
 - [대구 갈비탕 맛집 — 반월당·더현대 옆 청우 약전 소갈비탕](${site.baseUrl}daegu-galbitang.html)
-- [Ttaro Gukbap & Beef Soup in Daegu — 5 min from Banwoldang (English)](${site.baseUrl}daegu-beef-soup-en.html)
+- [Ttaro Gukbap & Beef Soup in Daegu — 7 min from Banwoldang (English)](${site.baseUrl}daegu-beef-soup-en.html)
 - [大邱半月堂美食 — 藥令市牛肉湯・牛排骨湯 (繁體中文)](${site.baseUrl}daegu-banwoldang-food-tw.html)
 - [大邱 半月堂グルメ — 薬令市の牛肉スープ・カルビタン (日本語)](${site.baseUrl}daegu-banwoldang-food-ja.html)
 - [대구 해장국 맛집 — 약전골목 청우해장](${site.baseUrl}daegu-haejangguk.html)

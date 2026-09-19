@@ -114,6 +114,42 @@ export const store = {
 export const hasBreak = Boolean(store.hours.breakStart && store.hours.breakEnd);
 export const hasLastOrder = Boolean(store.hours.lastOrder);
 
+// ---------------------------------------------------------------------------
+// 홈 상단 한 줄 공지 — 명절 영업·임시 휴무처럼 기한이 있는 안내
+// ---------------------------------------------------------------------------
+// `until`(한국 시간) 이 되면 세 군데에서 알아서 빠집니다.
+//   1) 브라우저: 공지 바로 뒤의 인라인 스크립트가 그리기 전에 지웁니다 (재빌드 불필요·깜빡임 없음)
+//   2) 브라우저: assets/site.js 가 data-until 을 한 번 더 확인합니다 (예비)
+//   3) 빌드: 기한이 지난 뒤 `node build.mjs` 를 돌리면 HTML 에 아예 안 들어갑니다
+// 공지가 없을 때는 `export const notice = null;` 로 두세요. 시간은 위 `hours` 에서 가져옵니다.
+// ※ 2026-09-19 사장님 확인: 2026 추석 연휴 9/24(목)~9/27(일) 내내 정상 영업 (추석 당일 9/25 금).
+const _h = store.hours;
+export const notice = {
+  id: 'chuseok-2026',
+  until: '2026-09-28T00:00:00+09:00',   // 이 시각부터 안 보입니다
+  // lead 는 굵게, rest 는 보통 굵기로 한 줄에 이어 붙습니다 (lead · rest).
+  lead: {
+    ko: '추석 연휴(9/24~27) 정상 영업합니다',
+    en: 'Open as usual through the Chuseok holiday (Sep 24–27)',
+    ja: '秋夕（チュソク）連休 9/24〜27 も通常営業',
+    zh: '中秋假期（9/24~27）照常营业',
+    tw: '中秋連假（9/24~27）照常營業',
+  },
+  rest: {
+    ko: `매일 ${_h.open}–${_h.close}${hasBreak ? ` (브레이크 ${_h.breakStart}–${_h.breakEnd})` : ''}`,
+    en: `Daily ${_h.open}–${_h.close}${hasBreak ? ` (break ${_h.breakStart}–${_h.breakEnd})` : ''}`,
+    ja: `毎日 ${_h.open}–${_h.close}${hasBreak ? `（休憩 ${_h.breakStart}–${_h.breakEnd}）` : ''}`,
+    zh: `每天 ${_h.open}–${_h.close}${hasBreak ? `（休息 ${_h.breakStart}–${_h.breakEnd}）` : ''}`,
+    tw: `每天 ${_h.open}–${_h.close}${hasBreak ? `（休息 ${_h.breakStart}–${_h.breakEnd}）` : ''}`,
+  },
+};
+
+// 공휴일·명절인데도 평소 시간대로 여는 날 (사장님이 확인해 준 날짜만 적습니다).
+// 구조화 데이터의 specialOpeningHoursSpecification 으로 나가 「공휴일에도 영업」 신호가 됩니다.
+// 시간은 위 `hours` 를 그대로 따르고(브레이크 포함), 지난 날짜는 빌드할 때 자동으로 빠집니다.
+// 9/27(일)은 연휴 마지막 날이지만 평소 일요일 영업과 같아 따로 적지 않았습니다.
+export const holidayOpen = ['2026-09-24', '2026-09-25', '2026-09-26'];
+
 // 대표 메뉴. price 가 null 이면 "가격 문의" 로 표시됩니다.
 // ※ 2026-08-18 **네이버 플레이스** 에 사장님이 직접 등록한 메뉴 19종에서
 //    대표 11종을 골라 이름·가격·설명·사진을 그대로 옮겼습니다.

@@ -80,7 +80,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
   ${label(mx, my + 40*S, '약령시 한의약박물관', { fs: 15, fw: 600, anchor: 'middle', bg: 'rgba(255,255,255,.92)' })}
   <!-- 출발: 더현대 → 라벨을 핀 왼쪽으로 -->
   ${pin(hx, hy, '#1c6b48', 'M')}${label(hx - 26*S, hy - 4*S, '반월당역 → 더현대 대구 출구', { fs: 19, bg: '#e8f4ee', fg: '#0f4a30', stroke: '#1c6b48', anchor: 'end' })}
-  ${label(hx - 26*S, hy + 36*S, '여기서 출발 · 도보 ' + walkMin + '분', { fs: 16, fw: 600, bg: '#e8f4ee', fg: '#0f4a30', stroke: '#1c6b48', anchor: 'end' })}
+  ${label(hx - 26*S, hy + 36*S, '더현대 대구에서 도보 약 6분', { fs: 16, fw: 600, bg: '#e8f4ee', fg: '#0f4a30', stroke: '#1c6b48', anchor: 'end' })}
   <!-- 18번 출구 (보조) -->
   ${label(ex, ey, '18번 출구', { fs: 14, fw: 600, anchor: 'middle', bg: 'rgba(255,255,255,.9)' })}
   <!-- 도착: 청우해장 → 라벨을 별 왼쪽으로 -->

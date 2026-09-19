@@ -94,6 +94,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   linear-gradient(180deg,rgba(14,10,7,.66) 0%,rgba(14,10,7,.18) 34%,rgba(14,10,7,.52) 68%,rgba(14,10,7,.88) 100%)}
 .hero-inner{position:relative;color:#fff}
 .hero-inner > *{max-width:760px}
+/* 홈 상단 한 줄 공지 (명절 영업 등 — src/store.mjs 의 notice). 기한이 지나면 DOM 에서
+   통째로 빠지므로, 없을 때는 이 줄이 없던 원래 히어로 그대로입니다. */
+.notice{
+  display:block;width:fit-content;margin-bottom:1.15rem;padding:.42rem .95rem;border-radius:10px;
+  background:rgba(18,12,8,.58);border:1px solid rgba(243,217,164,.42);backdrop-filter:blur(8px);
+  color:rgba(255,255,255,.92);font-size:.86rem;line-height:1.5;overflow-wrap:anywhere
+}
+.notice strong{color:#f3d9a4;font-weight:600}
+/* 시간 부분은 한 덩어리로 다음 줄에 내려갑니다. 띄어쓰기가 없는 일본어·중국어는 그냥 이어 흘립니다. */
+.notice span{display:inline-block}
+:lang(ko) .notice{word-break:keep-all}
+:lang(ja) .notice span,:lang(zh) .notice span{display:inline}
 .eyebrow{
   display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;
   color:rgba(255,255,255,.82);margin-bottom:1.1rem
@@ -302,6 +314,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .hero{min-height:92svh;padding-bottom:2.6rem}
   .hero-veil{background:linear-gradient(180deg,rgba(14,10,7,.62) 0%,rgba(14,10,7,.34) 22%,rgba(14,10,7,.74) 52%,rgba(14,10,7,.95) 100%)}
   .hero h1{font-size:clamp(1.95rem,8.2vw,2.6rem)}
+  /* 공지는 상단바와 글머리 사이 빈 여백으로 끌어올려, 아래 버튼이 덜 밀리게 합니다 */
+  .notice{margin-top:-2.2rem;margin-bottom:1rem;font-size:.84rem}
   .foot{padding-bottom:5.6rem}
 }
 @media (max-width:520px){
@@ -316,6 +330,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   body{background:#fff;color:#000}
   .hero{min-height:auto;padding:2rem 0}
   .hero-inner{color:#000}
+  .notice{background:none;border-color:#999;color:#000}
+  .notice strong{color:#000}
 }
 
 /* ---------- 골목 도보 코스 ---------- */

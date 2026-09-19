@@ -6,15 +6,17 @@
 // 표제 내용을 근거로 했고, 확정하기 어려운 연도는 단정하지 않았습니다.
 // ---------------------------------------------------------------------------
 
-// 도보 시간은 남성로 11 기준 대략치입니다.
+// 도보 시간은 카카오맵 도보 길찾기 실측(도착지 남성로 11, 2026-09)을 분 단위로 반올림한 값입니다.
+//  박물관 232m·204초 / 이상화고택 348m / 계산성당 368m / 진골목 550m·483초 / 청라언덕 710m /
+//  동성로 중심(CGV대구한일 927m·약 14분, 28아트스퀘어 1,038m·약 16분) / 서문시장 969m.
 const spots = [
-  { key: 'museum',  min: 1 },
-  { key: 'jingolmok', min: 3 },
-  { key: 'gyesan',  min: 5 },
-  { key: 'leesang', min: 6 },
-  { key: 'dongseong', min: 8 },
-  { key: 'cheongna', min: 10 },
-  { key: 'seomun',  min: 13 },
+  { key: 'museum',  min: 3 },
+  { key: 'leesang', min: 5 },
+  { key: 'gyesan',  min: 6 },
+  { key: 'jingolmok', min: 8 },
+  { key: 'cheongna', min: 11 },
+  { key: 'dongseong', min: 15 },
+  { key: 'seomun',  min: 16 },
 ];
 export { spots };
 
@@ -38,7 +40,7 @@ export const hood = {
     blocks: [
       {
         h: '약령시와 약전골목',
-        p: '대구약령시는 조선 효종 연간, 경상감영 객사 주변에서 한약재를 사고팔던 계절시장으로 시작했습니다. 봄·가을 한 달씩 열리던 장이 오늘날에는 상설 시장이 되어 남성로 일대 — 사람들이 <strong>약전골목</strong>이라 부르는 이 거리 — 에 자리 잡았습니다. 지금도 골목을 걸으면 한약방에서 새어 나오는 약재 냄새가 납니다. 청우해장은 그 골목 안, 약령시한의약박물관 바로 옆에 있습니다.',
+        p: '대구약령시는 조선 효종 연간, 경상감영 객사 주변에서 한약재를 사고팔던 계절시장으로 시작했습니다. 봄·가을 한 달씩 열리던 장이 오늘날에는 상설 시장이 되어 남성로 일대 — 사람들이 <strong>약전골목</strong>이라 부르는 이 거리 — 에 자리 잡았습니다. 지금도 골목을 걸으면 한약방에서 새어 나오는 약재 냄새가 납니다. 청우해장은 그 골목 안, 약령시한의약박물관에서 도보 약 3분 거리에 있습니다.',
       },
       {
         h: '근대문화골목',
@@ -50,12 +52,12 @@ export const hood = {
       },
     ],
     courseTitle: '걸어서 닿는 곳',
-    courseNote: '※ 도보 시간은 청우해장(남성로 11) 기준 대략치입니다.',
+    courseNote: '※ 도보 시간은 청우해장(남성로 11) 기준, 카카오맵 도보 길찾기로 잰 대략치입니다. 동성로는 중심부 기준입니다.',
     archiveTitle: '옛 지도와 골목 풍경',
     archiveLede: '1930년 지형도 속 대구 시가지 — 약령시는 옛 성곽 남쪽 길, 지금의 남성로에 섰습니다. 그 길에서 400년 가까이 약재가 오갔고, 지금은 그 골목에서 국을 끓입니다.',
     archive: { map1930: '1930년 대구 시가지 지형도 (조선총독부)', mural: '약령시 골목의 옛 약방 벽화', herbs: '약전골목 약재 진열', gate: '약령시 정문 「약령문」' },
     spots: {
-      museum:   { n: '약령시한의약박물관', d: '약령시의 역사를 모아 둔 박물관. 매장 바로 옆입니다.' },
+      museum:   { n: '약령시한의약박물관', d: '약령시의 역사를 모아 둔 박물관. 매장에서 걸어서 약 3분입니다.' },
       jingolmok:{ n: '진골목', d: '근대 대구 부호들이 살던 좁고 긴 골목.' },
       gyesan:   { n: '계산성당', d: '1898년 본당이 선 대구 천주교의 주교좌성당. 붉은 벽돌 서양식 건물.' },
       leesang:  { n: '이상화·서상돈 고택', d: '「빼앗긴 들에도 봄은 오는가」의 시인과 국채보상운동을 일으킨 이의 집.' },
@@ -73,7 +75,7 @@ export const hood = {
     blocks: [
       {
         h: 'Yangnyeongsi and Yakjeon-golmok',
-        p: 'Daegu’s Yangnyeongsi began in the late Joseon period as a seasonal market for medicinal herbs, held near the guesthouse of the Gyeongsang provincial office. What was once a month-long fair each spring and autumn is now a permanent market along Namseong-ro — the street everyone calls <strong>Yakjeon-golmok</strong>, the herbal medicine alley. Walk it today and the smell of dried roots still drifts out of the shops. We are inside that alley, right beside the Yangnyeongsi Herbal Medicine Museum.',
+        p: 'Daegu’s Yangnyeongsi began in the late Joseon period as a seasonal market for medicinal herbs, held near the guesthouse of the Gyeongsang provincial office. What was once a month-long fair each spring and autumn is now a permanent market along Namseong-ro — the street everyone calls <strong>Yakjeon-golmok</strong>, the herbal medicine alley. Walk it today and the smell of dried roots still drifts out of the shops. We are inside that alley, about a 3-minute walk from the Yangnyeongsi Herbal Medicine Museum.',
       },
       {
         h: 'The Modern History Street',
@@ -85,12 +87,12 @@ export const hood = {
       },
     ],
     courseTitle: 'Within walking distance',
-    courseNote: '※ Walking times are approximate, measured from our door at 11 Namseong-ro.',
+    courseNote: '※ Walking times are approximate (KakaoMap walking directions), measured from our door at 11 Namseong-ro. Dongseong-ro is measured to the middle of the street.',
     archiveTitle: 'Old map, old alley',
     archiveLede: 'Daegu on a 1930 survey map — Yangnyeongsi grew along the road south of the old town wall, today’s Namseong-ro. Herbs changed hands here for close to 400 years; now we simmer broth on the same lane.',
     archive: { map1930: 'Daegu city centre, 1930 topographic map', mural: 'Mural of an old herbal pharmacy in Yangnyeongsi', herbs: 'Dried herbs on display in the alley', gate: 'Yangnyeongmun, the market gate' },
     spots: {
-      museum:   { n: 'Yangnyeongsi Herbal Medicine Museum', d: 'The history of the herb market, gathered in one building — right next door.' },
+      museum:   { n: 'Yangnyeongsi Herbal Medicine Museum', d: 'The history of the herb market, gathered in one building — about a 3-minute walk from us.' },
       jingolmok:{ n: 'Jin-golmok', d: 'A narrow lane where Daegu’s wealthy merchant families once lived.' },
       gyesan:   { n: 'Gyesan Cathedral', d: 'A red-brick Western-style cathedral; the parish was founded in 1898.' },
       leesang:  { n: 'Lee Sang-hwa & Seo Sang-don Houses', d: 'Homes of a resistance poet and the man who launched the National Debt Repayment Movement.' },
@@ -108,7 +110,7 @@ export const hood = {
     blocks: [
       {
         h: '薬令市と薬田横丁',
-        p: '大邱の薬令市は、朝鮮後期に慶尚監営の客舎周辺で漢方薬材を売買する季節市として始まりました。春と秋にひと月ずつ立った市は、今では南城路一帯 — 人々が<strong>薬田横丁</strong>と呼ぶこの通り — に常設の市場として根を下ろしています。今も横丁を歩けば漢方薬局から薬材の香りが漂います。チョンウヘジャンはその横丁の中、薬令市韓医薬博物館のすぐ隣にあります。',
+        p: '大邱の薬令市は、朝鮮後期に慶尚監営の客舎周辺で漢方薬材を売買する季節市として始まりました。春と秋にひと月ずつ立った市は、今では南城路一帯 — 人々が<strong>薬田横丁</strong>と呼ぶこの通り — に常設の市場として根を下ろしています。今も横丁を歩けば漢方薬局から薬材の香りが漂います。チョンウヘジャンはその横丁の中、薬令市韓医薬博物館から徒歩約3分のところにあります。',
       },
       {
         h: '近代文化路地',
@@ -120,12 +122,12 @@ export const hood = {
       },
     ],
     courseTitle: '徒歩圏内の見どころ',
-    courseNote: '※ 所要時間は南城路11（当店）からのおおよその目安です。',
+    courseNote: '※ 所要時間は南城路11（当店）からのおおよその目安です（カカオマップの徒歩ルート基準）。東城路は通りの中心部までの時間です。',
     archiveTitle: '古地図と路地の風景',
     archiveLede: '1930年の地形図に見る大邱市街 — 薬令市は旧城郭の南側の道、今の南城路に立ちました。400年近く薬材が行き交ったこの路地で、今はスープを煮ています。',
     archive: { map1930: '1930年 大邱市街地形図（朝鮮総督府）', mural: '薬令市の路地に描かれた昔の薬房の壁画', herbs: '薬田横丁の薬材', gate: '薬令市の正門「薬令門」' },
     spots: {
-      museum:   { n: '薬令市韓医薬博物館', d: '薬令市の歴史を集めた博物館。当店のすぐ隣です。' },
+      museum:   { n: '薬令市韓医薬博物館', d: '薬令市の歴史を集めた博物館。当店から徒歩約3分です。' },
       jingolmok:{ n: 'チンゴルモク（陣路地）', d: '近代大邱の富豪たちが暮らした細長い路地。' },
       gyesan:   { n: '桂山聖堂', d: '1898年に本堂が立った大邱カトリックの司教座聖堂。赤レンガの洋風建築。' },
       leesang:  { n: '李相和・徐相敦 旧宅', d: '抵抗詩人と国債報償運動を起こした人物の家。' },
@@ -143,7 +145,7 @@ export const hood = {
     blocks: [
       {
         h: '药令市与药田胡同',
-        p: '大邱药令市始于朝鲜后期，最初是在庆尚监营客舍附近买卖中药材的季节市集。当年春秋各开一个月的集市，如今已成为南城路一带的常设市场 — 人们把这条街叫作<strong>药田胡同</strong>。今天走过胡同，药铺里仍飘出药材的气味。青友解酲就在胡同里，药令市韩医药博物馆的旁边。',
+        p: '大邱药令市始于朝鲜后期，最初是在庆尚监营客舍附近买卖中药材的季节市集。当年春秋各开一个月的集市，如今已成为南城路一带的常设市场 — 人们把这条街叫作<strong>药田胡同</strong>。今天走过胡同，药铺里仍飘出药材的气味。青友解酲就在胡同里，距药令市韩医药博物馆步行约3分钟。',
       },
       {
         h: '近代文化胡同',
@@ -155,12 +157,12 @@ export const hood = {
       },
     ],
     courseTitle: '步行可达',
-    courseNote: '※ 步行时间以本店（南城路 11）为起点，仅供参考。',
+    courseNote: '※ 步行时间以本店（南城路 11）为起点，按 KakaoMap 步行路线估算，仅供参考。东城路以街区中心为准。',
     archiveTitle: '老地图与老巷',
     archiveLede: '1930年地形图上的大邱市区 — 药令市沿着旧城墙南侧的路兴起，也就是今天的南城路。近400年药材在此往来，如今我们在同一条巷子里熬汤。',
     archive: { map1930: '1930年大邱市区地形图（朝鲜总督府）', mural: '药令市巷子里的老药房壁画', herbs: '药田胡同的药材陈列', gate: '药令市正门「药令门」' },
     spots: {
-      museum:   { n: '药令市韩医药博物馆', d: '收藏药令市历史的博物馆，就在本店旁边。' },
+      museum:   { n: '药令市韩医药博物馆', d: '收藏药令市历史的博物馆，距本店步行约3分钟。' },
       jingolmok:{ n: '真胡同', d: '近代大邱富商聚居的狭长小巷。' },
       gyesan:   { n: '桂山圣堂', d: '1898 年设立堂区的大邱天主教主教座堂，红砖西式建筑。' },
       leesang:  { n: '李相和·徐相敦故居', d: '抗日诗人与国债报偿运动发起者的旧居。' },
@@ -178,7 +180,7 @@ export const hood = {
     blocks: [
       {
         h: '藥令市與藥田巷',
-        p: '大邱藥令市始於朝鮮後期，最初是在慶尚監營客舍附近買賣中藥材的季節市集。當年春秋各開一個月的市集，如今已成為南城路一帶的常設市場 — 人們把這條街叫作<strong>藥田巷</strong>。今天走過巷子，藥鋪裡仍飄出藥材的氣味。青友解酲就在巷子裡，藥令市韓醫藥博物館的旁邊。',
+        p: '大邱藥令市始於朝鮮後期，最初是在慶尚監營客舍附近買賣中藥材的季節市集。當年春秋各開一個月的市集，如今已成為南城路一帶的常設市場 — 人們把這條街叫作<strong>藥田巷</strong>。今天走過巷子，藥鋪裡仍飄出藥材的氣味。青友解酲就在巷子裡，距藥令市韓醫藥博物館步行約 3 分鐘。',
       },
       {
         h: '近代文化胡同',
@@ -190,12 +192,12 @@ export const hood = {
       },
     ],
     courseTitle: '步行可達',
-    courseNote: '※ 步行時間以本店（南城路 11）為起點，僅供參考。',
+    courseNote: '※ 步行時間以本店（南城路 11）為起點，依 KakaoMap 步行路線估算，僅供參考。東城路以街區中心為準。',
     archiveTitle: '老地圖與老巷',
     archiveLede: '1930 年地形圖上的大邱市區 — 藥令市沿著舊城牆南側的路興起，也就是今天的南城路。近 400 年藥材在此往來，如今我們在同一條巷子裡熬湯。',
     archive: { map1930: '1930 年大邱市區地形圖（朝鮮總督府）', mural: '藥令市巷子裡的老藥房壁畫', herbs: '藥田巷的藥材陳列', gate: '藥令市正門「藥令門」' },
     spots: {
-      museum:   { n: '藥令市韓醫藥博物館', d: '收藏藥令市歷史的博物館，就在本店旁邊。' },
+      museum:   { n: '藥令市韓醫藥博物館', d: '收藏藥令市歷史的博物館，距本店步行約 3 分鐘。' },
       jingolmok:{ n: '真胡同', d: '近代大邱富商聚居的狹長小巷。' },
       gyesan:   { n: '桂山聖堂', d: '1898 年設立堂區的大邱天主教主教座堂，紅磚西式建築。' },
       leesang:  { n: '李相和·徐相敦故居', d: '抗日詩人與國債報償運動發起者的舊居。' },

@@ -8,6 +8,15 @@
   var $  = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return [].slice.call((c || document).querySelectorAll(s)); };
 
+  /* ---- 기한 있는 공지: data-until(ISO 시각)이 지나면 지웁니다 ----
+     공지 바로 뒤의 인라인 스크립트가 같은 검사를 먼저 합니다(그리기 전에 지워 깜빡임이 없음).
+     여기는 예비 장치 — 인라인 스크립트가 빠지거나 막힌 경우에도 기한이 지나면 안 보이게 합니다.
+     날짜를 못 읽으면 건드리지 않습니다. */
+  $$('[data-until]').forEach(function (el) {
+    var until = Date.parse(el.getAttribute('data-until'));
+    if (!isNaN(until) && Date.now() >= until && el.parentNode) el.parentNode.removeChild(el);
+  });
+
   /* ---- 상단바: 스크롤하면 배경을 채웁니다 ---- */
   var bar = $('#topbar');
   var hero = $('.hero');

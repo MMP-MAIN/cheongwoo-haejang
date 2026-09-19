@@ -9,7 +9,7 @@
 - 주소: 대구광역시 중구 남성로 11 (11 Namseong-ro, Jung-gu, Daegu, Korea)
 - 전화/예약: 053-255-7052 (국제전화 +82-53-255-7052) (전화 예약, 단체 40명까지)
 - 영업시간: 매일 11:00–22:00 · 브레이크타임 15:00–17:00 · 라스트오더 21:00
-- 가는 법: 지하철 반월당역(1·2호선) 도보 5분, 약령시 약전골목 안 · 주차: 약령시서문 공영주차장 도보 1분
+- 가는 법: 더현대 대구에서 도보 약 6분(약 380m) · 지하철 반월당역(1·2호선) 15번 출구에서 도보 약 7분(약 500m) · 중앙로역(1호선)에서 도보 약 10분, 약령시 약전골목 안 · 주차: 약령시서문 공영주차장 도보 1분
 - 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴 제공, 유아 의자 있음, 단체 40명(전화 예약), 콜키지(주류 반입) 가능, 신용카드·모바일 결제
 
 ## 메뉴 (Menu)
@@ -38,10 +38,10 @@
 - [반월당 맛집·대구 종로 맛집 — 약전골목 청우해장 메뉴 한눈에](https://cheongwoohaejang.com/daegu-banwoldang.html)
 - [대구 국밥 맛집 — 소고기국밥·따로국밥·맑은 해장국](https://cheongwoohaejang.com/daegu-gukbap.html)
 - [대구 한식 맛집·한식당 추천 — 가족모임·단체·외국인 메뉴](https://cheongwoohaejang.com/daegu-hansik.html)
-- [동성로 맛집 — 줄 없이 국물 있는 밥집, 동성로 도보 10분](https://cheongwoohaejang.com/daegu-dongseongno.html)
+- [동성로 맛집 — 줄 없이 국물 있는 밥집, 동성로 중심에서 도보 약 15분](https://cheongwoohaejang.com/daegu-dongseongno.html)
 - [대구 육회비빔밥 맛집 — 숙성 간장 육회 14,000원](https://cheongwoohaejang.com/daegu-yukhoe.html)
 - [대구 갈비탕 맛집 — 반월당·더현대 옆 청우 약전 소갈비탕](https://cheongwoohaejang.com/daegu-galbitang.html)
-- [Ttaro Gukbap & Beef Soup in Daegu — 5 min from Banwoldang (English)](https://cheongwoohaejang.com/daegu-beef-soup-en.html)
+- [Ttaro Gukbap & Beef Soup in Daegu — 7 min from Banwoldang (English)](https://cheongwoohaejang.com/daegu-beef-soup-en.html)
 - [大邱半月堂美食 — 藥令市牛肉湯・牛排骨湯 (繁體中文)](https://cheongwoohaejang.com/daegu-banwoldang-food-tw.html)
 - [大邱 半月堂グルメ — 薬令市の牛肉スープ・カルビタン (日本語)](https://cheongwoohaejang.com/daegu-banwoldang-food-ja.html)
 - [대구 해장국 맛집 — 약전골목 청우해장](https://cheongwoohaejang.com/daegu-haejangguk.html)
