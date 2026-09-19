@@ -747,3 +747,4 @@ https://hwanman2.github.io/weco/cheongwoo/?cw_optout=0     ← 해제
   **덤으로 고친 것**: ① 서문시장 도보 시간이 페이지마다 「10분 안쪽」「10~12분」으로 달랐음 → 카카오 실측 **약 16분**으로 ttarogukbap·hansik·banwoldang 통일. ② daegu-haejangguk.html 138행 `<div class="tip">` 을 `</p>` 로 닫던 기존 마크업 오류 수정(FAQ 가 tip 상자 안에 들어가 있었음). ③ build.mjs 의 빌드 날짜가 UTC 기준이라 오전 9시 전 빌드 시 sitemap lastmod 가 하루 전으로 찍히던 것을 KST 기준으로. ④ food-ribs.jpg width/height 실제값(1536×1024).
   등록: GUIDES·홈 카드 12장·푸터·llms.txt, 사이트맵 28개.
   **사장님 판단 남김**: H2·앵커의 「대구 10미 맛집」 표현(식당 추천이 아니라 동네 안내라고 본문에 밝힘 — 월 1,690 신호용) / 안지랑 골목 「막창·곱창」 묶음 표기.
+- 2026-09-19 daegu-10mi.html 배포·라이브 확인(200, 제목 43자·설명 106자·JSON-LD 3노드·FAQ 5 = 화면 dl 일치·금칙어 0·외부 링크 0, 사이트맵 28, 홈 링크 3곳, ttarogukbap 「서문시장에서는 걸어서 약 16분(약 1km)」 반영). 이번엔 코드+기록을 한 커밋으로 push 해 빌드 취소 없이 한 번에 배포됨. IndexNow 네이버·빙 200 OK, 구글 서치콘솔 「색인 생성 요청됨」. 효과 측정은 10월 초 — 「대구 10미」「대구 10미 맛집」「대구 대표 음식」 네이버 순위와 SC 노출.
