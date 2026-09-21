@@ -3,3 +3,7 @@ node_modules/
 
 # 공식 인스타 원본 (로컬 보관용 — 사이트에는 크롭본만 올림)
 images/source/instagram_official/
+
+# 블로거 사진 원본·후보 — 사용 허락이 없어 공개 저장소·사이트에서 제외 (로컬 보관)
+images/source/
+images/picks/

@@ -185,6 +185,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .mrow:last-child,.mrow:nth-last-child(2):nth-child(odd){border-bottom:0}
 .mrow h3{font-size:1.09rem;font-weight:600;display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
 .mrow p{grid-column:1/-1;color:var(--muted);font-size:.92rem;line-height:1.62;max-width:46ch;margin-top:.28rem}
+.mrow p .mmore{color:var(--amber-deep);text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
 .tag{background:var(--herb);color:#fff;font-size:.66rem;letter-spacing:.09em;font-weight:600;padding:.2rem .48rem;border-radius:4px;flex:none;transform:translateY(-1px)}
 .price{font-variant-numeric:tabular-nums;font-weight:600;color:var(--amber-deep);white-space:nowrap;font-size:1.02rem}
 .price.ask{color:var(--muted);font-weight:500;font-size:.86rem}

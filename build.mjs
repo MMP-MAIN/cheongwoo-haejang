@@ -25,7 +25,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 18;
+const ASSET_V = 19;
 
 // 빌드 날짜(한국 시간). 사이트맵 lastmod 에 찍히고, 기한이 지난 공지·특별 영업일을 빼는 데 씁니다.
 // `BUILD_DATE=2026-09-28 node build.mjs` 처럼 주면 그 날짜로 빌드한 것처럼 동작합니다(점검용).
@@ -335,6 +335,13 @@ const langSwitcher = (lang, cls) => site.langs.map((l) =>
 const TENMI = new Set(['spicy', 'ribs']);   // 대구 10미: 따로국밥·찜갈비
 const TENMI_WORD = { ko: '대구 10미', en: 'Daegu 10-mi', ja: '大邱十味', zh: '大邱十味', tw: '大邱十味' };
 
+const MENU_PAGE_KO = {
+  galbitang: ['daegu-galbitang.html', '대구 갈비탕 이야기'],
+  ribs: ['daegu-jjimgalbi.html', '대구 찜갈비 이야기'],
+  spicy: ['daegu-ttarogukbap.html', '대구 따로국밥 이야기'],
+  clear: ['daegu-haejangguk.html', '대구 해장국 이야기'],
+};
+
 function menuRows(lang) {
   const L = t[lang], names = menuNames[lang];
   const seasonalWords = {
@@ -350,7 +357,7 @@ function menuRows(lang) {
         })}</div>` : ''}
         <h3>${esc(names[m.id].n)}${TENMI.has(m.id) ? `<span class="tag tag-tenmi">${TENMI_WORD[lang]}</span>` : ''}${m.signature ? `<span class="tag">${esc(L.menuSignature)}</span>` : ''}${m.seasonal ? `<span class="tag tag-season tag-${m.seasonal}">${esc(seasonalWords[m.seasonal][lang])}</span>` : ''}</h3>
         <span class="price${m.price ? '' : ' ask'}">${m.price ? esc(money(m.price, lang)) : esc(L.menuAsk)}</span>
-        <p>${esc(names[m.id].d)}</p>
+        <p>${esc(names[m.id].d)}${lang === 'ko' && MENU_PAGE_KO[m.id] ? ` <a class="mmore" href="${MENU_PAGE_KO[m.id][0]}" data-track="blog" data-track-label="home-menu-${MENU_PAGE_KO[m.id][0].replace('.html', '')}">${MENU_PAGE_KO[m.id][1]} →</a>` : ''}</p>
       </div>`).join('');
 }
 
@@ -359,10 +366,10 @@ function menuRows(lang) {
 const GUIDE_CARDS = {
   ko: { title: '메뉴별 이야기', lede: '어떤 국물인지, 누구와 오면 좋은지 — 메뉴마다 따로 적었습니다.', cards: [
     ['daegu-galbitang.html', 'images/food-galbitang.jpg', '대구 갈비탕 맛집', '하루 종일 고아 낸 국물에 부드러운 갈비. 어르신 모시기 좋은 대표 메뉴.'],
-    ['daegu-ttarogukbap.html', 'images/food-spicy.jpg', '대구 따로국밥', '1929년 대구탕반의 계보를 잇는 대구 10미 — 밥은 따로, 대구식으로.'],
-    ['daegu-haejangguk.html', 'images/food-clear.jpg', '대구 해장국 맛집', '맑은 국물과 얼큰한 국물, 같은 솥에서 두 갈래로. 대구탕반 100년 이야기.'],
-    ['daegu-suyuk.html', 'images/food-jeongol.jpg', '대구 수육 맛집', '결 좋은 아롱사태를 삶아 얇게 저며. 수육·전골·냉채, 술자리와 어르신 상.'],
     ['daegu-jjimgalbi.html', 'images/food-ribs.jpg', '대구 찜갈비·갈비찜 맛집', '마늘을 산처럼 올린 소갈비찜 마늘폭탄 — 대구 10미 찜갈비의 매운맛.'],
+    ['daegu-haejangguk.html', 'images/food-clear.jpg', '대구 해장국 맛집', '맑은 국물과 얼큰한 국물, 같은 솥에서 두 갈래로. 매일 11시, 반월당 약전골목에서.'],
+    ['daegu-ttarogukbap.html', 'images/food-spicy.jpg', '대구 따로국밥', '1929년 대구탕반의 계보를 잇는 대구 10미 — 밥은 따로, 대구식으로.'],
+    ['daegu-suyuk.html', 'images/food-jeongol.jpg', '대구 수육 맛집', '결 좋은 아롱사태를 삶아 얇게 저며. 수육·전골·냉채, 술자리와 어르신 상.'],
     ['daegu-oxtail.html', 'images/food-oxtail.jpg', '대구 소꼬리찜', '상 한가운데 놓는 메뉴. 가족 모임·회식 한 상 짜기.'],
     ['daegu-yukhoe.html', 'images/food-yukhoe.jpg', '육회비빔밥', '숙성 간장으로 비빈 담백한 육회. 국물집의 또 다른 얼굴.'],
     ['daegu-10mi.html', 'images/food-spicy.jpg', '대구 10미 안내', '열 가지 음식과 먹는 동네. 그중 따로국밥·대구식 찜갈비 두 가지를 약전골목에서 냅니다.'],
@@ -787,10 +794,10 @@ ${hoodSection(lang)}
         ${store.naverBlogUrl ? `<a href="${store.naverBlogUrl}" target="_blank" rel="noopener" data-track="blog" data-track-label="footer-blog">Blog</a>` : ''}
         ${store.instagramUrl ? `<a href="${store.instagramUrl}" target="_blank" rel="noopener" data-track="blog" data-track-label="footer-instagram">Instagram</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-food-tour.html" data-track="blog" data-track-label="footer-guide">대구 여행 가이드</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-haejangguk.html" data-track="blog" data-track-label="footer-haejangguk">대구 해장국 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-galbitang.html" data-track="blog" data-track-label="footer-galbitang">대구 갈비탕 맛집</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-ttarogukbap.html" data-track="blog" data-track-label="footer-ttaro">대구 따로국밥 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-jjimgalbi.html" data-track="blog" data-track-label="footer-jjimgalbi">대구 갈비찜 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-haejangguk.html" data-track="blog" data-track-label="footer-haejangguk">대구 해장국 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-ttarogukbap.html" data-track="blog" data-track-label="footer-ttaro">대구 따로국밥 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-suyuk.html" data-track="blog" data-track-label="footer-suyuk">대구 수육 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-oxtail.html" data-track="blog" data-track-label="footer-oxtail">대구 소꼬리찜</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-banwoldang.html" data-track="blog" data-track-label="footer-banwoldang">반월당 맛집</a>` : ''}
@@ -819,7 +826,7 @@ ${hoodSection(lang)}
   </div>
 </footer>
 
-<!-- 모바일 하단 고정 액션 — 손님이 가장 많이 누르는 두 가지만 둡니다 -->
+<!-- 모바일 하단 고정 액션 — 손님이 자주 누르는 두 가지만 둡니다 -->
 <div class="mobile-bar">
   <a class="m-call" href="tel:${store.telHref}" data-track="call" data-track-label="mobilebar">${ICON.phone}${esc(L.heroCtaCall)}</a>
   <a class="m-dir" href="${links.naverDir}" target="_blank" rel="noopener" data-track="directions" data-track-label="mobilebar">${ICON.pin}${esc(L.heroCtaDir)}</a>
@@ -915,7 +922,10 @@ console.log(`  ✓ rss.xml     (${rssItems.length} items)`);
 /* robots.txt
    자체 도메인을 쓰면 이 파일이 도메인 최상단에 놓여 검색엔진이 실제로 읽습니다.
    (위코 하위 경로에 있을 때는 /weco/robots.txt 라 무시됐습니다.)
-   운영 문서는 사이트 동작과 무관하고 외부에 보일 이유가 없어 색인에서 뺍니다. */
+   운영 문서(*.md)·src/·build.mjs·tools/ 는 deploy.yml 의 rsync 에서 이미 빠져 라이브에 없지만,
+   혹시 올라가도 긁지 않도록 모든 그룹(* 와 AI 크롤러 각각)에 같은 Disallow 를 둡니다.
+   (예전엔 파일 끝에 붙어 있어 마지막 그룹인 CCBot 에만 적용됐습니다.) */
+const DISALLOW = ['/*.md$', '/src/', '/build.mjs', '/tools/'].map((p) => `Disallow: ${p}`);
 const AI_CRAWLERS = [
   'GPTBot', 'OAI-SearchBot', 'ChatGPT-User',          // OpenAI (챗GPT 검색·브라우징)
   'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai', // Anthropic
@@ -926,18 +936,11 @@ const AI_CRAWLERS = [
 const robots = [
   'User-agent: *',
   'Allow: /',
+  ...DISALLOW,
   '',
   '# AI 검색·어시스턴트 크롤러 명시 허용 — AI 답변에 가게 정보가 인용되도록 환영합니다.',
-  ...AI_CRAWLERS.flatMap((b) => [`User-agent: ${b}`, 'Allow: /', '']),
+  ...AI_CRAWLERS.flatMap((b) => [`User-agent: ${b}`, 'Allow: /', ...DISALLOW, '']),
   '# AI 에이전트용 사이트 요약: /llms.txt',
-  '',
-  '# 운영 문서 — 색인 제외',
-  'Disallow: /README.md',
-  'Disallow: /MARKETING.md',
-  'Disallow: /DOMAIN.md',
-  'Disallow: /PLACE-정보-붙여넣기.md',
-  'Disallow: /src/',
-  'Disallow: /build.mjs',
   '',
   `Sitemap: ${site.baseUrl}sitemap.xml`,
   '',
@@ -986,11 +989,11 @@ ${menuLines}
 - [대구 한식 맛집·한식당 추천 — 가족모임·단체·외국인 메뉴](${site.baseUrl}daegu-hansik.html)
 - [동성로 맛집 — 줄 없이 국물 있는 밥집, 동성로 중심에서 도보 약 15분](${site.baseUrl}daegu-dongseongno.html)
 - [대구 육회비빔밥 맛집 — 숙성 간장 육회 14,000원](${site.baseUrl}daegu-yukhoe.html)
-- [대구 갈비탕 맛집 — 반월당·더현대 옆 청우 약전 소갈비탕](${site.baseUrl}daegu-galbitang.html)
+- [대구 갈비탕 맛집 — 대구 중구 약전골목 청우 약전 소갈비탕](${site.baseUrl}daegu-galbitang.html)
 - [Ttaro Gukbap & Beef Soup in Daegu — 7 min from Banwoldang (English)](${site.baseUrl}daegu-beef-soup-en.html)
 - [大邱半月堂美食 — 藥令市牛肉湯・牛排骨湯 (繁體中文)](${site.baseUrl}daegu-banwoldang-food-tw.html)
 - [大邱 半月堂グルメ — 薬令市の牛肉スープ・カルビタン (日本語)](${site.baseUrl}daegu-banwoldang-food-ja.html)
-- [대구 해장국 맛집 — 약전골목 청우해장](${site.baseUrl}daegu-haejangguk.html)
+- [대구 해장국 맛집 — 반월당 약전골목 소고기 해장국, 맑은·얼큰 두 가지](${site.baseUrl}daegu-haejangguk.html)
 - [대구 여행 코스·맛집 — 반월당·약령시·서문시장 근대골목 당일치기](${site.baseUrl}daegu-food-tour.html)
 - [Daegu Day Trip: Banwoldang to Seomun Market Food Walk (English)](${site.baseUrl}daegu-food-tour-en.html)
 - [大邱観光モデルコース (日本語)](${site.baseUrl}daegu-food-tour-ja.html)

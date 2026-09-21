@@ -160,11 +160,11 @@ export const holidayOpen = ['2026-09-24', '2026-09-25', '2026-09-26'];
 export const menu = [
   { id: 'naengmyeon', price: 13000, img: 'images/food-naengmyeon.jpg', signature: true,  seasonal: 'summer' },
   { id: 'galbitang',  price: 16000, img: 'images/food-galbitang.jpg',  signature: true },
-  { id: 'spicy',      price: 13000, img: 'images/food-spicy.jpg',      signature: true },
   { id: 'ribs',       price: 22000, img: 'images/food-ribs.jpg',       signature: true },
+  { id: 'spicy',      price: 13000, img: 'images/food-spicy.jpg',      signature: true },
+  { id: 'clear',      price: 12000, img: 'images/food-clear.jpg',      signature: false },
   { id: 'oxtail',     price: 49000, img: 'images/food-oxtail.jpg',     signature: true },
   { id: 'yukhoe',     price: 14000, img: 'images/food-yukhoe.jpg',     signature: true },
-  { id: 'clear',      price: 12000, img: 'images/food-clear.jpg',      signature: false },
   { id: 'kalguksu',   price: 12000, img: 'images/food-kalguksu.jpg',   signature: false, seasonal: 'winter' },
   { id: 'jeongol',    price: 36000, img: 'images/food-jeongol.jpg',    signature: false },
   { id: 'arong',      price: 19000, img: 'images/food-arong.jpg',      signature: false },

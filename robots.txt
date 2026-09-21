@@ -1,60 +1,116 @@
 User-agent: *
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 # AI 검색·어시스턴트 크롤러 명시 허용 — AI 답변에 가게 정보가 인용되도록 환영합니다.
 User-agent: GPTBot
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: Claude-User
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: meta-externalagent
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: cohere-ai
 Allow: /
+Disallow: /*.md$
+Disallow: /src/
+Disallow: /build.mjs
+Disallow: /tools/
 
 User-agent: CCBot
 Allow: /
-
-# AI 에이전트용 사이트 요약: /llms.txt
-
-# 운영 문서 — 색인 제외
-Disallow: /README.md
-Disallow: /MARKETING.md
-Disallow: /DOMAIN.md
-Disallow: /PLACE-정보-붙여넣기.md
+Disallow: /*.md$
 Disallow: /src/
 Disallow: /build.mjs
+Disallow: /tools/
+
+# AI 에이전트용 사이트 요약: /llms.txt
 
 Sitemap: https://cheongwoohaejang.com/sitemap.xml

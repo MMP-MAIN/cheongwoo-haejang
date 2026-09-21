@@ -131,9 +131,9 @@ export const t = {
     langName: '한국어',
     title: '청우해장 — 대구 약전골목 한식당 | 갈비탕·소갈비찜·따로국밥 · 반월당·동성로 대구맛집',
     description:
-      `대구 중구 남성로 청우해장. 약령시 약전골목의 소고기 국물 한식당 — 약전 소갈비탕, 청우 평양냉면(여름), 맑은·얼큰 해장국, 소갈비찜 마늘폭탄, 소꼬리찜. 더현대 대구에서 도보 약 6분·반월당역에서 약 7분, 근대골목투어 코스 대구맛집. 매일 ${H.open}~${H.close}, 전화 예약 053-255-7052.`,
+      `대구 중구 약령시 약전골목 한식당 청우해장 — 청우 약전 소갈비탕, 소갈비찜 마늘폭탄, 대구 얼큰해장국(따로국밥)·맑은 해장국, 소꼬리찜, 평양냉면(여름). 더현대 대구 도보 약 6분·반월당역 약 7분, 근대골목투어 대구맛집. 매일 ${H.open}~${H.close}, 053-255-7052.`,
     keywords:
-      '대구맛집, 대구 맛집, 대구 맛집 추천, 대구 소고기 맛집, 대구 점심 맛집, 동성로 맛집, 더현대 대구 맛집, 대구 가볼만한 곳, 육회비빔밥, 대구 한식당, 대구 한식 맛집, 대구 시내 맛집, 대구중구맛집, 대구 종로 맛집, 반월당 맛집, 반월당역 맛집, 약전골목 맛집, 대구 국밥, 대구 소고기국밥, 대구 따로국밥, 따로국밥, 대구 수육, 아롱사태 수육, 소꼬리찜, 갈비탕, 맑은갈비탕, 대구 갈비탕, 해장국, 얼큰해장국, 맑은해장국, 대구해장국, 소꼬리찜, 아롱사태수육, 평양냉면, 청우해장, 근대골목투어, 대구근대골목, 동성로 맛집, 서문시장 맛집, 대구여행, 대구 가볼만한곳, 대구 한식당',
+      '대구맛집, 대구 맛집, 대구 맛집 추천, 대구 소고기 맛집, 대구 점심 맛집, 동성로 맛집, 더현대 대구 맛집, 대구 가볼만한 곳, 육회비빔밥, 대구 한식당, 대구 한식 맛집, 대구 시내 맛집, 대구중구맛집, 대구 종로 맛집, 반월당 맛집, 반월당역 맛집, 약전골목 맛집, 대구 수육, 아롱사태 수육, 소꼬리찜, 아롱사태수육, 평양냉면, 청우해장, 근대골목투어, 대구근대골목, 서문시장 맛집, 대구여행, 대구 가볼만한곳',
     ogLocale: 'ko_KR',
     heroAltFood: '청우해장 대표 메뉴 — 갈비를 산더미로 올린 맑은 갈비탕',
 
@@ -151,7 +151,7 @@ export const t = {
     heroTitlesSummer: ['여름 한정 별미,<br>청우 평양냉면'],
     heroTitlesWinter: ['속까지 뜨끈하게,<br>겨울 얼큰 장칼국수'],
     heroLede:
-      '400년 약령시 골목 안, <strong>청우해장</strong>은 양지와 사태를 하루 종일 고아 낸 맑은 소고기 국물로 <strong>갈비탕</strong>·<strong>해장국</strong>·<strong>평양냉면</strong>을 냅니다. 자극은 덜고 국물은 깊게 — 아침 첫 끼로, 어르신 모시는 상으로, 가족의 든든한 외식으로.',
+      '400년 약령시 골목 안, <strong>청우해장</strong>은 양지와 사태를 하루 종일 고아 낸 맑은 소고기 국물로 <strong>갈비탕</strong>·<strong>해장국</strong>을 끓이고, 마늘을 듬뿍 올린 대구식 <strong>소갈비찜</strong>을 냅니다. 국물은 자극을 덜고 깊게 — 아침 첫 끼로, 어르신 모시는 상으로, 가족의 든든한 외식으로.',
     heroNote: '1929년 《별건곤》이 「대구의 자랑」이라 부른 <strong>대구탕반</strong>의 계보를 잇는 따로국밥 — 대구 10미를 약전골목에서.',
     heroCtaCall: '전화로 예약하기',
     heroCtaDir: '길찾기',
@@ -176,7 +176,7 @@ export const t = {
     story: [
       { h: '대구탕반, 100년 전 대구의 이름', p: '1929년 잡지 《별건곤》은 「대구의 자랑, 대구탕반」이라는 글을 실었습니다. 소 양지와 사태를 오래 고아 낸 붉은 국물에 대파를 듬뿍 넣은 이 국은 그때 이미 서울 종로에 「대구탕」 간판을 건 집이 서너 곳씩 있을 만큼 전국에 알려진 대구의 맛이었고, 광복 뒤 밥을 따로 내는 「따로국밥」으로 이어져 오늘 <a href="daegu-10mi.html" data-track="blog" data-track-label="home-story-10mi" style="text-decoration:underline">대구 10미</a>가 되었습니다. 청우해장의 얼큰 해장국은 그 계보 위에 있습니다 — 같은 양지·사태 국물, 같은 대파와 고추기름을, 대구탕반이 팔리던 옛 도심 약전골목 한복판에서 끓입니다.' },
       { h: '국물이 먼저입니다', p: '아침마다 양지와 사태를 눌러 국물부터 냅니다. 맑은 해장국은 자극 없이, 얼큰 해장국은 다진 양념을 풀어 얼큰하게. 같은 국물에서 두 갈래로 나갑니다. 「해장」이라는 이름이지만 아침·점심 든든한 한 끼로 오시는 분이 더 많습니다.' },
-      { h: '어르신 모시기 좋은 상', p: '맑은 갈비탕과 아롱사태수육은 맵지 않습니다. 생신·어버이날·가족 모임 상차림으로 자주 찾으시는 메뉴입니다.' },
+      { h: '어르신 모시기 좋은 상', p: '맑은 갈비탕과 아롱사태수육은 맵지 않습니다. 생신·어버이날·가족 모임 상차림에 잘 맞습니다.' },
       { h: '관광 동선 한가운데', p: '약령시·서문시장·동성로·근대골목 어디서든 걸어서 닿습니다. 근처 호텔 투숙객이 아침·점심으로 들르기 좋은 위치입니다.' },
       { h: '단체도 받습니다', p: '40명 이하 단체 예약이 가능합니다. 점심 웨이팅이 잦으니 인원이 많으면 미리 전화 주세요.' },
     ],
@@ -207,7 +207,7 @@ export const t = {
     ],
     parkingTitle: '주차',
     parkingBody:
-      '매장 전용 주차장은 없지만 바로 옆에 공영주차장이 있습니다. 가장 가까운 약령시서문 공영주차장은 가게에서 도보 1분입니다. 아래 이름을 누르면 길찾기가 열립니다.',
+      '매장 전용 주차장은 없습니다. 약령시서문 공영주차장이 가게에서 도보 1분이고, 근처 공영주차장이 몇 곳 더 있습니다. 아래 이름을 누르면 길찾기가 열립니다.',
 
     reserveTitle: '예약 · 문의',
     reserveLede:
@@ -289,7 +289,7 @@ export const t = {
     story: [
       { h: 'Daegu tangban, a name 100 years old', p: 'In 1929 the magazine Byeolgeongon ran a piece titled “Daegu’s pride, Daegu tangban”: a red beef soup of brisket and shank simmered for hours with heaps of green onion, already so well known that Seoul restaurants hung “Daegu-tang” signs. After 1945 it became ttaro gukbap — rice served separately — now one of Daegu’s 10 delicacies. Our Daegu spicy beef soup sits on that lineage: the same brisket-and-shank broth, cooked in the old heart of the city where it was first sold.' },
       { h: 'The broth comes first', p: 'Brisket and shank go on every morning. The clear haejang-guk is gentle and not spicy; the spicy version is the same broth with our own chili paste stirred in.' },
-      { h: 'Easy for elders and children', p: 'The clear short rib soup and the boiled beef shank carry no chili at all. These are what families order for birthdays and holidays.' },
+      { h: 'Easy for elders and children', p: 'The clear short rib soup and the boiled beef shank carry no chili at all. Good for birthdays and family holidays.' },
       { h: 'In the middle of the walk', p: 'Yangnyeongsi Herbal Medicine Museum, Seomun Market, Dongseong-ro and the Modern History Street are all within walking distance. Convenient for hotel guests nearby.' },
       { h: 'Groups welcome', p: 'We take group bookings for up to 40 people. Lunch gets busy, so please call ahead for larger parties.' },
     ],
@@ -404,7 +404,7 @@ export const t = {
     story: [
       { h: '大邱湯飯（テグタンバン）、100年前の名', p: '1929年、雑誌《別乾坤》は「大邱の誇り、大邱湯飯」という記事を載せました。牛バラとスネ肉を長時間煮出した赤いスープにネギをたっぷり入れたこの一杯は、当時すでにソウル鍾路に「大邱湯」の看板を掲げる店が数軒あるほど全国に知られた大邱の味で、戦後はご飯を別に出す「タロクッパ」として受け継がれ、今の大邱十味になりました。チョンウヘジャンの辛口牛肉スープはその系譜の上にあります。' },
       { h: 'まずスープから', p: '毎朝、牛バラとスネ肉を寸胴にかけるところから始めます。澄んだヘジャンククは辛くなく、辛口は同じスープに自家製の薬味を溶いたものです。' },
-      { h: 'ご年配の方にも', p: 'カルビタンと牛すね肉のスユクは全く辛くありません。ご家族のお祝いの席で最も多くご注文いただくメニューです。' },
+      { h: 'ご年配の方にも', p: 'カルビタンと牛すね肉のスユクは全く辛くありません。ご家族のお祝いの席にも向いています。' },
       { h: '観光ルートの真ん中', p: '薬令市韓医薬博物館、西門市場、東城路、近代路地。すべて徒歩圏内です。近隣ホテルの朝食・昼食にも。' },
       { h: '団体も承ります', p: '40名以下の団体予約が可能です。昼は混み合いますので、人数が多い場合はお電話ください。' },
     ],
@@ -519,7 +519,7 @@ export const t = {
     story: [
       { h: '大邱汤饭，百年前的大邱之名', p: '1929年，杂志《别乾坤》刊登了《大邱的骄傲——大邱汤饭》一文。用牛腩和牛腱长时间熬出的红汤，加入大量大葱——当时首尔钟路已有好几家挂着“大邱汤”招牌的店，可见其闻名全国。光复后演变为“米饭另上”的 ttarogukbap，成为今天的大邱十味之一。青友解酲的香辣牛肉汤正承接这一脉络。' },
       { h: '汤是根本', p: '每天清晨从熬牛腩和牛腱开始。清汤解酒汤不辣，香辣款是同一锅汤加入自制辣酱。' },
-      { h: '适合长辈与孩子', p: '清汤排骨汤和水煮牛腱片完全不辣，是家庭聚餐与寿宴最常点的菜。' },
+      { h: '适合长辈与孩子', p: '清汤排骨汤和水煮牛腱片完全不辣，也适合家庭聚餐与寿宴。' },
       { h: '就在游览路线中间', p: '药令市韩医药博物馆、西门市场、东城路、近代胡同，全都在步行范围内。附近酒店客人早餐午餐皆宜。' },
       { h: '接待团体', p: '可预订 40 人以下团体。午餐时段较忙，人数较多请提前致电。' },
     ],
