@@ -1,2 +1,5 @@
 node_modules/
 .DS_Store
+
+# 공식 인스타 원본 (로컬 보관용 — 사이트에는 크롭본만 올림)
+images/source/instagram_official/

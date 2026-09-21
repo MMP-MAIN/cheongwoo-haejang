@@ -912,27 +912,21 @@
     ]
   },
   "images/food-ribs.jpg": {
-    "w": 1536,
-    "h": 1024,
+    "w": 1024,
+    "h": 683,
     "src": "images/food-ribs.jpg",
     "avif": [
       {
         "w": 360,
         "h": 240,
         "path": "images/opt/food-ribs-360.avif",
-        "bytes": 11951
+        "bytes": 13229
       },
       {
         "w": 720,
         "h": 480,
         "path": "images/opt/food-ribs-720.avif",
-        "bytes": 36411
-      },
-      {
-        "w": 1080,
-        "h": 720,
-        "path": "images/opt/food-ribs-1080.avif",
-        "bytes": 66941
+        "bytes": 39671
       }
     ],
     "webp": [
@@ -940,19 +934,13 @@
         "w": 360,
         "h": 240,
         "path": "images/opt/food-ribs-360.webp",
-        "bytes": 19270
+        "bytes": 22860
       },
       {
         "w": 720,
         "h": 480,
         "path": "images/opt/food-ribs-720.webp",
-        "bytes": 61348
-      },
-      {
-        "w": 1080,
-        "h": 720,
-        "path": "images/opt/food-ribs-1080.webp",
-        "bytes": 109184
+        "bytes": 68626
       }
     ]
   },
@@ -1340,6 +1328,60 @@
         "h": 1415,
         "path": "images/opt/sketch-map-1600.webp",
         "bytes": 123122
+      }
+    ]
+  },
+  "images/food-ribs-table.jpg": {
+    "w": 681,
+    "h": 851,
+    "src": "images/food-ribs-table.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 450,
+        "path": "images/opt/food-ribs-table-360.avif",
+        "bytes": 18070
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 450,
+        "path": "images/opt/food-ribs-table-360.webp",
+        "bytes": 31750
+      }
+    ]
+  },
+  "images/food-ribs-top.jpg": {
+    "w": 898,
+    "h": 1122,
+    "src": "images/food-ribs-top.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 450,
+        "path": "images/opt/food-ribs-top-360.avif",
+        "bytes": 21374
+      },
+      {
+        "w": 720,
+        "h": 900,
+        "path": "images/opt/food-ribs-top-720.avif",
+        "bytes": 59719
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 450,
+        "path": "images/opt/food-ribs-top-360.webp",
+        "bytes": 40760
+      },
+      {
+        "w": 720,
+        "h": 900,
+        "path": "images/opt/food-ribs-top-720.webp",
+        "bytes": 111344
       }
     ]
   }

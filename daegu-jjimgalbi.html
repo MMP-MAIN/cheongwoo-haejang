@@ -42,6 +42,10 @@
   .meta{font-size:.85rem;color:var(--sub);margin-bottom:28px}
   figure{margin:26px 0}
   figure img{width:100%;height:auto;border-radius:14px;display:block}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .duo picture{display:block}
+  .duo img{aspect-ratio:4/5;object-fit:cover;border-radius:12px}
+  .duo figcaption{grid-column:1/-1}
   figcaption{font-size:.8rem;color:var(--sub);margin-top:8px;text-align:center}
   h2{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin:44px 0 14px;padding-top:10px}
   p,li{margin-bottom:14px}
@@ -100,14 +104,20 @@
   <p class="meta">대구 중구 남성로 11 · 더현대 대구에서 도보 약 6분 · 반월당역에서 약 7분 · 매일 11:00–22:00 (브레이크 15:00–17:00) · 053-255-7052</p>
 
   <figure>
-    <img src="images/food-ribs.jpg" alt="대구 갈비찜·찜갈비 맛집 청우해장 소갈비찜 마늘폭탄" width="1600" height="1067" loading="eager" fetchpriority="high" />
-    <figcaption>소갈비찜 마늘폭탄 22,000원 — 마늘을 산처럼, 대구식 매운맛.</figcaption>
+    <picture><source type="image/avif" srcset="images/opt/food-ribs-360.avif 360w, images/opt/food-ribs-720.avif 720w" sizes="(max-width:760px) 100vw, 720px"><source type="image/webp" srcset="images/opt/food-ribs-360.webp 360w, images/opt/food-ribs-720.webp 720w" sizes="(max-width:760px) 100vw, 720px"><img src="images/food-ribs.jpg" alt="대구 갈비찜·찜갈비 맛집 청우해장 소갈비찜 마늘폭탄 — 돌솥에 담겨 나온 모습" width="1024" height="683" loading="eager" fetchpriority="high" decoding="async" /></picture>
+    <figcaption>소갈비찜 마늘폭탄 22,000원 — 돌솥에 담아 냅니다. 사진은 청우해장 매장에서 찍은 실제 한 상입니다.</figcaption>
   </figure>
 
   <h2>대구 찜갈비, 왜 마늘인가 — 동인동 찜갈비 골목 이야기, 그리고 약전골목 청우해장</h2>
   <p>대구 찜갈비는 1970년대 <strong>동인동 찜갈비 골목</strong>에서 시작됐습니다. 양은 냄비에 소갈비를 넣고 <strong>다진 마늘과 고춧가루</strong>를 아낌없이 얹어 쪄내는 방식 — 달콤한 간장 갈비찜과는 전혀 다른, 얼큰하고 진한 맛입니다. 대구 사람들은 갈비를 다 먹고 남은 양념에 밥을 비벼 먹는 것까지를 찜갈비라고 부릅니다. 대구시가 정한 <a href="daegu-10mi.html" data-track="blog" data-track-label="jjimgalbi-10mi">대구 10미</a> 열 가지 가운데 하나입니다.</p>
   <p>「대구 동인동 찜갈비」를 찾아 오셨다면 — 동인동 골목은 지금도 대구시청 뒤편에 남아 있고, 청우해장에서는 <strong>도보 약 30분(1.9km)</strong> 거리입니다. 저희는 동인동이 아니라 약령시 약전골목에 있습니다 — 더현대 대구에서 도보 약 6분, 반월당역에서 약 7분, 동성로 중심에서 약 15분. 동인동까지 가지 않고 반월당·동성로 근처에서 대구식 갈비찜을 드시려는 분께 맞는 자리입니다.</p>
   <p>청우해장의 <strong>소갈비찜 마늘폭탄</strong>은 이름 그대로입니다. 특제 소스에 마늘을 듬뿍 올려 대구식 찜갈비의 매운맛을 그대로 내되, 하루 종일 고아 낸 소고기 국물을 쓰는 집답게 갈비는 부드럽게, 양념은 깊게 갑니다.</p>
+
+  <figure class="duo">
+    <picture><source type="image/avif" srcset="images/opt/food-ribs-table-360.avif 360w" sizes="(max-width:760px) 48vw, 354px"><source type="image/webp" srcset="images/opt/food-ribs-table-360.webp 360w" sizes="(max-width:760px) 48vw, 354px"><img src="images/food-ribs-table.jpg" alt="청우해장 소갈비찜 마늘폭탄 돌솥과 반찬 상차림" width="681" height="851" loading="lazy" decoding="async" /></picture>
+    <picture><source type="image/avif" srcset="images/opt/food-ribs-top-360.avif 360w, images/opt/food-ribs-top-720.avif 720w" sizes="(max-width:760px) 48vw, 354px"><source type="image/webp" srcset="images/opt/food-ribs-top-360.webp 360w, images/opt/food-ribs-top-720.webp 720w" sizes="(max-width:760px) 48vw, 354px"><img src="images/food-ribs-top.jpg" alt="위에서 본 청우해장 소갈비찜 마늘폭탄 — 통마늘과 다진 마늘 양념" width="898" height="1122" loading="lazy" decoding="async" /></picture>
+    <figcaption>반찬과 함께 차린 상(왼쪽), 위에서 본 소갈비찜 마늘폭탄(오른쪽).</figcaption>
+  </figure>
 
   <h2>이렇게 드시면 좋습니다</h2>
   <ul>
