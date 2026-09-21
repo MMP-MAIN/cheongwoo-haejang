@@ -153,8 +153,8 @@ export const holidayOpen = ['2026-09-24', '2026-09-25', '2026-09-26'];
 // 대표 메뉴. price 가 null 이면 "가격 문의" 로 표시됩니다.
 // ※ 2026-08-18 **네이버 플레이스** 에 사장님이 직접 등록한 메뉴 19종에서
 //    대표 11종을 골라 이름·가격·설명·사진을 그대로 옮겼습니다.
-//    카카오맵 등록가와 다른 것: 맑은해장국 11,000(카카오 9,900) · 갈비탕 15,000(카카오 13,000)
-//    → 네이버가 더 최근이고 항목이 많아 네이버를 따랐습니다. README 8번 참고.
+//    ★ 가격은 무조건 네이버 플레이스 기준 (2026-09-21 사장님 지시). 마지막 대조: 플레이스 9/3 갱신본 —
+//      전골 36,000→33,000 수정. 플레이스 가격이 바뀌면 여기와 정적 daegu-*.html 을 함께 고칠 것.
 // img 는 스마트플레이스에 사장님이 올린 사진(저작권 문제 없음)입니다.
 // seasonal: 'summer' | 'winter' 이면 「여름 한정 / 겨울 한정」 표시가 붙습니다.
 export const menu = [
@@ -166,7 +166,7 @@ export const menu = [
   { id: 'oxtail',     price: 49000, img: 'images/food-oxtail.jpg',     signature: true },
   { id: 'yukhoe',     price: 14000, img: 'images/food-yukhoe.jpg',     signature: true },
   { id: 'kalguksu',   price: 12000, img: 'images/food-kalguksu.jpg',   signature: false, seasonal: 'winter' },
-  { id: 'jeongol',    price: 36000, img: 'images/food-jeongol.jpg',    signature: false },
+  { id: 'jeongol',    price: 33000, img: 'images/food-jeongol.jpg',    signature: false },
   { id: 'arong',      price: 19000, img: 'images/food-arong.jpg',      signature: false },
   { id: 'suyuk',      price: 18000, img: null,                         signature: false, note: 'small' },   // 소 18,000 · 대 23,000 (2026-09-01 인상)
 ];
