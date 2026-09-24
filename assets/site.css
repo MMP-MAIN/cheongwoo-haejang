@@ -292,12 +292,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:860px){
   body{font-size:16px}
   .section{padding:4.2rem 0}
+  /* 상단바에 backdrop-filter 가 켜지면(스크롤 후) fixed 자식의 기준이 상단바(63px)로 바뀐다.
+     inset:0 대신 화면 크기를 직접 지정해 어느 상태에서도 전체 화면을 덮고, 닫힘 상태는 숨긴다. */
   .gnb{
-    position:fixed;inset:0;flex-direction:column;justify-content:center;align-items:center;gap:1.6rem;
+    position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;flex-direction:column;justify-content:center;align-items:center;gap:1.6rem;
     background:rgba(20,15,11,.97);backdrop-filter:blur(10px);font-size:1.3rem;color:#fff;
-    transform:translateY(-100%);transition:transform .45s cubic-bezier(.4,0,.2,1);margin:0
+    transform:translateY(-100%);visibility:hidden;pointer-events:none;
+    transition:transform .45s cubic-bezier(.4,0,.2,1),visibility 0s linear .45s;margin:0
   }
-  .gnb.open{transform:none}
+  .gnb.open{transform:none;visibility:visible;pointer-events:auto;transition:transform .45s cubic-bezier(.4,0,.2,1),visibility 0s}
   .topbar.solid .gnb{color:#fff}
   .menubtn{display:flex;order:-1}
   .brand{margin-inline:auto}
@@ -446,3 +449,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:640px){.guide-grid{grid-template-columns:1fr}}
 
 .timeline-note{margin:.2rem 0 .9rem;font-size:.88rem;color:var(--muted);border-left:3px solid var(--line);padding-left:.7rem}
+
+/* ---- 긴 섹션 접기 (2026-09-25) — 글은 HTML 에 남고 화면만 짧아짐 ---- */
+.fold{margin-top:1.4rem;text-align:center}
+.fold>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.5rem;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-weight:600;font-size:.95rem;box-shadow:0 1px 2px rgba(28,25,22,.06)}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::after{content:"+";font-size:1.1em;line-height:1}
+.fold[open]>summary{margin-bottom:1.6rem}
+.fold[open]>summary::after{content:"−"}
+.fold>*:not(summary){text-align:left}

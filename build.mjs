@@ -25,7 +25,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 19;
+const ASSET_V = 20;
 
 // 빌드 날짜(한국 시간). 사이트맵 lastmod 에 찍히고, 기한이 지난 공지·특별 영업일을 빼는 데 씁니다.
 // `BUILD_DATE=2026-09-28 node build.mjs` 처럼 주면 그 날짜로 빌드한 것처럼 동작합니다(점검용).
@@ -395,6 +395,11 @@ const GUIDE_CARDS = {
     ['daegu-food-tour-tw.html', 'images/hood-gate.jpg', '大邱一日遊美食路線', '半月堂→藥令市→西門市場，徒步半日。'],
   ] },
 };
+/* 긴 섹션 접기 라벨 — 글은 HTML 에 그대로 남아 검색엔진은 전부 읽고, 손님 화면만 짧아집니다. */
+const FOLD = {
+  guides: { ko: (n) => `메뉴·동네 이야기 ${n}편 펼쳐 보기`, en: (n) => `Show all ${n} guides`, ja: (n) => `ガイド${n}件を開く`, zh: (n) => `展开全部 ${n} 篇`, tw: (n) => `展開全部 ${n} 篇` },
+  hood: { ko: '옛 사진과 근대골목 코스 펼쳐 보기', en: 'Show old photos & walking course', ja: '古写真と散策コースを開く', zh: '展开老照片与步行路线', tw: '展開老照片與步行路線' },
+};
 function guidesSection(lang) {
   const G = GUIDE_CARDS[lang];
   if (!G || !G.cards.length) return '';
@@ -405,9 +410,12 @@ function guidesSection(lang) {
       <h2>${esc(G.title)}</h2>
       <p>${esc(G.lede)}</p>
     </div>
-    <div class="guide-grid rv">
+    <details class="fold rv">
+      <summary>${esc(FOLD.guides[lang](G.cards.length))}</summary>
+      <div class="guide-grid">
       ${G.cards.map(([href, src, title, blurb]) => `<a class="guide-card" href="${href}" data-track="blog" data-track-label="home-guide-${href.replace('.html', '')}"><div class="gimg">${picture(src, title, { w: 640, h: 480, sizes: '(max-width: 640px) 100vw, 33vw', attrs: 'loading="lazy" decoding="async"' })}</div><h3>${esc(title)}</h3><p>${esc(blurb)}</p></a>`).join('\n      ')}
-    </div>
+      </div>
+    </details>
   </div>
 </section>`;
 }
@@ -451,7 +459,9 @@ function hoodSection(lang) {
         ${H.blocks.map((b) => `<article class="story-card rv"><h3>${esc(b.h)}</h3><p>${b.p}</p></article>`).join('\n        ')}
       </div>
 
-      <div class="archive rv">
+      <details class="fold rv">
+      <summary>${esc(FOLD.hood[lang])}</summary>
+      <div class="archive">
         <h3 class="course-title">${esc(H.archiveTitle)}</h3>
         <p class="archive-lede">${esc(H.archiveLede)}</p>
         <div class="archive-grid">
@@ -462,13 +472,14 @@ function hoodSection(lang) {
         </div>
       </div>
 
-      <div class="course rv">
+      <div class="course">
         <h3 class="course-title">${esc(H.courseTitle)}</h3>
         <ul class="course-list">
           ${spots.map((s) => `<li><span class="c-min">${s.min}′</span><span class="c-body"><strong>${esc(H.spots[s.key].n)}</strong><em>${esc(H.spots[s.key].d)}</em></span></li>`).join('\n          ')}
         </ul>
         <p class="menu-note">${esc(H.courseNote)}</p>
       </div>
+      </details>
     </div>
   </section>`;
 }
@@ -552,10 +563,10 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
     <a class="brand" href="${file}"><span>${esc(store.nameKo)}</span><span class="hanja">${esc(store.nameHanja)}</span></a>
     <nav class="gnb" id="gnb" aria-label="${esc(L.nav.menu)}">
       <a href="#menu">${esc(L.nav.menu)}</a>
+      <a href="#visit">${esc(L.nav.visit)}</a>
+      <a href="#gallery">${esc(L.nav.gallery)}</a>
       <a href="#story">${esc(L.nav.story)}</a>
       <a href="#hood">${esc(L.nav.hood)}</a>
-      <a href="#gallery">${esc(L.nav.gallery)}</a>
-      <a href="#visit">${esc(L.nav.visit)}</a>
       <a href="#faq">${esc(L.nav.faq)}</a>
     </nav>
     <div class="topbar-actions">
@@ -622,32 +633,6 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
   </div>
 </section>
 
-<!-- ================= 이야기 ================= -->
-<section class="section" id="story">
-  <div class="container">
-    <div class="sec-head rv">
-      <span class="sec-kicker">${esc(L.nav.story)}</span>
-      <h2>${esc(L.storyTitle)}</h2>
-      <p>${L.storyLede}</p>
-    </div>
-    <div class="story-grid">
-      ${L.story.map((s) => `<article class="story-card rv"><h3>${esc(s.h)}</h3><p>${s.p}</p></article>`).join('\n      ')}
-    </div>
-  </div>
-</section>
-
-<!-- ================= 약도 (대표 메뉴 위) ================= -->
-<section class="section sketch-sec" id="sketch-sec">
-  <div class="container">
-    <div class="sec-head rv">
-      <span class="sec-kicker">${esc(L.nav.visit)}</span>
-      <h2>${esc(L.heroCtaMap)}</h2>
-      <p>${esc(L.visitLede)}</p>
-    </div>
-    <div class="rv">${sketchMap(lang).figure}</div>
-  </div>
-</section>
-
 <!-- ================= 메뉴 ================= -->
 <section class="section alt" id="menu">
   <div class="container">
@@ -662,40 +647,15 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
   </div>
 </section>
 
-<!-- ================= 메뉴별 이야기 (콘텐츠 페이지 카드) ================= -->
-${guidesSection(lang)}
-
-<!-- ================= 약전골목 이야기 ================= -->
-${hoodSection(lang)}
-
-<!-- ================= 갤러리 ================= -->
-<section class="section alt" id="gallery">
+<!-- ================= 약도 (메뉴 바로 아래, 오시는 길 위) ================= -->
+<section class="section sketch-sec" id="sketch-sec">
   <div class="container">
     <div class="sec-head rv">
-      <span class="sec-kicker">${esc(L.nav.gallery)}</span>
-      <h2>${esc(L.galleryTitle)}</h2>
-      <p>${esc(L.galleryLede)}</p>
+      <span class="sec-kicker">${esc(L.nav.visit)}</span>
+      <h2>${esc(L.heroCtaMap)}</h2>
+      <p>${esc(L.visitLede)}</p>
     </div>
-    <div class="gal rv">${galleryFigures(lang)}
-    </div>
-  </div>
-</section>
-
-<!-- ================= 손님 후기 ================= -->
-<section class="section" id="reviews">
-  <div class="container">
-    <div class="sec-head rv">
-      <span class="sec-kicker">${esc(reviewsMeta.t[lang].kicker)}</span>
-      <h2>${esc(reviewsMeta.t[lang].title)}</h2>
-      <p class="review-badge"><span class="stars" aria-hidden="true">★★★★★</span> <strong>${reviewsMeta.rating}</strong> / 5 · <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="blog" data-track-label="reviews-google">${esc(reviewsMeta.t[lang].link)} (${reviewsMeta.count})</a></p>
-    </div>
-    <div class="review-grid rv">
-      ${reviews.map((r) => `<blockquote class="review-card">
-        <p>“${esc(r[lang])}”</p>
-        <footer>— ${esc(r.author)} · Google</footer>
-      </blockquote>`).join('\n      ')}
-    </div>
-    <p class="review-cta rv" style="text-align:center;margin-top:1.6rem"><a class="btn btn-primary" href="${links.googlePlace}" target="_blank" rel="noopener" data-track="reviewintent" data-track-label="write-review">${esc({ ko: '구글 리뷰 남기기', en: 'Write a Google review', ja: 'Googleレビューを書く', zh: '撰写谷歌评价', tw: '撰寫 Google 評論' }[lang])}</a></p>
+    <div class="rv">${sketchMap(lang).figure}</div>
   </div>
 </section>
 
@@ -744,6 +704,37 @@ ${hoodSection(lang)}
   </div>
 </section>
 
+<!-- ================= 손님 후기 ================= -->
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="sec-head rv">
+      <span class="sec-kicker">${esc(reviewsMeta.t[lang].kicker)}</span>
+      <h2>${esc(reviewsMeta.t[lang].title)}</h2>
+      <p class="review-badge"><span class="stars" aria-hidden="true">★★★★★</span> <strong>${reviewsMeta.rating}</strong> / 5 · <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="blog" data-track-label="reviews-google">${esc(reviewsMeta.t[lang].link)} (${reviewsMeta.count})</a></p>
+    </div>
+    <div class="review-grid rv">
+      ${reviews.map((r) => `<blockquote class="review-card">
+        <p>“${esc(r[lang])}”</p>
+        <footer>— ${esc(r.author)} · Google</footer>
+      </blockquote>`).join('\n      ')}
+    </div>
+    <p class="review-cta rv" style="text-align:center;margin-top:1.6rem"><a class="btn btn-primary" href="${links.googlePlace}" target="_blank" rel="noopener" data-track="reviewintent" data-track-label="write-review">${esc({ ko: '구글 리뷰 남기기', en: 'Write a Google review', ja: 'Googleレビューを書く', zh: '撰写谷歌评价', tw: '撰寫 Google 評論' }[lang])}</a></p>
+  </div>
+</section>
+
+<!-- ================= 갤러리 ================= -->
+<section class="section alt" id="gallery">
+  <div class="container">
+    <div class="sec-head rv">
+      <span class="sec-kicker">${esc(L.nav.gallery)}</span>
+      <h2>${esc(L.galleryTitle)}</h2>
+      <p>${esc(L.galleryLede)}</p>
+    </div>
+    <div class="gal rv">${galleryFigures(lang)}
+    </div>
+  </div>
+</section>
+
 <!-- ================= 예약 ================= -->
 <section class="section alt" id="reserve">
   <div class="container">
@@ -762,6 +753,26 @@ ${hoodSection(lang)}
     </div>
   </div>
 </section>
+
+<!-- ================= 이야기 ================= -->
+<section class="section" id="story">
+  <div class="container">
+    <div class="sec-head rv">
+      <span class="sec-kicker">${esc(L.nav.story)}</span>
+      <h2>${esc(L.storyTitle)}</h2>
+      <p>${L.storyLede}</p>
+    </div>
+    <div class="story-grid">
+      ${L.story.map((s) => `<article class="story-card rv"><h3>${esc(s.h)}</h3><p>${s.p}</p></article>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+
+<!-- ================= 메뉴별 이야기 (콘텐츠 페이지 카드) ================= -->
+${guidesSection(lang)}
+
+<!-- ================= 약전골목 이야기 ================= -->
+${hoodSection(lang)}
 
 <!-- ================= FAQ ================= -->
 <section class="section" id="faq">
