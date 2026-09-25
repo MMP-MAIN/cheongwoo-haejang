@@ -37,7 +37,7 @@
       var month = new Date().getMonth() + 1;
       var titles = Array.isArray(td)
         ? td
-        : td.a.concat(month >= 5 && month <= 9 ? td.s : td.w);
+        : td.a.concat(month >= 5 && month <= 9 && td.s.length ? td.s : td.w);
       if (titles.length > 1) {
         var ti = 0;
         setInterval(function () {

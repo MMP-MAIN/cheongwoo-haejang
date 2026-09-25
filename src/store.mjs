@@ -158,7 +158,9 @@ export const holidayOpen = ['2026-09-24', '2026-09-25', '2026-09-26'];
 // img 는 스마트플레이스에 사장님이 올린 사진(저작권 문제 없음)입니다.
 // seasonal: 'summer' | 'winter' 이면 「여름 한정 / 겨울 한정」 표시가 붙습니다.
 export const menu = [
-  { id: 'naengmyeon', price: 13000, img: 'images/food-naengmyeon.jpg', signature: true,  seasonal: 'summer' },
+  // offSeason: true 이면 홈 메뉴·구조화데이터·llms.txt·히어로 여름 문구에서 빠집니다(데이터는 보존).
+  // 2026-09-25 사장님 「이제 안 팜」 — 여름 시즌 종료. 내년 여름 판매 재개 시 offSeason 을 지우세요.
+  { id: 'naengmyeon', price: 13000, img: 'images/food-naengmyeon.jpg', signature: true,  seasonal: 'summer', offSeason: true },
   { id: 'galbitang',  price: 16000, img: 'images/food-galbitang.jpg',  signature: true },
   { id: 'ribs',       price: 22000, img: 'images/food-ribs.jpg',       signature: true },
   { id: 'spicy',      price: 13000, img: 'images/food-spicy.jpg',      signature: true },

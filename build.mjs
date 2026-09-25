@@ -25,7 +25,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 20;
+const ASSET_V = 21;
 
 // 빌드 날짜(한국 시간). 사이트맵 lastmod 에 찍히고, 기한이 지난 공지·특별 영업일을 빼는 데 씁니다.
 // `BUILD_DATE=2026-09-28 node build.mjs` 처럼 주면 그 날짜로 빌드한 것처럼 동작합니다(점검용).
@@ -197,7 +197,7 @@ function jsonLd(lang) {
       hasMenuSection: [{
         '@type': 'MenuSection',
         name: L.menuTitle,
-        hasMenuItem: menu.map((m) => ({
+        hasMenuItem: menu.filter((m) => !m.offSeason).map((m) => ({
           '@type': 'MenuItem',
           name: names[m.id].n,
           description: names[m.id].d,
@@ -342,13 +342,16 @@ const MENU_PAGE_KO = {
   clear: ['daegu-haejangguk.html', '대구 해장국 이야기'],
 };
 
+// 여름 메뉴(냉면)가 시즌 종료면 히어로의 여름 문구도 끕니다.
+const SUMMER_ON = !(menu.find((m) => m.id === 'naengmyeon') || {}).offSeason;
+
 function menuRows(lang) {
   const L = t[lang], names = menuNames[lang];
   const seasonalWords = {
     winter: { ko: '겨울 한정', en: 'Winter only', ja: '冬季限定', zh: '冬季限定', tw: '冬季限定' },
     summer: { ko: '여름 한정', en: 'Summer only', ja: '夏季限定', zh: '夏季限定', tw: '夏季限定' },
   };
-  return menu.map((m) => `
+  return menu.filter((m) => !m.offSeason).map((m) => `
       <div class="mrow rv${m.img ? ' has-img' : ''}">
         ${m.img ? `<div class="mimg">${picture(m.img, names[m.id].n, {
           w: 640, h: 640,
@@ -592,7 +595,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
   <div class="container hero-inner">
     ${noticeLine(lang)}
     <span class="eyebrow">${esc(L.heroBadge)}</span>
-    <h1 id="hero-title" data-titles='${JSON.stringify({ a: L.heroTitles || [L.heroTitle], s: L.heroTitlesSummer || [], w: L.heroTitlesWinter || [] })}'>${(L.heroTitles || [L.heroTitle])[0]}</h1>
+    <h1 id="hero-title" data-titles='${JSON.stringify({ a: L.heroTitles || [L.heroTitle], s: SUMMER_ON ? (L.heroTitlesSummer || []) : [], w: L.heroTitlesWinter || [] })}'>${(L.heroTitles || [L.heroTitle])[0]}</h1>
     <p class="hero-lede">${L.heroLede}</p>
     ${L.heroNote ? `<p class="hero-note">${L.heroNote}</p>` : ''}
     <div class="hero-cta">
@@ -963,7 +966,7 @@ console.log('  ✓ robots.txt');
 /* llms.txt — AI 어시스턴트(챗GPT·클로드·퍼플렉시티 등)가 가게를 한 번에 파악하도록
    만든 요약 파일 (llmstxt.org 규약). 데이터는 store/menu 에서 생성돼 항상 최신입니다. */
 const mn = menuNames.ko, mnEn = menuNames.en;
-const menuLines = menu.map((m) => {
+const menuLines = menu.filter((m) => !m.offSeason).map((m) => {
   const ko = mn[m.id], en = mnEn[m.id];
   const season = m.seasonal === 'summer' ? ' (여름 한정)' : m.seasonal === 'winter' ? ' (겨울 한정)' : '';
   const price = m.note === 'small' ? `소 ${won(m.price)} · 대 ${won(23000)}` : won(m.price);
@@ -1023,7 +1026,7 @@ ${menuLines}
 - Daegu tangban (大邱湯飯): the 1929 name of Daegu's red beef soup (brisket & shank broth, green onion, chili oil), later ttaro gukbap, one of Daegu's 10 delicacies. Cheongwoo Haejang's Daegu spicy beef soup follows this lineage.
 
 ## 자주 묻는 질문 요약 (FAQ)
-- 대구 명물 음식(찜갈비·따로국밥·평양냉면)을 한 곳에서 맛볼 수 있습니다.
+- 대구 10미 가운데 찜갈비·따로국밥 두 가지를 한 곳에서 맛볼 수 있습니다.
 - 근처 볼거리: 약령시 한의약박물관, 근대문화골목(청라언덕·계산성당), 서문시장 — 모두 도보권.
 - 예약은 전화로만 받습니다. 포장 가능.
 `;

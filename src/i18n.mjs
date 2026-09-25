@@ -131,9 +131,9 @@ export const t = {
     langName: '한국어',
     title: '청우해장 — 대구 약전골목 한식당 | 갈비탕·소갈비찜·따로국밥 · 반월당·동성로 대구맛집',
     description:
-      `대구 중구 약령시 약전골목 한식당 청우해장 — 청우 약전 소갈비탕, 소갈비찜 마늘폭탄, 대구 얼큰해장국(따로국밥)·맑은 해장국, 소꼬리찜, 평양냉면(여름). 더현대 대구 도보 약 6분·반월당역 약 7분, 근대골목투어 대구맛집. 매일 ${H.open}~${H.close}, 053-255-7052.`,
+      `대구 중구 약령시 약전골목 한식당 청우해장 — 청우 약전 소갈비탕, 소갈비찜 마늘폭탄, 대구 얼큰해장국(따로국밥)·맑은 해장국, 소꼬리찜. 더현대 대구 도보 약 6분·반월당역 약 7분, 근대골목투어 대구맛집. 매일 ${H.open}~${H.close}, 053-255-7052.`,
     keywords:
-      '대구맛집, 대구 맛집, 대구 맛집 추천, 대구 소고기 맛집, 대구 점심 맛집, 동성로 맛집, 더현대 대구 맛집, 대구 가볼만한 곳, 육회비빔밥, 대구 한식당, 대구 한식 맛집, 대구 시내 맛집, 대구중구맛집, 대구 종로 맛집, 반월당 맛집, 반월당역 맛집, 약전골목 맛집, 대구 수육, 아롱사태 수육, 소꼬리찜, 아롱사태수육, 평양냉면, 청우해장, 근대골목투어, 대구근대골목, 서문시장 맛집, 대구여행, 대구 가볼만한곳',
+      '대구맛집, 대구 맛집, 대구 맛집 추천, 대구 소고기 맛집, 대구 점심 맛집, 동성로 맛집, 더현대 대구 맛집, 대구 가볼만한 곳, 육회비빔밥, 대구 한식당, 대구 한식 맛집, 대구 시내 맛집, 대구중구맛집, 대구 종로 맛집, 반월당 맛집, 반월당역 맛집, 약전골목 맛집, 대구 수육, 아롱사태 수육, 소꼬리찜, 아롱사태수육, 청우해장, 근대골목투어, 대구근대골목, 서문시장 맛집, 대구여행, 대구 가볼만한곳',
     ogLocale: 'ko_KR',
     heroAltFood: '청우해장 대표 메뉴 — 갈비를 산더미로 올린 맑은 갈비탕',
 
@@ -244,7 +244,7 @@ export const t = {
     langName: 'English',
     title: 'Cheongwoo Haejang | Korean Beef Soup & Galbitang in Daegu',
     description:
-      `Korean restaurant in Yangnyeongsi, Daegu's 400-year-old herbal alley — galbitang, beef soup, summer naengmyeon. About 7 min on foot from Banwoldang Station, 6 from The Hyundai Daegu. English menu.`,
+      `Korean restaurant in Yangnyeongsi, Daegu's 400-year-old herbal alley — galbitang, beef soup, spicy braised short ribs. About 7 min on foot from Banwoldang Station, 6 from The Hyundai Daegu. English menu.`,
     keywords:
       'Daegu restaurant, Daegu food, what to eat in Daegu, haejang-guk, Korean beef soup, galbitang, Korean beef short rib soup, galbijjim, Daegu braised short ribs, spicy braised ribs, Banwoldang, Yangnyeongsi herbal medicine market, Daegu Modern History Street, Korean restaurant Daegu, Seomun Market food, Daegu 10 tastes',
     ogLocale: 'en_US',
@@ -333,7 +333,7 @@ export const t = {
 
     faqTitle: 'Frequently asked',
     faq: [
-      { q: 'What food is Daegu famous for?', a: 'Daegu’s signature dishes are jjim-galbi (spicy braised short ribs), ttaro-gukbap (Daegu-style beef soup) and Pyeongyang-style naengmyeon in summer — all on our menu, about a 7-minute walk from Banwoldang Station (Exit 15), 6 minutes from The Hyundai Daegu, in the Yangnyeongsi herbal alley.' },
+      { q: 'What food is Daegu famous for?', a: 'Daegu’s signature dishes are jjim-galbi (spicy braised short ribs), and ttaro-gukbap (Daegu-style beef soup) — both on our menu, about a 7-minute walk from Banwoldang Station (Exit 15), 6 minutes from The Hyundai Daegu, in the Yangnyeongsi herbal alley.' },
       { q: 'What are the best things to see near the restaurant?', a: 'We sit inside Yangnyeongsi Herbal Medicine Alley, one of Daegu’s best-known tourist attractions. On foot, Gyesan Cathedral is about 6 minutes away, Cheongna Hill about 11 and Seomun Market about 16 — easy places to visit on a half-day Daegu travel itinerary, with our table as the lunch stop.' },
       { q: 'Can I make a reservation?', a: 'Yes, by phone. We accept group bookings for up to 40 people. Call +82 53-255-7052.' },
       { q: 'Is there parking?', a: 'No private car park, but the Yangnyeongsi West Gate public car park is a 1-minute walk away, with 2–3 more within 2–4 minutes. See “Getting here” for directions links.' },
@@ -357,9 +357,9 @@ export const t = {
   ja: {
     htmlLang: 'ja',
     langName: '日本語',
-    title: '大邱グルメ・大邱観光の食事に｜チョンウヘジャン — 薬令市の韓国料理店（半月堂 ランチ・カルビタン・冷麺）',
+    title: '大邱グルメ・大邱観光の食事に｜チョンウヘジャン — 薬令市の韓国料理店（半月堂 ランチ・カルビタン・カルビチム）',
     description:
-      `大邱観光・大邱グルメなら薬令市の韓国料理店チョンウヘジャン。半月堂のランチにも。牛骨をじっくり煮出したカルビタン、大邱式ヘジャンクク、夏は平壌冷麺、辛口カルビチム。日本語メニューあり。半月堂駅15番出口から徒歩約7分、ザ・現代 大邱から徒歩約6分、近代路地ツアーの途中に。毎日${H.open}〜${H.close}、電話予約 +82-53-255-7052。`,
+      `大邱観光・大邱グルメなら薬令市の韓国料理店チョンウヘジャン。半月堂のランチにも。牛骨をじっくり煮出したカルビタン、大邱式ヘジャンクク、辛口カルビチム。日本語メニューあり。半月堂駅15番出口から徒歩約7分、ザ・現代 大邱から徒歩約6分、近代路地ツアーの途中に。毎日${H.open}〜${H.close}、電話予約 +82-53-255-7052。`,
     keywords:
       '大邱 グルメ, 大邱 レストラン, 大邱 韓国料理, 大邱 名物, ヘジャンクク, カルビタン, カルビチム, 大邱 カルビチム, 辛口カルビチム, 半月堂, 薬令市, 大邱 近代路地, 大邱 旅行, 西門市場 グルメ, 東城路 グルメ, 大邱十味',
     ogLocale: 'ja_JP',
@@ -448,7 +448,7 @@ export const t = {
 
     faqTitle: 'よくある質問',
     faq: [
-      { q: '大邱観光でおすすめの食事は？', a: '大邱の名物はカルビチム（辛口の牛カルビ煮込み）、タロクッパ（大邱式牛肉スープ）、夏の平壌冷麺。当店で全部召し上がれます。半月堂駅15番出口から徒歩約7分、ザ・現代 大邱から徒歩約6分、薬令市の路地です。' },
+      { q: '大邱観光でおすすめの食事は？', a: '大邱の名物はカルビチム（辛口の牛カルビ煮込み）、タロクッパ（大邱式牛肉スープ）。どちらも当店で召し上がれます。半月堂駅15番出口から徒歩約7分、ザ・現代 大邱から徒歩約6分、薬令市の路地です。' },
       { q: '近くの大邱観光スポットは？', a: '当店は大邱旅行で人気の観光地・薬令市の路地の中にあります。徒歩で桂山聖堂まで約6分、青蘿の丘まで約11分、西門市場まで約16分。テグ観光の合間の食事にちょうど良い立地です。' },
       { q: '予約はできますか。', a: 'はい、お電話で承ります。40名以下の団体予約も可能です。+82 53-255-7052 までどうぞ。' },
       { q: '駐車場はありますか。', a: '専用駐車場はありませんが、薬令市西門公営駐車場が徒歩1分です。他にも徒歩2〜4分に2〜3か所あります。「アクセス」に経路リンクがあります。' },
@@ -474,7 +474,7 @@ export const t = {
     langName: '中文',
     title: '大邱美食・大邱旅游必吃｜青友解酲 — 药令市韩式餐厅（近代胡同旁・半月堂站）',
     description:
-      `大邱美食推荐：药令市（药田胡同）的韩式餐厅青友解酲。慢熬牛骨排骨汤、大邱式牛肉汤、夏季平壤冷面、辣炖牛排骨。有中文菜单。距半月堂站15号出口步行约7分钟，距 The Hyundai 大邱步行约6分钟，近代胡同游览路线上。每天 ${H.open}–${H.close} 营业，电话预订 +82-53-255-7052。`,
+      `大邱美食推荐：药令市（药田胡同）的韩式餐厅青友解酲。慢熬牛骨排骨汤、大邱式牛肉汤、辣炖牛排骨。有中文菜单。距半月堂站15号出口步行约7分钟，距 The Hyundai 大邱步行约6分钟，近代胡同游览路线上。每天 ${H.open}–${H.close} 营业，电话预订 +82-53-255-7052。`,
     keywords:
       '大邱美食, 大邱美食推荐, 大邱必吃, 大邱餐厅, 大邱韩餐, 大邱自由行, 解酒汤, 排骨汤, 炖排骨, 辣炖排骨, 大邱炖排骨, 半月堂, 药令市, 大邱近代胡同, 大邱旅游, 大邱景点, 西门市场美食, 东城路美食, 大邱十味',
     ogLocale: 'zh_CN',
@@ -563,7 +563,7 @@ export const t = {
 
     faqTitle: '常见问题',
     faq: [
-      { q: '大邱必吃美食有哪些？', a: '大邱的招牌是炖排骨（辣味牛排骨）、大邱式牛肉汤（ttarogukbap）和夏天的平壤冷面 — 本店都有。距半月堂站15号出口步行约7分钟，距 The Hyundai 大邱步行约6分钟，就在药令市胡同里。' },
+      { q: '大邱必吃美食有哪些？', a: '大邱的招牌是炖排骨（辣味牛排骨）、大邱式牛肉汤（ttarogukbap）— 本店都有。距半月堂站15号出口步行约7分钟，距 The Hyundai 大邱步行约6分钟，就在药令市胡同里。' },
       { q: '可以预订吗？', a: '可以，请致电预订。也接受 40 人以下的团体预订。电话 +82 53-255-7052。' },
       { q: '有停车场吗？', a: '没有专用停车场，但药令市西门公共停车场步行仅 1 分钟，附近还有 2〜3 个停车场。「交通」区有导航链接。' },
       { q: '有休息时间吗？', a: hasBreak
