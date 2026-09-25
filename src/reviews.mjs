@@ -7,7 +7,9 @@
 
 export const reviewsMeta = {
   rating: '4.8',
-  count: 47,
+  count: 78,          // 2026-09-25 구글 비즈니스 프로필 기준
+  // 네이버 플레이스(방문자 리뷰) — 리뷰는 늘기만 하므로 「넘게」 표기로 오래 둬도 틀리지 않게.
+  naver: { rating: '4.8', countText: '4,300' },   // 2026-09-25 실측 4.83 / 4,351
   // 섹션 제목·구글 링크 라벨
   t: {
     ko: { kicker: '손님 후기', title: '다녀가신 분들의 말', link: 'Google 리뷰 전체 보기' },

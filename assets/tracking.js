@@ -36,6 +36,8 @@
     // 약도 이미지 저장 「완료」 — 버튼 클릭(directions)과 별개로, 실제로 공유/다운로드가
     // 끝난 순간만 기록합니다. label: share(공유시트) / download / fallback / cancel
     savemap:     { meta: null,            ga4: 'save_map',           kakao: null,                   label: null,         value: 0 },
+    // 네이버 플레이스(리뷰)로 보낸 클릭 — 플레이스 순위 신호(클릭·저장)로 이어지는 트래픽을 세기 위함
+    naverplace:  { meta: null,            ga4: 'naver_place_click',  kakao: null,                   label: null,         value: 0 },
   };
 
   /* ---------------------------------------------------------------------

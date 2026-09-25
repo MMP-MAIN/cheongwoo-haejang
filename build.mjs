@@ -25,7 +25,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 21;
+const ASSET_V = 22;
 
 // 빌드 날짜(한국 시간). 사이트맵 lastmod 에 찍히고, 기한이 지난 공지·특별 영업일을 빼는 데 씁니다.
 // `BUILD_DATE=2026-09-28 node build.mjs` 처럼 주면 그 날짜로 빌드한 것처럼 동작합니다(점검용).
@@ -344,6 +344,9 @@ const MENU_PAGE_KO = {
 
 // 여름 메뉴(냉면)가 시즌 종료면 히어로의 여름 문구도 끕니다.
 const SUMMER_ON = !(menu.find((m) => m.id === 'naengmyeon') || {}).offSeason;
+
+// 네이버 플레이스 방문자 리뷰 탭 (모바일·PC 모두 열림)
+const NAVER_REVIEW = `https://m.place.naver.com/restaurant/${store.naverPlaceId}/review/visitor`;
 
 function menuRows(lang) {
   const L = t[lang], names = menuNames[lang];
@@ -713,7 +716,9 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
     <div class="sec-head rv">
       <span class="sec-kicker">${esc(reviewsMeta.t[lang].kicker)}</span>
       <h2>${esc(reviewsMeta.t[lang].title)}</h2>
-      <p class="review-badge"><span class="stars" aria-hidden="true">★★★★★</span> <strong>${reviewsMeta.rating}</strong> / 5 · <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="blog" data-track-label="reviews-google">${esc(reviewsMeta.t[lang].link)} (${reviewsMeta.count})</a></p>
+      ${lang === 'ko'
+        ? `<p class="review-badge"><span class="stars" aria-hidden="true">★★★★★</span> 네이버 <strong>${reviewsMeta.naver.rating}</strong> / 5 · <a href="${NAVER_REVIEW}" target="_blank" rel="noopener" data-track="naverplace" data-track-label="home-reviews">네이버 리뷰 ${reviewsMeta.naver.countText}개 넘게 보기</a> · <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="blog" data-track-label="reviews-google">Google 리뷰 (${reviewsMeta.count})</a></p>`
+        : `<p class="review-badge"><span class="stars" aria-hidden="true">★★★★★</span> <strong>${reviewsMeta.rating}</strong> / 5 · <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="blog" data-track-label="reviews-google">${esc(reviewsMeta.t[lang].link)} (${reviewsMeta.count})</a></p>`}
     </div>
     <div class="review-grid rv">
       ${reviews.map((r) => `<blockquote class="review-card">
