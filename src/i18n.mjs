@@ -244,7 +244,7 @@ export const t = {
     langName: 'English',
     title: 'Cheongwoo Haejang | Korean Beef Soup & Galbitang in Daegu',
     description:
-      `Beef-soup restaurant in Daegu's 360-year-old Yangnyeongsi herbal alley: galbitang, spicy beef soup, braised short ribs. About 7 min from Banwoldang. English menu.`,
+      `Beef-soup restaurant in Daegu's 360-year-old Yangnyeongsi herbal alley: galbitang, spicy beef soup, braised ribs. About 7 min from Banwoldang. English menu.`,
     keywords:
       'Daegu restaurant, Daegu food, what to eat in Daegu, haejang-guk, Korean beef soup, galbitang, Korean beef short rib soup, galbijjim, Daegu braised short ribs, spicy braised ribs, Banwoldang, Yangnyeongsi herbal medicine market, Daegu Modern History Street, Korean restaurant Daegu, Seomun Market food, Daegu 10 tastes',
     ogLocale: 'en_US',
