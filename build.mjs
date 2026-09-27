@@ -325,7 +325,7 @@ function noticeLine(lang) {
   if (!(until > BUILD_NOW)) return '';
   const rest = notice.rest && notice.rest[lang];
   return `<p class="notice" id="notice" data-notice="${esc(notice.id)}" data-until="${esc(notice.until)}"><strong>${esc(notice.lead[lang])}</strong>${rest ? ` · <span>${esc(rest)}</span>` : ''}</p>
-    <script>(function(n){if(n&&Date.now()>=${until})n.parentNode.removeChild(n)})(document.getElementById('notice'))</script>`;
+    <script>(function(n,s){if(n&&Date.now()>=${until}){n.parentNode.removeChild(n);if(s)s.parentNode.removeChild(s)}})(document.getElementById('notice'),document.currentScript)</script>`;
 }
 
 /* 첫 화면 기본 정보 한 줄 — 영업시간·거리·포장·평점. 공지(notice)가 내려가도 늘 남습니다.
@@ -345,7 +345,7 @@ function heroFacts(lang) {
     ],
     en: [
       `Daily ${h.open}–${h.close}${brk ? ` · break ${h.breakStart}–${h.breakEnd}` : ''}`,
-      '7 min walk from Banwoldang Stn. Exit 15',
+      'About 7 min walk from Banwoldang Stn. Exit 15',
       'Takeaway available',
       `${google}Google ★${reviewsMeta.rating} · ${reviewsMeta.count} reviews</a>`,
     ],
@@ -382,7 +382,7 @@ function takeoutHint(lang) {
    전체 글꼴을 부르면 휴대폰 첫 방문에 파일 17개·약 720KB 를 받았음 → 1개·수십 KB.
    명조가 쓰이는 곳: 홈은 .brand·h1·h2·h3·.tel-big·.foot-brand·.course-title·약도/예약 워터마크,
    가이드는 h1·h2. 제목 글자를 바꾸면 빌드만 다시 돌리면 됩니다 (가이드 정적 페이지도 같이 갱신). */
-const SERIF_HREF_RE = /https:\/\/fonts\.googleapis\.com\/css2\?family=Noto\+Serif\+KR[^"]*/g;
+const SERIF_HREF_RE = /https:\/\/fonts\.googleapis\.com\/css2\?family=Noto\+Serif\+(KR|JP|TC|SC)[^"]*/g;
 const decodeEnt = (x) => x.replace(/&(amp|lt|gt|quot|#39|nbsp|middot);/g, (m, e) => ({ amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'", nbsp: ' ', middot: '·' }[e]))
   .replace(/&#(\d+);/g, (m, d) => String.fromCodePoint(+d)).replace(/&#x([0-9a-f]+);/gi, (m, h) => String.fromCodePoint(parseInt(h, 16)));
 function serifSubset(html) {
@@ -399,8 +399,12 @@ function serifSubset(html) {
   const chars = new Set();
   for (const t of texts) for (const ch of decodeEnt(t.replace(/<[^>]+>/g, ''))) if (!/\s/.test(ch)) chars.add(ch);
   const text = [...chars].sort().join('');
-  const href = `https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&text=${encodeURIComponent(text).replace(/'/g, '%27')}&display=swap`;
-  return html.replace(SERIF_HREF_RE, href.replace(/&/g, '&amp;'));
+  const q = encodeURIComponent(text).replace(/'/g, '%27');
+  return html.replace(SERIF_HREF_RE, (u, fam) => {
+    // text= 는 URL 안의 모든 글꼴에 걸리므로, 다른 글꼴이 같이 묶여 있으면 건드리지 않습니다 (따로 <link> 로 분리할 것)
+    if ((u.match(/family=/g) || []).length > 1) { console.warn(`  ! 명조 링크에 다른 글꼴이 같이 있어 서브셋을 건너뜀: ${u.slice(0, 90)}`); return u; }
+    return `https://fonts.googleapis.com/css2?family=Noto+Serif+${fam}:wght@400;500;600&text=${q}&display=swap`.replace(/&/g, '&amp;');
+  });
 }
 
 const hrefOf = (f) => (f === 'index.html' ? './' : f);

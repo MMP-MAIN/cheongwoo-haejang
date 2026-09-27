@@ -58,7 +58,7 @@ export const menuNames = {
     oxtail:     { n: '炖牛尾',           d: '有嚼劲的牛尾配爽脆韭菜，酸香开胃。适合家庭聚餐。' },
     yukhoe:     { n: '生牛肉拌饭',       d: '新鲜生牛肉配本店秘制熟成酱油汁的拌饭。' },
     clear:      { n: '清汤牛肉汤',       d: '罗州牛骨汤风格的清汤，不辣，暖胃。' },
-    kalguksu:   { n: '辣味大酱刀削面',   d: '大酱汤底配手工面条。秋冬限定。' },
+    kalguksu:   { n: '辣味大酱刀切面',   d: '大酱汤底配手工面条。秋冬限定。' },
     jeongol:    { n: '牛腱火锅',         d: '牛腱与牛筋一起煮的火锅，适合 2〜3 人分享。' },
     arong:      { n: '凉拌牛腱',         d: '慢炖牛腱拌上本店特制酸甜凉拌汁，凉着上桌。' },
     suyuk:      { n: '水煮牛腱片',       d: '慢煮牛腱切薄片，完全不辣。小份 18,000 · 大份 23,000 韩元。' },
@@ -114,7 +114,7 @@ export const galleryAlt = {
     exterior: '大邱市中区南城路 青友解酲 店面外观',
     hall: '落地窗旁的实木餐桌区',
     counter: '店内后厅与菜单海报',
-    menuwall: '墙上菜单 — 辣味大酱刀削面、香辣与清汤解酒汤',
+    menuwall: '墙上菜单 — 辣味大酱刀切面、香辣与清汤解酒汤',
     window: '从药田胡同看到的店面玻璃窗',
     aisle: '餐桌之间的过道与暖色间接照明',
     kitchen: '开放式厨房与小菜区',
@@ -174,7 +174,7 @@ export const t = {
     storyLede:
       '약을 다루던 골목에서 밥을 짓습니다. 화려한 양념보다 오래 고은 국물, 한 그릇으로 속이 편해지는 밥상 — 대구를 찾는 분들과 이 동네 어르신들께 몸이 기억하는 한 끼를 드리는 것이 청우해장의 바람입니다.',
     story: [
-      { h: '대구탕반, 100년 전 대구의 이름', p: '1929년 잡지 《별건곤》은 「대구의 자랑, 대구탕반」이라는 글을 실었습니다. 소 양지와 사태를 오래 고아 낸 붉은 국물에 대파를 듬뿍 넣은 이 국은 그때 이미 서울 종로에 「대구탕」 간판을 건 집이 서너 곳씩 있을 만큼 전국에 알려진 대구의 맛이었고, 광복 뒤 밥을 따로 내는 「따로국밥」으로 이어져 오늘 <a href="daegu-10mi.html" data-track="blog" data-track-label="home-story-10mi" style="text-decoration:underline">대구 10미</a>가 되었습니다. 청우해장의 얼큰 해장국은 그 계보 위에 있습니다 — 같은 양지·사태 국물, 같은 대파와 고추기름을, 대구탕반이 팔리던 옛 도심 약전골목 한복판에서 끓입니다.' },
+      { h: '대구탕반, 100년 전 대구의 이름', p: '1929년 잡지 《별건곤》은 「대구의 자랑, 대구탕반」이라는 글을 실었습니다. 소 양지와 사태를 오래 고아 낸 붉은 국물에 대파를 듬뿍 넣은 이 국은 그때 이미 서울 종로에 「대구탕」 간판을 건 집이 서너 곳씩 있을 만큼 전국에 알려진 대구의 맛이었고, 광복 뒤 밥을 따로 내는 「따로국밥」으로 이어져 오늘 <a href="daegu-10mi.html" data-track="guide" data-track-label="home-story-10mi" style="text-decoration:underline">대구 10미</a>가 되었습니다. 청우해장의 얼큰 해장국은 그 계보 위에 있습니다 — 같은 양지·사태 국물, 같은 대파와 고추기름을, 대구탕반이 팔리던 옛 도심 약전골목 한복판에서 끓입니다.' },
       { h: '국물이 먼저입니다', p: '아침마다 양지와 사태를 눌러 국물부터 냅니다. 맑은 해장국은 자극 없이, 얼큰 해장국은 다진 양념을 풀어 얼큰하게. 같은 국물에서 두 갈래로 나갑니다. 「해장」이라는 이름이지만 아침·점심 든든한 한 끼로 오시는 분이 더 많습니다.' },
       { h: '어르신 모시기 좋은 상', p: '맑은 갈비탕과 아롱사태수육은 맵지 않습니다. 생신·어버이날·가족 모임 상차림에 잘 맞습니다.' },
       { h: '관광 동선 한가운데', p: '약령시·서문시장·동성로·근대골목 어디서든 걸어서 닿습니다. 근처 호텔 투숙객이 아침·점심으로 들르기 좋은 위치입니다.' },
@@ -244,7 +244,7 @@ export const t = {
     langName: 'English',
     title: 'Cheongwoo Haejang | Korean Beef Soup & Galbitang in Daegu',
     description:
-      `Beef-soup restaurant in Daegu's 360-year-old Yangnyeongsi herbal alley: galbitang, spicy beef soup, braised short ribs. 7 min from Banwoldang Stn. English menu.`,
+      `Beef-soup restaurant in Daegu's 360-year-old Yangnyeongsi herbal alley: galbitang, spicy beef soup, braised short ribs. About 7 min from Banwoldang. English menu.`,
     keywords:
       'Daegu restaurant, Daegu food, what to eat in Daegu, haejang-guk, Korean beef soup, galbitang, Korean beef short rib soup, galbijjim, Daegu braised short ribs, spicy braised ribs, Banwoldang, Yangnyeongsi herbal medicine market, Daegu Modern History Street, Korean restaurant Daegu, Seomun Market food, Daegu 10 tastes',
     ogLocale: 'en_US',
@@ -498,7 +498,7 @@ export const t = {
       '从早餐解酒汤到家庭聚餐，<br>360年老巷的餐桌。',
     ],
     heroTitlesSummer: ['夏季限定，<br>平壤冷面'],
-    heroTitlesWinter: ['天冷来一碗<br>热辣刀削面'],
+    heroTitlesWinter: ['天冷来一碗<br>热辣刀切面'],
     heroLede:
       '在有 360 年历史的药令市胡同里，<strong>青友解酲</strong>用牛肉和牛骨熬上一整天的清汤，做排骨汤和牛肉汤。少些刺激，多些汤的深度 — 早餐、陪长辈用餐、一家人安心的外食。',
     // 여름 메뉴(냉면) 판매 중일 때만 쓰는 문단 — build.mjs 의 SUMMER_ON

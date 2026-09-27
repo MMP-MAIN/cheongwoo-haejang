@@ -302,6 +302,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .gal{grid-template-columns:repeat(3,1fr)}
   .quickgrid{grid-template-columns:repeat(2,1fr);gap:1.3rem}
 }
+/* 태블릿 가로(861~1100px): 메뉴 7개가 한 줄에 들어가게 */
+@media (min-width:861px) and (max-width:1100px){
+  .gnb{gap:1rem;font-size:.86rem}
+  .brand{white-space:nowrap}
+  .brand .hanja{display:none}
+}
 @media (max-width:860px){
   body{font-size:16px}
   .section{padding:4.2rem 0}
@@ -339,8 +345,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   /* 공지는 상단바와 글머리 사이 빈 여백으로 끌어올려, 아래 버튼이 덜 밀리게 합니다 */
   .notice{margin-top:-2.2rem;margin-bottom:1rem;font-size:.84rem}
   /* 공지가 내려간 날엔 정보줄이 그 자리(상단바 아래 빈 여백)로 올라갑니다 */
-  .hero-inner > .hero-facts:first-child{margin-top:-2.2rem}
-  .hero-facts{margin-bottom:1rem;font-size:.8rem}
+  .hero-inner > .hero-facts:first-child,.hero-inner > script:first-child + .hero-facts{margin-top:-2.2rem}
+  /* 휴대폰에선 칩 대신 한 덩어리 문장으로 — 3줄(100px)이면 약도·메뉴 버튼이 하단 바 아래로 밀림 */
+  .hero-facts{display:block;width:fit-content;margin-bottom:1rem;padding:.4rem .8rem;border-radius:10px;background:rgba(18,12,8,.5);border:1px solid rgba(255,255,255,.18);font-size:.78rem;line-height:1.5}
+  .hero-facts li{display:inline;padding:0;border:0;background:none;backdrop-filter:none}
+  .hero-facts li + li::before{content:' · ';color:rgba(255,255,255,.55)}
   .notice.takeout-hint{margin-top:0}
   /* 전화 버튼은 하단 고정 바에 늘 있으므로 히어로에선 빼고, 약도·메뉴 버튼을 첫 화면 안에 둡니다 */
   .hero-cta a[data-track="call"]{display:none}

@@ -85,7 +85,7 @@
       entries.forEach(function (en) {
         if (en.isIntersecting) { window.cwTrack('menuseen', {}, { once: true }); mio.disconnect(); }
       });
-    }, { threshold: 0.25 });
+    }, { threshold: 0, rootMargin: '0px 0px -40% 0px' });
     mio.observe(menuSec);
   }
 
