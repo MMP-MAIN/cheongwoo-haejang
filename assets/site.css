@@ -102,6 +102,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   color:rgba(255,255,255,.92);font-size:.86rem;line-height:1.5;overflow-wrap:anywhere
 }
 .notice strong{color:#f3d9a4;font-weight:600}
+/* 첫 화면 기본 정보 한 줄 (영업시간·거리·포장·평점) — 공지가 내려가도 늘 남습니다 */
+.hero-facts{
+  display:flex;flex-wrap:wrap;gap:.3rem .5rem;margin:0 0 1.1rem;padding:0;list-style:none;
+  font-size:.84rem;line-height:1.45;color:rgba(255,255,255,.9)
+}
+.hero-facts li{padding:.3rem .7rem;border-radius:999px;background:rgba(18,12,8,.5);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px)}
+.hero-facts a{color:#f3d9a4;text-decoration:underline;text-underline-offset:2px}
+:lang(ko) .hero-facts li{word-break:keep-all}
+.takeout-hint a{color:#f3d9a4;text-decoration:underline;text-underline-offset:2px;font-weight:600}
+.takeout-hint[hidden]{display:none}
 /* 시간 부분은 한 덩어리로 다음 줄에 내려갑니다. 띄어쓰기가 없는 일본어·중국어는 그냥 이어 흘립니다. */
 .notice span{display:inline-block}
 :lang(ko) .notice{word-break:keep-all}
@@ -233,6 +243,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .infoitem .big{color:var(--ink);font-size:1.08rem;font-weight:500}
 .copybtn{display:inline-flex;align-items:center;gap:.34rem;margin-top:.55rem;font-size:.84rem;color:var(--signal);border-bottom:1px solid rgba(28,63,134,.3);padding-bottom:1px}
 .copybtn:hover{border-color:var(--signal)}
+/* 주소·전화 링크와 복사 버튼은 글자 크기만큼만 눌려서 손가락 영역(44px)을 넓힙니다 */
+.quick p a{display:inline-block;padding:.7rem 0;margin:-.7rem 0}
+.copybtn{min-height:44px}
 
 /* ---------- 예약 ---------- */
 .reserve{background:var(--paper-3);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:clamp(2.4rem,5vw,4rem);text-align:center;position:relative;overflow:hidden}
@@ -302,7 +315,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   }
   .gnb.open{transform:none;visibility:visible;pointer-events:auto;transition:transform .45s cubic-bezier(.4,0,.2,1),visibility 0s}
   .topbar.solid .gnb{color:#fff}
-  .menubtn{display:flex;order:-1}
+  .menubtn{display:flex;order:-1;position:relative;z-index:2}
+  /* 메뉴가 열리면 햄버거가 전체화면 메뉴 위에 떠서 X(닫기)로 바뀝니다 */
+  .menubtn[aria-expanded="true"] span{background:#fff}
+  .menubtn[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .menubtn[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menubtn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
   .brand{margin-inline:auto}
   .bar-cta{display:none}
   .story-grid{grid-template-columns:1fr}
@@ -320,6 +338,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .hero h1{font-size:clamp(1.95rem,8.2vw,2.6rem)}
   /* 공지는 상단바와 글머리 사이 빈 여백으로 끌어올려, 아래 버튼이 덜 밀리게 합니다 */
   .notice{margin-top:-2.2rem;margin-bottom:1rem;font-size:.84rem}
+  /* 공지가 내려간 날엔 정보줄이 그 자리(상단바 아래 빈 여백)로 올라갑니다 */
+  .hero-inner > .hero-facts:first-child{margin-top:-2.2rem}
+  .hero-facts{margin-bottom:1rem;font-size:.8rem}
+  .notice.takeout-hint{margin-top:0}
+  /* 전화 버튼은 하단 고정 바에 늘 있으므로 히어로에선 빼고, 약도·메뉴 버튼을 첫 화면 안에 둡니다 */
+  .hero-cta a[data-track="call"]{display:none}
   .foot{padding-bottom:5.6rem}
 }
 @media (max-width:520px){
@@ -364,6 +388,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .open-now[data-state="open"]{background:rgba(28,107,72,.9);color:#fff}
 .open-now[data-state="break"]{background:rgba(192,138,62,.9);color:#1a1208}
+.open-now[data-state="lastorder"]{background:rgba(192,138,62,.9);color:#1a1208}
 .open-now[data-state="closed"],
 .open-now[data-state="before"]{background:rgba(255,255,255,.13);color:rgba(255,255,255,.62)}
 .open-now:empty{display:none}

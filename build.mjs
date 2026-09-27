@@ -11,7 +11,7 @@
    의존성은 없습니다 — Node 18 이상이면 그대로 돕니다.
    ========================================================================== */
 
-import { writeFileSync, readFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
+import { writeFileSync, readFileSync, mkdirSync, existsSync, rmSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -25,7 +25,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 22;
+const ASSET_V = 23;
 
 // 빌드 날짜(한국 시간). 사이트맵 lastmod 에 찍히고, 기한이 지난 공지·특별 영업일을 빼는 데 씁니다.
 // `BUILD_DATE=2026-09-28 node build.mjs` 처럼 주면 그 날짜로 빌드한 것처럼 동작합니다(점검용).
@@ -328,8 +328,84 @@ function noticeLine(lang) {
     <script>(function(n){if(n&&Date.now()>=${until})n.parentNode.removeChild(n)})(document.getElementById('notice'))</script>`;
 }
 
+/* 첫 화면 기본 정보 한 줄 — 영업시간·거리·포장·평점. 공지(notice)가 내려가도 늘 남습니다.
+   (2026-09-27 점검: 추석 공지가 빠지면 첫 화면에 영업시간·거리·평점이 하나도 없었음) */
+function heroFacts(lang) {
+  const h = store.hours;
+  const hh = (x) => x.slice(0, 2).replace(/^0/, '');
+  const brk = hasBreak;
+  const naver = `<a href="${NAVER_REVIEW}" target="_blank" rel="noopener" data-track="naverplace" data-track-label="home-hero">`;
+  const google = `<a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="googleplace" data-track-label="home-hero">`;
+  const items = {
+    ko: [
+      `매일 ${h.open}–${h.close}${brk ? ` · 브레이크 ${hh(h.breakStart)}–${hh(h.breakEnd)}시` : ''}`,
+      '반월당역 15번 출구 도보 약 7분',
+      '포장 가능',
+      `${naver}네이버 ★${reviewsMeta.naver.rating} · 방문자 리뷰 ${reviewsMeta.naver.countText}+</a>`,
+    ],
+    en: [
+      `Daily ${h.open}–${h.close}${brk ? ` · break ${h.breakStart}–${h.breakEnd}` : ''}`,
+      '7 min walk from Banwoldang Stn. Exit 15',
+      'Takeaway available',
+      `${google}Google ★${reviewsMeta.rating} · ${reviewsMeta.count} reviews</a>`,
+    ],
+    ja: [
+      `毎日 ${h.open}〜${h.close}${brk ? `・休憩 ${h.breakStart}〜${h.breakEnd}` : ''}`,
+      '半月堂駅15番出口から徒歩約7分',
+      'テイクアウト可',
+      `${google}Google ★${reviewsMeta.rating}・クチコミ${reviewsMeta.count}件</a>`,
+    ],
+    zh: [
+      `每天 ${h.open}–${h.close}${brk ? ` · ${h.breakStart}–${h.breakEnd} 休息` : ''}`,
+      '半月堂站15号出口步行约7分钟',
+      '可外带',
+      `${google}Google ★${reviewsMeta.rating} · ${reviewsMeta.count} 条评价</a>`,
+    ],
+    tw: [
+      `每天 ${h.open}–${h.close}${brk ? ` · ${h.breakStart}–${h.breakEnd} 休息` : ''}`,
+      '半月堂站 15 號出口步行約 7 分鐘',
+      '可外帶',
+      `${google}Google ★${reviewsMeta.rating} · ${reviewsMeta.count} 則評論</a>`,
+    ],
+  }[lang];
+  return `<ul class="hero-facts">${items.map((x) => `<li>${x}</li>`).join('')}</ul>`;
+}
+
+/* 포장 광고(utm_campaign 에 takeout)로 들어온 손님에게만 보이는 포장 안내 — site.js 가 hidden 을 풉니다.
+   (2026-09-27 점검: 포장 릴스 광고가 홈으로 오는데 「포장」이 모바일 10화면 아래에 처음 나왔음) */
+function takeoutHint(lang) {
+  if (lang !== 'ko') return '';
+  return `<p class="notice takeout-hint" id="takeout-hint" hidden><strong>포장 주문</strong> · <a href="tel:${store.telHref}" data-track="call" data-track-label="takeout-hint">${esc(store.telDisplay)} 전화로 미리 주문</a> · <a href="daegu-takeout.html" data-track="guide" data-track-label="takeout-hint">포장 메뉴·가격 보기</a></p>`;
+}
+
+/* 제목용 명조체(Noto Serif KR)는 제목에 쓰인 글자만 받습니다 (Google Fonts text= 서브셋).
+   전체 글꼴을 부르면 휴대폰 첫 방문에 파일 17개·약 720KB 를 받았음 → 1개·수십 KB.
+   명조가 쓰이는 곳: 홈은 .brand·h1·h2·h3·.tel-big·.foot-brand·.course-title·약도/예약 워터마크,
+   가이드는 h1·h2. 제목 글자를 바꾸면 빌드만 다시 돌리면 됩니다 (가이드 정적 페이지도 같이 갱신). */
+const SERIF_HREF_RE = /https:\/\/fonts\.googleapis\.com\/css2\?family=Noto\+Serif\+KR[^"]*/g;
+const decodeEnt = (x) => x.replace(/&(amp|lt|gt|quot|#39|nbsp|middot);/g, (m, e) => ({ amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'", nbsp: ' ', middot: '·' }[e]))
+  .replace(/&#(\d+);/g, (m, d) => String.fromCodePoint(+d)).replace(/&#x([0-9a-f]+);/gi, (m, h) => String.fromCodePoint(parseInt(h, 16)));
+function serifSubset(html) {
+  if (!SERIF_HREF_RE.test(html)) return html;
+  SERIF_HREF_RE.lastIndex = 0;
+  const texts = ['靑友解酲'];
+  // data-titles 속 <br> 때문에 태그 끝을 잘못 잡지 않도록 속성을 빼고 훑습니다 (문구는 아래에서 따로 넣음)
+  const bare = html.replace(/data-titles='[^']*'/g, '');
+  for (const m of bare.matchAll(/<(h[1-3])\b[^>]*>([\s\S]*?)<\/\1>/g)) texts.push(m[2]);
+  for (const m of bare.matchAll(/<(\w+)\b[^>]*class="[^"]*\b(brand|foot-brand|tel-big|course-title)\b[^"]*"[^>]*>([\s\S]*?)<\/\1>/g)) texts.push(m[3]);
+  for (const m of html.matchAll(/data-titles='([^']*)'/g)) {
+    try { const d = JSON.parse(m[1]); texts.push(...[].concat(d.a || [], d.s || [], d.w || [], Array.isArray(d) ? d : [])); } catch { /* 무시 */ }
+  }
+  const chars = new Set();
+  for (const t of texts) for (const ch of decodeEnt(t.replace(/<[^>]+>/g, ''))) if (!/\s/.test(ch)) chars.add(ch);
+  const text = [...chars].sort().join('');
+  const href = `https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&text=${encodeURIComponent(text).replace(/'/g, '%27')}&display=swap`;
+  return html.replace(SERIF_HREF_RE, href.replace(/&/g, '&amp;'));
+}
+
+const hrefOf = (f) => (f === 'index.html' ? './' : f);
 const langSwitcher = (lang, cls) => site.langs.map((l) =>
-  `<a href="${site.file[l]}" hreflang="${site.hreflang[l]}" lang="${site.hreflang[l]}"${l === lang ? ' class="on" aria-current="true"' : ''} data-track="language" data-track-label="${l}">${{ ko: 'KO', en: 'EN', ja: 'JA', zh: '简', tw: '繁' }[l]}</a>`
+  `<a href="${hrefOf(site.file[l])}" hreflang="${site.hreflang[l]}" lang="${site.hreflang[l]}"${l === lang ? ' class="on" aria-current="true"' : ''} data-track="language" data-track-label="${l}">${{ ko: 'KO', en: 'EN', ja: 'JA', zh: '简', tw: '繁' }[l]}</a>`
 ).join('');
 
 const TENMI = new Set(['spicy', 'ribs']);   // 대구 10미: 따로국밥·찜갈비
@@ -351,7 +427,8 @@ const NAVER_REVIEW = `https://m.place.naver.com/restaurant/${store.naverPlaceId}
 function menuRows(lang) {
   const L = t[lang], names = menuNames[lang];
   const seasonalWords = {
-    winter: { ko: '겨울 한정', en: 'Winter only', ja: '冬季限定', zh: '冬季限定', tw: '冬季限定' },
+    // 장칼국수 — 9월 중순부터 판매 (2026-09-19 사장님 확인). 「겨울 한정」이면 지금 안 파는 걸로 읽힘
+    winter: { ko: '가을·겨울', en: 'Autumn–winter', ja: '秋冬限定', zh: '秋冬限定', tw: '秋冬限定' },
     summer: { ko: '여름 한정', en: 'Summer only', ja: '夏季限定', zh: '夏季限定', tw: '夏季限定' },
   };
   return menu.filter((m) => !m.offSeason).map((m) => `
@@ -363,7 +440,7 @@ function menuRows(lang) {
         })}</div>` : ''}
         <h3>${esc(names[m.id].n)}${TENMI.has(m.id) ? `<span class="tag tag-tenmi">${TENMI_WORD[lang]}</span>` : ''}${m.signature ? `<span class="tag">${esc(L.menuSignature)}</span>` : ''}${m.seasonal ? `<span class="tag tag-season tag-${m.seasonal}">${esc(seasonalWords[m.seasonal][lang])}</span>` : ''}</h3>
         <span class="price${m.price ? '' : ' ask'}">${m.price ? esc(money(m.price, lang)) : esc(L.menuAsk)}</span>
-        <p>${esc(names[m.id].d)}${lang === 'ko' && MENU_PAGE_KO[m.id] ? ` <a class="mmore" href="${MENU_PAGE_KO[m.id][0]}" data-track="blog" data-track-label="home-menu-${MENU_PAGE_KO[m.id][0].replace('.html', '')}">${MENU_PAGE_KO[m.id][1]} →</a>` : ''}</p>
+        <p>${esc(names[m.id].d)}${lang === 'ko' && MENU_PAGE_KO[m.id] ? ` <a class="mmore" href="${MENU_PAGE_KO[m.id][0]}" data-track="guide" data-track-label="home-menu-${MENU_PAGE_KO[m.id][0].replace('.html', '')}">${MENU_PAGE_KO[m.id][1]} →</a>` : ''}</p>
       </div>`).join('');
 }
 
@@ -419,7 +496,7 @@ function guidesSection(lang) {
     <details class="fold rv">
       <summary>${esc(FOLD.guides[lang](G.cards.length))}</summary>
       <div class="guide-grid">
-      ${G.cards.map(([href, src, title, blurb]) => `<a class="guide-card" href="${href}" data-track="blog" data-track-label="home-guide-${href.replace('.html', '')}"><div class="gimg">${picture(src, title, { w: 640, h: 480, sizes: '(max-width: 640px) 100vw, 33vw', attrs: 'loading="lazy" decoding="async"' })}</div><h3>${esc(title)}</h3><p>${esc(blurb)}</p></a>`).join('\n      ')}
+      ${G.cards.map(([href, src, title, blurb]) => `<a class="guide-card" href="${href}" data-track="guide" data-track-label="home-guide-${href.replace('.html', '')}"><div class="gimg">${picture(src, title, { w: 640, h: 480, sizes: '(max-width: 640px) 100vw, 33vw', attrs: 'loading="lazy" decoding="async"' })}</div><h3>${esc(title)}</h3><p>${esc(blurb)}</p></a>`).join('\n      ')}
       </div>
     </details>
   </div>
@@ -441,11 +518,15 @@ function parkingList(lang) {
 function galleryFigures(lang) {
   const alts = galleryAlt[lang];
   const shape = ['wide', 'tall', '', '', 'tall', '', 'tall', '', '', '', '', ''];
+  // 실제 칸 너비: 860px 이하 2열, 1024px 이하 3열, 그 위 4열 (wide 는 2칸)
+  const sizesFor = (sh) => (sh === 'wide'
+    ? '(max-width: 860px) 100vw, (max-width: 1024px) 67vw, 50vw'
+    : '(max-width: 860px) 50vw, (max-width: 1024px) 34vw, 25vw');
   return gallery.map((g, i) => `
         <figure class="${shape[i]}">
           ${picture(g.src, alts[g.key], {
             w: g.w, h: g.h,
-            sizes: '(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw',
+            sizes: sizesFor(shape[i]),
             attrs: `data-full="${img(g.src)}" loading="lazy" decoding="async"`,
           })}
         </figure>`).join('');
@@ -543,10 +624,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
 <meta name="twitter:description" content="${esc(L.description)}" />
 <meta name="twitter:image" content="${imgAbs(ogImage)}" />
 
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="image" href="${img(hero.src)}" fetchpriority="high" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap" />
 <link rel="stylesheet" href="assets/site.css?v=${ASSET_V}" />
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
@@ -566,10 +644,11 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
 <header class="topbar" id="topbar">
   <div class="container topbar-inner">
     <button class="menubtn" id="menubtn" type="button" aria-label="Menu" aria-controls="gnb" aria-expanded="false"><span></span><span></span><span></span></button>
-    <a class="brand" href="${file}"><span>${esc(store.nameKo)}</span><span class="hanja">${esc(store.nameHanja)}</span></a>
+    <a class="brand" href="${hrefOf(file)}"><span>${esc(store.nameKo)}</span><span class="hanja">${esc(store.nameHanja)}</span></a>
     <nav class="gnb" id="gnb" aria-label="${esc(L.nav.menu)}">
       <a href="#menu">${esc(L.nav.menu)}</a>
       <a href="#visit">${esc(L.nav.visit)}</a>
+      <a href="#reviews">${esc(reviewsMeta.t[lang].kicker)}</a>
       <a href="#gallery">${esc(L.nav.gallery)}</a>
       <a href="#story">${esc(L.nav.story)}</a>
       <a href="#hood">${esc(L.nav.hood)}</a>
@@ -597,9 +676,11 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
   <div class="hero-veil"></div>
   <div class="container hero-inner">
     ${noticeLine(lang)}
+    ${heroFacts(lang)}
+    ${takeoutHint(lang)}
     <span class="eyebrow">${esc(L.heroBadge)}</span>
     <h1 id="hero-title" data-titles='${JSON.stringify({ a: L.heroTitles || [L.heroTitle], s: SUMMER_ON ? (L.heroTitlesSummer || []) : [], w: L.heroTitlesWinter || [] })}'>${(L.heroTitles || [L.heroTitle])[0]}</h1>
-    <p class="hero-lede">${L.heroLede}</p>
+    <p class="hero-lede">${SUMMER_ON && L.heroLedeSummer ? L.heroLedeSummer : L.heroLede}</p>
     ${L.heroNote ? `<p class="hero-note">${L.heroNote}</p>` : ''}
     <div class="hero-cta">
       <a class="btn btn-primary" href="tel:${store.telHref}" data-track="call" data-track-label="hero">${ICON.phone}${esc(L.heroCtaCall)}</a>
@@ -615,7 +696,8 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
     <div class="quick">
       <h3>${esc(L.quickHours)}</h3>
       <p>${esc(L.quickHoursVal)} <span id="open-now" class="open-now"
-        data-hours="${store.hours.open},${store.hours.breakStart || ''},${store.hours.breakEnd || ''},${store.hours.close}"
+        data-hours="${store.hours.open},${store.hours.breakStart || ''},${store.hours.breakEnd || ''},${store.hours.close},${store.hours.lastOrder || ''}"
+        data-lastorder="${lang === 'ko' ? '주문 마감' : lang === 'ja' ? 'ラストオーダー終了' : lang === 'zh' ? '已停止点餐' : lang === 'tw' ? '已停止點餐' : 'Last orders taken'}"
         data-open="${lang === 'ko' ? '영업 중' : lang === 'ja' ? '営業中' : lang === 'zh' ? '营业中' : lang === 'tw' ? '營業中' : 'Open now'}"
         data-break="${lang === 'ko' ? '브레이크타임' : lang === 'ja' ? '休憩中' : lang === 'zh' ? '休息中' : lang === 'tw' ? '休息中' : 'On break'}"
         data-before="${lang === 'ko' ? '영업 전' : lang === 'ja' ? '開店前' : lang === 'zh' ? '尚未营业' : lang === 'tw' ? '尚未營業' : 'Opens ' + store.hours.open}"
@@ -625,7 +707,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
     <div class="quick">
       <h3>${esc(L.quickAddr)}</h3>
       <p><a href="${links.naverPlace}" target="_blank" rel="noopener" data-track="directions" data-track-label="quickbar-address">${esc(lang === 'ko' ? store.roadKo : store.roadEn)}</a></p>
-      <small>${esc(lang === 'ko' ? store.areaKo : 'Yakjeon-golmok · about 7 min on foot from Banwoldang Stn.')}</small>
+      <small>${esc(lang === 'ko' ? '약전골목 · 반월당역 15번 출구 도보 약 7분' : 'Yakjeon-golmok · about 7 min on foot from Banwoldang Stn.')}</small>
     </div>
     <div class="quick">
       <h3>${esc(L.quickTel)}</h3>
@@ -659,7 +741,6 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
     <div class="sec-head rv">
       <span class="sec-kicker">${esc(L.nav.visit)}</span>
       <h2>${esc(L.heroCtaMap)}</h2>
-      <p>${esc(L.visitLede)}</p>
     </div>
     <div class="rv">${sketchMap(lang).figure}</div>
   </div>
@@ -688,7 +769,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
         <div class="infoitem">
           <h3>${esc(L.quickAddr)}</h3>
           <p class="big">${esc(lang === 'ko' ? store.roadKo : store.roadEn)}</p>
-          ${lang === 'ko' ? `<p>${esc(store.jibunKo)}</p>` : `<p>${esc(store.roadKo)}</p>`}
+          ${lang === 'ko' ? `<p>지번: ${esc(store.jibunKo)}</p>` : `<p>${esc(store.roadKo)}</p>`}
           <button type="button" class="copybtn" data-copy="${esc(store.roadKo)}" data-label-copied="${esc(L.visitCopied)}"><span>${esc(L.visitCopy)}</span></button>
         </div>
         <div class="infoitem">
@@ -717,8 +798,8 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
       <span class="sec-kicker">${esc(reviewsMeta.t[lang].kicker)}</span>
       <h2>${esc(reviewsMeta.t[lang].title)}</h2>
       ${lang === 'ko'
-        ? `<p class="review-badge"><span class="stars" aria-hidden="true">★★★★★</span> 네이버 <strong>${reviewsMeta.naver.rating}</strong> / 5 · <a href="${NAVER_REVIEW}" target="_blank" rel="noopener" data-track="naverplace" data-track-label="home-reviews">네이버 리뷰 ${reviewsMeta.naver.countText}개 넘게 보기</a> · <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="blog" data-track-label="reviews-google">Google 리뷰 (${reviewsMeta.count})</a></p>`
-        : `<p class="review-badge"><span class="stars" aria-hidden="true">★★★★★</span> <strong>${reviewsMeta.rating}</strong> / 5 · <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="blog" data-track-label="reviews-google">${esc(reviewsMeta.t[lang].link)} (${reviewsMeta.count})</a></p>`}
+        ? `<p class="review-badge"><span class="stars" aria-hidden="true">★★★★★</span> 네이버 <strong>${reviewsMeta.naver.rating}</strong> / 5 · <a href="${NAVER_REVIEW}" target="_blank" rel="noopener" data-track="naverplace" data-track-label="home-reviews">네이버 방문자 리뷰 ${reviewsMeta.naver.countText}개 넘게 보기</a> · <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="googleplace" data-track-label="reviews-google">Google 리뷰 (${reviewsMeta.count})</a></p>`
+        : `<p class="review-badge"><span class="stars" aria-hidden="true">★★★★★</span> <strong>${reviewsMeta.rating}</strong> / 5 · <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="googleplace" data-track-label="reviews-google">${esc(reviewsMeta.t[lang].link)} (${reviewsMeta.count})</a></p>`}
     </div>
     <div class="review-grid rv">
       ${reviews.map((r) => `<blockquote class="review-card">
@@ -812,30 +893,30 @@ ${hoodSection(lang)}
         <a href="${links.googlePlace}" target="_blank" rel="noopener" data-track="directions" data-track-label="footer-google">Google Maps</a>
         ${store.naverBlogUrl ? `<a href="${store.naverBlogUrl}" target="_blank" rel="noopener" data-track="blog" data-track-label="footer-blog">Blog</a>` : ''}
         ${store.instagramUrl ? `<a href="${store.instagramUrl}" target="_blank" rel="noopener" data-track="blog" data-track-label="footer-instagram">Instagram</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-food-tour.html" data-track="blog" data-track-label="footer-guide">대구 여행 가이드</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-galbitang.html" data-track="blog" data-track-label="footer-galbitang">대구 갈비탕 맛집</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-jjimgalbi.html" data-track="blog" data-track-label="footer-jjimgalbi">대구 갈비찜 맛집</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-haejangguk.html" data-track="blog" data-track-label="footer-haejangguk">대구 해장국 맛집</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-ttarogukbap.html" data-track="blog" data-track-label="footer-ttaro">대구 따로국밥 맛집</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-suyuk.html" data-track="blog" data-track-label="footer-suyuk">대구 수육 맛집</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-takeout.html" data-track="blog" data-track-label="footer-takeout">대구 포장맛집</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-oxtail.html" data-track="blog" data-track-label="footer-oxtail">대구 소꼬리찜</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-banwoldang.html" data-track="blog" data-track-label="footer-banwoldang">반월당 맛집</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-gukbap.html" data-track="blog" data-track-label="footer-gukbap">대구 국밥 맛집</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-hansik.html" data-track="blog" data-track-label="footer-hansik">대구 한식당</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-dongseongno.html" data-track="blog" data-track-label="footer-dongseongno">동성로 맛집</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-yukhoe.html" data-track="blog" data-track-label="footer-yukhoe">육회비빔밥</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-attractions.html" data-track="blog" data-track-label="footer-attractions">대구 가볼만한 곳</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-modern-alley.html" data-track="blog" data-track-label="footer-alley">대구 근대골목</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-family.html" data-track="blog" data-track-label="footer-family">대구 가족외식</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-dongdaegu.html" data-track="blog" data-track-label="footer-dongdaegu">동대구역에서 오는 길</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-10mi.html" data-track="blog" data-track-label="footer-10mi">대구 10미</a>` : ''}
-        ${lang === 'tw' ? `<a href="daegu-banwoldang-food-tw.html" data-track="blog" data-track-label="footer-banwoldang">大邱半月堂美食</a>` : ''}
-        ${lang === 'tw' ? `<a href="daegu-food-tour-tw.html" data-track="blog" data-track-label="footer-guide">大邱一日遊指南</a>` : ''}
-        ${lang === 'en' ? `<a href="daegu-beef-soup-en.html" data-track="blog" data-track-label="footer-beefsoup">Ttaro Gukbap &amp; Beef Soup in Daegu</a>` : ''}
-        ${lang === 'en' ? `<a href="daegu-food-tour-en.html" data-track="blog" data-track-label="footer-guide">Daegu Day Trip Guide</a>` : ''}
-        ${lang === 'ja' ? `<a href="daegu-banwoldang-food-ja.html" data-track="blog" data-track-label="footer-banwoldang">大邱 半月堂グルメ</a>` : ''}
-        ${lang === 'ja' ? `<a href="daegu-food-tour-ja.html" data-track="blog" data-track-label="footer-guide">大邱観光モデルコース</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-food-tour.html" data-track="guide" data-track-label="footer-guide">대구 여행 가이드</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-galbitang.html" data-track="guide" data-track-label="footer-galbitang">대구 갈비탕 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-jjimgalbi.html" data-track="guide" data-track-label="footer-jjimgalbi">대구 갈비찜 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-haejangguk.html" data-track="guide" data-track-label="footer-haejangguk">대구 해장국 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-ttarogukbap.html" data-track="guide" data-track-label="footer-ttaro">대구 따로국밥 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-suyuk.html" data-track="guide" data-track-label="footer-suyuk">대구 수육 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-takeout.html" data-track="guide" data-track-label="footer-takeout">대구 포장맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-oxtail.html" data-track="guide" data-track-label="footer-oxtail">대구 소꼬리찜</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-banwoldang.html" data-track="guide" data-track-label="footer-banwoldang">반월당 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-gukbap.html" data-track="guide" data-track-label="footer-gukbap">대구 국밥 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-hansik.html" data-track="guide" data-track-label="footer-hansik">대구 한식당</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-dongseongno.html" data-track="guide" data-track-label="footer-dongseongno">동성로 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-yukhoe.html" data-track="guide" data-track-label="footer-yukhoe">육회비빔밥</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-attractions.html" data-track="guide" data-track-label="footer-attractions">대구 가볼만한 곳</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-modern-alley.html" data-track="guide" data-track-label="footer-alley">대구 근대골목</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-family.html" data-track="guide" data-track-label="footer-family">대구 가족외식</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-dongdaegu.html" data-track="guide" data-track-label="footer-dongdaegu">동대구역에서 오는 길</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-10mi.html" data-track="guide" data-track-label="footer-10mi">대구 10미</a>` : ''}
+        ${lang === 'tw' ? `<a href="daegu-banwoldang-food-tw.html" data-track="guide" data-track-label="footer-banwoldang">大邱半月堂美食</a>` : ''}
+        ${lang === 'tw' ? `<a href="daegu-food-tour-tw.html" data-track="guide" data-track-label="footer-guide">大邱一日遊指南</a>` : ''}
+        ${lang === 'en' ? `<a href="daegu-beef-soup-en.html" data-track="guide" data-track-label="footer-beefsoup">Ttaro Gukbap &amp; Beef Soup in Daegu</a>` : ''}
+        ${lang === 'en' ? `<a href="daegu-food-tour-en.html" data-track="guide" data-track-label="footer-guide">Daegu Day Trip Guide</a>` : ''}
+        ${lang === 'ja' ? `<a href="daegu-banwoldang-food-ja.html" data-track="guide" data-track-label="footer-banwoldang">大邱 半月堂グルメ</a>` : ''}
+        ${lang === 'ja' ? `<a href="daegu-food-tour-ja.html" data-track="guide" data-track-label="footer-guide">大邱観光モデルコース</a>` : ''}
       </nav>
     </div>
     <div class="foot-bottom">
@@ -872,11 +953,19 @@ ${sketchMap(lang).modal}
 mkdirSync(HERE, { recursive: true });
 let bytes = 0;
 for (const lang of site.langs) {
-  const html = page(lang);
+  const html = serifSubset(page(lang));
   const out = join(HERE, site.file[lang]);
   writeFileSync(out, html, 'utf8');
   bytes += Buffer.byteLength(html);
   console.log(`  ✓ ${site.file[lang].padEnd(11)} ${site.hreflang[lang].padEnd(8)} ${(Buffer.byteLength(html) / 1024).toFixed(1)} KB`);
+}
+
+// 정적 가이드 페이지(daegu-*.html)·404 는 빌드 대상이 아니지만, 명조 글꼴 링크만은 제목 글자에 맞춰 갱신합니다.
+for (const f of process.env.SKIP_STATIC ? [] : readdirSync(HERE).filter((n) => /^(daegu-.*|404)\.html$/.test(n))) {
+  const path = join(HERE, f);
+  const before = readFileSync(path, 'utf8');
+  const after = serifSubset(before);
+  if (after !== before) { writeFileSync(path, after, 'utf8'); console.log(`  ✓ ${f} (명조 서브셋)`); }
 }
 
 /* 사이트맵 — 5개 언어를 서로 alternate 로 묶어 줍니다. */
@@ -973,14 +1062,14 @@ console.log('  ✓ robots.txt');
 const mn = menuNames.ko, mnEn = menuNames.en;
 const menuLines = menu.filter((m) => !m.offSeason).map((m) => {
   const ko = mn[m.id], en = mnEn[m.id];
-  const season = m.seasonal === 'summer' ? ' (여름 한정)' : m.seasonal === 'winter' ? ' (겨울 한정)' : '';
+  const season = m.seasonal === 'summer' ? ' (여름 한정)' : m.seasonal === 'winter' ? ' (가을·겨울)' : '';
   const price = m.note === 'small' ? `소 ${won(m.price)} · 대 ${won(23000)}` : won(m.price);
   return `- ${ko.n}${season} — ${price}${en ? ` / ${en.n}` : ''}`;
 }).join('\n');
 const llms = `# ${store.nameKo} (Cheongwoo Haejang · ${store.nameHanja})
 
-> 대한민국 대구 약령시 약전골목(400년 한약 골목)에 있는 소고기 국물 전문 한식당.
-> 양지와 사태를 하루 종일 고아 낸 국물로 갈비탕·해장국·(여름) 평양냉면을 냅니다.
+> 대한민국 대구 약령시 약전골목(1658년부터 이어진 한약 골목)에 있는 소고기 국물 전문 한식당.
+> 양지와 사태를 하루 종일 고아 낸 국물로 갈비탕·해장국${SUMMER_ON ? '·(여름) 평양냉면' : ''}을 내고, 대구식 소갈비찜도 냅니다.
 > Korean beef-soup restaurant inside Yangnyeongsi Herbal Medicine Alley, Daegu, South Korea.
 
 ## 핵심 정보 (Key facts)
@@ -1033,7 +1122,7 @@ ${menuLines}
 ## 자주 묻는 질문 요약 (FAQ)
 - 대구 10미 가운데 찜갈비·따로국밥 두 가지를 한 곳에서 맛볼 수 있습니다.
 - 근처 볼거리: 약령시 한의약박물관, 근대문화골목(청라언덕·계산성당), 서문시장 — 모두 도보권.
-- 예약은 전화로만 받습니다. 포장 가능.
+- 예약은 전화로만 받습니다. 포장 가능(전화 주문 후 픽업, 육회비빔밥은 포장 불가). 배달은 하지 않습니다.
 `;
 writeFileSync(join(HERE, 'llms.txt'), llms, 'utf8');
 console.log('  ✓ llms.txt');

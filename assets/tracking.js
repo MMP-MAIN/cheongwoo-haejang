@@ -38,6 +38,15 @@
     savemap:     { meta: null,            ga4: 'save_map',           kakao: null,                   label: null,         value: 0 },
     // 네이버 플레이스(리뷰)로 보낸 클릭 — 플레이스 순위 신호(클릭·저장)로 이어지는 트래픽을 세기 위함
     naverplace:  { meta: null,            ga4: 'naver_place_click',  kakao: null,                   label: null,         value: 0 },
+    // 구글 지도(리뷰 보기)로 보낸 클릭 — 예전엔 blog 로 잘못 묶여 outbound_blog 에 섞였음
+    googleplace: { meta: null,            ga4: 'google_place_click', kakao: null,                   label: null,         value: 0 },
+    // 「구글 리뷰 남기기」 버튼
+    reviewintent:{ meta: null,            ga4: 'review_intent_click', kakao: null,                  label: null,         value: 0 },
+    // 사이트 안의 가이드 페이지로 가는 클릭 (외부 블로그와 구분)
+    guide:       { meta: null,            ga4: 'guide_click',        kakao: null,                   label: null,         value: 0 },
+    // 홈 메뉴판이 화면에 들어온 순간 1회 — 9/25 개편 뒤 메뉴가 두 번째 화면으로 올라와
+    // 「메뉴 보기」 버튼(view_menu)을 안 누르고 스크롤로 보는 손님을 세기 위함
+    menuseen:    { meta: null,            ga4: 'menu_seen',          kakao: null,                   label: null,         value: 0 },
   };
 
   /* ---------------------------------------------------------------------

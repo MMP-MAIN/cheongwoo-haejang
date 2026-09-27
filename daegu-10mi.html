@@ -20,10 +20,9 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap" />
-<script src="assets/config.js?v=22"></script>
-<script src="assets/tracking.js?v=22"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&amp;text=()%2C0123%C2%B7%E2%80%94%E3%80%8C%E3%80%8D%E5%8F%8B%E8%A7%A3%E9%85%B2%E9%9D%91%EA%B0%80%EA%B0%88%EA%B3%A0%EA%B3%A8%EA%B3%B3%EA%B3%BC%EA%B5%AC%EA%B5%AD%EA%B6%8C%EA%B7%B8%EA%B8%B8%EB%82%98%EB%82%B4%EB%84%A4%EB%89%B4%EB%8A%90%EB%8A%94%EB%8A%98%EB%8B%B9%EB%8C%80%EB%8D%9F%EB%8F%84%EB%8F%99%EB%91%90%EB%94%94%EB%94%B0%EB%9E%80%EB%A1%9C%EB%A5%B8%EB%A7%88%EB%A7%9B%EB%A8%B8%EB%A8%B9%EB%A9%94%EB%AA%85%EB%AA%A9%EB%AC%B4%EB%AC%B8%EB%AC%BB%EB%AF%B8%EB%B0%96%EB%B0%98%EB%B0%A5%EB%B2%95%EB%B3%84%EB%B3%B4%EB%B9%84%EC%84%9C%EC%84%A0%EC%84%B1%EC%86%8C%EC%86%8D%EC%8B%9C%EC%8B%9D%EC%95%88%EC%95%BD%EC%96%B4%EC%96%BC%EC%97%87%EC%97%90%EC%97%AC%EC%97%B4%EC%98%A4%EC%9A%B0%EC%9B%90%EC%9B%94%EC%9D%80%EC%9D%8C%EC%9D%B4%EC%9E%90%EC%9E%A5%EC%A0%84%EC%A3%BC%EC%A4%91%EC%A7%80%EC%A7%88%EC%A7%91%EC%B0%9C%EC%B0%A8%EC%B2%A0%EC%B2%AD%ED%81%B0%ED%83%84%ED%8F%AD%ED%91%9C%ED%95%98%ED%95%B4%ED%96%89&amp;display=swap" />
+<script src="assets/config.js?v=23"></script>
+<script src="assets/tracking.js?v=23"></script>
 <style>
   :root{--ink:#2b2420;--sub:#6b6156;--paper:#faf7f1;--card:#fff;--gold:#a8792f;--line:#e6ddcd;--serif:'Noto Serif KR',serif}
   *{margin:0;padding:0;box-sizing:border-box}
@@ -85,6 +84,15 @@
   .cta-box a.o{border:1px solid rgba(255,255,255,.35);color:#fff}
   footer{border-top:1px solid var(--line);text-align:center;padding:26px 20px 40px;font-size:.82rem;color:var(--sub)}
   footer a{margin:0 8px}
+  .mbar{display:none}
+  @media (max-width:860px){
+    .mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:.5rem;background:rgba(250,247,241,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line, #e6ddcd);padding:.6rem .8rem calc(.6rem + env(safe-area-inset-bottom))}
+    .mbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:.45rem;min-height:48px;padding:.8rem .5rem;border-radius:11px;font-size:.92rem;font-weight:600;white-space:nowrap;text-decoration:none}
+    .mbar svg{width:17px;height:17px;flex:none}
+    .mbar-call{background:#a8792f;color:#fff}
+    .mbar-dir{background:#2b2420;color:#faf7f1}
+    body{padding-bottom:5rem}
+  }
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -252,7 +260,7 @@
       <a class="g" href="tel:+82532557052" data-track="call" data-track-label="10mi-cta">☎ 053-255-7052</a>
       <a class="o" href="/#menu" data-track="menu" data-track-label="10mi-cta">메뉴 보기</a>
       <a class="o" href="/#visit" data-track="directions" data-track-label="10mi-cta">오시는 길</a>
-      <a class="o" href="https://m.place.naver.com/restaurant/1059841507/review/visitor" target="_blank" rel="noopener" data-track="naverplace" data-track-label="10mi-cta">네이버 리뷰 4,300개 보기</a>
+      <a class="o" href="https://m.place.naver.com/restaurant/1059841507/review/visitor" target="_blank" rel="noopener" data-track="naverplace" data-track-label="10mi-cta">네이버 방문자 리뷰 3,500개 보기</a>
     </div>
   </div>
 </main>
@@ -260,5 +268,6 @@
   <a href="/">청우해장 홈</a> · <a href="daegu-ttarogukbap.html" data-track="blog" data-track-label="10mi-footer-ttaro">대구 따로국밥 맛집</a> · <a href="daegu-jjimgalbi.html" data-track="blog" data-track-label="10mi-footer-jjimgalbi">대구 찜갈비 맛집</a> · <a href="daegu-food-tour.html" data-track="blog" data-track-label="10mi-footer-foodtour">대구 여행 가이드</a> · <a href="daegu-modern-alley.html" data-track="blog" data-track-label="10mi-footer-alley">대구 근대골목</a> · <a href="daegu-attractions.html" data-track="blog" data-track-label="10mi-footer-attractions">대구 가볼만한 곳</a> · <a href="/#menu" data-track="menu" data-track-label="10mi-footer">메뉴</a> · <a href="/#visit" data-track="directions" data-track-label="10mi-footer">오시는 길</a>
   <p style="margin-top:10px">© 청우해장 靑友解酲 · 대구 중구 남성로 11</p>
 </footer>
+<div class="mbar"><a class="mbar-call" href="tel:+82532557052" data-track="call" data-track-label="10mi-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>전화로 예약하기</a><a class="mbar-dir" href="https://map.naver.com/p/entry/place/1059841507?c=15.00,0,0,0,dh" target="_blank" rel="noopener" data-track="directions" data-track-label="10mi-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>길찾기</a></div>
 </body>
 </html>

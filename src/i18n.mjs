@@ -19,7 +19,7 @@ export const menuNames = {
     oxtail:     { n: '소꼬리찜',            d: '쫄깃한 소꼬리에 아삭한 부추를 곁들인 새콤한 소꼬리찜. 가족 모임·회식 상차림용.' },
     yukhoe:     { n: '육회비빔밥',          d: '신선한 육회에 청우만의 숙성 간장으로 맛을 낸 비빔밥.' },
     clear:      { n: '맑은 해장국 (소고기맑은국)', d: '맑은 국물로 속을 편안하게. 깊고 깔끔한 나주곰탕 스타일의 해장국.' },
-    kalguksu:   { n: '얼큰 장칼국수',       d: '된장을 풀어 끓인 얼큰한 칼국수. 겨울 계절 메뉴.' },
+    kalguksu:   { n: '얼큰 장칼국수',       d: '된장을 풀어 끓인 얼큰한 칼국수. 가을·겨울 계절 메뉴.' },
     jeongol:    { n: '아롱사태 수육 전골',  d: '아롱사태와 스지를 넣어 끓이는 수육 전골. 2~3인 나눠 먹기 좋습니다.' },
     arong:      { n: '아롱사태 냉채',       d: '푹 삶아 익힌 아롱사태를 새콤달콤한 청우 특제 냉채 소스에 무쳐 냅니다.' },
     suyuk:      { n: '아롱사태 수육',       d: '결 좋은 아롱사태를 삶아 얇게 저며 냅니다. 소 18,000원 · 대 23,000원.' },
@@ -32,7 +32,7 @@ export const menuNames = {
     oxtail:     { n: 'Braised Oxtail',            d: 'Chewy oxtail with crisp chives in a tangy sauce. A table centrepiece for groups.' },
     yukhoe:     { n: 'Yukhoe Bibimbap (Beef Tartare Rice Bowl)', d: 'Fresh raw beef over rice with our own aged soy dressing.' },
     clear:      { n: 'Clear Beef Soup (Haejang-guk)', d: 'Clean, gentle beef broth in the Naju-gomtang style. No chili.' },
-    kalguksu:   { n: 'Spicy Doenjang Kalguksu',   d: 'Hand-cut noodles in a spicy soybean-paste broth. Winter seasonal.' },
+    kalguksu:   { n: 'Spicy Doenjang Kalguksu',   d: 'Hand-cut noodles in a spicy soybean-paste broth. Autumn–winter seasonal.' },
     jeongol:    { n: 'Beef Shank Hot Pot (Jeongol)', d: 'Sliced beef shank and tendon in a bubbling hot pot. Good for 2–3.' },
     arong:      { n: 'Chilled Beef Shank (Naengchae)', d: 'Slow-boiled beef shank tossed in our sweet-and-sour chilled dressing. Served cold.' },
     suyuk:      { n: 'Boiled Beef Shank (Suyuk)', d: 'Slow-boiled beef shank, thinly sliced. Not spicy. Small ₩18,000 · Large ₩23,000.' },
@@ -44,8 +44,8 @@ export const menuNames = {
     ribs:       { n: 'ニンニク爆弾 牛カルビチム', d: '特製ダレにたっぷりのニンニクをのせた牛カルビの煮込み。大邱式の辛口です。' },
     oxtail:     { n: '牛テールの煮込み',         d: '弾力のある牛テールにシャキシャキのニラ。会食やご家族の集まりに。' },
     yukhoe:     { n: 'ユッケビビンバ',           d: '新鮮なユッケに、自家製の熟成醤油ダレを合わせたビビンバ。' },
-    clear:      { n: '澄んだ牛肉スープ',         d: '羅州コムタン風の澄んだ牛骨スープ。辛くないので朝食にも。' },
-    kalguksu:   { n: '辛味噌カルグクス',         d: 'テンジャン（味噌）ベースの辛いスープに手打ち麺。冬季限定。' },
+    clear:      { n: '澄んだ牛肉スープ',         d: '牛バラとスネ肉で炊いた、羅州コムタン風の澄んだスープ。辛くないので朝食にも。' },
+    kalguksu:   { n: '辛味噌カルグクス',         d: 'テンジャン（味噌）ベースの辛いスープに手打ち麺。秋冬限定。' },
     jeongol:    { n: '牛すね肉の鍋（チョンゴル）', d: '牛すね肉とスジを煮込む鍋。2〜3人でシェアできます。' },
     arong:      { n: '牛すね肉の冷菜',           d: 'じっくり茹でた牛すね肉を、自家製の甘酸っぱい冷菜ダレで和えた一品。' },
     suyuk:      { n: '牛すね肉のスユク',         d: 'ゆでた牛すね肉を薄切りに。辛さは一切ありません。小 18,000ウォン・大 23,000ウォン。' },
@@ -57,8 +57,8 @@ export const menuNames = {
     ribs:       { n: '蒜香炸弹炖牛排骨', d: '特制酱汁配满满蒜瓣的炖牛排骨。大邱式辣味。' },
     oxtail:     { n: '炖牛尾',           d: '有嚼劲的牛尾配爽脆韭菜，酸香开胃。适合家庭聚餐。' },
     yukhoe:     { n: '生牛肉拌饭',       d: '新鲜生牛肉配本店秘制熟成酱油汁的拌饭。' },
-    clear:      { n: '清汤牛肉汤',       d: '罗州牛骨汤风格的清汤，不辣，暖胃。' },
-    kalguksu:   { n: '辣味大酱刀削面',   d: '大酱汤底配手工面条。冬季限定。' },
+    clear:      { n: '清汤牛肉汤',       d: '牛腩和牛腱熬成的罗州风味清汤，不辣，暖胃。' },
+    kalguksu:   { n: '辣味大酱刀削面',   d: '大酱汤底配手工面条。秋冬限定。' },
     jeongol:    { n: '牛腱火锅',         d: '牛腱与牛筋一起煮的火锅，适合 2〜3 人分享。' },
     arong:      { n: '凉拌牛腱',         d: '慢炖牛腱拌上本店特制酸甜凉拌汁，凉着上桌。' },
     suyuk:      { n: '水煮牛腱片',       d: '慢煮牛腱切薄片，完全不辣。小份 18,000 · 大份 23,000 韩元。' },
@@ -131,7 +131,7 @@ export const t = {
     langName: '한국어',
     title: '청우해장 — 대구 약전골목 한식당 | 갈비탕·소갈비찜·따로국밥 · 반월당·동성로 대구맛집',
     description:
-      `대구 중구 약령시 약전골목 한식당 청우해장 — 청우 약전 소갈비탕, 소갈비찜 마늘폭탄, 대구 얼큰해장국(따로국밥)·맑은 해장국, 소꼬리찜. 더현대 대구 도보 약 6분·반월당역 약 7분, 근대골목투어 대구맛집. 매일 ${H.open}~${H.close}, 053-255-7052.`,
+      `대구 중구 약령시 약전골목 한식당 청우해장 — 청우 약전 소갈비탕, 소갈비찜 마늘폭탄, 대구 얼큰해장국(따로국밥)·맑은 해장국, 소꼬리찜. 더현대 대구 도보 약 6분·반월당역 약 7분, 근대골목투어 대구맛집. 매일 ${H.open}~${H.close}${hasBreak ? `(브레이크 ${H.breakStart.slice(0, 2)}–${H.breakEnd.slice(0, 2)}시)` : ''}, 053-255-7052.`,
     keywords:
       '대구맛집, 대구 맛집, 대구 맛집 추천, 대구 소고기 맛집, 대구 점심 맛집, 동성로 맛집, 더현대 대구 맛집, 대구 가볼만한 곳, 육회비빔밥, 대구 한식당, 대구 한식 맛집, 대구 시내 맛집, 대구중구맛집, 대구 종로 맛집, 반월당 맛집, 반월당역 맛집, 약전골목 맛집, 대구 수육, 아롱사태 수육, 소꼬리찜, 아롱사태수육, 청우해장, 근대골목투어, 대구근대골목, 서문시장 맛집, 대구여행, 대구 가볼만한곳',
     ogLocale: 'ko_KR',
@@ -146,12 +146,12 @@ export const t = {
     heroTitles: [
       '몸을 돌보는 한 그릇,<br>약령시 약전골목에서',
       '하루 종일 고아 낸<br>맑은 소고기 국물',
-      '해장부터 외식까지,<br>400년 골목의 밥상',
+      '해장부터 외식까지,<br>360년 골목의 밥상',
     ],
     heroTitlesSummer: ['여름 한정 별미,<br>청우 평양냉면'],
-    heroTitlesWinter: ['속까지 뜨끈하게,<br>겨울 얼큰 장칼국수'],
+    heroTitlesWinter: ['속까지 뜨끈하게,<br>얼큰 장칼국수'],
     heroLede:
-      '400년 약령시 골목 안, <strong>청우해장</strong>은 양지와 사태를 하루 종일 고아 낸 맑은 소고기 국물로 <strong>갈비탕</strong>·<strong>해장국</strong>을 끓이고, 마늘을 듬뿍 올린 대구식 <strong>소갈비찜</strong>을 냅니다. 국물은 자극을 덜고 깊게 — 아침 첫 끼로, 어르신 모시는 상으로, 가족의 든든한 외식으로.',
+      '360년 약령시 골목 안, <strong>청우해장</strong>은 양지와 사태를 하루 종일 고아 낸 맑은 소고기 국물로 <strong>갈비탕</strong>·<strong>해장국</strong>을 끓이고, 마늘을 듬뿍 올린 대구식 <strong>소갈비찜</strong>을 냅니다. 국물은 자극을 덜고 깊게 — 아침 첫 끼로, 어르신 모시는 상으로, 가족의 든든한 외식으로.',
     heroNote: '1929년 《별건곤》이 「대구의 자랑」이라 부른 <strong>대구탕반</strong>의 계보를 잇는 따로국밥 — 대구 10미를 약전골목에서.',
     heroCtaCall: '전화로 예약하기',
     heroCtaDir: '길찾기',
@@ -223,11 +223,11 @@ export const t = {
       { q: '예약이 되나요?', a: '네, 전화 예약을 받습니다. 40명 이하 단체 예약도 가능합니다. 053-255-7052 로 연락 주세요.' },
       { q: '주차는 어디에 하나요?', a: '매장 전용 주차장은 없지만 약령시서문 공영주차장이 도보 1분 거리에 있습니다. 약령시한의약박물관 주차장(2분), 약령시서편 공영주차장(4분)도 가깝습니다. 「오시는 길」에 길찾기 링크가 있습니다.' },
       { q: '브레이크타임이 있나요?', a: hasBreak
-          ? `네, ${H.breakStart}~${H.breakEnd} 이 브레이크타임입니다. 마감은 ${H.close} 입니다.`
+          ? `네, ${H.breakStart}~${H.breakEnd} 이 브레이크타임입니다. 마감은 ${H.close}${hasLastOrder ? `, 라스트오더는 ${H.lastOrder}` : ''} 입니다.`
           : `브레이크타임 없이 ${H.open}부터 ${H.close}까지 계속 영업합니다. 점심과 저녁 사이 한가한 시간에 오셔도 됩니다.` },
       { q: '맵지 않은 메뉴도 있나요?', a: '맑은해장국, 청우 약전 갈비탕, 아롱사태수육은 맵지 않습니다. 어르신이나 아이와 함께 오셔도 괜찮습니다.' },
       { q: '웨이팅이 많나요?', a: '평일 점심(12:00~13:30)과 주말에는 대기가 있는 편입니다. 오픈 직후나 저녁 이른 시간이 여유롭습니다.' },
-      { q: '포장이 되나요?', a: '네, 포장 가능합니다. 전화로 미리 주문해 두시면 기다리지 않고 가져가실 수 있습니다.' },
+      { q: '포장이 되나요?', a: '네, 포장 가능합니다. 전화로 미리 주문해 두시면 기다리지 않고 가져가실 수 있습니다. 육회비빔밥은 포장이 안 되고, 배달은 하지 않습니다.' },
       { q: '외국어 메뉴가 있나요?', a: '이 홈페이지에서 영어·일본어·중국어로 메뉴를 확인하실 수 있습니다. 매장 직원에게 화면을 보여주셔도 됩니다.' },
     ],
 
@@ -244,7 +244,7 @@ export const t = {
     langName: 'English',
     title: 'Cheongwoo Haejang | Korean Beef Soup & Galbitang in Daegu',
     description:
-      `Korean restaurant in Yangnyeongsi, Daegu's 400-year-old herbal alley — galbitang, beef soup, spicy braised short ribs. About 7 min on foot from Banwoldang Station, 6 from The Hyundai Daegu. English menu.`,
+      `Beef-soup restaurant in Daegu's 360-year-old Yangnyeongsi herbal alley: galbitang, spicy beef soup, braised short ribs. 7 min from Banwoldang Stn. English menu.`,
     keywords:
       'Daegu restaurant, Daegu food, what to eat in Daegu, haejang-guk, Korean beef soup, galbitang, Korean beef short rib soup, galbijjim, Daegu braised short ribs, spicy braised ribs, Banwoldang, Yangnyeongsi herbal medicine market, Daegu Modern History Street, Korean restaurant Daegu, Seomun Market food, Daegu 10 tastes',
     ogLocale: 'en_US',
@@ -262,9 +262,12 @@ export const t = {
       'From morning soup to family dinner,<br>a short walk from Banwoldang.',
     ],
     heroTitlesSummer: ['Summer special —<br>Pyeongyang cold noodles.'],
-    heroTitlesWinter: ['Winter warmer —<br>spicy kalguksu noodles.'],
+    heroTitlesWinter: ['Cold-weather warmer —<br>spicy kalguksu noodles.'],
     heroLede:
-      'Inside Yangnyeongsi, Daegu’s 400-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> serves clear beef broth simmered all day from brisket and shank — short rib soup, beef soup, cold noodles in summer. Less seasoning, deeper broth: breakfast, a meal with elders, a wholesome family lunch.',
+      'Inside Yangnyeongsi, Daegu’s 360-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> serves clear beef broth simmered all day from brisket and shank — short rib soup and beef soup. Less seasoning, deeper broth: breakfast, a meal with elders, a wholesome family lunch.',
+    // 여름 메뉴(냉면) 판매 중일 때만 쓰는 문단 — build.mjs 의 SUMMER_ON
+    heroLedeSummer:
+      'Inside Yangnyeongsi, Daegu’s 360-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> serves clear beef broth simmered all day from brisket and shank — short rib soup, beef soup, cold noodles in summer. Less seasoning, deeper broth: breakfast, a meal with elders, a wholesome family lunch.',
     heroNote: 'Our spicy beef soup carries the lineage of <strong>Daegu tangban</strong>, praised as “Daegu’s pride” in 1929 — one of Daegu’s 10 delicacies, in the herbal alley.',
     heroCtaCall: 'Call to book',
     heroCtaDir: 'Directions',
@@ -338,11 +341,11 @@ export const t = {
       { q: 'Can I make a reservation?', a: 'Yes, by phone. We accept group bookings for up to 40 people. Call +82 53-255-7052.' },
       { q: 'Is there parking?', a: 'No private car park, but the Yangnyeongsi West Gate public car park is a 1-minute walk away, with 2–3 more within 2–4 minutes. See “Getting here” for directions links.' },
       { q: 'Is there a break time?', a: hasBreak
-          ? `Yes — ${H.breakStart} to ${H.breakEnd}. We close at ${H.close}.`
+          ? `Yes — ${H.breakStart} to ${H.breakEnd}. We close at ${H.close}${hasLastOrder ? ` (last order ${H.lastOrder})` : ''}.`
           : `No. We serve straight through from ${H.open} to ${H.close}, so the quiet hours between lunch and dinner are fine.` },
       { q: 'Do you have non-spicy dishes?', a: 'Yes. The clear haejang-guk, the short rib soup and the boiled beef shank contain no chili.' },
       { q: 'Will I have to queue?', a: 'Weekday lunch (12:00–13:30) and weekends can be busy. Just after opening or early evening is quieter.' },
-      { q: 'Do you do takeaway?', a: 'Yes. Call ahead and your order will be ready to collect.' },
+      { q: 'Do you do takeaway?', a: 'Yes. Call ahead and your order will be ready to collect. Yukhoe bibimbap is dine-in only, and we don’t deliver.' },
       { q: 'Is there an English menu?', a: 'This page carries the menu in English, Japanese and Chinese. Showing the screen to our staff works fine.' },
     ],
 
@@ -359,7 +362,7 @@ export const t = {
     langName: '日本語',
     title: '大邱グルメ・大邱観光の食事に｜チョンウヘジャン — 薬令市の韓国料理店（半月堂 ランチ・カルビタン・カルビチム）',
     description:
-      `大邱観光・大邱グルメなら薬令市の韓国料理店チョンウヘジャン。半月堂のランチにも。牛骨をじっくり煮出したカルビタン、大邱式ヘジャンクク、辛口カルビチム。日本語メニューあり。半月堂駅15番出口から徒歩約7分、ザ・現代 大邱から徒歩約6分、近代路地ツアーの途中に。毎日${H.open}〜${H.close}、電話予約 +82-53-255-7052。`,
+      `大邱観光・大邱グルメなら薬令市の韓国料理店チョンウヘジャン。牛骨をじっくり煮出したカルビタン、大邱式ヘジャンクク、辛口カルビチム。日本語メニューあり。半月堂駅15番出口から徒歩約7分、ザ・現代 大邱から徒歩約6分。毎日${H.open}〜${H.close}${hasBreak ? `（休憩${H.breakStart.slice(0, 2)}〜${H.breakEnd.slice(0, 2)}時）` : ''}、電話予約 +82-53-255-7052。`,
     keywords:
       '大邱 グルメ, 大邱 レストラン, 大邱 韓国料理, 大邱 名物, ヘジャンクク, カルビタン, カルビチム, 大邱 カルビチム, 辛口カルビチム, 半月堂, 薬令市, 大邱 近代路地, 大邱 旅行, 西門市場 グルメ, 東城路 グルメ, 大邱十味',
     ogLocale: 'ja_JP',
@@ -374,12 +377,15 @@ export const t = {
     heroTitles: [
       '体をいたわる一杯を、<br>薬令市の薬田横丁で。',
       '一日かけて煮出した、<br>澄んだ深い牛スープ。',
-      '朝の一杯から家族の食事まで、<br>400年の路地の食卓。',
+      '朝の一杯から家族の食事まで、<br>360年の路地の食卓。',
     ],
     heroTitlesSummer: ['夏限定の名物、<br>平壌冷麺。'],
-    heroTitlesWinter: ['冬は熱々の<br>ピリ辛カルグクス。'],
+    heroTitlesWinter: ['寒い日は熱々の<br>ピリ辛カルグクス。'],
     heroLede:
-      '400年の歴史をもつ薬令市の路地で、<strong>チョンウヘジャン</strong>は牛バラとスネ肉を一日かけて煮出した澄んだスープをお出しします。カルビタン、ヘジャンクク、夏は平壌冷麺。刺激は控えめに、スープは深く — 朝食に、ご年配の方との食事に、家族の健やかな外食に。',
+      '360年の歴史をもつ薬令市の路地で、<strong>チョンウヘジャン</strong>は牛バラとスネ肉を一日かけて煮出した澄んだスープをお出しします。カルビタンにヘジャンクク。刺激は控えめに、スープは深く — 朝食に、ご年配の方との食事に、家族の健やかな外食に。',
+    // 여름 메뉴(냉면) 판매 중일 때만 쓰는 문단 — build.mjs 의 SUMMER_ON
+    heroLedeSummer:
+      '360年の歴史をもつ薬令市の路地で、<strong>チョンウヘジャン</strong>は牛バラとスネ肉を一日かけて煮出した澄んだスープをお出しします。カルビタン、ヘジャンクク、夏は平壌冷麺。刺激は控えめに、スープは深く — 朝食に、ご年配の方との食事に、家族の健やかな外食に。',
     heroNote: '1929年に「大邱の誇り」と呼ばれた<strong>大邱湯飯</strong>の系譜を継ぐタロクッパ — 大邱十味を薬令市の路地で。',
     heroCtaCall: '電話で予約',
     heroCtaDir: '道順を見る',
@@ -453,11 +459,11 @@ export const t = {
       { q: '予約はできますか。', a: 'はい、お電話で承ります。40名以下の団体予約も可能です。+82 53-255-7052 までどうぞ。' },
       { q: '駐車場はありますか。', a: '専用駐車場はありませんが、薬令市西門公営駐車場が徒歩1分です。他にも徒歩2〜4分に2〜3か所あります。「アクセス」に経路リンクがあります。' },
       { q: '休憩時間はありますか。', a: hasBreak
-          ? `はい、${H.breakStart}〜${H.breakEnd} が休憩時間です。閉店は${H.close}です。`
+          ? `はい、${H.breakStart}〜${H.breakEnd} が休憩時間です。閉店は${H.close}${hasLastOrder ? `（ラストオーダー${H.lastOrder}）` : ''}です。`
           : `休憩なしで${H.open}から${H.close}まで通しで営業しています。昼と夜の間の空いている時間帯でもご利用いただけます。` },
       { q: '辛くない料理はありますか。', a: '澄んだヘジャンクク、カルビタン、牛すね肉のスユクは全く辛くありません。' },
       { q: '待ち時間はありますか。', a: '平日の昼（12:00〜13:30）と週末は混み合います。開店直後か夕方早めが比較的空いています。' },
-      { q: 'テイクアウトはできますか。', a: 'はい。事前にお電話いただければ、お待たせせずにお渡しできます。' },
+      { q: 'テイクアウトはできますか。', a: 'はい。事前にお電話いただければ、お待たせせずにお渡しできます。ユッケビビンバはお持ち帰りできません。デリバリーはしていません。' },
       { q: '日本語メニューはありますか。', a: 'このページで日本語のメニューをご覧いただけます。画面をスタッフにお見せください。' },
     ],
 
@@ -474,7 +480,7 @@ export const t = {
     langName: '中文',
     title: '大邱美食・大邱旅游必吃｜青友解酲 — 药令市韩式餐厅（近代胡同旁・半月堂站）',
     description:
-      `大邱美食推荐：药令市（药田胡同）的韩式餐厅青友解酲。慢熬牛骨排骨汤、大邱式牛肉汤、辣炖牛排骨。有中文菜单。距半月堂站15号出口步行约7分钟，距 The Hyundai 大邱步行约6分钟，近代胡同游览路线上。每天 ${H.open}–${H.close} 营业，电话预订 +82-53-255-7052。`,
+      `大邱美食推荐：药令市（药田胡同）的韩式餐厅青友解酲。慢熬牛骨排骨汤、大邱式牛肉汤、辣炖牛排骨。有中文菜单。距半月堂站15号出口步行约7分钟，距 The Hyundai 大邱步行约6分钟，近代胡同游览路线上。每天 ${H.open}–${H.close} 营业${hasBreak ? `（${H.breakStart}–${H.breakEnd} 休息）` : ''}，电话预订 +82-53-255-7052。`,
     keywords:
       '大邱美食, 大邱美食推荐, 大邱必吃, 大邱餐厅, 大邱韩餐, 大邱自由行, 解酒汤, 排骨汤, 炖排骨, 辣炖排骨, 大邱炖排骨, 半月堂, 药令市, 大邱近代胡同, 大邱旅游, 大邱景点, 西门市场美食, 东城路美食, 大邱十味',
     ogLocale: 'zh_CN',
@@ -489,12 +495,15 @@ export const t = {
     heroTitles: [
       '一碗照顾身体的汤，<br>在药令市药田胡同。',
       '慢炖一整天的牛肉清汤，<br>清澈而醇厚。',
-      '从早餐解酒汤到家庭聚餐，<br>400年老巷的餐桌。',
+      '从早餐解酒汤到家庭聚餐，<br>360年老巷的餐桌。',
     ],
     heroTitlesSummer: ['夏季限定，<br>平壤冷面'],
-    heroTitlesWinter: ['冬天来一碗<br>热辣刀削面'],
+    heroTitlesWinter: ['天冷来一碗<br>热辣刀削面'],
     heroLede:
-      '在有 400 年历史的药令市胡同里，<strong>青友解酲</strong>用牛腩和牛腱熬上一整天的清汤，做排骨汤、牛肉汤，夏天有平壤冷面。少些刺激，多些汤的深度 — 早餐、陪长辈用餐、一家人安心的外食。',
+      '在有 360 年历史的药令市胡同里，<strong>青友解酲</strong>用牛腩和牛腱熬上一整天的清汤，做排骨汤和牛肉汤。少些刺激，多些汤的深度 — 早餐、陪长辈用餐、一家人安心的外食。',
+    // 여름 메뉴(냉면) 판매 중일 때만 쓰는 문단 — build.mjs 의 SUMMER_ON
+    heroLedeSummer:
+      '在有 360 年历史的药令市胡同里，<strong>青友解酲</strong>用牛腩和牛腱熬上一整天的清汤，做排骨汤、牛肉汤，夏天有平壤冷面。少些刺激，多些汤的深度 — 早餐、陪长辈用餐、一家人安心的外食。',
     heroNote: '承接1929年被誉为“大邱的骄傲”的<strong>大邱汤饭</strong>脉络 — 大邱十味，就在药令市巷子里。',
     heroCtaCall: '电话预订',
     heroCtaDir: '查看路线',
@@ -567,11 +576,11 @@ export const t = {
       { q: '可以预订吗？', a: '可以，请致电预订。也接受 40 人以下的团体预订。电话 +82 53-255-7052。' },
       { q: '有停车场吗？', a: '没有专用停车场，但药令市西门公共停车场步行仅 1 分钟，附近还有 2〜3 个停车场。「交通」区有导航链接。' },
       { q: '有休息时间吗？', a: hasBreak
-          ? `有，${H.breakStart}–${H.breakEnd} 为休息时间。${H.close} 打烊。`
+          ? `有，${H.breakStart}–${H.breakEnd} 为休息时间。${H.close} 打烊${hasLastOrder ? `（最后点餐 ${H.lastOrder}）` : ''}。`
           : `没有。从 ${H.open} 到 ${H.close} 连续营业，午餐和晚餐之间的空闲时段也可以来。` },
       { q: '有不辣的菜吗？', a: '清汤解酒汤、排骨汤和水煮牛腱片完全不辣。' },
       { q: '需要排队吗？', a: '工作日午餐（12:00–13:30）和周末较忙。刚开门或傍晚早些时候比较空。' },
-      { q: '可以外带吗？', a: '可以。提前致电点餐，到店即可取走。' },
+      { q: '可以外带吗？', a: '可以。提前致电点餐，到店即可取走。生拌牛肉拌饭不能外带，也不提供外送。' },
       { q: '有中文菜单吗？', a: '本页面提供中文菜单，把屏幕给店员看即可点单。' },
     ],
 

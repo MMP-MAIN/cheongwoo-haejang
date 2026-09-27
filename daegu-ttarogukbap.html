@@ -20,10 +20,9 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap" />
-<script src="assets/config.js?v=22"></script>
-<script src="assets/tracking.js?v=22"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&amp;text=%2C%C2%B7%E2%80%94%E5%8F%8B%E8%A7%A3%E9%85%B2%E9%9D%91%EA%B0%80%EA%B2%8C%EA%B2%A9%EA%B3%84%EA%B3%A0%EA%B3%A8%EA%B3%BC%EA%B5%AC%EA%B5%AD%EA%B7%B8%EA%B7%BC%EA%B8%B0%EA%B8%B8%EB%82%B4%EB%83%85%EB%8A%94%EB%8B%88%EB%8B%A4%EB%8B%B9%EB%8C%80%EB%8D%94%EB%8F%84%EB%94%B0%EB%A0%87%EB%A1%9C%EB%A6%87%EB%A7%9B%EB%A7%A4%EB%AA%A9%EB%AC%B8%EB%AC%BB%EB%B0%98%EB%B0%A5%EB%B3%B4%EC%84%9C%EC%86%8C%EC%8A%B5%EC%8B%9D%EC%95%BD%EC%97%90%EC%98%A4%EC%99%94%EC%9A%B0%EC%9A%B4%EC%9B%94%EC%9D%80%EC%9D%84%EC%9D%98%EC%9D%B4%EC%9E%90%EC%9E%A5%EC%A0%84%EC%A0%95%EC%A3%BC%EC%A7%88%EC%A7%91%EC%B2%AD%ED%83%95%ED%95%9C%ED%95%B4%ED%98%84&amp;display=swap" />
+<script src="assets/config.js?v=23"></script>
+<script src="assets/tracking.js?v=23"></script>
 <style>
   :root{--ink:#2b2420;--sub:#6b6156;--paper:#faf7f1;--card:#fff;--gold:#a8792f;--line:#e6ddcd;--serif:'Noto Serif KR',serif}
   *{margin:0;padding:0;box-sizing:border-box}
@@ -67,6 +66,15 @@
   .cta-box a.o{border:1px solid rgba(255,255,255,.35);color:#fff}
   footer{border-top:1px solid var(--line);text-align:center;padding:26px 20px 40px;font-size:.82rem;color:var(--sub)}
   footer a{margin:0 8px}
+  .mbar{display:none}
+  @media (max-width:860px){
+    .mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:.5rem;background:rgba(250,247,241,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line, #e6ddcd);padding:.6rem .8rem calc(.6rem + env(safe-area-inset-bottom))}
+    .mbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:.45rem;min-height:48px;padding:.8rem .5rem;border-radius:11px;font-size:.92rem;font-weight:600;white-space:nowrap;text-decoration:none}
+    .mbar svg{width:17px;height:17px;flex:none}
+    .mbar-call{background:#a8792f;color:#fff}
+    .mbar-dir{background:#2b2420;color:#faf7f1}
+    body{padding-bottom:5rem}
+  }
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -98,11 +106,11 @@
 <main>
   <nav class="crumb"><a href="/">홈</a> › 대구 따로국밥 맛집</nav>
   <h1>대구 따로국밥 맛집<br>— 반월당 약전골목 청우해장, 대구탕반의 계보</h1>
-  <p class="lede">대구에 왔으면 따로국밥 한 그릇은 먹고 가야 합니다. 국과 밥을 따로 내는 대구식 소고기국 — 청우해장은 <strong>양지와 사태를 하루 종일 고아 낸 국물</strong>에 대파와 고추기름을 풀어 그 맛을 냅니다. 반월당역에서 걸어서 약 7분, 400년 약전골목 안입니다.</p>
+  <p class="lede">대구에 왔으면 따로국밥 한 그릇은 먹고 가야 합니다. 국과 밥을 따로 내는 대구식 소고기국 — 청우해장은 <strong>양지와 사태를 하루 종일 고아 낸 국물</strong>에 대파와 고추기름을 풀어 그 맛을 냅니다. 반월당역에서 걸어서 약 7분, 360년 약전골목 안입니다.</p>
   <p class="meta">대구 중구 남성로 11 · 더현대 대구에서 도보 약 6분 · 반월당역에서 약 7분 · 매일 11:00–22:00 (브레이크 15:00–17:00) · 053-255-7052</p>
 
   <figure>
-    <img src="images/food-spicy.jpg" alt="대구 따로국밥 맛집 청우해장 대구 얼큰해장국(따로국밥)" width="1500" height="2000" loading="eager" fetchpriority="high" />
+    <picture><source type="image/avif" srcset="images/opt/food-spicy-360.avif 360w, images/opt/food-spicy-720.avif 720w, images/opt/food-spicy-1080.avif 1080w" sizes="(max-width: 800px) 100vw, 760px"><source type="image/webp" srcset="images/opt/food-spicy-360.webp 360w, images/opt/food-spicy-720.webp 720w, images/opt/food-spicy-1080.webp 1080w" sizes="(max-width: 800px) 100vw, 760px"><img src="images/food-spicy.jpg" alt="대구 따로국밥 맛집 청우해장 대구 얼큰해장국(따로국밥)" width="1500" height="2000" loading="eager" fetchpriority="high" /></picture>
     <figcaption>대구 얼큰해장국(따로국밥) 13,000원 — 밥은 따로, 대구식으로.</figcaption>
   </figure>
 
@@ -161,7 +169,7 @@
       <a class="g" href="tel:+82532557052" data-track="call" data-track-label="ttaro-cta">☎ 053-255-7052</a>
       <a class="o" href="/#menu" data-track="menu" data-track-label="ttaro-cta">메뉴 보기</a>
       <a class="o" href="/#visit" data-track="directions" data-track-label="ttaro-cta">오시는 길</a>
-      <a class="o" href="https://m.place.naver.com/restaurant/1059841507/review/visitor" target="_blank" rel="noopener" data-track="naverplace" data-track-label="ttarogukbap-cta">네이버 리뷰 4,300개 보기</a>
+      <a class="o" href="https://m.place.naver.com/restaurant/1059841507/review/visitor" target="_blank" rel="noopener" data-track="naverplace" data-track-label="ttarogukbap-cta">네이버 방문자 리뷰 3,500개 보기</a>
     </div>
   </div>
 </main>
@@ -169,5 +177,6 @@
   <a href="/">청우해장 홈</a> · <a href="daegu-haejangguk.html">대구 해장국 맛집</a> · <a href="daegu-galbitang.html">대구 갈비탕 맛집</a> · <a href="daegu-jjimgalbi.html">대구 찜갈비</a> · <a href="daegu-food-tour.html">대구 여행 코스·맛집</a> · <a href="/#menu">메뉴</a> · <a href="/#visit">오시는 길</a>
   <p style="margin-top:10px">© 청우해장 靑友解酲 · 대구 중구 남성로 11</p>
 </footer>
+<div class="mbar"><a class="mbar-call" href="tel:+82532557052" data-track="call" data-track-label="ttarogukbap-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>전화로 예약하기</a><a class="mbar-dir" href="https://map.naver.com/p/entry/place/1059841507?c=15.00,0,0,0,dh" target="_blank" rel="noopener" data-track="directions" data-track-label="ttarogukbap-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>길찾기</a></div>
 </body>
 </html>

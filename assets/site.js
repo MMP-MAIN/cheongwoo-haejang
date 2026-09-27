@@ -61,13 +61,32 @@
       toggle.setAttribute('aria-expanded', String(open));
       document.body.style.overflow = open ? 'hidden' : '';
     });
-    $$('a', gnb).forEach(function (a) {
-      a.addEventListener('click', function () {
-        gnb.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+    var closeGnb = function () {
+      gnb.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+    $$('a', gnb).forEach(function (a) { a.addEventListener('click', closeGnb); });
+    // 링크가 아닌 빈 배경을 누르거나 Esc 를 눌러도 닫힙니다 (햄버거는 X 로 바뀌어 위에 떠 있음)
+    gnb.addEventListener('click', function (e) { if (e.target === gnb) closeGnb(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && gnb.classList.contains('open')) { closeGnb(); toggle.focus(); }
     });
+  }
+
+  /* ---- 포장 광고로 들어온 손님에게 포장 안내 한 줄 (utm_campaign 에 takeout 이 있을 때만) ---- */
+  var toHint = $('#takeout-hint');
+  if (toHint && /(^|[?&])utm_campaign=[^&]*takeout/i.test(location.search)) toHint.hidden = false;
+
+  /* ---- 메뉴판이 화면에 들어오면 1회 기록 (menu_seen) ---- */
+  var menuSec = $('#menu');
+  if (menuSec && 'IntersectionObserver' in window && window.cwTrack) {
+    var mio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { window.cwTrack('menuseen', {}, { once: true }); mio.disconnect(); }
+      });
+    }, { threshold: 0.25 });
+    mio.observe(menuSec);
   }
 
   /* ---- 스크롤 등장 ---- */
@@ -314,6 +333,8 @@
     var hm = function (s) { var p = (s || '').split(':'); return (+p[0]) * 60 + (+p[1]); };
     var parts = (badge.getAttribute('data-hours') || '11:00,,,23:00').split(',');
     var open = hm(parts[0]), close = hm(parts[3]);
+    // 다섯째 칸 = 라스트오더 (없으면 빈칸)
+    var lastOrder = parts[4] ? hm(parts[4]) : -1;
     // 브레이크타임이 없는 가게면 가운데 두 칸이 빈 문자열로 내려옵니다.
     var hasBreak = !!(parts[1] && parts[2]);
     var bStart = hasBreak ? hm(parts[1]) : -1, bEnd = hasBreak ? hm(parts[2]) : -1;
@@ -325,6 +346,7 @@
     var state;
     if (mins < open) state = 'before';                                   // 아직 문 열기 전
     else if (mins >= close) state = 'closed';                            // 마감
+    else if (lastOrder > 0 && mins >= lastOrder) state = 'lastorder';     // 라스트오더 지남 (마감 전)
     else state = (hasBreak && mins >= bStart && mins < bEnd) ? 'break' : 'open';  // 영업 중 / 브레이크
 
     badge.textContent = badge.getAttribute('data-' + state) || '';

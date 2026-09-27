@@ -34,7 +34,7 @@ export const hoodImages = [
 export const hood = {
   ko: {
     kicker: '동네 이야기',
-    title: '350년 약전골목,<br>그 한가운데서 국을 끓입니다',
+    title: '360년 약전골목,<br>그 한가운데서 국을 끓입니다',
     lede:
       '청우해장이 있는 남성로는 그냥 길이 아닙니다. 조선 후기부터 한약재가 오가던 <strong>대구약령시</strong>의 본거리이자, 오늘날 <strong>근대문화골목</strong> 투어가 지나는 길목입니다.',
     blocks: [
@@ -54,7 +54,7 @@ export const hood = {
     courseTitle: '걸어서 닿는 곳',
     courseNote: '※ 도보 시간은 청우해장(남성로 11) 기준, 카카오맵 도보 길찾기로 잰 대략치입니다. 동성로는 중심부 기준입니다.',
     archiveTitle: '옛 지도와 골목 풍경',
-    archiveLede: '1930년 지형도 속 대구 시가지 — 약령시는 옛 성곽 남쪽 길, 지금의 남성로에 섰습니다. 그 길에서 400년 가까이 약재가 오갔고, 지금은 그 골목에서 국을 끓입니다.',
+    archiveLede: '1930년 지형도 속 대구 시가지 — 약령시는 옛 성곽 남쪽 길, 지금의 남성로에 섰습니다. 그 길에서 360년 넘게 약재가 오갔고, 지금은 그 골목에서 국을 끓입니다.',
     archive: { map1930: '1930년 대구 시가지 지형도 (조선총독부)', mural: '약령시 골목의 옛 약방 벽화', herbs: '약전골목 약재 진열', gate: '약령시 정문 「약령문」' },
     spots: {
       museum:   { n: '약령시한의약박물관', d: '약령시의 역사를 모아 둔 박물관. 매장에서 걸어서 약 3분입니다.' },
@@ -69,7 +69,7 @@ export const hood = {
 
   en: {
     kicker: 'Things to do in Daegu — around us',
-    title: 'Four centuries of herbal medicine —<br>and a pot of broth in the middle of it',
+    title: 'Over 360 years of herbal medicine —<br>and a pot of broth in the middle of it',
     lede:
       'Namseong-ro is not just a street. It is the main lane of <strong>Yangnyeongsi</strong>, Daegu’s historic herbal medicine market, and it sits on the route of the <strong>Modern History Street</strong> walking tour.',
     blocks: [
@@ -89,7 +89,7 @@ export const hood = {
     courseTitle: 'Within walking distance',
     courseNote: '※ Walking times are approximate (KakaoMap walking directions), measured from our door at 11 Namseong-ro. Dongseong-ro is measured to the middle of the street.',
     archiveTitle: 'Old map, old alley',
-    archiveLede: 'Daegu on a 1930 survey map — Yangnyeongsi grew along the road south of the old town wall, today’s Namseong-ro. Herbs changed hands here for close to 400 years; now we simmer broth on the same lane.',
+    archiveLede: 'Daegu on a 1930 survey map — Yangnyeongsi grew along the road south of the old town wall, today’s Namseong-ro. Herbs have changed hands here for over 360 years; now we simmer broth on the same lane.',
     archive: { map1930: 'Daegu city centre, 1930 topographic map', mural: 'Mural of an old herbal pharmacy in Yangnyeongsi', herbs: 'Dried herbs on display in the alley', gate: 'Yangnyeongmun, the market gate' },
     spots: {
       museum:   { n: 'Yangnyeongsi Herbal Medicine Museum', d: 'The history of the herb market, gathered in one building — about a 3-minute walk from us.' },
@@ -104,7 +104,7 @@ export const hood = {
 
   ja: {
     kicker: '大邱観光 — お店のまわり',
-    title: '350年の薬田横丁、<br>その真ん中でスープを炊く',
+    title: '360年の薬田横丁、<br>その真ん中でスープを炊く',
     lede:
       '南城路はただの通りではありません。朝鮮時代から漢方薬材が行き交った<strong>薬令市</strong>の本通りであり、今日の<strong>近代路地ツアー</strong>が通る道です。',
     blocks: [
@@ -124,7 +124,7 @@ export const hood = {
     courseTitle: '徒歩圏内の見どころ',
     courseNote: '※ 所要時間は南城路11（当店）からのおおよその目安です（カカオマップの徒歩ルート基準）。東城路は通りの中心部までの時間です。',
     archiveTitle: '古地図と路地の風景',
-    archiveLede: '1930年の地形図に見る大邱市街 — 薬令市は旧城郭の南側の道、今の南城路に立ちました。400年近く薬材が行き交ったこの路地で、今はスープを煮ています。',
+    archiveLede: '1930年の地形図に見る大邱市街 — 薬令市は旧城郭の南側の道、今の南城路に立ちました。360年以上薬材が行き交ったこの路地で、今はスープを煮ています。',
     archive: { map1930: '1930年 大邱市街地形図（朝鮮総督府）', mural: '薬令市の路地に描かれた昔の薬房の壁画', herbs: '薬田横丁の薬材', gate: '薬令市の正門「薬令門」' },
     spots: {
       museum:   { n: '薬令市韓医薬博物館', d: '薬令市の歴史を集めた博物館。当店から徒歩約3分です。' },
@@ -159,7 +159,7 @@ export const hood = {
     courseTitle: '步行可达',
     courseNote: '※ 步行时间以本店（南城路 11）为起点，按 KakaoMap 步行路线估算，仅供参考。东城路以街区中心为准。',
     archiveTitle: '老地图与老巷',
-    archiveLede: '1930年地形图上的大邱市区 — 药令市沿着旧城墙南侧的路兴起，也就是今天的南城路。近400年药材在此往来，如今我们在同一条巷子里熬汤。',
+    archiveLede: '1930年地形图上的大邱市区 — 药令市沿着旧城墙南侧的路兴起，也就是今天的南城路。360多年来药材在此往来，如今我们在同一条巷子里熬汤。',
     archive: { map1930: '1930年大邱市区地形图（朝鲜总督府）', mural: '药令市巷子里的老药房壁画', herbs: '药田胡同的药材陈列', gate: '药令市正门「药令门」' },
     spots: {
       museum:   { n: '药令市韩医药博物馆', d: '收藏药令市历史的博物馆，距本店步行约3分钟。' },
@@ -194,7 +194,7 @@ export const hood = {
     courseTitle: '步行可達',
     courseNote: '※ 步行時間以本店（南城路 11）為起點，依 KakaoMap 步行路線估算，僅供參考。東城路以街區中心為準。',
     archiveTitle: '老地圖與老巷',
-    archiveLede: '1930 年地形圖上的大邱市區 — 藥令市沿著舊城牆南側的路興起，也就是今天的南城路。近 400 年藥材在此往來，如今我們在同一條巷子裡熬湯。',
+    archiveLede: '1930 年地形圖上的大邱市區 — 藥令市沿著舊城牆南側的路興起，也就是今天的南城路。360 多年來藥材在此往來，如今我們在同一條巷子裡熬湯。',
     archive: { map1930: '1930 年大邱市區地形圖（朝鮮總督府）', mural: '藥令市巷子裡的老藥房壁畫', herbs: '藥田巷的藥材陳列', gate: '藥令市正門「藥令門」' },
     spots: {
       museum:   { n: '藥令市韓醫藥博物館', d: '收藏藥令市歷史的博物館，距本店步行約 3 分鐘。' },
