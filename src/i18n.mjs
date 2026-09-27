@@ -25,9 +25,9 @@ export const menuNames = {
     suyuk:      { n: '아롱사태 수육',       d: '결 좋은 아롱사태를 삶아 얇게 저며 냅니다. 소 18,000원 · 대 23,000원.' },
   },
   en: {
-    naengmyeon: { n: 'Cheongwoo Pyeongyang Naengmyeon', d: 'Cold buckwheat noodles in a rich beef broth slow-simmered from brisket and shank only. Summer seasonal.' },
+    naengmyeon: { n: 'Cheongwoo Pyeongyang Naengmyeon', d: 'Cold buckwheat noodles in a rich, slow-simmered beef broth. Summer seasonal.' },
     galbitang:  { n: 'Galbi-tang (Beef Short Rib Soup)', d: 'Tender short ribs in a deep, rich broth. Mild — good for kids and elders.' },
-    spicy:      { n: 'Daegu Spicy Beef Soup (Haejang-guk)', d: 'Daegu-style beef soup — brisket and shank simmered all day, gently spicy. Warming, not fiery.' },
+    spicy:      { n: 'Daegu Spicy Beef Soup (Haejang-guk)', d: 'Daegu-style beef soup — beef and beef bones simmered all day, gently spicy. Warming, not fiery.' },
     ribs:       { n: 'Garlic-Bomb Braised Short Ribs', d: 'Braised short ribs in our house sauce, piled with garlic. Daegu-style spicy jjim-galbi.' },
     oxtail:     { n: 'Braised Oxtail',            d: 'Chewy oxtail with crisp chives in a tangy sauce. A table centrepiece for groups.' },
     yukhoe:     { n: 'Yukhoe Bibimbap (Beef Tartare Rice Bowl)', d: 'Fresh raw beef over rice with our own aged soy dressing.' },
@@ -264,10 +264,10 @@ export const t = {
     heroTitlesSummer: ['Summer special —<br>Pyeongyang cold noodles.'],
     heroTitlesWinter: ['Cold-weather warmer —<br>spicy kalguksu noodles.'],
     heroLede:
-      'Inside Yangnyeongsi, Daegu’s 360-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> serves clear beef broth simmered all day from brisket and shank — short rib soup and beef soup. Less seasoning, deeper broth: breakfast, a meal with elders, a wholesome family lunch.',
+      'Inside Yangnyeongsi, Daegu’s 360-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> serves clear beef broth simmered all day from beef and beef bones — short rib soup and beef soup. Less seasoning, deeper broth: breakfast, a meal with elders, a wholesome family lunch.',
     // 여름 메뉴(냉면) 판매 중일 때만 쓰는 문단 — build.mjs 의 SUMMER_ON
     heroLedeSummer:
-      'Inside Yangnyeongsi, Daegu’s 360-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> serves clear beef broth simmered all day from brisket and shank — short rib soup, beef soup, cold noodles in summer. Less seasoning, deeper broth: breakfast, a meal with elders, a wholesome family lunch.',
+      'Inside Yangnyeongsi, Daegu’s 360-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> serves clear beef broth simmered all day from beef and beef bones — short rib soup, beef soup, cold noodles in summer. Less seasoning, deeper broth: breakfast, a meal with elders, a wholesome family lunch.',
     heroNote: 'Our spicy beef soup carries the lineage of <strong>Daegu tangban</strong>, praised as “Daegu’s pride” in 1929 — one of Daegu’s 10 delicacies, in the herbal alley.',
     heroCtaCall: 'Call to book',
     heroCtaDir: 'Directions',
@@ -290,8 +290,8 @@ export const t = {
     storyLede:
       'We cook in an alley that once dealt in medicine. Long-simmered broth over heavy seasoning, a table that leaves you settled rather than stuffed — our hope is that visitors to Daegu and the neighbourhood’s elders remember one honest bowl.',
     story: [
-      { h: 'Daegu tangban, a name 100 years old', p: 'In 1929 the magazine Byeolgeongon ran a piece titled “Daegu’s pride, Daegu tangban”: a red beef soup of brisket and shank simmered for hours with heaps of green onion, already so well known that Seoul restaurants hung “Daegu-tang” signs. After 1945 it became ttaro gukbap — rice served separately — now one of Daegu’s 10 delicacies. Our Daegu spicy beef soup sits on that lineage: the same brisket-and-shank broth, cooked in the old heart of the city where it was first sold.' },
-      { h: 'The broth comes first', p: 'Brisket and shank go on every morning. The clear haejang-guk is gentle and not spicy; the spicy version is the same broth with our own chili paste stirred in.' },
+      { h: 'Daegu tangban, a name 100 years old', p: 'In 1929 the magazine Byeolgeongon ran a piece titled “Daegu’s pride, Daegu tangban”: a red beef soup simmered for hours with heaps of green onion, already so well known that Seoul restaurants hung “Daegu-tang” signs. After 1945 it became ttaro gukbap — rice served separately — now one of Daegu’s 10 delicacies. Our Daegu spicy beef soup sits on that lineage: the same long-simmered beef broth, cooked in the old heart of the city where it was first sold.' },
+      { h: 'The broth comes first', p: 'Beef and beef bones go on every morning. The clear haejang-guk is gentle and not spicy; the spicy version is the same broth with our own chili paste stirred in.' },
       { h: 'Easy for elders and children', p: 'The clear short rib soup and the boiled beef shank carry no chili at all. Good for birthdays and family holidays.' },
       { h: 'In the middle of the walk', p: 'Yangnyeongsi Herbal Medicine Museum, Seomun Market, Dongseong-ro and the Modern History Street are all within walking distance. Convenient for hotel guests nearby.' },
       { h: 'Groups welcome', p: 'We take group bookings for up to 40 people. Lunch gets busy, so please call ahead for larger parties.' },
