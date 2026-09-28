@@ -246,6 +246,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* 주소·전화 링크와 복사 버튼은 글자 크기만큼만 눌려서 손가락 영역(44px)을 넓힙니다 */
 .quick p a{display:inline-block;padding:.7rem 0;margin:-.7rem 0}
 .copybtn{min-height:44px}
+/* 홈 메뉴 아래 소식 한 줄 */
+.news-strip{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.35rem .9rem;align-items:baseline;font-size:.9rem}
+.news-strip .ns-head{font-weight:700;color:var(--amber-deep);padding:.35rem 0}
+.news-strip a{padding:.35rem 0;color:var(--ink);text-decoration:underline;text-decoration-color:rgba(28,25,22,.25);text-underline-offset:3px}
+.news-strip time{color:var(--muted);margin-right:.2rem}
 
 /* ---------- 예약 ---------- */
 .reserve{background:var(--paper-3);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:clamp(2.4rem,5vw,4rem);text-align:center;position:relative;overflow:hidden}

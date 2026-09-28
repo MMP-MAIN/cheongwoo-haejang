@@ -16,6 +16,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { site, store, menu, gallery, hero, ogImage, imgBase, hasBreak, parkingLots, notice, holidayOpen } from './src/store.mjs';
+import { news } from './src/news.mjs';
 import { t, menuNames, galleryAlt } from './src/i18n.mjs';
 import { tw, menuNamesTw, galleryAltTw } from './src/i18n.tw.mjs';
 import { hood, spots, hoodImages } from './src/hood.mjs';
@@ -25,7 +26,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 23;
+const ASSET_V = 24;
 
 // 빌드 날짜(한국 시간). 사이트맵 lastmod 에 찍히고, 기한이 지난 공지·특별 영업일을 빼는 데 씁니다.
 // `BUILD_DATE=2026-09-28 node build.mjs` 처럼 주면 그 날짜로 빌드한 것처럼 동작합니다(점검용).
@@ -738,6 +739,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
     <div class="menu-list">${menuRows(lang)}
     </div>
     <p class="menu-note rv">${esc(L.menuNote)}</p>
+    ${lang === 'ko' && news.length ? `<p class="news-strip rv"><a class="ns-head" href="news.html" data-track="guide" data-track-label="home-news">소식</a>${news.slice(0, 2).map((n) => `<a href="news-${n.slug}.html" data-track="guide" data-track-label="home-news-${n.slug}"><time datetime="${n.date}">${+n.date.slice(5, 7)}/${+n.date.slice(8, 10)}</time> ${esc(n.title)}</a>`).join('')}</p>` : ''}
   </div>
 </section>
 
@@ -906,6 +908,7 @@ ${hoodSection(lang)}
         ${lang === 'ko' ? `<a href="daegu-ttarogukbap.html" data-track="guide" data-track-label="footer-ttaro">대구 따로국밥 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-suyuk.html" data-track="guide" data-track-label="footer-suyuk">대구 수육 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-kalguksu.html" data-track="guide" data-track-label="footer-kalguksu">대구 장칼국수</a>` : ''}
+        ${lang === 'ko' ? `<a href="news.html" data-track="guide" data-track-label="footer-news">소식</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-takeout.html" data-track="guide" data-track-label="footer-takeout">대구 포장맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-oxtail.html" data-track="guide" data-track-label="footer-oxtail">대구 소꼬리찜</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-banwoldang.html" data-track="guide" data-track-label="footer-banwoldang">반월당 맛집</a>` : ''}
@@ -956,6 +959,100 @@ ${sketchMap(lang).modal}
 `;
 }
 
+
+/* ============================== 소식 게시판 ==============================
+   src/news.mjs 의 글로 news.html(목록)과 news-<slug>.html(글)을 만듭니다. 모양은 가이드 페이지와 같게
+   daegu-galbitang.html 의 <style>·하단 고정 바를 그대로 빌려 씁니다. */
+function newsPages() {
+  const tpl = readFileSync(join(HERE, 'daegu-galbitang.html'), 'utf8');
+  const style = tpl.slice(tpl.indexOf('<style>'), tpl.indexOf('</style>') + 8)
+    .replace('</style>', '  .nlist{list-style:none;padding:0}\n  .nlist li{border-bottom:1px solid var(--line);padding:16px 0;margin:0}\n  .nlist time,.ndate{display:block;font-size:.82rem;color:var(--sub);margin-bottom:4px}\n  .nlist a.t{font-weight:700;font-size:1.05rem;text-decoration:none;color:var(--ink)}\n  .nlist p{margin:6px 0 0;color:var(--sub);font-size:.92rem}\n</style>');
+  const mbarOf = (label) => { const i = tpl.indexOf('<div class="mbar">'); return tpl.slice(i, tpl.indexOf('</body>', i)).trim().replace(/galbitang-bar/g, label); };
+  const kdate = (d) => `${d.slice(0, 4)}년 ${+d.slice(5, 7)}월 ${+d.slice(8, 10)}일`;
+  const shell = ({ title, desc, url, ogImage, jsonld, main, label }) => `<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}" />
+<link rel="canonical" href="${url}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="${esc(title)}" />
+<meta property="og:description" content="${esc(desc)}" />
+<meta property="og:url" content="${url}" />
+<meta property="og:image" content="${imgAbs(ogImage || 'images/food-galbitang.jpg')}" />
+<meta property="og:locale" content="ko_KR" />
+<link rel="alternate" type="application/rss+xml" title="청우해장 소식" href="${site.baseUrl}rss.xml" />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&amp;display=swap" />
+<script src="assets/config.js?v=${ASSET_V}"></script>
+<script src="assets/tracking.js?v=${ASSET_V}"></script>
+${style}
+<script type="application/ld+json">${JSON.stringify(jsonld)}</script>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="/">청우해장<span class="hanja">靑友解酲</span></a>
+    <a class="cta" href="tel:${store.telHref}" data-track="call" data-track-label="${label}-top">전화 예약</a>
+  </div>
+</header>
+<main>
+${main}
+</main>
+<footer>
+  <a href="/" data-track="guide" data-track-label="${label}-foot">청우해장 홈</a> · <a href="news.html" data-track="guide" data-track-label="${label}-foot">소식</a> · <a href="/#menu">메뉴</a> · <a href="/#visit">오시는 길</a>
+  <p style="margin-top:10px">© 청우해장 靑友解酲 · 대구 중구 남성로 11</p>
+</footer>
+${mbarOf(label + '-bar')}
+</body>
+</html>
+`;
+  const out = [];
+  const listUrl = `${site.baseUrl}news.html`;
+  out.push(['news.html', shell({
+    title: '청우해장 소식 — 계절 메뉴·영업 안내 | 대구 약전골목',
+    desc: '청우해장 소식 게시판. 계절 메뉴 시작과 종료, 명절 영업, 가격 변경을 날짜순으로 알려 드립니다.',
+    url: listUrl, ogImage: 'images/food-galbitang.jpg', label: 'news',
+    jsonld: { '@context': 'https://schema.org', '@graph': [
+      { '@type': 'CollectionPage', '@id': `${listUrl}#page`, name: '청우해장 소식', url: listUrl, inLanguage: 'ko',
+        hasPart: news.map((n) => ({ '@type': 'Article', headline: n.title, url: `${site.baseUrl}news-${n.slug}.html`, datePublished: n.date })) },
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: '청우해장', item: site.baseUrl },
+        { '@type': 'ListItem', position: 2, name: '소식', item: listUrl }] }] },
+    main: `  <nav class="crumb"><a href="/">홈</a> › 소식</nav>
+  <h1>청우해장 소식</h1>
+  <p class="lede">계절 메뉴 시작과 종료, 명절 영업, 가격 변경처럼 가게에 실제로 바뀐 일이 있을 때만 적습니다.</p>
+  <ul class="nlist">
+${news.map((n) => `    <li><time datetime="${n.date}">${kdate(n.date)}</time><a class="t" href="news-${n.slug}.html" data-track="guide" data-track-label="news-list">${esc(n.title)}</a><p>${esc(n.summary)}</p></li>`).join('\n')}
+  </ul>`,
+  })]);
+  for (const n of news) {
+    const url = `${site.baseUrl}news-${n.slug}.html`;
+    out.push([`news-${n.slug}.html`, shell({
+      title: `${n.title} | 청우해장 소식`, desc: n.summary, url, ogImage: n.image || 'images/food-galbitang.jpg', label: `news-${n.slug}`,
+      jsonld: { '@context': 'https://schema.org', '@graph': [
+        { '@type': 'Article', '@id': `${url}#article`, headline: n.title, description: n.summary, datePublished: n.date, dateModified: n.date,
+          image: imgAbs(n.image || 'images/food-galbitang.jpg'), inLanguage: 'ko', mainEntityOfPage: url,
+          author: { '@type': 'Organization', name: store.nameKo, url: site.baseUrl },
+          publisher: { '@type': 'Organization', name: store.nameKo, logo: { '@type': 'ImageObject', url: imgAbs('images/logo.png') } } },
+        { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: '청우해장', item: site.baseUrl },
+          { '@type': 'ListItem', position: 2, name: '소식', item: listUrl },
+          { '@type': 'ListItem', position: 3, name: n.title, item: url }] }] },
+      main: `  <nav class="crumb"><a href="/">홈</a> › <a href="news.html">소식</a> › ${esc(n.title)}</nav>
+  <h1>${esc(n.title)}</h1>
+  <p class="ndate"><time datetime="${n.date}">${kdate(n.date)}</time> · 청우해장</p>
+${n.image ? `  <figure>${picture(n.image, n.title, { w: 1024, h: 1536, sizes: '(max-width: 800px) 100vw, 720px', attrs: 'loading="eager" decoding="async"' })}</figure>\n` : ''}  ${n.body}
+  <p style="margin-top:28px"><a href="news.html" data-track="guide" data-track-label="news-back">← 소식 목록</a></p>`,
+    })]);
+  }
+  return out;
+}
+
 /* -------------------------------- 실행 -------------------------------- */
 mkdirSync(HERE, { recursive: true });
 let bytes = 0;
@@ -966,6 +1063,9 @@ for (const lang of site.langs) {
   bytes += Buffer.byteLength(html);
   console.log(`  ✓ ${site.file[lang].padEnd(11)} ${site.hreflang[lang].padEnd(8)} ${(Buffer.byteLength(html) / 1024).toFixed(1)} KB`);
 }
+
+// 소식 게시판 (news.html + 글마다 news-<slug>.html)
+for (const [f, html] of newsPages()) { writeFileSync(join(HERE, f), serifSubset(html), 'utf8'); console.log(`  ✓ ${f}`); }
 
 // 정적 가이드 페이지(daegu-*.html)·404 는 빌드 대상이 아니지만, 명조 글꼴 링크만은 제목 글자에 맞춰 갱신합니다.
 for (const f of process.env.SKIP_STATIC ? [] : readdirSync(HERE).filter((n) => /^(daegu-.*|404)\.html$/.test(n))) {
@@ -989,7 +1089,19 @@ ${site.langs.map((l) => `    <xhtml:link rel="alternate" hreflang="${site.hrefla
     <changefreq>weekly</changefreq>
     <priority>${lang === site.defaultLang ? '1.0' : '0.8'}</priority>
   </url>`).join('\n')}
-${GUIDES.map((g) => `  <url>
+${news.length ? `  <url>
+    <loc>${site.baseUrl}news.html</loc>
+    <lastmod>${news[0].date}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+` : ''}${news.map((n) => `  <url>
+    <loc>${site.baseUrl}news-${n.slug}.html</loc>
+    <lastmod>${n.date}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+`).join('')}${GUIDES.map((g) => `  <url>
     <loc>${site.baseUrl}${g}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
@@ -1010,6 +1122,7 @@ const headOf = (file) => {
   return { title: title.replace(/&amp;/g, '&'), desc: desc.replace(/&amp;/g, '&') };
 };
 const rssItems = [
+  ...news.map((n) => ({ url: `${site.baseUrl}news-${n.slug}.html`, title: `${n.title} | 청우해장 소식`, desc: n.summary, date: n.date })),
   ...site.langs.map((lang) => ({ url: abs(site.file[lang]), title: t[lang].title, desc: strip(t[lang].description) })),
   ...GUIDES.map((g) => ({ url: site.baseUrl + g, ...headOf(g) })),
 ];
@@ -1027,7 +1140,7 @@ ${rssItems.map((it) => `  <item>
     <link>${it.url}</link>
     <guid isPermaLink="true">${it.url}</guid>
     <description>${rssEsc(it.desc)}</description>
-    <pubDate>${new Date(today).toUTCString()}</pubDate>
+    <pubDate>${new Date(it.date ? `${it.date}T09:00:00+09:00` : today).toUTCString()}</pubDate>
   </item>`).join('\n')}
 </channel>
 </rss>
@@ -1122,6 +1235,9 @@ ${menuLines}
 - [동대구역에서 오는 길 — 1호선 5정거장, 환승 없이 반월당](${site.baseUrl}daegu-dongdaegu.html)
 - [대구 10미 — 열 가지 음식과 먹는 동네, 약전골목에서 두 가지(따로국밥·대구식 찜갈비)](${site.baseUrl}daegu-10mi.html)
 
+## 소식 (News)
+${news.map((n) => `- ${n.date} [${n.title}](${site.baseUrl}news-${n.slug}.html) — ${n.summary}`).join('\n')}
+
 ## 역사 (History)
 - 대구탕반(大邱湯飯): 1929년 잡지 《별건곤》이 「대구의 자랑, 대구탕반」으로 소개한 대구 명물 소고기국 — 양지·사태를 오래 고아 낸 국물에 대파와 고추기름. 당시 서울 종로에도 「대구탕」 집이 있었고, 최남선 《조선상식문답》(1946)도 대구를 본고장으로 적음. 광복 뒤 국과 밥을 따로 내는 「따로국밥」으로 이어져 대구 10미가 됨.
 - 청우해장의 「대구 얼큰해장국(따로국밥)」은 이 대구탕반의 계보를 잇는 국이며, 대구탕반이 팔리던 옛 도심 약전골목에서 끓인다.
@@ -1145,5 +1261,5 @@ if (site.customDomain) {
   rmSync(cnamePath);
   console.log('  ✓ CNAME       제거 (customDomain 비어 있음)');
 }
-console.log(`  ✓ sitemap.xml (${site.langs.length + GUIDES.length} urls)`);
+console.log(`  ✓ sitemap.xml (${site.langs.length + GUIDES.length + (news.length ? news.length + 1 : 0)} urls)`);
 console.log(`\n총 ${(bytes / 1024).toFixed(1)} KB · ${site.langs.length}개 언어 생성 완료`);

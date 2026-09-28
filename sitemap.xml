@@ -61,6 +61,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cheongwoohaejang.com/news.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cheongwoohaejang.com/news-2026-09-kalguksu.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://cheongwoohaejang.com/news-2026-09-naengmyeon.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://cheongwoohaejang.com/daegu-kalguksu.html</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
