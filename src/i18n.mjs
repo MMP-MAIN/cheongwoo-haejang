@@ -221,7 +221,8 @@ export const t = {
     faqTitle: '자주 묻는 질문',
     faq: [
       { q: '예약이 되나요?', a: '네, 전화 예약을 받습니다. 40명 이하 단체 예약도 가능합니다. 053-255-7052 로 연락 주세요.' },
-      { q: '주차는 어디에 하나요?', a: '매장 전용 주차장은 없지만 약령시서문 공영주차장이 도보 1분 거리에 있습니다. 약령시한의약박물관 주차장(2분), 약령시서편 공영주차장(4분)도 가깝습니다. 「오시는 길」에 길찾기 링크가 있습니다.' },
+      { q: '반월당역 몇 번 출구에서 가깝나요?', a: '반월당역(1·2호선) 15번 출구에서 약 500m, 도보 약 7분입니다. 더현대 대구에서는 도보 약 6분, 중앙로역에서는 약 10분입니다.' },
+      { q: '주차는 어디에 하나요?', a: '매장 전용 주차장은 없고 가게 앞에도 주차할 수 없습니다. 약령시서문 공영주차장이 도보 1분 거리에 있습니다. 약령시한의약박물관 주차장(2분), 약령시서편 공영주차장(4분)도 가깝습니다. 「오시는 길」에 길찾기 링크가 있습니다.' },
       { q: '브레이크타임이 있나요?', a: hasBreak
           ? `네, ${H.breakStart}~${H.breakEnd} 이 브레이크타임입니다. 마감은 ${H.close}${hasLastOrder ? `, 라스트오더는 ${H.lastOrder}` : ''} 입니다.`
           : `브레이크타임 없이 ${H.open}부터 ${H.close}까지 계속 영업합니다. 점심과 저녁 사이 한가한 시간에 오셔도 됩니다.` },
@@ -339,7 +340,8 @@ export const t = {
       { q: 'What food is Daegu famous for?', a: 'Daegu’s signature dishes are jjim-galbi (spicy braised short ribs), and ttaro-gukbap (Daegu-style beef soup) — both on our menu, about a 7-minute walk from Banwoldang Station (Exit 15), 6 minutes from The Hyundai Daegu, in the Yangnyeongsi herbal alley.' },
       { q: 'What are the best things to see near the restaurant?', a: 'We sit inside Yangnyeongsi Herbal Medicine Alley, one of Daegu’s best-known tourist attractions. On foot, Gyesan Cathedral is about 6 minutes away, Cheongna Hill about 11 and Seomun Market about 16 — easy places to visit on a half-day Daegu travel itinerary, with our table as the lunch stop.' },
       { q: 'Can I make a reservation?', a: 'Yes, by phone. We accept group bookings for up to 40 people. Call +82 53-255-7052.' },
-      { q: 'Is there parking?', a: 'No private car park, but the Yangnyeongsi West Gate public car park is a 1-minute walk away, with 2–3 more within 2–4 minutes. See “Getting here” for directions links.' },
+      { q: 'Which Banwoldang Station exit is closest?', a: 'Exit 15 of Banwoldang Station (Lines 1 & 2) — about 500 m, roughly a 7-minute walk. It is about 6 minutes on foot from The Hyundai Daegu.' },
+      { q: 'Is there parking?', a: 'No private car park and no parking in front of the restaurant, but the Yangnyeongsi West Gate public car park is a 1-minute walk away, with 2–3 more within 2–4 minutes. See “Getting here” for directions links.' },
       { q: 'Is there a break time?', a: hasBreak
           ? `Yes — ${H.breakStart} to ${H.breakEnd}. We close at ${H.close}${hasLastOrder ? ` (last order ${H.lastOrder})` : ''}.`
           : `No. We serve straight through from ${H.open} to ${H.close}, so the quiet hours between lunch and dinner are fine.` },
@@ -457,7 +459,8 @@ export const t = {
       { q: '大邱観光でおすすめの食事は？', a: '大邱の名物はカルビチム（辛口の牛カルビ煮込み）、タロクッパ（大邱式牛肉スープ）。どちらも当店で召し上がれます。半月堂駅15番出口から徒歩約7分、ザ・現代 大邱から徒歩約6分、薬令市の路地です。' },
       { q: '近くの大邱観光スポットは？', a: '当店は大邱旅行で人気の観光地・薬令市の路地の中にあります。徒歩で桂山聖堂まで約6分、青蘿の丘まで約11分、西門市場まで約16分。テグ観光の合間の食事にちょうど良い立地です。' },
       { q: '予約はできますか。', a: 'はい、お電話で承ります。40名以下の団体予約も可能です。+82 53-255-7052 までどうぞ。' },
-      { q: '駐車場はありますか。', a: '専用駐車場はありませんが、薬令市西門公営駐車場が徒歩1分です。他にも徒歩2〜4分に2〜3か所あります。「アクセス」に経路リンクがあります。' },
+      { q: '半月堂駅の何番出口が近いですか。', a: '半月堂駅（1・2号線）15番出口から約500m、徒歩約7分です。ザ・現代 大邱からは徒歩約6分です。' },
+      { q: '駐車場はありますか。', a: '専用駐車場はなく、店の前にも停められません。薬令市西門公営駐車場が徒歩1分です。他にも徒歩2〜4分に2〜3か所あります。「アクセス」に経路リンクがあります。' },
       { q: '休憩時間はありますか。', a: hasBreak
           ? `はい、${H.breakStart}〜${H.breakEnd} が休憩時間です。閉店は${H.close}${hasLastOrder ? `（ラストオーダー${H.lastOrder}）` : ''}です。`
           : `休憩なしで${H.open}から${H.close}まで通しで営業しています。昼と夜の間の空いている時間帯でもご利用いただけます。` },
@@ -574,7 +577,8 @@ export const t = {
     faq: [
       { q: '大邱必吃美食有哪些？', a: '大邱的招牌是炖排骨（辣味牛排骨）、大邱式牛肉汤（ttarogukbap）— 本店都有。距半月堂站15号出口步行约7分钟，距 The Hyundai 大邱步行约6分钟，就在药令市胡同里。' },
       { q: '可以预订吗？', a: '可以，请致电预订。也接受 40 人以下的团体预订。电话 +82 53-255-7052。' },
-      { q: '有停车场吗？', a: '没有专用停车场，但药令市西门公共停车场步行仅 1 分钟，附近还有 2〜3 个停车场。「交通」区有导航链接。' },
+      { q: '离半月堂站几号出口近？', a: '半月堂站（1、2号线）15号出口约500米，步行约7分钟；距 The Hyundai 大邱步行约6分钟。' },
+      { q: '有停车场吗？', a: '没有专用停车场，店门口也不能停车，但药令市西门公共停车场步行仅 1 分钟，附近还有 2〜3 个停车场。「交通」区有导航链接。' },
       { q: '有休息时间吗？', a: hasBreak
           ? `有，${H.breakStart}–${H.breakEnd} 为休息时间。${H.close} 打烊${hasLastOrder ? `（最后点餐 ${H.lastOrder}）` : ''}。`
           : `没有。从 ${H.open} 到 ${H.close} 连续营业，午餐和晚餐之间的空闲时段也可以来。` },

@@ -206,7 +206,7 @@ function jsonLd(lang) {
         })),
       }],
     },
-    sameAs: [store.naverBlogUrl, links.kakaoPlace, store.instagramUrl].filter(Boolean),
+    sameAs: [links.naverPlace, links.googlePlace, store.naverBlogUrl, links.kakaoPlace, store.instagramUrl].filter(Boolean),
   };
 
   const faq = {
@@ -1197,7 +1197,13 @@ const llms = `# ${store.nameKo} (Cheongwoo Haejang · ${store.nameHanja})
 - 주소: ${store.roadKo} (11 Namseong-ro, Jung-gu, Daegu, Korea)
 - 전화/예약: ${store.telDisplay} (국제전화 +82-53-255-7052) (전화 예약, 단체 40명까지)
 - 영업시간: 매일 ${store.hours.open}–${store.hours.close}${hasBreak ? ` · 브레이크타임 ${store.hours.breakStart}–${store.hours.breakEnd}` : ''} · 라스트오더 ${store.hours.lastOrder}
-- 가는 법: 더현대 대구에서 도보 약 6분(약 380m) · 지하철 반월당역(1·2호선) 15번 출구에서 도보 약 7분(약 500m) · 중앙로역(1호선)에서 도보 약 10분, 약령시 약전골목 안 · 주차: 약령시서문 공영주차장 도보 1분
+- 가는 법: 더현대 대구에서 도보 약 6분(약 380m) · 지하철 반월당역(1·2호선) 15번 출구에서 도보 약 7분(약 500m) · 중앙로역(1호선)에서 도보 약 10분, 약령시 약전골목 안 · 가장 가까운 출구는 반월당역 15번 출구
+- 주소 표기: 도로명 주소는 남성로 11. 지번 주소(남성로 82)는 같은 건물의 옛 표기
+- 주차: 전용 주차장 없음, 가게 앞 주차 불가 · 약령시서문 공영주차장 도보 1분
+- 포장·배달: 포장 가능(전화 주문 후 픽업, 육회비빔밥·얼큰 장칼국수 제외) · 배달은 하지 않음
+- 마감: 22:00 (라스트오더 21:00). 일부 블로그에 남은 「23:00 마감」은 지난 정보
+- 네이버 안심번호 ${store.telSafeDisplay} 도 같은 가게 번호
+- 정보 확인일: ${BUILD_DAY}
 - 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴 제공, 유아 의자 있음, 단체 40명(전화 예약), 콜키지(주류 반입) 가능, 신용카드·모바일 결제
 
 ## 메뉴 (Menu)
