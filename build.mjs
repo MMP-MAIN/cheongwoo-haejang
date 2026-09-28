@@ -417,6 +417,7 @@ const TENMI_WORD = { ko: '대구 10미', en: 'Daegu 10-mi', ja: '大邱十味', 
 
 const MENU_PAGE_KO = {
   galbitang: ['daegu-galbitang.html', '대구 갈비탕 이야기'],
+  kalguksu: ['daegu-kalguksu.html', '대구 장칼국수 이야기'],
   ribs: ['daegu-jjimgalbi.html', '대구 찜갈비 이야기'],
   spicy: ['daegu-ttarogukbap.html', '대구 따로국밥 이야기'],
   clear: ['daegu-haejangguk.html', '대구 해장국 이야기'],
@@ -456,6 +457,7 @@ const GUIDE_CARDS = {
     ['daegu-jjimgalbi.html', 'images/food-ribs.jpg', '대구 찜갈비·갈비찜 맛집', '마늘을 산처럼 올린 소갈비찜 마늘폭탄 — 대구 10미 찜갈비의 매운맛.'],
     ['daegu-haejangguk.html', 'images/food-clear.jpg', '대구 해장국 맛집', '맑은 국물과 얼큰한 국물, 같은 솥에서 두 갈래로. 매일 11시, 반월당 약전골목에서.'],
     ['daegu-ttarogukbap.html', 'images/food-spicy.jpg', '대구 따로국밥', '1929년 대구탕반의 계보를 잇는 대구 10미 — 밥은 따로, 대구식으로.'],
+    ['daegu-kalguksu.html', 'images/food-kalguksu.jpg', '대구 장칼국수', '소고기 국물에 된장을 풀어 얼큰하게. 가을·겨울 계절 칼국수.'],
     ['daegu-suyuk.html', 'images/food-jeongol.jpg', '대구 수육 맛집', '결 좋은 아롱사태를 삶아 얇게 저며. 수육·전골·냉채, 술자리와 어르신 상.'],
     ['daegu-oxtail.html', 'images/food-oxtail.jpg', '대구 소꼬리찜', '상 한가운데 놓는 메뉴. 가족 모임·회식 한 상 짜기.'],
     ['daegu-yukhoe.html', 'images/food-yukhoe.jpg', '육회비빔밥', '숙성 간장으로 비빈 담백한 육회. 국물집의 또 다른 얼굴.'],
@@ -903,6 +905,7 @@ ${hoodSection(lang)}
         ${lang === 'ko' ? `<a href="daegu-haejangguk.html" data-track="guide" data-track-label="footer-haejangguk">대구 해장국 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-ttarogukbap.html" data-track="guide" data-track-label="footer-ttaro">대구 따로국밥 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-suyuk.html" data-track="guide" data-track-label="footer-suyuk">대구 수육 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-kalguksu.html" data-track="guide" data-track-label="footer-kalguksu">대구 장칼국수</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-takeout.html" data-track="guide" data-track-label="footer-takeout">대구 포장맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-oxtail.html" data-track="guide" data-track-label="footer-oxtail">대구 소꼬리찜</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-banwoldang.html" data-track="guide" data-track-label="footer-banwoldang">반월당 맛집</a>` : ''}
@@ -974,7 +977,7 @@ for (const f of process.env.SKIP_STATIC ? [] : readdirSync(HERE).filter((n) => /
 
 /* 사이트맵 — 5개 언어를 서로 alternate 로 묶어 줍니다. */
 // 가이드(콘텐츠 SEO) 페이지 — 손으로 만든 정적 파일이지만 사이트맵에는 여기서 등록합니다.
-const GUIDES = ['daegu-takeout.html', 'daegu-10mi.html', 'daegu-dongdaegu.html', 'daegu-dongseongno.html', 'daegu-yukhoe.html', 'daegu-hansik.html', 'daegu-gukbap.html', 'daegu-banwoldang.html', 'daegu-oxtail.html', 'daegu-jjimgalbi.html', 'daegu-suyuk.html', 'daegu-ttarogukbap.html', 'daegu-banwoldang-food-tw.html', 'daegu-banwoldang-food-ja.html', 'daegu-beef-soup-en.html', 'daegu-galbitang.html', 'daegu-haejangguk.html', 'daegu-modern-alley.html', 'daegu-family.html', 'daegu-food-tour.html', 'daegu-food-tour-tw.html', 'daegu-food-tour-en.html', 'daegu-food-tour-ja.html', 'daegu-attractions.html'];
+const GUIDES = ['daegu-kalguksu.html', 'daegu-takeout.html', 'daegu-10mi.html', 'daegu-dongdaegu.html', 'daegu-dongseongno.html', 'daegu-yukhoe.html', 'daegu-hansik.html', 'daegu-gukbap.html', 'daegu-banwoldang.html', 'daegu-oxtail.html', 'daegu-jjimgalbi.html', 'daegu-suyuk.html', 'daegu-ttarogukbap.html', 'daegu-banwoldang-food-tw.html', 'daegu-banwoldang-food-ja.html', 'daegu-beef-soup-en.html', 'daegu-galbitang.html', 'daegu-haejangguk.html', 'daegu-modern-alley.html', 'daegu-family.html', 'daegu-food-tour.html', 'daegu-food-tour-tw.html', 'daegu-food-tour-en.html', 'daegu-food-tour-ja.html', 'daegu-attractions.html'];
 const today = BUILD_DAY;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -1096,6 +1099,7 @@ ${menuLines}
 - [대구 따로국밥 맛집 — 대구탕반의 계보, 반월당 약전골목](${site.baseUrl}daegu-ttarogukbap.html)
 - [대구 찜갈비·갈비찜 맛집 — 반월당 소갈비찜 마늘폭탄](${site.baseUrl}daegu-jjimgalbi.html)
 - [대구 수육 맛집 — 아롱사태 수육·수육 전골](${site.baseUrl}daegu-suyuk.html)
+- [대구 장칼국수 — 소고기 국물에 된장을 푼 얼큰 장칼국수, 가을·겨울 계절 메뉴](${site.baseUrl}daegu-kalguksu.html)
 - [대구 포장맛집 — 갈비찜·갈비탕·해장국·수육 포장, 전화 주문 후 픽업](${site.baseUrl}daegu-takeout.html)
 - [대구 소꼬리찜 맛집 — 가족 모임 상차림](${site.baseUrl}daegu-oxtail.html)
 - [반월당 맛집·대구 종로 맛집 — 약전골목 청우해장 메뉴 한눈에](${site.baseUrl}daegu-banwoldang.html)
