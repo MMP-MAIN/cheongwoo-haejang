@@ -32,7 +32,7 @@ export const menuNames = {
     oxtail:     { n: 'Braised Oxtail',            d: 'Chewy oxtail with crisp chives in a tangy sauce. A table centrepiece for groups.' },
     yukhoe:     { n: 'Yukhoe Bibimbap (Beef Tartare Rice Bowl)', d: 'Fresh raw beef over rice with our own aged soy dressing.' },
     clear:      { n: 'Clear Beef Soup (Haejang-guk)', d: 'Clean, gentle beef broth in the Naju-gomtang style. No chili.' },
-    kalguksu:   { n: 'Spicy Doenjang Kalguksu',   d: 'Hand-cut noodles in a spicy soybean-paste broth. Autumn–winter seasonal.' },
+    kalguksu:   { n: 'Spicy Doenjang Kalguksu',   d: 'Handmade noodles in a spicy soybean-paste broth. Autumn–winter seasonal.' },
     jeongol:    { n: 'Beef Shank Hot Pot (Jeongol)', d: 'Sliced beef shank and tendon in a bubbling hot pot. Good for 2–3.' },
     arong:      { n: 'Chilled Beef Shank (Naengchae)', d: 'Slow-boiled beef shank tossed in our sweet-and-sour chilled dressing. Served cold.' },
     suyuk:      { n: 'Boiled Beef Shank (Suyuk)', d: 'Slow-boiled beef shank, thinly sliced. Not spicy. Small ₩18,000 · Large ₩23,000.' },
@@ -45,7 +45,7 @@ export const menuNames = {
     oxtail:     { n: '牛テールの煮込み',         d: '弾力のある牛テールにシャキシャキのニラ。会食やご家族の集まりに。' },
     yukhoe:     { n: 'ユッケビビンバ',           d: '新鮮なユッケに、自家製の熟成醤油ダレを合わせたビビンバ。' },
     clear:      { n: '澄んだ牛肉スープ',         d: '羅州コムタン風の澄んだ牛骨スープ。辛くないので朝食にも。' },
-    kalguksu:   { n: '辛味噌カルグクス',         d: 'テンジャン（味噌）ベースの辛いスープに手打ち麺。秋冬限定。' },
+    kalguksu:   { n: '辛味噌カルグクス',         d: 'テンジャン（味噌）ベースの辛いスープに手作りの麺。秋冬限定。' },
     jeongol:    { n: '牛すね肉の鍋（チョンゴル）', d: '牛すね肉とスジを煮込む鍋。2〜3人でシェアできます。' },
     arong:      { n: '牛すね肉の冷菜',           d: 'じっくり茹でた牛すね肉を、自家製の甘酸っぱい冷菜ダレで和えた一品。' },
     suyuk:      { n: '牛すね肉のスユク',         d: 'ゆでた牛すね肉を薄切りに。辛さは一切ありません。小 18,000ウォン・大 23,000ウォン。' },
@@ -227,7 +227,7 @@ export const t = {
           : `브레이크타임 없이 ${H.open}부터 ${H.close}까지 계속 영업합니다. 점심과 저녁 사이 한가한 시간에 오셔도 됩니다.` },
       { q: '맵지 않은 메뉴도 있나요?', a: '맑은해장국, 청우 약전 갈비탕, 아롱사태수육은 맵지 않습니다. 어르신이나 아이와 함께 오셔도 괜찮습니다.' },
       { q: '웨이팅이 많나요?', a: '평일 점심(12:00~13:30)과 주말에는 대기가 있는 편입니다. 오픈 직후나 저녁 이른 시간이 여유롭습니다.' },
-      { q: '포장이 되나요?', a: '네, 포장 가능합니다. 전화로 미리 주문해 두시면 기다리지 않고 가져가실 수 있습니다. 육회비빔밥은 포장이 안 되고, 배달은 하지 않습니다.' },
+      { q: '포장이 되나요?', a: '네, 포장 가능합니다. 전화로 미리 주문해 두시면 기다리지 않고 가져가실 수 있습니다. 육회비빔밥과 얼큰 장칼국수는 포장이 안 되고, 그 밖의 메뉴는 주문하실 때 여쭤 주세요. 배달은 하지 않습니다.' },
       { q: '외국어 메뉴가 있나요?', a: '이 홈페이지에서 영어·일본어·중국어로 메뉴를 확인하실 수 있습니다. 매장 직원에게 화면을 보여주셔도 됩니다.' },
     ],
 
@@ -345,7 +345,7 @@ export const t = {
           : `No. We serve straight through from ${H.open} to ${H.close}, so the quiet hours between lunch and dinner are fine.` },
       { q: 'Do you have non-spicy dishes?', a: 'Yes. The clear haejang-guk, the short rib soup and the boiled beef shank contain no chili.' },
       { q: 'Will I have to queue?', a: 'Weekday lunch (12:00–13:30) and weekends can be busy. Just after opening or early evening is quieter.' },
-      { q: 'Do you do takeaway?', a: 'Yes. Call ahead and your order will be ready to collect. Yukhoe bibimbap is dine-in only, and we don’t deliver.' },
+      { q: 'Do you do takeaway?', a: 'Yes. Call ahead and your order will be ready to collect. Yukhoe bibimbap and the spicy kalguksu are dine-in only; ask about other dishes when you call. We don’t deliver.' },
       { q: 'Is there an English menu?', a: 'This page carries the menu in English, Japanese and Chinese. Showing the screen to our staff works fine.' },
     ],
 
@@ -463,7 +463,7 @@ export const t = {
           : `休憩なしで${H.open}から${H.close}まで通しで営業しています。昼と夜の間の空いている時間帯でもご利用いただけます。` },
       { q: '辛くない料理はありますか。', a: '澄んだヘジャンクク、カルビタン、牛すね肉のスユクは全く辛くありません。' },
       { q: '待ち時間はありますか。', a: '平日の昼（12:00〜13:30）と週末は混み合います。開店直後か夕方早めが比較的空いています。' },
-      { q: 'テイクアウトはできますか。', a: 'はい。事前にお電話いただければ、お待たせせずにお渡しできます。ユッケビビンバはお持ち帰りできません。デリバリーはしていません。' },
+      { q: 'テイクアウトはできますか。', a: 'はい。事前にお電話いただければ、お待たせせずにお渡しできます。ユッケビビンバと辛味噌カルグクスはお持ち帰りできません。その他のメニューはお電話でお尋ねください。デリバリーはしていません。' },
       { q: '日本語メニューはありますか。', a: 'このページで日本語のメニューをご覧いただけます。画面をスタッフにお見せください。' },
     ],
 
@@ -580,7 +580,7 @@ export const t = {
           : `没有。从 ${H.open} 到 ${H.close} 连续营业，午餐和晚餐之间的空闲时段也可以来。` },
       { q: '有不辣的菜吗？', a: '清汤解酒汤、排骨汤和水煮牛腱片完全不辣。' },
       { q: '需要排队吗？', a: '工作日午餐（12:00–13:30）和周末较忙。刚开门或傍晚早些时候比较空。' },
-      { q: '可以外带吗？', a: '可以。提前致电点餐，到店即可取走。生拌牛肉拌饭不能外带，也不提供外送。' },
+      { q: '可以外带吗？', a: '可以。提前致电点餐，到店即可取走。生拌牛肉拌饭和辣味大酱刀切面不能外带，其他菜品请在电话中询问。不提供外送。' },
       { q: '有中文菜单吗？', a: '本页面提供中文菜单，把屏幕给店员看即可点单。' },
     ],
 
