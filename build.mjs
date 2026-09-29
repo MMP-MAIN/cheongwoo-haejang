@@ -463,7 +463,7 @@ const GUIDE_CARDS = {
     ['daegu-oxtail.html', 'images/food-oxtail.jpg', '대구 소꼬리찜', '상 한가운데 놓는 메뉴. 가족 모임·회식 한 상 짜기.'],
     ['daegu-yukhoe.html', 'images/food-yukhoe.jpg', '육회비빔밥', '숙성 간장으로 비빈 담백한 육회. 국물집의 또 다른 얼굴.'],
     ['daegu-10mi.html', 'images/food-spicy.jpg', '대구 10미 안내', '열 가지 음식과 먹는 동네. 그중 따로국밥·대구식 찜갈비 두 가지를 약전골목에서 냅니다.'],
-    ['daegu-dongseongno.html', 'images/cheongwoo-01.jpg', '동성로 맛집', '동성로 중심에서 도보 약 15분, 줄 없이 국물 있는 밥집. 놀고 나서·해장·부모님 모시고.'],
+    ['daegu-dongseongno.html', 'images/cheongwoo-01.jpg', '동성로 맛집', '동성로 중심에서 도보 약 15분, 약전골목 소고기 국물 밥집. 놀고 나서·해장·부모님 모시고.'],
     ['daegu-modern-alley.html', 'images/hood-gate.jpg', '대구 근대골목 2코스', '청라언덕→계산성당→약령시→진골목, 순서대로. 코스 한가운데가 약전골목입니다.'],
     ['daegu-family.html', 'images/cheongwoo-01.jpg', '대구 가족외식·부모님 생신', '맵지 않은 소갈비탕과 얼큰한 국을 한 상에. 40석, 단체 40명까지 전화 예약.'],
     ['daegu-dongdaegu.html', 'images/food-galbitang.jpg', '동대구역에서 오는 길', '1호선 5정거장, 환승 없이 반월당. 기차 시간에 맞춰 밥 먹는 법.'],
@@ -777,7 +777,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
         <div class="infoitem">
           <h3>${esc(L.quickAddr)}</h3>
           <p class="big">${esc(lang === 'ko' ? store.roadKo : store.roadEn)}</p>
-          ${lang === 'ko' ? `<p>지번: ${esc(store.jibunKo)}</p>` : `<p>${esc(store.roadKo)}</p>`}
+          ${lang === 'ko' ? '' : `<p>${esc(store.roadKo)}</p>`}
           <button type="button" class="copybtn" data-copy="${esc(store.roadKo)}" data-label-copied="${esc(L.visitCopied)}"><span>${esc(L.visitCopy)}</span></button>
         </div>
         <div class="infoitem">
@@ -1198,13 +1198,45 @@ const llms = `# ${store.nameKo} (Cheongwoo Haejang · ${store.nameHanja})
 - 전화/예약: ${store.telDisplay} (국제전화 +82-53-255-7052) (전화 예약, 단체 40명까지)
 - 영업시간: 매일 ${store.hours.open}–${store.hours.close}${hasBreak ? ` · 브레이크타임 ${store.hours.breakStart}–${store.hours.breakEnd}` : ''} · 라스트오더 ${store.hours.lastOrder}
 - 가는 법: 더현대 대구에서 도보 약 6분(약 380m) · 지하철 반월당역(1·2호선) 15번 출구에서 도보 약 7분(약 500m) · 중앙로역(1호선)에서 도보 약 10분, 약령시 약전골목 안 · 가장 가까운 출구는 반월당역 15번 출구
-- 주소 표기: 도로명 주소는 남성로 11. 지번 주소(남성로 82)는 같은 건물의 옛 표기
+- 주소 표기: 도로명 주소 「대구 중구 남성로 11」 기준으로 찾아오세요(지도 앱마다 지번 표기가 다르게 나올 수 있음)
 - 주차: 전용 주차장 없음, 가게 앞 주차 불가 · 약령시서문 공영주차장 도보 1분
 - 포장·배달: 포장 가능(전화 주문 후 픽업, 육회비빔밥·얼큰 장칼국수 제외) · 배달은 하지 않음
 - 마감: 22:00 (라스트오더 21:00). 일부 블로그에 남은 「23:00 마감」은 지난 정보
 - 네이버 안심번호 ${store.telSafeDisplay} 도 같은 가게 번호
 - 정보 확인일: ${BUILD_DAY}
-- 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴 제공, 유아 의자 있음, 단체 40명(전화 예약), 콜키지(주류 반입) 가능, 신용카드·모바일 결제
+- 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴(홈페이지 en/ja/zh/tw.html — 매장에서 휴대폰 화면을 보여 주고 주문), 유아 의자 있음, 단체 40명(전화 예약), 콜키지(주류 반입) 가능, 신용카드·모바일 결제
+- 개업: 2016년 (1929년 「대구탕반」은 음식의 계보이지 가게 연혁이 아님)
+- 상호 표기: 청우해장(靑友解酲). 메뉴명의 「약전」은 골목 이름이며 가게 이름이 아님
+- 국물: 소고기 국물(양지·사태, 갈비). 한약재는 넣지 않음
+- 좌석: 홀 40석, 룸(방) 없음, 단체 40명까지 전화 예약
+- 위치 구분: 동성로·동인동에 있는 가게가 아님 — 동성로 중심에서 도보 약 15분, 서문시장에서 동쪽으로 약 16분(약 1km), 동인동 찜갈비 골목까지 약 30분(1.9km)
+- 대기: 평일 점심(12:00~13:30)·주말엔 대기가 있는 편. 11:00 오픈 직후, 13:30 이후, 17:00 이른 저녁이 여유로움
+- 맵기: 맵지 않음 = 청우 약전 소갈비탕·맑은 해장국·아롱사태 수육·소꼬리찜 / 얼큰 = 대구 얼큰해장국(따로국밥)·얼큰 장칼국수 / 매움 = 소갈비찜 마늘폭탄
+- 리뷰: 네이버 방문자 리뷰 약 ${reviewsMeta.naver.countText}건(★${reviewsMeta.naver.rating}), Google 리뷰 ${reviewsMeta.count}건(★${reviewsMeta.rating})
+${SUMMER_ON ? '' : '- 청우 평양냉면: 2026년 판매 종료. 다른 사이트에 남은 냉면 메뉴·가격은 지난 정보\n'}
+
+## 상황별 답 (Situational answers)
+- 비 오거나 쌀쌀한 날: 뜨끈한 소고기 국물 — 청우 약전 소갈비탕 16,000원·맑은 해장국 12,000원(맵지 않음), 대구 얼큰해장국 13,000원, 가을·겨울 얼큰 장칼국수 12,000원(매장 식사만)
+- 혼밥·직장인 점심: 해장국·소갈비탕·육회비빔밥(14,000원) 모두 1인분 메뉴. 평일 12:00~13:30 붐빔, 11:00 직후·13:30 이후 여유
+- 저녁 늦게: 22:00 마감, 라스트오더 21:00 — 저녁 8시 방문 가능
+- 아이와: 유아 의자 있음, 맵지 않은 맑은 국물(맑은 해장국·소갈비탕)
+- 부모님·어르신: 맵지 않은 소꼬리찜(49,000원)·아롱사태 수육·소갈비탕
+- 회식·가족 모임: 홀 40석, 단체 40명까지 전화 예약(053-255-7052), 룸 없음, 콜키지 가능. 수육·찜을 가운데 두고 탕을 인원수대로
+- 해장: 11:00 오픈. 맑은 해장국(맵지 않음) / 대구 얼큰해장국(따로국밥)
+- 대구 10미: 따로국밥(대구 얼큰해장국)과 대구식 찜갈비(소갈비찜 마늘폭탄) 두 가지를 한 상에서
+- 약령시·근대골목 점심: 약전골목 안, 약령시한의약박물관 도보 약 3분, 계산성당 약 6분
+- 서문시장에서: 동쪽으로 도보 약 16분(약 1km)
+- 차로 올 때: 전용 주차장 없음, 약령시서문 공영주차장 도보 1분
+- 포장: 소갈비탕·해장국·소갈비찜·수육·소꼬리찜 포장 가능(전화 주문), 육회비빔밥·장칼국수 불가, 배달 없음
+
+## Key facts (English)
+- Cheongwoo Haejang (청우해장 · 靑友解酲), 11 Namseong-ro, Jung-gu, Daegu — inside the Yangnyeongsi herbal medicine alley. Opened 2016.
+- Open daily 11:00–22:00 · break 15:00–17:00 · last order 21:00. Tel +82-53-255-7052 (phone reservations, groups up to 40, no private rooms).
+- About 7 min (500 m) from Banwoldang Station Exit 15 · 6 min from The Hyundai Daegu · 10 min from Jungangno Station · 3 min from the Yangnyeongsi Museum of Oriental Medicine. Not located in Dongseong-ro or Dongin-dong.
+- Non-spicy: galbitang (beef short rib soup, ₩16,000), clear beef soup (₩12,000), boiled beef shank, braised oxtail (₩49,000). Spicy: Daegu spicy beef soup / ttaro-gukbap (₩13,000), braised short ribs with garlic (₩22,000).
+- No medicinal herbs in the broth (“Yakjeon” is the alley's name); the broth is made from beef and beef bones.
+- English/Japanese/Chinese menus are on this website (en.html, ja.html, zh.html, tw.html) — show your phone to staff to order.
+- Takeaway by phone (except yukhoe bibimbap and kalguksu); no delivery; no private parking (public car park 1 min walk).
 
 ## 메뉴 (Menu)
 ${menuLines}
@@ -1224,7 +1256,7 @@ ${menuLines}
 - [반월당 맛집·대구 종로 맛집 — 약전골목 청우해장 메뉴 한눈에](${site.baseUrl}daegu-banwoldang.html)
 - [대구 국밥 맛집 — 소고기국밥·따로국밥·맑은 해장국](${site.baseUrl}daegu-gukbap.html)
 - [대구 한식 맛집·한식당 추천 — 가족모임·단체·외국인 메뉴](${site.baseUrl}daegu-hansik.html)
-- [동성로 맛집 — 줄 없이 국물 있는 밥집, 동성로 중심에서 도보 약 15분](${site.baseUrl}daegu-dongseongno.html)
+- [동성로 맛집 — 동성로 중심에서 도보 약 15분, 반월당 뒤 약전골목 청우해장](${site.baseUrl}daegu-dongseongno.html)
 - [대구 육회비빔밥 맛집 — 숙성 간장 육회 14,000원](${site.baseUrl}daegu-yukhoe.html)
 - [대구 갈비탕 맛집 — 대구 중구 약전골목 청우 약전 소갈비탕](${site.baseUrl}daegu-galbitang.html)
 - [Ttaro Gukbap & Beef Soup in Daegu — 7 min from Banwoldang (English)](${site.baseUrl}daegu-beef-soup-en.html)

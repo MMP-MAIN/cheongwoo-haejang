@@ -66,7 +66,7 @@ export const store = {
   // 주소
   roadKo: '대구광역시 중구 남성로 11',
   roadEn: '11 Namseong-ro, Jung-gu, Daegu, South Korea',
-  jibunKo: '대구광역시 중구 남성로 82',
+  jibunKo: '대구광역시 중구 남성로 82',   // ⚠ 2026-09-29: 카카오는 지번 남성로 39 로 표기 — 출처가 엇갈려 홈 화면·llms 에서 지번 표시를 뺌(확인 전까지 쓰지 말 것)
   areaKo: '약령시·약전골목 / 반월당역 도보권',
   postalCode: '41934',        // 카카오맵 인증 매장 정보 (기존 41945 는 오기)
   region: 'KR-27',

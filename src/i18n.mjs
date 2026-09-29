@@ -220,16 +220,25 @@ export const t = {
 
     faqTitle: '자주 묻는 질문',
     faq: [
-      { q: '예약이 되나요?', a: '네, 전화 예약을 받습니다. 40명 이하 단체 예약도 가능합니다. 053-255-7052 로 연락 주세요.' },
+      { q: '예약이 되나요?', a: '네, 전화 예약을 받습니다. 홀은 40석이고 단체는 40명까지 예약할 수 있습니다. 별도의 방(룸)은 없으니 053-255-7052로 날짜·인원·도착 시간을 미리 알려 주세요.' },
       { q: '반월당역 몇 번 출구에서 가깝나요?', a: '반월당역(1·2호선) 15번 출구에서 약 500m, 도보 약 7분입니다. 더현대 대구에서는 도보 약 6분, 중앙로역에서는 약 10분입니다.' },
       { q: '주차는 어디에 하나요?', a: '매장 전용 주차장은 없고 가게 앞에도 주차할 수 없습니다. 약령시서문 공영주차장이 도보 1분 거리에 있습니다. 약령시한의약박물관 주차장(2분), 약령시서편 공영주차장(4분)도 가깝습니다. 「오시는 길」에 길찾기 링크가 있습니다.' },
       { q: '브레이크타임이 있나요?', a: hasBreak
           ? `네, ${H.breakStart}~${H.breakEnd} 이 브레이크타임입니다. 마감은 ${H.close}${hasLastOrder ? `, 라스트오더는 ${H.lastOrder}` : ''} 입니다.`
           : `브레이크타임 없이 ${H.open}부터 ${H.close}까지 계속 영업합니다. 점심과 저녁 사이 한가한 시간에 오셔도 됩니다.` },
-      { q: '맵지 않은 메뉴도 있나요?', a: '맑은해장국, 청우 약전 갈비탕, 아롱사태수육은 맵지 않습니다. 어르신이나 아이와 함께 오셔도 괜찮습니다.' },
+      { q: '맵지 않은 메뉴도 있나요?', a: '맑은 해장국, 청우 약전 소갈비탕, 아롱사태 수육, 소꼬리찜은 맵지 않습니다. 어르신이나 아이와 함께 오셔도 괜찮습니다.' },
       { q: '웨이팅이 많나요?', a: '평일 점심(12:00~13:30)과 주말에는 대기가 있는 편입니다. 오픈 직후나 저녁 이른 시간이 여유롭습니다.' },
       { q: '포장이 되나요?', a: '네, 포장 가능합니다. 전화로 미리 주문해 두시면 기다리지 않고 가져가실 수 있습니다. 육회비빔밥과 얼큰 장칼국수는 포장이 안 되고, 그 밖의 메뉴는 주문하실 때 여쭤 주세요. 배달은 하지 않습니다.' },
       { q: '외국어 메뉴가 있나요?', a: '이 홈페이지에서 영어·일본어·중국어로 메뉴를 확인하실 수 있습니다. 매장 직원에게 화면을 보여주셔도 됩니다.' },
+      { q: '대구 10미 따로국밥과 찜갈비를 한 곳에서 먹을 수 있나요?', a: '네. 따로국밥 계보의 대구 얼큰해장국(13,000원)과 동인동식 매운 찜갈비인 소갈비찜 마늘폭탄(22,000원)을 한 상에서 드실 수 있습니다. 가게는 동인동이 아니라 약령시 약전골목 안(남성로 11)입니다.' },
+      { q: '동성로나 동인동에 있는 가게인가요?', a: '아닙니다. 대구 중구 남성로 11, 약령시 약전골목 안에 있습니다. 동성로 중심에서 도보 약 15분, 중앙로역에서 약 10분, 서문시장에서 동쪽으로 약 16분(약 1km)이고, 동인동 찜갈비 골목까지는 약 30분 거리입니다.' },
+      { q: '비 오거나 쌀쌀한 날 먹기 좋은 메뉴가 있나요?', a: '뜨끈한 소고기 국물이 있습니다. 맵지 않은 청우 약전 소갈비탕(16,000원)과 맑은 해장국(12,000원), 얼큰한 대구 얼큰해장국(따로국밥, 13,000원)을 내고, 가을·겨울 계절 메뉴로 얼큰 장칼국수(12,000원, 매장 식사만)도 있습니다. 반월당역 15번 출구에서 도보 약 7분, 더현대 대구에서 약 6분입니다.' },
+      { q: '혼자 가도 되나요? 직장인 점심으로도 괜찮나요?', a: '네. 대구 얼큰해장국·맑은 해장국·청우 약전 소갈비탕·육회비빔밥(14,000원)은 모두 1인분 메뉴라 혼자 드시기 편합니다. 평일 점심 12:00~13:30에는 대기가 있을 수 있어, 점심시간이 빠듯하면 11시 오픈 직후나 13:30 이후(브레이크 15:00 전)가 여유롭습니다.' },
+      { q: '저녁 8시쯤 가도 식사할 수 있나요?', a: '네. 저녁은 17:00부터 22:00까지이고 라스트오더는 21:00입니다. 늦게 오실 때 꼭 드시고 싶은 메뉴가 있으면 053-255-7052로 미리 확인해 주세요.' },
+      { q: '아이와 함께 가도 되나요?', a: '네, 유아 의자가 있습니다. 맑은 해장국과 청우 약전 소갈비탕은 맵지 않은 맑은 국물이라 아이와 나눠 드시기 좋습니다.' },
+      { q: '부모님 모시고 가기 좋은, 자극적이지 않은 소고기 요리가 있나요?', a: '소꼬리찜(49,000원), 아롱사태 수육(소 18,000원·대 23,000원), 청우 약전 소갈비탕(16,000원)은 맵지 않은 소고기 요리입니다. 소꼬리찜이나 수육을 가운데 두고 탕을 인원수대로 곁들이면 온 가족이 한 상에서 드실 수 있습니다.' },
+      { q: '오래된 가게인가요?', a: '골목은 360년 넘은 약령시 약전골목이지만, 청우해장은 2016년에 문을 열었습니다.' },
+      { q: '국물에 한약재가 들어가나요?', a: '아니요. 메뉴 이름의 「약전」은 가게가 있는 약전골목에서 따온 이름입니다. 국물은 양지와 사태로 낸 소고기 국물이고 한약재는 넣지 않습니다.' },
     ],
 
     footerTagline: '대구 중구 약전골목 한식당',
@@ -345,10 +354,13 @@ export const t = {
       { q: 'Is there a break time?', a: hasBreak
           ? `Yes — ${H.breakStart} to ${H.breakEnd}. We close at ${H.close}${hasLastOrder ? ` (last order ${H.lastOrder})` : ''}.`
           : `No. We serve straight through from ${H.open} to ${H.close}, so the quiet hours between lunch and dinner are fine.` },
-      { q: 'Do you have non-spicy dishes?', a: 'Yes. The clear haejang-guk, the short rib soup and the boiled beef shank contain no chili.' },
+      { q: 'Do you have non-spicy dishes?', a: 'Yes. The clear beef soup, the short rib soup (galbitang), the boiled beef shank and the braised oxtail contain no chili.' },
       { q: 'Will I have to queue?', a: 'Weekday lunch (12:00–13:30) and weekends can be busy. Just after opening or early evening is quieter.' },
       { q: 'Do you do takeaway?', a: 'Yes. Call ahead and your order will be ready to collect. Yukhoe bibimbap and the spicy kalguksu are dine-in only; ask about other dishes when you call. We don’t deliver.' },
       { q: 'Is there an English menu?', a: 'This page carries the menu in English, Japanese and Chinese. Showing the screen to our staff works fine.' },
+      { q: 'Where can I get galbitang or beef soup near Banwoldang Station?', a: 'Here — Cheongwoo Haejang (청우해장), 11 Namseong-ro, inside the Yangnyeongsi herbal medicine alley, about a 7-minute walk (500 m) from Banwoldang Station Exit 15. Galbitang (beef short rib soup, ₩16,000) and the clear beef soup (₩12,000) are not spicy; the Daegu spicy beef soup (ttaro-gukbap, ₩13,000) is.' },
+      { q: 'Is it a good lunch stop after the Yangnyeongsi herbal medicine market?', a: 'Yes. We are inside the Yangnyeongsi alley, about 3 minutes on foot from the Yangnyeongsi Museum of Oriental Medicine. Open daily 11:00–22:00 (break 15:00–17:00, last order 21:00).' },
+      { q: 'Are there medicinal herbs in the soup?', a: 'No. “Yakjeon” in our dish names is the name of the alley. The broth is made from beef and beef bones, with no medicinal herbs.' },
     ],
 
     footerTagline: 'Korean restaurant in Yakjeon-golmok, Daegu',
@@ -464,10 +476,13 @@ export const t = {
       { q: '休憩時間はありますか。', a: hasBreak
           ? `はい、${H.breakStart}〜${H.breakEnd} が休憩時間です。閉店は${H.close}${hasLastOrder ? `（ラストオーダー${H.lastOrder}）` : ''}です。`
           : `休憩なしで${H.open}から${H.close}まで通しで営業しています。昼と夜の間の空いている時間帯でもご利用いただけます。` },
-      { q: '辛くない料理はありますか。', a: '澄んだヘジャンクク、カルビタン、牛すね肉のスユクは全く辛くありません。' },
+      { q: '辛くない料理はありますか。', a: '澄んだヘジャンクク、カルビタン、牛すね肉のスユク、牛テールの煮込みは全く辛くありません。' },
       { q: '待ち時間はありますか。', a: '平日の昼（12:00〜13:30）と週末は混み合います。開店直後か夕方早めが比較的空いています。' },
       { q: 'テイクアウトはできますか。', a: 'はい。事前にお電話いただければ、お待たせせずにお渡しできます。ユッケビビンバと辛味噌カルグクスはお持ち帰りできません。その他のメニューはお電話でお尋ねください。デリバリーはしていません。' },
       { q: '日本語メニューはありますか。', a: 'このページで日本語のメニューをご覧いただけます。画面をスタッフにお見せください。' },
+      { q: '半月堂駅の近くでカルビタンが食べられますか。', a: 'はい。半月堂駅（1・2号線）15番出口から徒歩約7分、薬令市の路地（南城路11）のチョンウヘジャン（청우해장）で、牛カルビタン（16,000ウォン）と澄んだヘジャンクク（12,000ウォン）を召し上がれます。どちらも辛くありません。' },
+      { q: '薬令市観光のあとのランチにちょうどいいですか。', a: 'はい。薬令市韓医薬博物館から徒歩約3分の路地の中です。日本語・英語・中国語のメニューはこのサイトにあり、スマホの画面をスタッフに見せれば注文できます。毎日11:00〜22:00（休憩15:00〜17:00、ラストオーダー21:00）。' },
+      { q: 'スープに韓方の薬材は入っていますか。', a: 'いいえ。メニュー名の「薬田」は路地の名前です。スープは牛肉と牛骨でとり、韓方の薬材は入れていません。' },
     ],
 
     footerTagline: '大邱・薬田横丁の韓国料理店',
@@ -586,6 +601,9 @@ export const t = {
       { q: '需要排队吗？', a: '工作日午餐（12:00–13:30）和周末较忙。刚开门或傍晚早些时候比较空。' },
       { q: '可以外带吗？', a: '可以。提前致电点餐，到店即可取走。生拌牛肉拌饭和辣味大酱刀切面不能外带，其他菜品请在电话中询问。不提供外送。' },
       { q: '有中文菜单吗？', a: '本页面提供中文菜单，把屏幕给店员看即可点单。' },
+      { q: '半月堂站附近有牛排骨汤或解酒汤吗？', a: '有。青友解酲（청우해장）在药令市胡同里（南城路 11），距半月堂站 15 号出口步行约 7 分钟。排骨汤 16,000 韩元、清汤解酒汤 12,000 韩元都不辣；辣味的大邱牛肉汤饭（ttaro-gukbap）13,000 韩元。' },
+      { q: '逛完药令市，可以用中文菜单点餐吗？', a: '可以。本店距药令市韩医药博物馆步行约 3 分钟。简体中文、繁体中文、英文、日文菜单都在本网站上，把手机画面给店员看就能点餐。每天 11:00–22:00（15:00–17:00 休息，最后点餐 21:00）。' },
+      { q: '汤里有中药材吗？', a: '没有。菜名里的“药田”是胡同的名字，汤用牛肉和牛骨熬成，不加中药材。' },
     ],
 
     footerTagline: '大邱药田胡同的韩式餐厅',
