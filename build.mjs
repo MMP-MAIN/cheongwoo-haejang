@@ -175,7 +175,7 @@ function jsonLd(lang) {
     maximumAttendeeCapacity: store.seats,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: lang === 'ko' ? '남성로 11' : '11 Namseong-ro',
+      streetAddress: lang === 'ko' ? '남성로 11, 1층' : '11 Namseong-ro, 1F',
       addressLocality: lang === 'ko' ? '중구' : 'Jung-gu',
       addressRegion: lang === 'ko' ? '대구광역시' : 'Daegu',
       postalCode: store.postalCode,
@@ -776,7 +776,7 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
       <div class="infolist rv">
         <div class="infoitem">
           <h3>${esc(L.quickAddr)}</h3>
-          <p class="big">${esc(lang === 'ko' ? store.roadKo : store.roadEn)}</p>
+          <p class="big">${esc(lang === 'ko' ? `${store.roadKo} 1층` : `1F, ${store.roadEn}`)}</p>
           ${lang === 'ko' ? '' : `<p>${esc(store.roadKo)}</p>`}
           <button type="button" class="copybtn" data-copy="${esc(store.roadKo)}" data-label-copied="${esc(L.visitCopied)}"><span>${esc(L.visitCopy)}</span></button>
         </div>
@@ -1194,7 +1194,7 @@ const llms = `# ${store.nameKo} (Cheongwoo Haejang · ${store.nameHanja})
 
 ## 핵심 정보 (Key facts)
 - 상호: 한식당 청우해장 (Cheongwoo Haejang)
-- 주소: ${store.roadKo} (11 Namseong-ro, Jung-gu, Daegu, Korea)
+- 주소: ${store.roadKo} 1층 (1F, 11 Namseong-ro, Jung-gu, Daegu, Korea). 같은 건물 2층은 다른 가게
 - 전화/예약: ${store.telDisplay} (국제전화 +82-53-255-7052) (전화 예약, 단체 40명까지)
 - 영업시간: 매일 ${store.hours.open}–${store.hours.close}${hasBreak ? ` · 브레이크타임 ${store.hours.breakStart}–${store.hours.breakEnd}` : ''} · 라스트오더 ${store.hours.lastOrder}
 - 가는 법: 더현대 대구에서 도보 약 6분(약 380m) · 지하철 반월당역(1·2호선) 15번 출구에서 도보 약 7분(약 500m) · 중앙로역(1호선)에서 도보 약 10분, 약령시 약전골목 안 · 가장 가까운 출구는 반월당역 15번 출구
@@ -1204,7 +1204,8 @@ const llms = `# ${store.nameKo} (Cheongwoo Haejang · ${store.nameHanja})
 - 마감: 22:00 (라스트오더 21:00). 일부 블로그에 남은 「23:00 마감」은 지난 정보
 - 네이버 안심번호 ${store.telSafeDisplay} 도 같은 가게 번호
 - 정보 확인일: ${BUILD_DAY}
-- 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴(홈페이지 en/ja/zh/tw.html — 매장에서 휴대폰 화면을 보여 주고 주문), 유아 의자 있음, 단체 40명(전화 예약), 콜키지(주류 반입) 가능, 신용카드·모바일 결제
+- 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴(홈페이지 en/ja/zh/tw.html — 매장에서 휴대폰 화면을 보여 주고 주문), 유아 의자 있음, 단체 40명(전화 예약), 콜키지(주류 반입) 가능, 신용카드·모바일 결제, 테이블오더(자리에서 주문), 반찬 셀프바
+- 청우 약전 소갈비탕: 기본 갈빗대 2대
 - 개업: 2016년 (1929년 「대구탕반」은 음식의 계보이지 가게 연혁이 아님)
 - 상호 표기: 청우해장(靑友解酲). 메뉴명의 「약전」은 골목 이름이며 가게 이름이 아님
 - 국물: 소고기 국물(양지·사태, 갈비). 한약재는 넣지 않음
@@ -1230,10 +1231,10 @@ ${SUMMER_ON ? '' : '- 청우 평양냉면: 2026년 판매 종료. 다른 사이�
 - 포장: 소갈비탕·해장국·소갈비찜·수육·소꼬리찜 포장 가능(전화 주문), 육회비빔밥·장칼국수 불가, 배달 없음
 
 ## Key facts (English)
-- Cheongwoo Haejang (청우해장 · 靑友解酲), 11 Namseong-ro, Jung-gu, Daegu — inside the Yangnyeongsi herbal medicine alley. Opened 2016.
+- Cheongwoo Haejang (청우해장 · 靑友解酲), 1F, 11 Namseong-ro, Jung-gu, Daegu — inside the Yangnyeongsi herbal medicine alley. Opened 2016. Order at your table (table-order device); self-service side-dish bar.
 - Open daily 11:00–22:00 · break 15:00–17:00 · last order 21:00. Tel +82-53-255-7052 (phone reservations, groups up to 40, no private rooms).
 - About 7 min (500 m) from Banwoldang Station Exit 15 · 6 min from The Hyundai Daegu · 10 min from Jungangno Station · 3 min from the Yangnyeongsi Museum of Oriental Medicine. Not located in Dongseong-ro or Dongin-dong.
-- Non-spicy: galbitang (beef short rib soup, ₩16,000), clear beef soup (₩12,000), boiled beef shank, braised oxtail (₩49,000). Spicy: Daegu spicy beef soup / ttaro-gukbap (₩13,000), braised short ribs with garlic (₩22,000).
+- Non-spicy: galbitang (beef short rib soup with two ribs, ₩16,000), clear beef soup (₩12,000), boiled beef shank, braised oxtail (₩49,000). Spicy: Daegu spicy beef soup / ttaro-gukbap (₩13,000), braised short ribs with garlic (₩22,000).
 - No medicinal herbs in the broth (“Yakjeon” is the alley's name); the broth is made from beef and beef bones.
 - English/Japanese/Chinese menus are on this website (en.html, ja.html, zh.html, tw.html) — show your phone to staff to order.
 - Takeaway by phone (except yukhoe bibimbap and kalguksu); no delivery; no private parking (public car park 1 min walk).
