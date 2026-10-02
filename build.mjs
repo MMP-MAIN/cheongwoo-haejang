@@ -189,7 +189,6 @@ function jsonLd(lang) {
       { '@type': 'LocationFeatureSpecification', name: 'Parking', value: store.parking },
       { '@type': 'LocationFeatureSpecification', name: 'Group reservations (up to 40)', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Takeaway', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'High chairs', value: true },
     ],
     hasMenu: {
       '@type': 'Menu',
@@ -465,7 +464,7 @@ const GUIDE_CARDS = {
     ['daegu-10mi.html', 'images/food-spicy.jpg', '대구 10미 안내', '열 가지 음식과 먹는 동네. 그중 따로국밥·대구식 찜갈비 두 가지를 약전골목에서 냅니다.'],
     ['daegu-dongseongno.html', 'images/cheongwoo-01.jpg', '동성로 맛집', '동성로 중심에서 도보 약 15분, 약전골목 소고기 국물 밥집. 놀고 나서·해장·부모님 모시고.'],
     ['daegu-modern-alley.html', 'images/hood-gate.jpg', '대구 근대골목 2코스', '청라언덕→계산성당→약령시→진골목, 순서대로. 코스 한가운데가 약전골목입니다.'],
-    ['daegu-family.html', 'images/cheongwoo-01.jpg', '대구 가족외식·부모님 생신', '맵지 않은 소갈비탕과 얼큰한 국을 한 상에. 40석, 단체 40명까지 전화 예약.'],
+    ['daegu-family.html', 'images/cheongwoo-01.jpg', '대구 가족외식·부모님 생신', '부드러운 소갈비탕과 얼큰한 국을 한 상에. 40석, 단체 40명까지 전화 예약.'],
     ['daegu-dongdaegu.html', 'images/food-galbitang.jpg', '동대구역에서 오는 길', '1호선 5정거장, 환승 없이 반월당. 기차 시간에 맞춰 밥 먹는 법.'],
   ] },
   en: { title: 'Stories by dish', lede: 'What is in the bowl, and who it suits — written dish by dish.', cards: [
