@@ -26,7 +26,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 // 정적 자산 캐시 무효화 버전. assets/ 안의 CSS·JS 를 고치면 이 숫자를 올리세요.
 // (GitHub Pages 와 브라우저가 예전 파일을 붙들고 있는 것을 막습니다.)
-const ASSET_V = 24;
+const ASSET_V = 25;
 
 // 빌드 날짜(한국 시간). 사이트맵 lastmod 에 찍히고, 기한이 지난 공지·특별 영업일을 빼는 데 씁니다.
 // `BUILD_DATE=2026-09-28 node build.mjs` 처럼 주면 그 날짜로 빌드한 것처럼 동작합니다(점검용).
@@ -728,7 +728,21 @@ ${site.langs.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alt
   </div>
 </section>
 
-<!-- ================= 메뉴 ================= -->
+${L.why ? `<!-- ================= 이래서 (USP) ================= -->
+<section class="section why-sec" id="why">
+  <div class="container">
+    <div class="sec-head rv">
+      <span class="sec-kicker">${esc(L.whyKicker)}</span>
+      <h2>${esc(L.whyTitle)}</h2>
+    </div>
+    <div class="why-grid">
+      ${L.why.map((w) => `<article class="why-card rv"><h3>${esc(w.h)}</h3><p>${esc(w.p)}</p>${w.line ? `<p class="why-line">${w.line}</p>` : ''}</article>`).join('\n      ')}
+    </div>
+    ${L.whyProof ? `<p class="why-proof rv">${esc(L.whyProof)}</p>` : ''}
+  </div>
+</section>
+
+` : ''}<!-- ================= 메뉴 ================= -->
 <section class="section alt" id="menu">
   <div class="container">
     <div class="sec-head rv">

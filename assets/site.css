@@ -497,3 +497,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .fold[open]>summary{margin-bottom:1.6rem}
 .fold[open]>summary::after{content:"−"}
 .fold>*:not(summary){text-align:left}
+
+/* 이래서 청우해장 (USP 카드 3장) — 메뉴를 너무 밀어내지 않도록 촘촘하게 (2026-10-02) */
+.why-sec{padding:3.2rem 0 2.6rem}
+.why-sec .sec-head{margin-bottom:1.4rem}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.why-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.15rem 1.25rem}
+.why-card h3{font-family:var(--serif);font-size:1.12rem;color:var(--herb);margin-bottom:.35rem}
+.why-card p{font-size:.97rem;line-height:1.6}
+.why-card .why-line{margin-top:.45rem;font-size:.86rem;color:var(--muted)}
+.why-card .why-line a{color:inherit;text-decoration:underline}
+.why-proof{margin-top:.9rem;font-size:.82rem;color:var(--muted)}
+@media (max-width:860px){.why-grid{grid-template-columns:1fr;gap:.55rem}.why-sec{padding:1.9rem 0 1.5rem}.why-sec .sec-head{margin-bottom:.9rem}.why-sec .sec-head h2{font-size:1.45rem}.why-card{padding:.85rem 1rem}.why-card h3{font-size:1.04rem;margin-bottom:.2rem}.why-card p{font-size:.93rem;line-height:1.55}.why-card .why-line{margin-top:.3rem;font-size:.83rem}.why-proof{margin-top:.6rem}}
+
