@@ -497,6 +497,8 @@ GA4 네이버 검색 → 도착 페이지(8/29~9/28 PV): 홈 95 · 수육 32 · 
 | banwoldang (core 추가안) | (1~30위 보유 검색어 거의 없음) | 원복 기준 없음 — 10/19·11월 초 두 번 연속 새 머리어 둘 다 300밖이면 그때 재판단 | 반월당 맛집·동성로 맛집·더현대 대구 맛집 — 약전골목 청우해장 (갈비탕·해장국·수육) |
 | modern-alley (core 추가안) | (보유 없음, 약전골목 맛집 282) | 원복 기준 없음 | 대구 근대골목 2코스 순서와 약령시 약전골목 안내 — 점심·주차까지 \| 청우해장 |
 
+- **같은 기간의 다른 변경 — 10/7 매장 카드 삽입**(10/19·10/26 순위를 읽을 때 원인을 헷갈리지 않게 적어 둠): 가이드 12장(10mi·attractions·dongdaegu·food-tour·galbitang·kalguksu·modern-alley·oxtail·suyuk·takeout·ttarogukbap·yukhoe)의 첫 문단(.lede, 있으면 .meta) 바로 아래에 「청우해장 매장 정보」 카드를 넣음. 카드 글자는 「청우해장 · 약령시 약전골목 / 영업 11:00–22:00 · 브레이크 15:00–17:00 · 주문 마감 21:00 / 반월당역 15번 출구 도보 약 7분 · 남성로 11 1층」과 버튼 3개(네이버지도 길찾기·전화·메뉴·가격 보기)로, 공백 포함 약 110자이고 사진 alt 는 비움. (g) 측정 대상 가운데 **modern-alley**(원복 기준 없음)와 **ttarogukbap**(성공 판정 「대구 따로국밥 → ttarogukbap」)에 카드가 들어갔으니, 두 페이지 순위가 움직이면 10/5 title·앵커 변경만의 효과로 보지 말 것. 나머지 (g) 페이지 7장(banwoldang·dongseongno·family·gukbap·hansik·haejangguk·jjimgalbi)에는 카드가 없고, 바뀐 것은 data-track 속성과 스크립트 ?v=26 뿐이라 화면 글자는 그대로임.
+
 ### (h) 이번 라운드 반영 범위
 - 가이드: title 머리어 교체 6장(banwoldang·dongseongno·hansik·family·gukbap·modern-alley — jjimgalbi는 title 고정, H2 「대구 매운갈비찜」「반월당 갈비찜·반월당 찜갈비」·FAQ만, haejangguk도 title 고정·H2 「대구 중구 해장국」만), H2·FAQ 정확일치 보강(위 (d)), 카니발 문구 정리(galbitang 메뉴표 「대구 갈비찜 맛집」 등), 미확인·금칙 문구 정리(유아 의자·통유리·2024 단장·웨이팅·소꼬리찜 맵기·갈비탕 「맵지 않은」 판매 문구), 바꾼 페이지 dateModified·수정일 2026-10-05. 페이지별 실제 반영은 메인 세션 최종 빌드의 lint 출력으로 확인.
 - 홈·빌드(core): 홈 keywords 교체((d) 마지막 줄), 사진 alt 「통유리」 삭제, 「메뉴별 이야기」 카드 13 → 16장(국밥·반월당·약전골목 한식당 추가, 갈비탕 카드 문구 「어르신 모시기 좋은」 → 「기본 갈빗대 2대」), 푸터 「동성로 맛집」 → 「동성로 밥집」, llms.txt 미확인 주장(유아 의자·소꼬리찜 맵지 않음) 삭제·가이드 목록 자동 생성, 사이트맵 lastmod·RSS 날짜를 실제 수정일로(홈 = HOME_MODIFIED, 가이드 = JSON-LD dateModified), 빌드 시 가이드 lint(경고만), `tools/indexnow.mjs --since=YYYY-MM-DD`.

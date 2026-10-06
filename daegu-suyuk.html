@@ -23,8 +23,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&amp;text=%2C1567%C2%B7%E2%80%94%E5%8F%8B%E8%A7%A3%E9%85%B2%E9%9D%91%EA%B0%80%EA%B2%8C%EA%B2%B0%EA%B3%A8%EA%B5%AC%EB%8A%94%EB%8B%88%EB%8B%A4%EB%8B%B9%EB%8C%80%EB%8D%94%EB%8F%84%EB%93%9C%EB%9D%BC%EB%A1%9C%EB%A1%B1%EB%A6%AC%EB%A7%9B%EB%A9%B0%EB%A9%B4%EB%AA%A8%EB%AA%A9%EB%AC%B8%EB%AC%BB%EB%B0%98%EB%B2%88%EB%B3%B4%EB%B6%80%EB%B6%84%EC%82%AC%EC%84%B8%EC%88%98%EC%88%A0%EC%8A%B5%EC%8B%A4%EC%95%84%EC%95%BD%EC%96%87%EC%97%AD%EC%99%9C%EC%9A%B0%EC%9B%94%EC%9C%84%EC%9C%A1%EC%9D%80%EC%9D%98%EC%9D%B4%EC%9D%B8%EC%9E%84%EC%9E%88%EC%9E%90%EC%9E%A5%EC%A0%80%EC%A0%84%EC%A2%8B%EC%A3%BC%EC%A7%80%EC%A7%88%EC%A7%91%EC%B2%AD%EC%B6%9C%ED%83%9C%ED%95%B4%ED%98%84&amp;display=swap" />
-<script src="assets/config.js?v=23"></script>
-<script src="assets/tracking.js?v=23"></script>
+<script src="assets/config.js?v=26"></script>
+<script src="assets/tracking.js?v=26"></script>
 <style>
   :root{--ink:#2b2420;--sub:#6b6156;--paper:#faf7f1;--card:#fff;--gold:#a8792f;--line:#e6ddcd;--serif:'Noto Serif KR',serif}
   *{margin:0;padding:0;box-sizing:border-box}
@@ -75,6 +75,22 @@
     body{padding-bottom:5rem}
   }
 </style>
+<style>
+  /* 매장 카드 (2026-10-07) — 첫 문단 아래: 영업시간·오는 길 + 네이버지도 길찾기·전화·메뉴 */
+  .scard{background:var(--card,#fff);border:1px solid var(--line,#e6ddcd);border-radius:14px;padding:12px;margin:18px 0 26px}
+  .scard-top{display:flex;gap:12px;align-items:flex-start}
+  .scard picture{flex:none;display:block}
+  .scard img{display:block;width:84px;height:84px;object-fit:cover;border-radius:10px}
+  .scard-info{min-width:0;font-size:.86rem;line-height:1.5;color:var(--sub,#6b6156)}
+  .scard-info p{margin:0 0 3px}
+  .scard-info .scard-name{color:var(--ink,#2b2420);font-size:.95rem;font-weight:700}
+  .scard-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .scard-btns a{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:.35rem;min-height:44px;padding:8px 10px;border-radius:10px;font-size:.88rem;font-weight:600;line-height:1.25;text-decoration:none;white-space:nowrap}
+  .scard-btns svg{width:16px;height:16px;flex:none}
+  .scard-btns .scard-dir{background:var(--ink,#2b2420);color:#fff}
+  .scard-btns .scard-call{background:#946b29;color:#fff} /* 흰 글자 대비 4.78:1 (--gold #a8792f 는 3.86:1) */
+  .scard-btns .scard-menu{background:#fff;color:var(--ink,#2b2420);border:1px solid var(--line,#e6ddcd)}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"Article","@id":"https://cheongwoohaejang.com/daegu-suyuk.html#article",
@@ -99,15 +115,30 @@
 <body>
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="/">청우해장<span class="hanja">靑友解酲</span></a>
+    <a class="brand" href="/" data-track="tohome" data-track-label="suyuk-top">청우해장<span class="hanja">靑友解酲</span></a>
     <a class="cta" href="tel:+82532557052" data-track="call" data-track-label="suyuk-top">전화 예약</a>
   </div>
 </header>
 <main>
-  <nav class="crumb"><a href="/">홈</a> › 대구 수육 맛집</nav>
+  <nav class="crumb"><a href="/" data-track="tohome" data-track-label="suyuk-crumb">홈</a> › 대구 수육 맛집</nav>
   <h1>대구 수육 맛집<br>— 약전골목 청우해장의 아롱사태 수육</h1>
   <p class="lede"><strong>소고기 수육</strong>, 그중에서도 <strong>아롱사태 수육</strong>은 삶는 집의 솜씨가 그대로 드러나는 음식입니다. 청우해장은 매일 아침 양지와 사태를 하루 종일 고아 국물을 내는 집 — 그 솥에서 <strong>결 좋은 아롱사태</strong>를 삶아 얇게 저며 냅니다. 기름지지 않고 담백해서 어르신 모임과 술자리 양쪽에 맞습니다. 반월당역에서 도보 약 7분, 약전골목 안입니다.</p>
   <p class="meta">대구 중구 남성로 11 · 더현대 대구에서 도보 약 6분 · 반월당역에서 약 7분 · 매일 11:00–22:00 (브레이크 15:00–17:00) · 053-255-7052 · 최종 수정 2026-10-05</p>
+  <aside class="scard" aria-label="청우해장 매장 정보">
+    <div class="scard-top">
+      <picture><source type="image/avif" srcset="images/opt/food-jeongol-360.avif 360w, images/opt/food-jeongol-720.avif 720w" sizes="84px"><source type="image/webp" srcset="images/opt/food-jeongol-360.webp 360w, images/opt/food-jeongol-720.webp 720w" sizes="84px"><img src="images/food-jeongol.jpg" alt="" width="84" height="84" decoding="async" /></picture>
+      <div class="scard-info">
+        <p class="scard-name">청우해장 · 약령시 약전골목</p>
+        <p>영업 11:00–22:00 · 브레이크 15:00–17:00 · 주문 마감 21:00</p>
+        <p>반월당역 15번 출구 도보 약 7분 · 남성로 11 1층</p>
+      </div>
+    </div>
+    <div class="scard-btns">
+      <a class="scard-dir" href="https://map.naver.com/p/entry/place/1059841507?c=15.00,0,0,0,dh" target="_blank" rel="noopener" data-track="directions" data-track-label="suyuk-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>네이버지도 길찾기</a>
+      <a class="scard-call" href="tel:+82532557052" data-track="call" data-track-label="suyuk-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>전화</a>
+      <a class="scard-menu" href="/#menu" data-track="tohome" data-track-label="suyuk-card">메뉴·가격 보기</a>
+    </div>
+  </aside>
   <table class="facts">
     <caption>한눈에</caption>
     <tbody>
@@ -138,7 +169,7 @@
       <tr><td><a href="daegu-oxtail.html" data-track="guide" data-track-label="suyuk-oxtail">소꼬리찜</a></td><td>49,000원</td><td>쫄깃한 소꼬리에 부추 · 가족 모임 상차림</td></tr>
     </tbody>
   </table>
-  <p>수육에 <a href="daegu-galbitang.html" data-track="guide" data-track-label="suyuk-galbitang">약전 소갈비탕</a>이나 <a href="daegu-ttarogukbap.html" data-track="guide" data-track-label="suyuk-ttaro">따로국밥</a>을 하나씩 곁들이면 상이 완성됩니다. 매운 찜이 하나 있었으면 할 때는 <a href="daegu-jjimgalbi.html" data-track="guide" data-track-label="suyuk-jjimgalbi">소갈비찜 마늘폭탄</a>(22,000원)을 더하세요. 국 세 그릇의 차이는 <a href="daegu-gukbap.html" data-track="guide" data-track-label="suyuk-gukbap">소고기국밥 세 가지 비교</a>에 적어 두었습니다. 전체 메뉴는 <a href="/#menu" data-track="menu" data-track-label="suyuk-menu">홈페이지 메뉴</a>에서.</p>
+  <p>수육에 <a href="daegu-galbitang.html" data-track="guide" data-track-label="suyuk-galbitang">약전 소갈비탕</a>이나 <a href="daegu-ttarogukbap.html" data-track="guide" data-track-label="suyuk-ttaro">따로국밥</a>을 하나씩 곁들이면 상이 완성됩니다. 매운 찜이 하나 있었으면 할 때는 <a href="daegu-jjimgalbi.html" data-track="guide" data-track-label="suyuk-jjimgalbi">소갈비찜 마늘폭탄</a>(22,000원)을 더하세요. 국 세 그릇의 차이는 <a href="daegu-gukbap.html" data-track="guide" data-track-label="suyuk-gukbap">소고기국밥 세 가지 비교</a>에 적어 두었습니다. 전체 메뉴는 <a href="/#menu" data-track="tohome" data-track-label="suyuk-menu">홈페이지 메뉴</a>에서.</p>
 
   <figure>
     <picture><source type="image/avif" srcset="images/opt/food-arong-360.avif 360w, images/opt/food-arong-720.avif 720w, images/opt/food-arong-1080.avif 1080w, images/opt/food-arong-1600.avif 1600w" sizes="(max-width: 800px) 100vw, 760px"><source type="image/webp" srcset="images/opt/food-arong-360.webp 360w, images/opt/food-arong-720.webp 720w, images/opt/food-arong-1080.webp 1080w, images/opt/food-arong-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 760px"><img src="images/food-arong.jpg" alt="청우해장 아롱사태 냉채" width="2000" height="1500" loading="lazy" /></picture>
@@ -161,7 +192,7 @@
 
   <h2>반월당 수육 — 반월당역 15번 출구 도보 약 7분, 더현대 대구 약 6분</h2>
   <p><strong>반월당역</strong>(1·2호선) 15번 출구(또는 더현대 대구)에서 백화점 옆 골목을 따라 북쪽으로 올라가 한의약박물관을 지나 약전골목에서 왼쪽 — 15번 출구에서 도보 약 7분, 더현대 대구에서 약 6분. <strong>근대골목·계산성당</strong> 산책 뒤 저녁 자리로도 좋습니다. 골목 안 가게와 다른 메뉴 이야기는 <a href="daegu-hansik.html" data-track="guide" data-track-label="suyuk-hansik">약전골목 한식당 안내</a>에 있습니다.</p>
-  <div class="tip"><b>주차</b> — 약령시서문 공영주차장(도보 1분) 등 공영주차장이 가깝습니다. <a href="/#visit" data-track="directions" data-track-label="suyuk-tip">지도·약도 보기</a></div>
+  <div class="tip"><b>주차</b> — 약령시서문 공영주차장(도보 1분) 등 공영주차장이 가깝습니다. <a href="/#visit" data-track="tohome" data-track-label="suyuk-tip">지도·약도 보기</a></div>
 
   <h2>자주 묻는 질문</h2>
   <dl class="faq">
@@ -182,14 +213,14 @@
     <p>청우해장 — 아롱사태 수육 · 수육 전골 · 냉채 · 소꼬리찜<br>매일 11:00–22:00 (브레이크 15:00–17:00) · 더현대 대구에서 도보 약 6분 · 반월당역에서 약 7분</p>
     <div class="btns">
       <a class="g" href="tel:+82532557052" data-track="call" data-track-label="suyuk-cta">☎ 053-255-7052</a>
-      <a class="o" href="/#menu" data-track="menu" data-track-label="suyuk-cta">메뉴 보기</a>
-      <a class="o" href="/#visit" data-track="directions" data-track-label="suyuk-cta">오시는 길</a>
+      <a class="o" href="/#menu" data-track="tohome" data-track-label="suyuk-cta">메뉴 보기</a>
+      <a class="o" href="/#visit" data-track="tohome" data-track-label="suyuk-cta">오시는 길</a>
       <a class="o" href="https://m.place.naver.com/restaurant/1059841507/review/visitor" target="_blank" rel="noopener" data-track="naverplace" data-track-label="suyuk-cta">네이버 방문자 리뷰 3,500개 보기</a>
     </div>
   </div>
 </main>
 <footer>
-  <a href="/">청우해장 홈</a> · <a href="daegu-galbitang.html">청우 약전 소갈비탕</a> · <a href="daegu-jjimgalbi.html">소갈비찜 마늘폭탄</a> · <a href="daegu-ttarogukbap.html">따로국밥</a> · <a href="daegu-food-tour.html">대구 여행 맛집 코스</a> · <a href="/#menu">메뉴</a>
+  <a href="/" data-track="tohome" data-track-label="suyuk-footer">청우해장 홈</a> · <a href="daegu-galbitang.html">청우 약전 소갈비탕</a> · <a href="daegu-jjimgalbi.html">소갈비찜 마늘폭탄</a> · <a href="daegu-ttarogukbap.html">따로국밥</a> · <a href="daegu-food-tour.html">대구 여행 맛집 코스</a> · <a href="/#menu" data-track="tohome" data-track-label="suyuk-footer">메뉴</a>
   <p style="margin-top:10px">© 청우해장 靑友解酲 · 대구 중구 남성로 11</p>
 </footer>
 <div class="mbar"><a class="mbar-call" href="tel:+82532557052" data-track="call" data-track-label="suyuk-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>전화로 예약하기</a><a class="mbar-dir" href="https://map.naver.com/p/entry/place/1059841507?c=15.00,0,0,0,dh" target="_blank" rel="noopener" data-track="directions" data-track-label="suyuk-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>길찾기</a></div>

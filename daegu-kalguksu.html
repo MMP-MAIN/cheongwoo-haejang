@@ -23,8 +23,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&amp;text=%2C%C2%B7%E2%80%94%E5%8F%8B%E8%A7%A3%E9%85%B2%E9%9D%91%EA%B0%80%EA%B2%A8%EA%B2%A9%EA%B3%84%EA%B3%A0%EA%B3%A8%EA%B3%BC%EA%B5%AC%EA%B5%AD%EA%B8%B0%EA%B8%B8%EA%BB%98%EB%82%98%EB%82%A0%EB%89%B4%EB%8A%94%EB%8B%B9%EB%8C%80%EB%8D%94%EB%8F%99%EB%96%A4%EB%9E%8C%EB%A1%9C%EB%A8%B9%EB%A9%94%EB%AA%A9%EB%AC%B8%EB%AC%BB%EB%AC%BC%EB%B0%94%EB%B0%98%EB%B6%80%EC%84%9C%EC%84%B1%EC%86%8C%EC%88%98%EC%95%BD%EC%96%B4%EC%96%B8%EC%96%BC%EC%97%90%EC%97%AD%EC%98%A4%EC%9A%94%EC%9A%B0%EC%9A%B8%EC%9B%94%EC%9D%80%EC%9D%84%EC%9D%B8%EC%9E%88%EC%9E%90%EC%9E%A5%EC%A0%84%EC%A0%88%EC%A0%9C%EC%A2%8B%EC%A3%BC%EC%A7%88%EC%B0%AC%EC%B2%AD%EC%B9%BC%ED%81%B0%ED%95%A8%ED%95%B4%ED%98%84&amp;display=swap" />
-<script src="assets/config.js?v=23"></script>
-<script src="assets/tracking.js?v=23"></script>
+<script src="assets/config.js?v=26"></script>
+<script src="assets/tracking.js?v=26"></script>
 <style>
   :root{--ink:#2b2420;--sub:#6b6156;--paper:#faf7f1;--card:#fff;--gold:#a8792f;--line:#e6ddcd;--serif:'Noto Serif KR',serif}
   *{margin:0;padding:0;box-sizing:border-box}
@@ -76,6 +76,22 @@
     body{padding-bottom:5rem}
   }
 </style>
+<style>
+  /* 매장 카드 (2026-10-07) — 첫 문단 아래: 영업시간·오는 길 + 네이버지도 길찾기·전화·메뉴 */
+  .scard{background:var(--card,#fff);border:1px solid var(--line,#e6ddcd);border-radius:14px;padding:12px;margin:18px 0 26px}
+  .scard-top{display:flex;gap:12px;align-items:flex-start}
+  .scard picture{flex:none;display:block}
+  .scard img{display:block;width:84px;height:84px;object-fit:cover;border-radius:10px}
+  .scard-info{min-width:0;font-size:.86rem;line-height:1.5;color:var(--sub,#6b6156)}
+  .scard-info p{margin:0 0 3px}
+  .scard-info .scard-name{color:var(--ink,#2b2420);font-size:.95rem;font-weight:700}
+  .scard-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .scard-btns a{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:.35rem;min-height:44px;padding:8px 10px;border-radius:10px;font-size:.88rem;font-weight:600;line-height:1.25;text-decoration:none;white-space:nowrap}
+  .scard-btns svg{width:16px;height:16px;flex:none}
+  .scard-btns .scard-dir{background:var(--ink,#2b2420);color:#fff}
+  .scard-btns .scard-call{background:#946b29;color:#fff} /* 흰 글자 대비 4.78:1 (--gold #a8792f 는 3.86:1) */
+  .scard-btns .scard-menu{background:#fff;color:var(--ink,#2b2420);border:1px solid var(--line,#e6ddcd)}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"Article","@id":"https://cheongwoohaejang.com/daegu-kalguksu.html#article",
@@ -102,15 +118,30 @@
 <body>
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="/">청우해장<span class="hanja">靑友解酲</span></a>
+    <a class="brand" href="/" data-track="tohome" data-track-label="kalguksu-top">청우해장<span class="hanja">靑友解酲</span></a>
     <a class="cta" href="tel:+82532557052" data-track="call" data-track-label="kalguksu-top">전화 예약</a>
   </div>
 </header>
 <main>
-  <nav class="crumb"><a href="/">홈</a> › 대구 장칼국수</nav>
+  <nav class="crumb"><a href="/" data-track="tohome" data-track-label="kalguksu-crumb">홈</a> › 대구 장칼국수</nav>
   <h1>대구 장칼국수<br>— 반월당 약전골목, 소고기 국물 얼큰 장칼국수</h1>
   <p class="lede"><strong>대구 장칼국수</strong>, <strong>반월당 칼국수</strong>를 찾으신다면 약령시 약전골목 안 청우해장에 <strong>얼큰 장칼국수</strong>(12,000원)가 있습니다. 소고기 국물에 된장을 풀어 얼큰하게 끓인 칼국수로, 가을·겨울에만 내는 계절 메뉴입니다.</p>
   <p class="meta">대구 중구 남성로 11 · 반월당역 15번 출구에서 도보 약 7분 · 더현대 대구에서 약 6분 · 매일 11:00–22:00 (브레이크 15:00–17:00) · 최종 수정 2026-10-05</p>
+  <aside class="scard" aria-label="청우해장 매장 정보">
+    <div class="scard-top">
+      <picture><source type="image/avif" srcset="images/opt/cheongwoo-02-360.avif 360w, images/opt/cheongwoo-02-720.avif 720w" sizes="84px"><source type="image/webp" srcset="images/opt/cheongwoo-02-360.webp 360w, images/opt/cheongwoo-02-720.webp 720w" sizes="84px"><img src="images/cheongwoo-02.jpg" alt="" width="84" height="84" decoding="async" /></picture>
+      <div class="scard-info">
+        <p class="scard-name">청우해장 · 약령시 약전골목</p>
+        <p>영업 11:00–22:00 · 브레이크 15:00–17:00 · 주문 마감 21:00</p>
+        <p>반월당역 15번 출구 도보 약 7분 · 남성로 11 1층</p>
+      </div>
+    </div>
+    <div class="scard-btns">
+      <a class="scard-dir" href="https://map.naver.com/p/entry/place/1059841507?c=15.00,0,0,0,dh" target="_blank" rel="noopener" data-track="directions" data-track-label="kalguksu-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>네이버지도 길찾기</a>
+      <a class="scard-call" href="tel:+82532557052" data-track="call" data-track-label="kalguksu-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>전화</a>
+      <a class="scard-menu" href="/#menu" data-track="tohome" data-track-label="kalguksu-card">메뉴·가격 보기</a>
+    </div>
+  </aside>
   <table class="facts">
     <caption>한눈에</caption>
     <tbody>
@@ -149,12 +180,12 @@
       <tr><td><a href="daegu-jjimgalbi.html" data-track="guide" data-track-label="kalguksu-jjimgalbi">소갈비찜 마늘폭탄</a></td><td>22,000원</td><td>마늘을 듬뿍 올린 매운 소갈비찜</td></tr>
     </tbody>
   </table>
-  <p>전체 메뉴와 최신 가격은 <a href="/#menu" data-track="menu" data-track-label="kalguksu-menu">홈페이지 메뉴</a>에서 볼 수 있습니다.</p>
+  <p>전체 메뉴와 최신 가격은 <a href="/#menu" data-track="tohome" data-track-label="kalguksu-menu">홈페이지 메뉴</a>에서 볼 수 있습니다.</p>
 
   <h2>반월당 칼국수·약전골목 칼국수 — 반월당역·더현대 대구·동성로에서 오는 길</h2>
   <p>청우해장은 <strong>대구 중구 남성로</strong>, 약령시 약전골목 안에 있습니다. <strong>반월당역</strong>(1·2호선) 15번 출구에서 백화점 옆 골목을 따라 북쪽으로 올라가 한의약박물관을 지나 약전골목에서 왼쪽 — 도보 약 7분, <strong>더현대 대구</strong>에서는 약 6분입니다. <strong>동성로 칼국수</strong>를 찾으신다면 — 저희는 동성로 안의 가게는 아니고, 동성로 중심에서 도보 약 15분 거리입니다.</p>
   <p>대구에서 칼국수 하면 서문시장 칼국수 골목이 널리 알려져 있습니다. 서문시장은 여기서 걸어서 약 16분이라, 시장 구경 전후로 반월당 쪽에서 <strong>소고기 국물 칼국수</strong>를 드시고 싶을 때 들르기 좋습니다. 걷는 코스는 <a href="daegu-food-tour.html" data-track="guide" data-track-label="kalguksu-tour">대구 여행 코스·맛집</a>에 적어 두었습니다.</p>
-  <div class="tip"><b>주차</b> — 전용 주차장은 없습니다. 약령시서문 공영주차장(도보 1분) 등 공영주차장을 이용하세요. <a href="/#visit" data-track="directions" data-track-label="kalguksu-tip">지도·약도 보기</a></div>
+  <div class="tip"><b>주차</b> — 전용 주차장은 없습니다. 약령시서문 공영주차장(도보 1분) 등 공영주차장을 이용하세요. <a href="/#visit" data-track="tohome" data-track-label="kalguksu-tip">지도·약도 보기</a></div>
 
   <h2>자주 묻는 질문</h2>
   <dl class="faq">
@@ -179,14 +210,14 @@
     <p>청우해장 — 얼큰 장칼국수 · 맑은/얼큰 해장국 · 청우 약전 소갈비탕<br>매일 11:00–22:00 (브레이크 15:00–17:00) · 반월당역에서 도보 약 7분 · 더현대 대구에서 약 6분</p>
     <div class="btns">
       <a class="g" href="tel:+82532557052" data-track="call" data-track-label="kalguksu-cta">☎ 053-255-7052</a>
-      <a class="o" href="/#menu" data-track="menu" data-track-label="kalguksu-cta">메뉴 보기</a>
+      <a class="o" href="/#menu" data-track="tohome" data-track-label="kalguksu-cta">메뉴 보기</a>
       <a class="o" href="https://map.naver.com/p/entry/place/1059841507?c=15.00,0,0,0,dh" target="_blank" rel="noopener" data-track="directions" data-track-label="kalguksu-cta">네이버지도 길찾기</a>
       <a class="o" href="https://m.place.naver.com/restaurant/1059841507/review/visitor" target="_blank" rel="noopener" data-track="naverplace" data-track-label="kalguksu-cta">네이버 방문자 리뷰 3,500개 보기</a>
     </div>
   </div>
 </main>
 <footer>
-  <a href="/" data-track="guide" data-track-label="kalguksu-foot">청우해장 홈</a> · <a href="daegu-haejangguk.html" data-track="guide" data-track-label="kalguksu-foot">맑은·얼큰 해장국 이야기</a> · <a href="daegu-galbitang.html" data-track="guide" data-track-label="kalguksu-foot">청우 약전 소갈비탕</a> · <a href="daegu-jjimgalbi.html" data-track="guide" data-track-label="kalguksu-foot">소갈비찜 마늘폭탄</a> · <a href="daegu-banwoldang.html" data-track="guide" data-track-label="kalguksu-foot">반월당 맛집</a> · <a href="/#menu">메뉴</a> · <a href="/#visit">오시는 길</a>
+  <a href="/" data-track="tohome" data-track-label="kalguksu-foot">청우해장 홈</a> · <a href="daegu-haejangguk.html" data-track="guide" data-track-label="kalguksu-foot">맑은·얼큰 해장국 이야기</a> · <a href="daegu-galbitang.html" data-track="guide" data-track-label="kalguksu-foot">청우 약전 소갈비탕</a> · <a href="daegu-jjimgalbi.html" data-track="guide" data-track-label="kalguksu-foot">소갈비찜 마늘폭탄</a> · <a href="daegu-banwoldang.html" data-track="guide" data-track-label="kalguksu-foot">반월당 맛집</a> · <a href="/#menu" data-track="tohome" data-track-label="kalguksu-footer">메뉴</a> · <a href="/#visit" data-track="tohome" data-track-label="kalguksu-footer">오시는 길</a>
   <p style="margin-top:10px">© 청우해장 靑友解酲 · 대구 중구 남성로 11</p>
 </footer>
 <div class="mbar"><a class="mbar-call" href="tel:+82532557052" data-track="call" data-track-label="kalguksu-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>전화로 예약하기</a><a class="mbar-dir" href="https://map.naver.com/p/entry/place/1059841507?c=15.00,0,0,0,dh" target="_blank" rel="noopener" data-track="directions" data-track-label="kalguksu-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>길찾기</a></div>

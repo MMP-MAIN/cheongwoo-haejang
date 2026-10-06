@@ -22,6 +22,8 @@
     // 전화 걸기 — 이 업종에서 가장 중요한 전환입니다.
     call:        { meta: 'Contact',       ga4: 'click_to_call',      kakao: 'completeRegistration', label: 'call',       value: 30000, dedupe: true },
     // 길찾기 — 실제 방문 의도가 매우 높은 신호입니다.
+    // 2026-10-07부터 「지도 앱·외부 지도로 실제로 넘어가는 링크」에만 붙입니다(네이버·카카오·구글 지도, 주차장 길찾기).
+    // 페이지 안 약도 열기·저장, 가이드 → 홈(/#visit) 이동은 여기 넣지 않습니다 — 아래 sketch·tohome 참고.
     directions:  { meta: 'FindLocation',  ga4: 'get_directions',     kakao: 'search',               label: 'directions', value: 25000, dedupe: true },
     // 예약 시도(네이버 예약 등 외부 예약 링크 클릭)
     reserve:     { meta: 'Schedule',      ga4: 'reservation_intent', kakao: 'purchase',             label: 'reserve',    value: 40000, dedupe: true },
@@ -31,11 +33,20 @@
     gallery:     { meta: 'ViewContent',   ga4: 'view_gallery',       kakao: null,                   label: null,         value: 0 },
     copyaddress: { meta: 'FindLocation',  ga4: 'copy_address',       kakao: null,                   label: null,         value: 0 },
     language:    { meta: null,            ga4: 'language_switch',    kakao: null,                   label: null,         value: 0 },
-    engaged:     { meta: null,            ga4: 'scroll_deep',        kakao: null,                   label: null,         value: 0 },
+    // metaCustom: 메타 픽셀에 표준 이벤트가 아닌 맞춤 이벤트(trackCustom)로 보냅니다 — 리타게팅 맞춤 타깃용.
+    engaged:     { meta: null,            ga4: 'scroll_deep',        kakao: null,                   label: null,         value: 0, metaCustom: 'scroll_deep' },
     blog:        { meta: null,            ga4: 'outbound_blog',      kakao: null,                   label: null,         value: 0 },
-    // 약도 이미지 저장 「완료」 — 버튼 클릭(directions)과 별개로, 실제로 공유/다운로드가
+    // 약도 열기·「약도 저장」 버튼 클릭 — 페이지 안에서 일어나는 일이라 전환(키 이벤트·구글 광고·메타)이 아닙니다.
+    // 2026-10-06까지는 directions 로 세어 get_directions 의 절반 넘게가 이것이었습니다.
+    // label: hero-sketch(첫 화면 약도 버튼) / sketch-figure-open(약도 +) / sketch-save / sketch-save-modal
+    sketch:      { meta: null,            ga4: 'open_sketch',        kakao: null,                   label: null,         value: 0 },
+    // 약도 이미지 저장 「완료」 — 버튼 클릭(sketch)과 별개로, 실제로 공유/다운로드가
     // 끝난 순간만 기록합니다. label: share(공유시트) / download / fallback / cancel
     savemap:     { meta: null,            ga4: 'save_map',           kakao: null,                   label: null,         value: 0 },
+    // 가이드·소식 페이지에서 홈(/, /#menu, /#visit, en.html#menu …)으로 가는 사이트 안 이동 — 전환 아님
+    tohome:      { meta: null,            ga4: 'to_home',            kakao: null,                   label: null,         value: 0 },
+    // 홈 상단 메뉴(GNB)·#why 카드 안 링크 — 페이지 안 이동, 전환 아님
+    nav:         { meta: null,            ga4: 'nav_click',          kakao: null,                   label: null,         value: 0 },
     // 네이버 플레이스(리뷰)로 보낸 클릭 — 플레이스 순위 신호(클릭·저장)로 이어지는 트래픽을 세기 위함
     naverplace:  { meta: null,            ga4: 'naver_place_click',  kakao: null,                   label: null,         value: 0 },
     // 구글 지도(리뷰 보기)로 보낸 클릭 — 예전엔 blog 로 잘못 묶여 outbound_blog 에 섞였음
@@ -46,7 +57,7 @@
     guide:       { meta: null,            ga4: 'guide_click',        kakao: null,                   label: null,         value: 0 },
     // 홈 메뉴판이 화면에 들어온 순간 1회 — 9/25 개편 뒤 메뉴가 두 번째 화면으로 올라와
     // 「메뉴 보기」 버튼(view_menu)을 안 누르고 스크롤로 보는 손님을 세기 위함
-    menuseen:    { meta: null,            ga4: 'menu_seen',          kakao: null,                   label: null,         value: 0 },
+    menuseen:    { meta: null,            ga4: 'menu_seen',          kakao: null,                   label: null,         value: 0, metaCustom: 'menu_seen' },
   };
 
   /* ---------------------------------------------------------------------
@@ -294,6 +305,14 @@
       // eventID 는 나중에 전환 API(서버 전송)를 붙였을 때
       // 브라우저 전송분과 서버 전송분을 같은 건으로 묶어 줍니다.
       window.fbq('track', map.meta, metaPayload, { eventID: eid });
+    }
+
+    // --- 메타 픽셀 맞춤 이벤트 (리타게팅 모수용: scroll_deep · menu_seen) ---
+    // 표준 이벤트가 아니라서 광고 최적화(전환)에는 쓰이지 않고, 맞춤 타깃을 만들 때만 씁니다.
+    if (CFG.metaPixelId && map.metaCustom && window.fbq) {
+      var customPayload = { content_category: 'restaurant', page_language: payload.page_language };
+      if (params.depth) customPayload.depth = params.depth;
+      window.fbq('trackCustom', map.metaCustom, customPayload, { eventID: eid });
     }
 
     // --- 카카오 ---

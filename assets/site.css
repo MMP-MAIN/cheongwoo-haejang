@@ -446,6 +446,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .sketch-close{position:absolute;top:.6rem;right:.6rem;background:var(--ink);color:#fff;font-weight:700;font-size:.95rem;padding:.55rem 1rem;border-radius:999px}
 .sketch-save-modal{right:auto;left:.6rem;background:#c0392b}
 .sketch-save[disabled],.sketch-save-modal[disabled]{opacity:.6}
+/* 약도 창 아래 지도 앱·전화 버튼 (2026-10-07) — 창을 세로 flex 로 바꿔 버튼 줄이 항상 화면 안에 남게 합니다 */
+.sketch-modal-box{display:flex;flex-direction:column;max-height:calc(100vh - 2rem)}
+@supports (height:100dvh){.sketch-modal-box{max-height:calc(100dvh - 2rem)}}
+.sketch-modal-box .sketch-body{flex:1 1 auto;min-height:0;max-height:none}
+.sketch-actions{flex:none;display:flex;flex-wrap:wrap;gap:.5rem;padding:.65rem .7rem calc(.65rem + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:#fff}
+.sketch-actions a{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;gap:.4rem;min-height:48px;padding:.55rem .5rem;border-radius:11px;font-size:.92rem;font-weight:700;line-height:1.25;text-align:center;text-decoration:none}
+.sketch-actions svg{width:17px;height:17px;flex:none}
+.sketch-actions .sk-naver{background:var(--ink);color:var(--paper)}
+.sketch-actions .sk-google{background:#fff;color:var(--ink);border:1px solid rgba(28,25,22,.28)}
+.sketch-actions .sk-call{background:var(--amber);color:#1a1208;flex:.8 1 0}
+@media (max-width:420px){.sketch-actions a{font-size:.86rem;gap:.3rem;padding:.5rem .35rem}.sketch-actions svg{width:15px;height:15px}}
 @media print{.sketch-modal{display:none !important}}
 
 /* ---------- 옛 지도·골목 풍경 ---------- */
