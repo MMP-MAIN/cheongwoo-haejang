@@ -32,6 +32,9 @@ const ASSET_V = 25;
 // `BUILD_DATE=2026-09-28 node build.mjs` 처럼 주면 그 날짜로 빌드한 것처럼 동작합니다(점검용).
 const BUILD_DAY = process.env.BUILD_DATE || new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10); // KST(UTC+9) 기준 날짜 — UTC 로 잡으면 오전 9시 전 빌드가 전날로 찍힙니다.
 const BUILD_NOW = process.env.BUILD_DATE ? Date.parse(`${process.env.BUILD_DATE}T00:00:00+09:00`) : Date.now();
+// 홈(5개 언어) 내용이 실제로 바뀐 날만 올린다. CI는 shallow clone이라 git 날짜를 쓸 수 없음.
+// 사이트맵 lastmod·RSS 날짜·홈 JSON-LD dateModified 에 쓰입니다(빌드할 때마다 오늘로 찍히면 검색엔진이 날짜를 믿지 않음).
+const HOME_MODIFIED = '2026-10-05';
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -256,6 +259,7 @@ function jsonLd(lang) {
     isPartOf: { '@type': 'WebSite', '@id': site.baseUrl + '#website', url: site.baseUrl, name: store.nameKo },
     about: { '@id': site.baseUrl + '#restaurant' },
     primaryImageOfPage: imgAbs(ogImage),
+    dateModified: HOME_MODIFIED,
   };
 
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': [page, restaurant, faq, crumbs, around] });
@@ -453,18 +457,23 @@ function menuRows(lang) {
 /* 메뉴별 이야기 카드 — 콘텐츠 SEO 페이지로 가는 내부 링크. 언어별로 있는 페이지만. */
 const GUIDE_CARDS = {
   ko: { title: '메뉴별 이야기', lede: '어떤 국물인지, 누구와 오면 좋은지 — 메뉴마다 따로 적었습니다.', cards: [
-    ['daegu-galbitang.html', 'images/food-galbitang.jpg', '대구 갈비탕 맛집', '하루 종일 고아 낸 국물에 부드러운 갈비. 어르신 모시기 좋은 대표 메뉴.'],
+    // 2026-10-05: 13 → 16장(국밥·반월당·한식당 추가). 새 카드 제목·문구에는 「반월당/동성로 + 메뉴명」 연속 구문을
+    // 넣지 않습니다(KEYWORDS.md 「앵커 규칙 10/5」). 갈비탕 카드는 「맵지 않은」 대신 부드러운 갈비·기본 갈빗대 2대.
+    ['daegu-galbitang.html', 'images/food-galbitang.jpg', '대구 갈비탕 맛집', '하루 종일 고아 낸 국물에 부드러운 갈비, 기본 갈빗대 2대. 사계절 대표 메뉴.'],
     ['daegu-jjimgalbi.html', 'images/food-ribs.jpg', '대구 찜갈비·갈비찜 맛집', '마늘을 산처럼 올린 소갈비찜 마늘폭탄 — 대구 10미 찜갈비의 매운맛.'],
     ['daegu-haejangguk.html', 'images/food-clear.jpg', '대구 해장국 맛집', '맑은 국물과 얼큰한 국물, 같은 솥에서 두 갈래로. 매일 11시, 반월당 약전골목에서.'],
     ['daegu-ttarogukbap.html', 'images/food-spicy.jpg', '대구 따로국밥', '1929년 대구탕반의 계보를 잇는 대구 10미 — 밥은 따로, 대구식으로.'],
+    ['daegu-gukbap.html', 'images/food-clear.jpg', '대구 국밥 맛집', '맑은 국·얼큰한 국·소갈비탕 — 대구식 소고기국밥 세 그릇, 고르는 법.'],
     ['daegu-kalguksu.html', 'images/food-kalguksu.jpg', '대구 장칼국수', '소고기 국물에 된장을 풀어 얼큰하게. 가을·겨울 계절 칼국수.'],
     ['daegu-suyuk.html', 'images/food-jeongol.jpg', '대구 수육 맛집', '결 좋은 아롱사태를 삶아 얇게 저며. 수육·전골·냉채, 술자리와 어르신 상.'],
     ['daegu-oxtail.html', 'images/food-oxtail.jpg', '대구 소꼬리찜', '상 한가운데 놓는 메뉴. 가족 모임·회식 한 상 짜기.'],
     ['daegu-yukhoe.html', 'images/food-yukhoe.jpg', '육회비빔밥', '숙성 간장으로 비빈 담백한 육회. 국물집의 또 다른 얼굴.'],
+    ['daegu-banwoldang.html', 'images/cheongwoo-02.jpg', '반월당 맛집 안내', '반월당역 15번 출구에서 도보 약 7분, 더현대 대구에서 약 6분. 종로·진골목과 이어진 골목의 메뉴 한눈에.'],
+    ['daegu-hansik.html', 'images/cheongwoo-06-bar.jpg', '약전골목 한식당', '40석·단체 40명 전화 예약, 테이블오더와 반찬 셀프바. 영어·일본어·중국어 메뉴 화면도.'],
     ['daegu-10mi.html', 'images/food-spicy.jpg', '대구 10미 안내', '열 가지 음식과 먹는 동네. 그중 따로국밥·대구식 찜갈비 두 가지를 약전골목에서 냅니다.'],
-    ['daegu-dongseongno.html', 'images/cheongwoo-01.jpg', '동성로 맛집', '동성로 중심에서 도보 약 15분, 약전골목 소고기 국물 밥집. 놀고 나서·해장·부모님 모시고.'],
+    ['daegu-dongseongno.html', 'images/cheongwoo-01.jpg', '동성로 밥집·한식', '동성로 중심에서 도보 약 15분, 약전골목 소고기 국물 밥집. 한 그릇 점심·해장·부모님 모시고.'],
     ['daegu-modern-alley.html', 'images/hood-gate.jpg', '대구 근대골목 2코스', '청라언덕→계산성당→약령시→진골목, 순서대로. 코스 한가운데가 약전골목입니다.'],
-    ['daegu-family.html', 'images/cheongwoo-01.jpg', '대구 가족외식·부모님 생신', '부드러운 소갈비탕과 얼큰한 국을 한 상에. 40석, 단체 40명까지 전화 예약.'],
+    ['daegu-family.html', 'images/cheongwoo-09.jpg', '부모님 생신·가족외식', '부드러운 갈비의 소갈비탕과 얼큰한 국을 한 상에. 40석·룸 없음, 단체 40명까지 전화 예약.'],
     ['daegu-dongdaegu.html', 'images/food-galbitang.jpg', '동대구역에서 오는 길', '1호선 5정거장, 환승 없이 반월당. 기차 시간에 맞춰 밥 먹는 법.'],
   ] },
   en: { title: 'Stories by dish', lede: 'What is in the bowl, and who it suits — written dish by dish.', cards: [
@@ -927,7 +936,7 @@ ${hoodSection(lang)}
         ${lang === 'ko' ? `<a href="daegu-banwoldang.html" data-track="guide" data-track-label="footer-banwoldang">반월당 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-gukbap.html" data-track="guide" data-track-label="footer-gukbap">대구 국밥 맛집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-hansik.html" data-track="guide" data-track-label="footer-hansik">대구 한식당</a>` : ''}
-        ${lang === 'ko' ? `<a href="daegu-dongseongno.html" data-track="guide" data-track-label="footer-dongseongno">동성로 맛집</a>` : ''}
+        ${lang === 'ko' ? `<a href="daegu-dongseongno.html" data-track="guide" data-track-label="footer-dongseongno">동성로 밥집</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-yukhoe.html" data-track="guide" data-track-label="footer-yukhoe">육회비빔밥</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-attractions.html" data-track="guide" data-track-label="footer-attractions">대구 가볼만한 곳</a>` : ''}
         ${lang === 'ko' ? `<a href="daegu-modern-alley.html" data-track="guide" data-track-label="footer-alley">대구 근대골목</a>` : ''}
@@ -1088,17 +1097,131 @@ for (const f of process.env.SKIP_STATIC ? [] : readdirSync(HERE).filter((n) => /
   if (after !== before) { writeFileSync(path, after, 'utf8'); console.log(`  ✓ ${f} (명조 서브셋)`); }
 }
 
-/* 사이트맵 — 5개 언어를 서로 alternate 로 묶어 줍니다. */
-// 가이드(콘텐츠 SEO) 페이지 — 손으로 만든 정적 파일이지만 사이트맵에는 여기서 등록합니다.
+// 가이드(콘텐츠 SEO) 페이지 — 손으로 만든 정적 파일이지만 사이트맵·RSS·llms.txt 에는 여기서 등록합니다.
 const GUIDES = ['daegu-kalguksu.html', 'daegu-takeout.html', 'daegu-10mi.html', 'daegu-dongdaegu.html', 'daegu-dongseongno.html', 'daegu-yukhoe.html', 'daegu-hansik.html', 'daegu-gukbap.html', 'daegu-banwoldang.html', 'daegu-oxtail.html', 'daegu-jjimgalbi.html', 'daegu-suyuk.html', 'daegu-ttarogukbap.html', 'daegu-banwoldang-food-tw.html', 'daegu-banwoldang-food-ja.html', 'daegu-beef-soup-en.html', 'daegu-galbitang.html', 'daegu-haejangguk.html', 'daegu-modern-alley.html', 'daegu-family.html', 'daegu-food-tour.html', 'daegu-food-tour-tw.html', 'daegu-food-tour-en.html', 'daegu-food-tour-ja.html', 'daegu-attractions.html'];
-const today = BUILD_DAY;
+
+/* 가이드 정적 HTML 읽기 — 한 번만 읽어 사이트맵·RSS·llms.txt·lint 가 같이 씁니다.
+   (명조 서브셋으로 다시 쓴 뒤에 읽으므로 위 루프보다 아래에 있어야 합니다.) */
+const normWs = (s = '') => String(s).replace(/\s+/g, ' ').trim();
+const guideHtml = new Map();
+const readGuide = (file) => {
+  if (!guideHtml.has(file)) guideHtml.set(file, readFileSync(join(HERE, file), 'utf8'));
+  return guideHtml.get(file);
+};
+const ldBlocks = (h) => [...h.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]);
+/** JSON-LD 안의 날짜 키(dateModified·datePublished) 중 가장 늦은 날. 따옴표·공백 차이는 허용합니다. */
+const ldDate = (blocks, key) => {
+  const re = new RegExp(`${key}[^0-9]{1,6}(\\d{4}-\\d{2}-\\d{2})`, 'g');
+  const ds = blocks.flatMap((b) => [...b.matchAll(re)].map((m) => m[1])).sort();
+  return ds.length ? ds[ds.length - 1] : null;
+};
+const headCache = new Map();
+/** 가이드 한 장의 { title, desc, date }. date = JSON-LD dateModified → 없으면 datePublished → 없으면 빌드일(경고). */
+const headOf = (file) => {
+  if (headCache.has(file)) return headCache.get(file);
+  const h = readGuide(file);
+  const title = normWs(decodeEnt((h.match(/<title>([^<]*)<\/title>/) || [])[1] || file));
+  const desc = normWs(decodeEnt((h.match(/name="description" content="([^"]*)"/) || [])[1] || ''));
+  const ld = ldBlocks(h);
+  let date = ldDate(ld, 'dateModified') || ldDate(ld, 'datePublished');
+  if (!date) {
+    console.warn(`  ! ${file}: JSON-LD 에 dateModified·datePublished 가 없어 빌드일(${BUILD_DAY})을 사이트맵·RSS 날짜로 씁니다`);
+    date = BUILD_DAY;
+  } else if (date > BUILD_DAY) {
+    console.warn(`  ! ${file}: 날짜 ${date} 가 빌드일(${BUILD_DAY})보다 뒤입니다 — 오타인지 확인`);
+  }
+  const r = { title, desc, date };
+  headCache.set(file, r);
+  return r;
+};
+
+/* 빌드 시 가이드 검사(lint) — 경고만 찍고 빌드는 계속합니다. CI 배포가 막히면 안 되므로 절대 process.exit 하지 않음.
+   scratchpad 의 check_guides.py(파이썬) 핵심 항목을 의존성 없이 정규식으로 옮긴 것:
+   ① JSON-LD dateModified 없음 ② title 60자·description 160자 초과
+   ③ FAQ 불일치(화면 dl.faq 의 dt/dd ↔ JSON-LD FAQPage) ④ 사장님 규칙 금칙 문구 */
+const LINT_BANNED = [
+  [/육개장|yukgaejang/gi, '육개장 금지'],
+  [/48\s*시간|12\s*시간/g, '조리시간 숫자'],
+  [/유아\s*의자|high\s*chairs?|兒童椅/gi, '유아 의자(미확인)'],
+  [/통유리/g, '통유리(미확인)'],
+  [/2024\s*년?\s*새로\s*단장/g, '2024 단장(미확인)'],
+  [/웨이팅이\s*잦/g, '웨이팅 자랑'],
+  [/(350|400)\s*년/g, '약령시 나이는 360년'],
+  [/도보\s*5\s*분|18\s*번\s*출구|바로\s*옆/g, '도보·출구 표기(카카오 실측만)'],
+];
+/** 화면 글자: 태그를 지우고(붙여서) 엔티티를 풀고 공백을 하나로 — BeautifulSoup get_text() 와 같은 규칙 */
+const visText = (s = '') => normWs(decodeEnt(String(s).replace(/<[^>]+>/g, '')));
+const firstDiff = (a, b) => { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i; };
+function lintGuide(file) {
+  const h = readGuide(file);
+  const out = [];
+  const ld = ldBlocks(h);
+  // ① dateModified
+  if (!ldDate(ld, 'dateModified')) out.push('JSON-LD dateModified 없음');
+  // ② 길이(글자 수 = 코드포인트)
+  const { title, desc } = headOf(file);
+  if ([...title].length > 60) out.push(`title ${[...title].length}자 > 60`);
+  if ([...desc].length > 160) out.push(`description ${[...desc].length}자 > 160`);
+  // ③ FAQ — 화면
+  const vis = new Map();
+  for (const dl of h.matchAll(/<dl\b[^>]*class="[^"]*\bfaq\b[^"]*"[^>]*>([\s\S]*?)<\/dl>/g)) {
+    let q = null;
+    for (const m of dl[1].matchAll(/<(dt|dd)\b[^>]*>([\s\S]*?)<\/\1>/g)) {
+      if (m[1] === 'dt') q = visText(m[2]);
+      else if (q !== null) { vis.set(q, visText(m[2])); q = null; }
+    }
+  }
+  // ③ FAQ — JSON-LD
+  const faqLd = new Map();
+  for (const b of ld) {
+    let data;
+    try { data = JSON.parse(b); } catch (e) { out.push(`JSON-LD 파싱 실패: ${e.message.slice(0, 60)}`); continue; }
+    const nodes = Array.isArray(data) ? data : (data['@graph'] || [data]);
+    for (const n of nodes) {
+      const types = [].concat(n && n['@type'] || []);
+      if (!types.includes('FAQPage')) continue;
+      for (const qn of [].concat(n.mainEntity || [])) {
+        faqLd.set(normWs(qn.name || ''), normWs((qn.acceptedAnswer || {}).text || ''));
+      }
+    }
+  }
+  for (const [q, a] of faqLd) {
+    if (!vis.has(q)) { out.push(`FAQ JSON-LD 에만 있는 질문: ${q.slice(0, 40)}`); continue; }
+    const v = vis.get(q);
+    if (v !== a) {
+      const i = firstDiff(a, v);
+      out.push(`FAQ 답 불일치 「${q.slice(0, 30)}」 LD:…${a.slice(Math.max(0, i - 12), i + 20)}… / 화면:…${v.slice(Math.max(0, i - 12), i + 20)}…`);
+    }
+  }
+  for (const q of vis.keys()) if (!faqLd.has(q)) out.push(`FAQ 화면에만 있는 질문: ${q.slice(0, 40)}`);
+  // ④ 금칙 — 화면 글자 + JSON-LD + meta content + img alt
+  const attrs = [...h.matchAll(/<meta\b[^>]*\bcontent="([^"]*)"/g), ...h.matchAll(/<img\b[^>]*\balt="([^"]*)"/g)].map((m) => m[1]);
+  const full = normWs(decodeEnt(h.replace(/<[^>]+>/g, ' ') + ' ‖ ' + attrs.join(' ‖ ')));
+  for (const [re, label] of LINT_BANNED) {
+    for (const m of full.matchAll(re)) out.push(`${label}: …${full.slice(Math.max(0, m.index - 20), m.index + m[0].length + 20)}…`);
+  }
+  return out;
+}
+{
+  let total = 0, files = 0;
+  for (const g of GUIDES) {
+    const w = lintGuide(g);
+    if (w.length) files++;
+    total += w.length;
+    for (const x of w) console.warn(`  ⚠ lint ${g}: ${x}`);
+  }
+  console.log(`  ${total ? '⚠' : '✓'} lint        가이드 ${GUIDES.length}장 중 ${files}장, 경고 ${total}건${total ? ' (빌드는 계속 — 위 줄을 보고 고치세요)' : ''}`);
+}
+
+/* 사이트맵 — 5개 언어를 서로 alternate 로 묶어 줍니다.
+   lastmod 는 빌드일이 아니라 실제로 바뀐 날: 홈 = HOME_MODIFIED, 가이드 = 그 페이지 JSON-LD 날짜, 소식 = 글 날짜. */
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${site.langs.map((lang) => `  <url>
     <loc>${abs(site.file[lang])}</loc>
 ${site.langs.map((l) => `    <xhtml:link rel="alternate" hreflang="${site.hreflang[l]}" href="${abs(site.file[l])}" />`).join('\n')}
     <xhtml:link rel="alternate" hreflang="x-default" href="${abs(site.file[site.defaultLang])}" />
-    <lastmod>${today}</lastmod>
+    <lastmod>${HOME_MODIFIED}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${lang === site.defaultLang ? '1.0' : '0.8'}</priority>
   </url>`).join('\n')}
@@ -1116,7 +1239,7 @@ ${news.length ? `  <url>
   </url>
 `).join('')}${GUIDES.map((g) => `  <url>
     <loc>${site.baseUrl}${g}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${headOf(g).date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`).join('\n')}
@@ -1126,19 +1249,15 @@ writeFileSync(join(HERE, 'sitemap.xml'), sitemap, 'utf8');
 
 /* RSS — 네이버 서치어드바이저 「RSS 제출」용. 네이버 웹문서 수집은 사이트맵보다 RSS 를
    더 잘 따라오므로(2026-09-04 네이버 통합검색 사이트 섹션 강화에 대응) 사이트맵과 같은
-   11개 URL 을 최신순으로 냅니다. 가이드 페이지 제목·설명은 정적 HTML 의 head 에서 읽습니다. */
+   URL 을 실제로 바뀐 날짜 내림차순으로 냅니다(같은 날짜는 소식 → 홈 → 가이드 순서 유지).
+   가이드 페이지 제목·설명·날짜는 정적 HTML 의 head·JSON-LD 에서 읽습니다. */
 const rssEsc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const headOf = (file) => {
-  const h = readFileSync(join(HERE, file), 'utf8');
-  const title = (h.match(/<title>([^<]*)<\/title>/) || [])[1] || file;
-  const desc = (h.match(/name="description" content="([^"]*)"/) || [])[1] || '';
-  return { title: title.replace(/&amp;/g, '&'), desc: desc.replace(/&amp;/g, '&') };
-};
+const kstNine = (d) => new Date(`${d}T09:00:00+09:00`).toUTCString();
 const rssItems = [
   ...news.map((n) => ({ url: `${site.baseUrl}news-${n.slug}.html`, title: `${n.title} | 청우해장 소식`, desc: n.summary, date: n.date })),
-  ...site.langs.map((lang) => ({ url: abs(site.file[lang]), title: t[lang].title, desc: strip(t[lang].description) })),
-  ...GUIDES.map((g) => ({ url: site.baseUrl + g, ...headOf(g) })),
-];
+  ...site.langs.map((lang) => ({ url: abs(site.file[lang]), title: t[lang].title, desc: strip(t[lang].description), date: HOME_MODIFIED })),
+  ...GUIDES.map((g) => { const h = headOf(g); return { url: site.baseUrl + g, title: h.title, desc: h.desc, date: h.date }; }),
+].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));   // Array#sort 는 안정 정렬 — 같은 날짜는 원래 순서
 const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
@@ -1146,14 +1265,14 @@ const rss = `<?xml version="1.0" encoding="UTF-8"?>
   <link>${site.baseUrl}</link>
   <description>${rssEsc(strip(t.ko.description))}</description>
   <language>ko</language>
-  <lastBuildDate>${new Date(today).toUTCString()}</lastBuildDate>
+  <lastBuildDate>${kstNine(rssItems.length ? rssItems[0].date : HOME_MODIFIED)}</lastBuildDate>
   <atom:link href="${site.baseUrl}rss.xml" rel="self" type="application/rss+xml" />
 ${rssItems.map((it) => `  <item>
     <title>${rssEsc(it.title)}</title>
     <link>${it.url}</link>
     <guid isPermaLink="true">${it.url}</guid>
     <description>${rssEsc(it.desc)}</description>
-    <pubDate>${new Date(it.date ? `${it.date}T09:00:00+09:00` : today).toUTCString()}</pubDate>
+    <pubDate>${kstNine(it.date)}</pubDate>
   </item>`).join('\n')}
 </channel>
 </rss>
@@ -1199,6 +1318,14 @@ const menuLines = menu.filter((m) => !m.offSeason).map((m) => {
   const price = m.note === 'small' ? `소 ${won(m.price)} · 대 ${won(23000)}` : won(m.price);
   return `- ${ko.n}${season} — ${price}${en ? ` / ${en.n}` : ''}`;
 }).join('\n');
+// 「## 페이지」의 가이드 줄은 GUIDES 와 각 페이지 <title> 에서 만듭니다 — 손으로 쓴 제목이 바뀐 title 과 어긋나지 않게.
+// title 끝의 「 | 청우해장…」 같은 상호 꼬리는 자르고, 외국어 페이지(-en/-ja/-tw)는 언어 이름을 붙입니다.
+const GUIDE_LANG_TAG = { en: ' (English)', ja: ' (日本語)', tw: ' (繁體中文)' };
+const llmsGuideLines = GUIDES.map((g) => {
+  const name = headOf(g).title.replace(/\s*\|\s*(?:청우해장|チョンウヘジャン|青友解酲|靑友解酲).*$/, '');
+  const lang = (g.match(/-(en|ja|tw)\.html$/) || [])[1];
+  return `- [${name}${lang ? GUIDE_LANG_TAG[lang] : ''}](${site.baseUrl}${g})`;
+}).join('\n');
 const llms = `# ${store.nameKo} (Cheongwoo Haejang · ${store.nameHanja})
 
 > 대한민국 대구 약령시 약전골목(1658년부터 이어진 한약 골목)에 있는 소고기 국물 전문 한식당.
@@ -1217,7 +1344,7 @@ const llms = `# ${store.nameKo} (Cheongwoo Haejang · ${store.nameHanja})
 - 마감: 22:00 (라스트오더 21:00). 일부 블로그에 남은 「23:00 마감」은 지난 정보
 - 네이버 안심번호 ${store.telSafeDisplay} 도 같은 가게 번호
 - 정보 확인일: ${BUILD_DAY}
-- 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴(홈페이지 en/ja/zh/tw.html — 매장에서 휴대폰 화면을 보여 주고 주문), 유아 의자 있음, 단체 40명(전화 예약), 콜키지(주류 반입) 가능, 신용카드·모바일 결제, 테이블오더(자리에서 주문), 반찬 셀프바
+- 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴(홈페이지 en/ja/zh/tw.html — 매장에서 휴대폰 화면을 보여 주고 주문), 단체 40명(전화 예약), 콜키지(주류 반입) 가능, 신용카드·모바일 결제, 테이블오더(자리에서 주문), 반찬 셀프바
 - 청우 약전 소갈비탕: 기본 갈빗대 2대
 - 개업: 2016년 (1929년 「대구탕반」은 음식의 계보이지 가게 연혁이 아님)
 - 상호 표기: 청우해장(靑友解酲). 메뉴명의 「약전」은 골목 이름이며 가게 이름이 아님
@@ -1225,7 +1352,7 @@ const llms = `# ${store.nameKo} (Cheongwoo Haejang · ${store.nameHanja})
 - 좌석: 홀 40석, 룸(방) 없음, 단체 40명까지 전화 예약
 - 위치 구분: 동성로·동인동에 있는 가게가 아님 — 동성로 중심에서 도보 약 15분, 서문시장에서 동쪽으로 약 16분(약 1km), 동인동 찜갈비 골목까지 약 30분(1.9km)
 - 대기: 평일 점심(12:00~13:30)·주말엔 대기가 있는 편. 11:00 오픈 직후, 13:30 이후, 17:00 이른 저녁이 여유로움
-- 맵기: 맵지 않음 = 청우 약전 소갈비탕·맑은 해장국·아롱사태 수육·소꼬리찜 / 얼큰 = 대구 얼큰해장국(따로국밥)·얼큰 장칼국수 / 매움 = 소갈비찜 마늘폭탄
+- 맵기: 맵지 않음 = 청우 약전 소갈비탕·맑은 해장국·아롱사태 수육 / 얼큰 = 대구 얼큰해장국(따로국밥)·얼큰 장칼국수 / 매움 = 소갈비찜 마늘폭탄 / 소꼬리찜 = 새콤한 맛(부추 곁들임)
 - 리뷰: 네이버 방문자 리뷰 약 ${reviewsMeta.naver.countText}건(★${reviewsMeta.naver.rating}), Google 리뷰 ${reviewsMeta.count}건(★${reviewsMeta.rating})
 ${SUMMER_ON ? '' : '- 청우 평양냉면: 2026년 판매 종료. 다른 사이트에 남은 냉면 메뉴·가격은 지난 정보\n'}
 
@@ -1233,8 +1360,8 @@ ${SUMMER_ON ? '' : '- 청우 평양냉면: 2026년 판매 종료. 다른 사이�
 - 비 오거나 쌀쌀한 날: 뜨끈한 소고기 국물 — 청우 약전 소갈비탕 16,000원·맑은 해장국 12,000원(맵지 않음), 대구 얼큰해장국 13,000원, 가을·겨울 얼큰 장칼국수 12,000원(매장 식사만)
 - 혼밥·직장인 점심: 해장국·소갈비탕·육회비빔밥(14,000원) 모두 1인분 메뉴. 평일 12:00~13:30 붐빔, 11:00 직후·13:30 이후 여유
 - 저녁 늦게: 22:00 마감, 라스트오더 21:00 — 저녁 8시 방문 가능
-- 아이와: 유아 의자 있음, 맵지 않은 맑은 국물(맑은 해장국·소갈비탕)
-- 부모님·어르신: 맵지 않은 소꼬리찜(49,000원)·아롱사태 수육·소갈비탕
+- 아이와: 맵지 않은 맑은 국물(맑은 해장국·소갈비탕)
+- 부모님·어르신: 부드러운 갈비의 소갈비탕(기본 갈빗대 2대)·아롱사태 수육·맑은 해장국, 여럿이면 상 가운데 소꼬리찜(49,000원)
 - 회식·가족 모임: 홀 40석, 단체 40명까지 전화 예약(053-255-7052), 룸 없음, 콜키지 가능. 수육·찜을 가운데 두고 탕을 인원수대로
 - 해장: 11:00 오픈. 맑은 해장국(맵지 않음) / 대구 얼큰해장국(따로국밥)
 - 대구 10미: 따로국밥(대구 얼큰해장국)과 대구식 찜갈비(소갈비찜 마늘폭탄) 두 가지를 한 상에서
@@ -1247,7 +1374,7 @@ ${SUMMER_ON ? '' : '- 청우 평양냉면: 2026년 판매 종료. 다른 사이�
 - Cheongwoo Haejang (청우해장 · 靑友解酲), 1F, 11 Namseong-ro, Jung-gu, Daegu — inside the Yangnyeongsi herbal medicine alley. Opened 2016. Order at your table (table-order device); self-service side-dish bar.
 - Open daily 11:00–22:00 · break 15:00–17:00 · last order 21:00. Tel +82-53-255-7052 (phone reservations, groups up to 40, no private rooms).
 - About 7 min (500 m) from Banwoldang Station Exit 15 · 6 min from The Hyundai Daegu · 10 min from Jungangno Station · 3 min from the Yangnyeongsi Museum of Oriental Medicine. Not located in Dongseong-ro or Dongin-dong.
-- Non-spicy: galbitang (beef short rib soup with two ribs, ₩16,000), clear beef soup (₩12,000), boiled beef shank, braised oxtail (₩49,000). Spicy: Daegu spicy beef soup / ttaro-gukbap (₩13,000), braised short ribs with garlic (₩22,000).
+- Non-spicy: galbitang (beef short rib soup with two ribs, ₩16,000), clear beef soup (₩12,000), boiled beef shank. Spicy: Daegu spicy beef soup / ttaro-gukbap (₩13,000), braised short ribs with garlic (₩22,000). Also braised oxtail with chives, tangy (₩49,000).
 - No medicinal herbs in the broth (“Yakjeon” is the alley's name); the broth is made from beef and beef bones.
 - English/Japanese/Chinese menus are on this website (en.html, ja.html, zh.html, tw.html) — show your phone to staff to order.
 - Takeaway by phone (except yukhoe bibimbap and kalguksu); no delivery; no private parking (public car park 1 min walk).
@@ -1261,31 +1388,7 @@ ${menuLines}
 - [日本語](${site.baseUrl}ja.html)
 - [简体中文](${site.baseUrl}zh.html)
 - [繁體中文](${site.baseUrl}tw.html)
-- [대구 따로국밥 맛집 — 대구탕반의 계보, 반월당 약전골목](${site.baseUrl}daegu-ttarogukbap.html)
-- [대구 찜갈비·갈비찜 맛집 — 반월당 소갈비찜 마늘폭탄](${site.baseUrl}daegu-jjimgalbi.html)
-- [대구 수육 맛집 — 아롱사태 수육·수육 전골](${site.baseUrl}daegu-suyuk.html)
-- [대구 장칼국수 — 소고기 국물에 된장을 푼 얼큰 장칼국수, 가을·겨울 계절 메뉴](${site.baseUrl}daegu-kalguksu.html)
-- [대구 포장맛집 — 갈비찜·갈비탕·해장국·수육 포장, 전화 주문 후 픽업](${site.baseUrl}daegu-takeout.html)
-- [대구 소꼬리찜 맛집 — 가족 모임 상차림](${site.baseUrl}daegu-oxtail.html)
-- [반월당 맛집·대구 종로 맛집 — 약전골목 청우해장 메뉴 한눈에](${site.baseUrl}daegu-banwoldang.html)
-- [대구 국밥 맛집 — 소고기국밥·따로국밥·맑은 해장국](${site.baseUrl}daegu-gukbap.html)
-- [대구 한식 맛집·한식당 추천 — 가족모임·단체·외국인 메뉴](${site.baseUrl}daegu-hansik.html)
-- [동성로 맛집 — 동성로 중심에서 도보 약 15분, 반월당 뒤 약전골목 청우해장](${site.baseUrl}daegu-dongseongno.html)
-- [대구 육회비빔밥 맛집 — 숙성 간장 육회 14,000원](${site.baseUrl}daegu-yukhoe.html)
-- [대구 갈비탕 맛집 — 대구 중구 약전골목 청우 약전 소갈비탕](${site.baseUrl}daegu-galbitang.html)
-- [Ttaro Gukbap & Beef Soup in Daegu — 7 min from Banwoldang (English)](${site.baseUrl}daegu-beef-soup-en.html)
-- [大邱半月堂美食 — 藥令市牛肉湯・牛排骨湯 (繁體中文)](${site.baseUrl}daegu-banwoldang-food-tw.html)
-- [大邱 半月堂グルメ — 薬令市の牛肉スープ・カルビタン (日本語)](${site.baseUrl}daegu-banwoldang-food-ja.html)
-- [대구 해장국 맛집 — 반월당 약전골목 소고기 해장국, 맑은·얼큰 두 가지](${site.baseUrl}daegu-haejangguk.html)
-- [대구 여행 코스·맛집 — 반월당·약령시·서문시장 근대골목 당일치기](${site.baseUrl}daegu-food-tour.html)
-- [Daegu Day Trip: Banwoldang to Seomun Market Food Walk (English)](${site.baseUrl}daegu-food-tour-en.html)
-- [大邱観光モデルコース (日本語)](${site.baseUrl}daegu-food-tour-ja.html)
-- [大邱一日遊美食路線 (繁體中文)](${site.baseUrl}daegu-food-tour-tw.html)
-- [대구 가볼만한 곳 베스트 9](${site.baseUrl}daegu-attractions.html)
-- [대구 근대골목 2코스 순서와 약령시 약전골목 안내 — 점심·주차까지](${site.baseUrl}daegu-modern-alley.html)
-- [대구 가족외식·부모님 생신 식당 — 아이랑 어른이 한 상에](${site.baseUrl}daegu-family.html)
-- [동대구역에서 오는 길 — 1호선 5정거장, 환승 없이 반월당](${site.baseUrl}daegu-dongdaegu.html)
-- [대구 10미 — 열 가지 음식과 먹는 동네, 약전골목에서 두 가지(따로국밥·대구식 찜갈비)](${site.baseUrl}daegu-10mi.html)
+${llmsGuideLines}
 
 ## 소식 (News)
 ${news.map((n) => `- ${n.date} [${n.title}](${site.baseUrl}news-${n.slug}.html) — ${n.summary}`).join('\n')}

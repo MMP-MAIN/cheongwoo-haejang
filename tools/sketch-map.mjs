@@ -20,7 +20,7 @@ const Z = 19;   // 레티나용 2배 해상도
 const P = { // 네이버 지역검색 좌표 (2026-08-18)
   store:   { lat: 35.8687847, lng: 128.5884600 },
   hyundai: { lat: 35.8673087, lng: 128.5901352 },  // 더현대 대구 출구 (반월당역 지하 연결)
-  exit18:  { lat: 35.8661687, lng: 128.5909148 },
+  // 18번 출구 라벨은 2026-10-05 삭제 — 안내 출구는 반월당역 15번 출구·더현대 대구 출구만(사장님 규칙)
   park1:   { lat: 35.8689680, lng: 128.5882798 },  // 약령시서문 공영주차장
   museum:  { lat: 35.8683970, lng: 128.5899063 },
   park2:   { lat: 35.8677306, lng: 128.5904823 },  // 약령시서편 공영주차장
@@ -55,7 +55,6 @@ const S = 2;   // z19 라 픽셀이 2배 → 글씨·선도 2배
 const font = "'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif";
 const [sx, sy] = px(P.store.lat, P.store.lng);
 const [hx, hy] = px(P.hyundai.lat, P.hyundai.lng);
-const [ex, ey] = px(P.exit18.lat, P.exit18.lng);
 const [p1x, p1y] = px(P.park1.lat, P.park1.lng);
 const [p2x, p2y] = px(P.park2.lat, P.park2.lng);
 const [mx, my] = px(P.museum.lat, P.museum.lng);
@@ -81,8 +80,6 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
   <!-- 출발: 더현대 → 라벨을 핀 왼쪽으로 -->
   ${pin(hx, hy, '#1c6b48', 'M')}${label(hx - 26*S, hy - 4*S, '반월당역 → 더현대 대구 출구', { fs: 19, bg: '#e8f4ee', fg: '#0f4a30', stroke: '#1c6b48', anchor: 'end' })}
   ${label(hx - 26*S, hy + 36*S, '더현대 대구에서 도보 약 6분', { fs: 16, fw: 600, bg: '#e8f4ee', fg: '#0f4a30', stroke: '#1c6b48', anchor: 'end' })}
-  <!-- 18번 출구 (보조) -->
-  ${label(ex, ey, '18번 출구', { fs: 14, fw: 600, anchor: 'middle', bg: 'rgba(255,255,255,.9)' })}
   <!-- 도착: 청우해장 → 라벨을 별 왼쪽으로 -->
   <circle cx="${sx}" cy="${sy}" r="${24*S}" fill="#c0392b" stroke="#fff" stroke-width="${4*S}"/>
   <text x="${sx}" y="${sy + 8*S}" font-family="${font}" font-size="${22*S}" font-weight="800" fill="#fff" text-anchor="middle">★</text>

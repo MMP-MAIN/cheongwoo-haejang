@@ -317,6 +317,39 @@
       }
     ]
   },
+  "images/cheongwoo-06-bar.jpg": {
+    "w": 1040,
+    "h": 1067,
+    "src": "images/cheongwoo-06-bar.jpg",
+    "avif": [
+      {
+        "w": 360,
+        "h": 369,
+        "path": "images/opt/cheongwoo-06-bar-360.avif",
+        "bytes": 13126
+      },
+      {
+        "w": 720,
+        "h": 739,
+        "path": "images/opt/cheongwoo-06-bar-720.avif",
+        "bytes": 53682
+      }
+    ],
+    "webp": [
+      {
+        "w": 360,
+        "h": 369,
+        "path": "images/opt/cheongwoo-06-bar-360.webp",
+        "bytes": 23472
+      },
+      {
+        "w": 720,
+        "h": 739,
+        "path": "images/opt/cheongwoo-06-bar-720.webp",
+        "bytes": 99438
+      }
+    ]
+  },
   "images/cheongwoo-07.jpg": {
     "w": 1067,
     "h": 1600,
@@ -1283,25 +1316,25 @@
         "w": 360,
         "h": 318,
         "path": "images/opt/sketch-map-360.avif",
-        "bytes": 9187
+        "bytes": 9133
       },
       {
         "w": 720,
         "h": 637,
         "path": "images/opt/sketch-map-720.avif",
-        "bytes": 24659
+        "bytes": 24522
       },
       {
         "w": 1080,
         "h": 955,
         "path": "images/opt/sketch-map-1080.avif",
-        "bytes": 44330
+        "bytes": 44343
       },
       {
         "w": 1600,
         "h": 1415,
         "path": "images/opt/sketch-map-1600.avif",
-        "bytes": 78375
+        "bytes": 78343
       }
     ],
     "webp": [
@@ -1309,25 +1342,25 @@
         "w": 360,
         "h": 318,
         "path": "images/opt/sketch-map-360.webp",
-        "bytes": 12562
+        "bytes": 12506
       },
       {
         "w": 720,
         "h": 637,
         "path": "images/opt/sketch-map-720.webp",
-        "bytes": 36778
+        "bytes": 36824
       },
       {
         "w": 1080,
         "h": 955,
         "path": "images/opt/sketch-map-1080.webp",
-        "bytes": 70004
+        "bytes": 69708
       },
       {
         "w": 1600,
         "h": 1415,
         "path": "images/opt/sketch-map-1600.webp",
-        "bytes": 123122
+        "bytes": 123068
       }
     ]
   },
