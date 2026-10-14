@@ -34,7 +34,7 @@ const BUILD_DAY = process.env.BUILD_DATE || new Date(Date.now() + 9 * 60 * 60 * 
 const BUILD_NOW = process.env.BUILD_DATE ? Date.parse(`${process.env.BUILD_DATE}T00:00:00+09:00`) : Date.now();
 // 홈(5개 언어) 내용이 실제로 바뀐 날만 올린다. CI는 shallow clone이라 git 날짜를 쓸 수 없음.
 // 사이트맵 lastmod·RSS 날짜·홈 JSON-LD dateModified 에 쓰입니다(빌드할 때마다 오늘로 찍히면 검색엔진이 날짜를 믿지 않음).
-const HOME_MODIFIED = '2026-10-05';
+const HOME_MODIFIED = '2026-10-13';
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
 t.tw = tw;
@@ -1160,6 +1160,14 @@ const LINT_BANNED = [
   [/웨이팅이\s*잦/g, '웨이팅 자랑'],
   [/(350|400)\s*년/g, '약령시 나이는 360년'],
   [/도보\s*5\s*분|18\s*번\s*출구|바로\s*옆/g, '도보·출구 표기(카카오 실측만)'],
+  // 10/13 라운드 2 추가
+  [/2\s*[~〜～–-]\s*3\s*(인|명|人)|[Gg]ood for 2\s*[–-]\s*3/g, '인분 수(미확인)'],
+  [/영남\s*최대|전국적으로\s*유명|완벽합니다|베스트\s*\d|간식의\s*성지|정석/g, '최상급 표현'],
+  [/속을\s*(한번\s*)?(달래|다스리)|속\s*편하게|보약|효능/g, '효능형 표현'],
+  [/남성로\s*(39|82)/g, '지번 충돌(남성로 11만)'],
+  [/1\s*~\s*4\s*분/g, '주차 도보 시간(약령시서문 공영주차장 도보 1분만 승인)'],
+  [/대기가\s*있을/g, '대기 언급(미확인)'],
+  [/\(무료/g, '시설 요금(미확인)'],
 ];
 /** 화면 글자: 태그를 지우고(붙여서) 엔티티를 풀고 공백을 하나로 — BeautifulSoup get_text() 와 같은 규칙 */
 const visText = (s = '') => normWs(decodeEnt(String(s).replace(/<[^>]+>/g, '')));
