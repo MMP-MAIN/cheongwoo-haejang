@@ -12,10 +12,10 @@
 - 가는 법: 더현대 대구에서 도보 약 6분(약 380m) · 지하철 반월당역(1·2호선) 15번 출구에서 도보 약 7분(약 500m) · 중앙로역(1호선)에서 도보 약 10분, 약령시 약전골목 안 · 가장 가까운 출구는 반월당역 15번 출구
 - 주소 표기: 도로명 주소 「대구 중구 남성로 11」 기준으로 찾아오세요(지도 앱마다 지번 표기가 다르게 나올 수 있음)
 - 주차: 전용 주차장 없음, 가게 앞 주차 불가 · 약령시서문 공영주차장 도보 1분
-- 포장·배달: 포장 가능(전화 주문 후 픽업, 육회비빔밥·얼큰 장칼국수 제외) · 배달은 하지 않음
+- 포장·배달: 포장 가능(전화 주문 후 픽업, 얼큰 장칼국수 제외) · 배달은 하지 않음
 - 마감: 22:00 (라스트오더 21:00). 일부 블로그에 남은 「23:00 마감」은 지난 정보
 - 네이버 안심번호 0507-1380-7052 도 같은 가게 번호
-- 정보 확인일: 2026-10-19
+- 정보 확인일: 2026-10-28
 - 특징: 맵지 않은 맑은 국물 옵션 다수(어르신·아이 동반에 적합), 영어·일본어·중국어 메뉴(홈페이지 en/ja/zh/tw.html — 매장에서 휴대폰 화면을 보여 주고 주문), 단체 40명(전화 예약), 콜키지(주류 반입) 가능, 신용카드·모바일 결제, 테이블오더(자리에서 주문), 반찬 셀프바
 - 청우 약전 소갈비탕: 기본 갈빗대 2대
 - 개업: 2016년 (1929년 「대구탕반」은 음식의 계보이지 가게 연혁이 아님)
@@ -41,7 +41,7 @@
 - 약령시·근대골목 점심: 약전골목 안, 약령시한의약박물관 도보 약 3분, 계산성당 약 6분
 - 서문시장에서: 동쪽으로 도보 약 16분(약 1km)
 - 차로 올 때: 전용 주차장 없음, 약령시서문 공영주차장 도보 1분
-- 포장: 소갈비탕·해장국·소갈비찜·수육·소꼬리찜 포장 가능(전화 주문), 육회비빔밥·장칼국수 불가, 배달 없음
+- 포장: 소갈비탕·해장국·소갈비찜·수육·소꼬리찜·육회비빔밥 포장 가능(전화 주문), 장칼국수 불가, 배달 없음
 
 ## Key facts (English)
 - Cheongwoo Haejang (청우해장 · 靑友解酲), 1F, 11 Namseong-ro, Jung-gu, Daegu — inside the Yangnyeongsi herbal medicine alley. Opened 2016. Order at your table (table-order device); self-service side-dish bar.
@@ -50,7 +50,7 @@
 - Non-spicy: galbitang (beef short rib soup with two ribs, ₩16,000), clear beef soup (₩12,000), boiled beef shank. Spicy: Daegu spicy beef soup / ttaro-gukbap (₩13,000), braised short ribs with garlic (₩22,000). Also braised oxtail with chives, tangy (₩49,000).
 - No medicinal herbs in the broth (“Yakjeon” is the alley's name); the broth is made from beef and beef bones.
 - English/Japanese/Chinese menus are on this website (en.html, ja.html, zh.html, tw.html) — show your phone to staff to order.
-- Takeaway by phone (except yukhoe bibimbap and kalguksu); no delivery; no private parking (public car park 1 min walk).
+- Takeaway by phone (except kalguksu); no delivery; no private parking (public car park 1 min walk).
 
 ## 메뉴 (Menu)
 - 청우 약전 소갈비탕 — 16,000원 / Galbitang (Beef Short Rib Soup)
@@ -108,4 +108,4 @@
 ## 자주 묻는 질문 요약 (FAQ)
 - 대구 10미 가운데 찜갈비·따로국밥 두 가지를 한 곳에서 맛볼 수 있습니다.
 - 근처 볼거리: 약령시 한의약박물관, 근대문화골목(청라언덕·계산성당), 서문시장 — 모두 도보권.
-- 예약은 전화로만 받습니다. 포장 가능(전화 주문 후 픽업, 육회비빔밥·얼큰 장칼국수는 포장 불가). 배달은 하지 않습니다.
+- 예약은 전화로만 받습니다. 포장 가능(전화 주문 후 픽업, 얼큰 장칼국수는 포장 불가). 배달은 하지 않습니다.
