@@ -73,7 +73,7 @@ export const galleryAlt = {
     queueDay: '점심시간, 청우해장 앞 약전골목에 줄 선 손님들',
     queue: '저녁 무렵 청우해장 앞에 줄 선 손님들',
     exterior: '대구 중구 남성로 청우해장 외관 — 파란 한글 간판과 靑友解酲 한자 간판',
-    hall: '청우해장 홀 — 창가 원목 테이블 좌석',
+    hall: '청우해장 1층 홀 — 원목 테이블',
     counter: '청우해장 매장 안쪽 홀과 메뉴 포스터',
     menuwall: '청우해장 벽면 메뉴 — 얼큰장칼국수·얼큰해장국·맑은해장국',
     window: '약전골목에서 바라본 청우해장 창',
@@ -87,7 +87,7 @@ export const galleryAlt = {
     queueDay: 'Lunchtime queue outside Cheongwoo Haejang in the herbal alley',
     queue: 'Guests queuing outside Cheongwoo Haejang in the evening',
     exterior: 'Cheongwoo Haejang storefront on Namseong-ro, Jung-gu, Daegu',
-    hall: 'Dining hall with wooden tables by the large front window',
+    hall: 'Ground-floor dining hall with wooden tables',
     counter: 'Inner dining room and menu posters at Cheongwoo Haejang',
     menuwall: 'Menu posters — spicy kalguksu, spicy and clear haejang-guk',
     window: 'The restaurant seen from Yakjeon-golmok herbal medicine alley',
@@ -101,7 +101,7 @@ export const galleryAlt = {
     queueDay: '昼どき、薬田横丁の店の前に並ぶお客さん',
     queue: '夕方、店の前に並ぶお客さん',
     exterior: '大邱市中区南城路のチョンウヘジャン外観',
-    hall: '大きな窓沿いの木製テーブル席',
+    hall: '1階ホールの木製テーブル席',
     counter: '店内奥のホールとメニューポスター',
     menuwall: '壁のメニュー — 辛味噌カルグクス、辛口・澄んだヘジャンクク',
     window: '薬田横丁から見た店舗のガラス窓',
@@ -115,7 +115,7 @@ export const galleryAlt = {
     queueDay: '午餐时间在药田胡同店门口排队的客人',
     queue: '傍晚在店门口排队的客人',
     exterior: '大邱市中区南城路 青友解酲 店面外观',
-    hall: '大玻璃窗旁的实木餐桌区',
+    hall: '一楼用餐区的实木餐桌',
     counter: '店内后厅与菜单海报',
     menuwall: '墙上菜单 — 辣味大酱刀切面、香辣与清汤解酒汤',
     window: '从药田胡同看到的店面玻璃窗',
@@ -219,7 +219,7 @@ export const t = {
     ],
     parkingTitle: '주차',
     parkingBody:
-      '매장 전용 주차장은 없습니다. 약령시서문 공영주차장이 가게에서 도보 1분이고, 근처 공영주차장이 몇 곳 더 있습니다. 아래 이름을 누르면 길찾기가 열립니다.',
+      '매장 전용 주차장은 없습니다. 약령시서문 공영주차장이 가게에서 도보 1분이고, 근처에 주차장이 두 곳 더 있습니다. 아래 이름을 누르면 길찾기가 열립니다.',
 
     reserveTitle: '예약 · 문의',
     reserveLede:
@@ -234,7 +234,7 @@ export const t = {
     faq: [
       { q: '예약이 되나요?', a: '네, 전화 예약을 받습니다. 홀은 40석이고 단체는 40명까지 예약할 수 있습니다. 별도의 방(룸)은 없으니 053-255-7052로 날짜·인원·도착 시간을 미리 알려 주세요.' },
       { q: '반월당역 몇 번 출구에서 가깝나요?', a: '반월당역(1·2호선) 15번 출구에서 약 500m, 도보 약 7분입니다. 더현대 대구에서는 도보 약 6분, 중앙로역에서는 약 10분입니다.' },
-      { q: '주차는 어디에 하나요?', a: '매장 전용 주차장은 없고 가게 앞에도 주차할 수 없습니다. 약령시서문 공영주차장이 도보 1분 거리에 있습니다. 약령시한의약박물관 주차장(2분), 약령시서편 공영주차장(4분)도 가깝습니다. 「오시는 길」에 길찾기 링크가 있습니다.' },
+      { q: '주차는 어디에 하나요?', a: '매장 전용 주차장은 없고 가게 앞에도 주차할 수 없습니다. 약령시서문 공영주차장이 도보 1분 거리에 있습니다. 약령시서편 공영주차장·세화민영주차장도 도보 약 4분입니다. 「오시는 길」에 길찾기 링크가 있습니다.' },
       { q: '브레이크타임이 있나요?', a: hasBreak
           ? `네, ${H.breakStart}~${H.breakEnd} 이 브레이크타임입니다. 마감은 ${H.close}${hasLastOrder ? `, 라스트오더는 ${H.lastOrder}` : ''} 입니다.`
           : `브레이크타임 없이 ${H.open}부터 ${H.close}까지 계속 영업합니다. 점심과 저녁 사이 한가한 시간에 오셔도 됩니다.` },
@@ -374,7 +374,7 @@ export const t = {
       { q: 'What is there to see near the restaurant?', a: 'We are inside the Yangnyeongsi herbal medicine alley, a well-known Daegu sight. On foot, Gyesan Cathedral is about 6 minutes away, Cheongna Hill about 11 and Seomun Market about 16 — an easy half-day walk, with lunch here.' },
       { q: 'Can I make a reservation?', a: 'Yes, by phone. We have 40 seats and take groups of up to 40; there is no private room. Call +82 53-255-7052 with the date, group size and arrival time.' },
       { q: 'Which Banwoldang Station exit is closest?', a: 'Exit 15 of Banwoldang Station (Lines 1 & 2) — about 500 m, roughly a 7-minute walk. It is about 6 minutes on foot from The Hyundai Daegu.' },
-      { q: 'Is there parking?', a: 'No private car park and no parking in front of the restaurant, but Yangnyeongsi West Gate Public Parking is a 1-minute walk away, with three more within a 2–4 minute walk. See “Getting here” for directions links.' },
+      { q: 'Is there parking?', a: 'No private car park and no parking in front of the restaurant, but Yangnyeongsi West Gate Public Parking is a 1-minute walk away, with two more car parks about a 4-minute walk away. See “Getting here” for directions links.' },
       { q: 'Is there a break time?', a: hasBreak
           ? `Yes — ${H.breakStart} to ${H.breakEnd}. We close at ${H.close}${hasLastOrder ? ` (last order ${H.lastOrder})` : ''}.`
           : `No. We serve straight through from ${H.open} to ${H.close}, so the quiet hours between lunch and dinner are fine.` },
@@ -509,7 +509,7 @@ export const t = {
       { q: '近くの大邱観光スポットは？', a: '当店は大邱旅行で人気の観光地・薬令市の路地の中にあります。徒歩で桂山聖堂まで約6分、青蘿の丘まで約11分、西門市場まで約16分。テグ観光の合間の食事にちょうど良い立地です。' },
       { q: '予約はできますか。', a: 'はい、お電話で承ります。ホールは40席で、団体は40名様までご予約いただけます。個室はありませんので、+82 53-255-7052 に日付・人数・到着時間をお知らせください。' },
       { q: '半月堂駅の何番出口が近いですか。', a: '半月堂駅（1・2号線）15番出口から約500m、徒歩約7分です。ザ・現代 大邱からは徒歩約6分です。' },
-      { q: '駐車場はありますか。', a: '専用駐車場はなく、店の前にも停められません。薬令市西門公営駐車場が徒歩1分です。他にも徒歩2〜4分に3か所あります。「アクセス」に経路リンクがあります。' },
+      { q: '駐車場はありますか。', a: '専用駐車場はなく、店の前にも停められません。薬令市西門公営駐車場が徒歩1分です。他にも徒歩約4分に2か所あります。「アクセス」に経路リンクがあります。' },
       { q: '休憩時間はありますか。', a: hasBreak
           ? `はい、${H.breakStart}〜${H.breakEnd} が休憩時間です。閉店は${H.close}${hasLastOrder ? `（ラストオーダー${H.lastOrder}）` : ''}です。`
           : `休憩なしで${H.open}から${H.close}まで通しで営業しています。昼と夜の間の空いている時間帯でもご利用いただけます。` },
@@ -645,7 +645,7 @@ export const t = {
       { q: '大邱必吃美食有哪些？', a: '大邱的招牌是炖排骨（辣味牛排骨）、大邱式牛肉汤（ttarogukbap）— 本店都有。距半月堂站15号出口步行约7分钟，距 The Hyundai 大邱步行约6分钟，就在药令市胡同里。' },
       { q: '可以预订吗？', a: '可以，请致电预订。店内 40 个座位，40 人以内的团体也能预订，但没有包间。请提前告知日期、人数和到店时间，电话 +82 53-255-7052。' },
       { q: '离半月堂站几号出口近？', a: '半月堂站（1、2号线）15号出口约500米，步行约7分钟；距 The Hyundai 大邱步行约6分钟。' },
-      { q: '有停车场吗？', a: '没有专用停车场，店门口也不能停车，但药令市西门公共停车场步行仅 1 分钟，步行 2〜4 分钟内还有 3 个停车场。「交通」区有导航链接。' },
+      { q: '有停车场吗？', a: '没有专用停车场，店门口也不能停车，但药令市西门公共停车场步行仅 1 分钟，步行约 4 分钟处还有 2 个停车场。「交通」区有导航链接。' },
       { q: '有休息时间吗？', a: hasBreak
           ? `有，${H.breakStart}–${H.breakEnd} 为休息时间。${H.close} 打烊${hasLastOrder ? `（最后点单 ${H.lastOrder}）` : ''}。`
           : `没有。从 ${H.open} 到 ${H.close} 连续营业，午餐和晚餐之间的空闲时段也可以来。` },

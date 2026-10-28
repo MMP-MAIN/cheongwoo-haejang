@@ -175,26 +175,27 @@ export const menu = [
 
 // 근처 주차장 — 전용 주차장이 없어서 손님이 제일 많이 묻는 것.
 // 2026-08-18 네이버 지역검색으로 확인. 좌표가 있어서 「길찾기」가 그 주차장으로 바로 꽂힙니다.
-// walkMin 은 직선거리 ×1.3 / 분속 80m 로 계산한 도보 시간입니다.
+// walkMin = 카카오맵 도보 길찾기(도착지 남성로 11) 2026-10-28 실측 (서문 65m·60초, 서편 240m·211초, 세화 293m·256초).
+// 「약령시한의약박물관 주차장」은 카카오에 그 이름이 없어 10/28 뺐습니다. 같은 자리에 「약령시회관 유료주차장」(도보 3분)이 있습니다.
+// 사장님이 이름·공영 여부를 확인하면 nameKo '약령시회관 유료주차장', kind 'private', walkMin 3 으로 되살립니다.
 export const parkingLots = [
   { id: 'seomun',  nameKo: '약령시서문 공영주차장', nameEn: 'Yangnyeongsi West Gate Public Parking', addrKo: '대구 중구 남성로 33',       lat: 35.8689680, lng: 128.5882798, walkMin: 1, kind: 'public' },
-  { id: 'museum',  nameKo: '약령시한의약박물관 주차장', nameEn: 'Yangnyeongsi Museum Parking',   addrKo: '대구 중구 수동 (달성로 인근)', lat: 35.8687259, lng: 128.5897326, walkMin: 2, kind: 'public' },
   { id: 'seopyeon',nameKo: '약령시서편 공영주차장', nameEn: 'Yangnyeongsi Seopyeon Public Parking', addrKo: '대구 중구 남성로 61-2',     lat: 35.8677306, lng: 128.5904823, walkMin: 4, kind: 'public' },
   { id: 'sehwa',   nameKo: '세화민영주차장',        nameEn: 'Sehwa Private Parking',            addrKo: '대구 중구 남성로 69',       lat: 35.8675988, lng: 128.5908229, walkMin: 4, kind: 'private' },
 ];
 
 // 갤러리 — 위코컴퍼니가 시공/촬영한 실제 매장 사진
+// 2026-10-28: 리뷰 이벤트 현수막(리뷰 보상 안내)이 보이는 cheongwoo-01(홀)·cheongwoo-04(통로)를 뺐습니다.
+// hall 자리는 cheongwoo-08 — 원래 'through' 자리에 있던 사진이라 같은 사진이 두 번 나오지 않게 'through' 줄은 지웠습니다.
 export const gallery = [
   { src: 'images/cheongwoo-queue-day.jpg', key: 'queueDay', w: 1085, h: 814 },  // 인스타 @chungwoo.official (사장님 허락)
   { src: 'images/cheongwoo-queue.jpg', key: 'queue',   w: 800,  h: 1066 },   // 네이버 플레이스 사장님 등록 사진
   { src: 'images/cheongwoo-02.jpg', key: 'exterior',  w: 1600, h: 1067 },
-  { src: 'images/cheongwoo-01.jpg', key: 'hall',      w: 1600, h: 1067 },
+  { src: 'images/cheongwoo-08.jpg', key: 'hall',      w: 1600, h: 1067 },
   { src: 'images/cheongwoo-05.jpg', key: 'counter',   w: 1600, h: 1067 },
   { src: 'images/cheongwoo-07.jpg', key: 'menuwall',  w: 1067, h: 1600 },
   { src: 'images/cheongwoo-03.jpg', key: 'window',    w: 1600, h: 1067 },
-  { src: 'images/cheongwoo-04.jpg', key: 'aisle',     w: 1067, h: 1600 },
   { src: 'images/cheongwoo-06.jpg', key: 'kitchen',   w: 1600, h: 1067 },
-  { src: 'images/cheongwoo-08.jpg', key: 'through',   w: 1600, h: 1067 },
   { src: 'images/cheongwoo-09.jpg', key: 'table',     w: 1067, h: 1600 },
   { src: 'images/cheongwoo-10.jpg', key: 'door',      w: 1067, h: 1600 },
 ];
