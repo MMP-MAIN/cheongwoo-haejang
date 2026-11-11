@@ -30,7 +30,7 @@ export const menuNames = {
   en: {
     naengmyeon: { n: 'Cheongwoo Pyeongyang Naengmyeon', d: 'Cold buckwheat noodles in a rich, slow-simmered beef broth. Summer seasonal.' },
     galbitang:  { n: 'Galbitang (Beef Short Rib Soup)', d: 'Two tender beef short ribs as standard, in clear beef broth. The meat is soft enough for grandparents and kids. “Yakjeon” in its Korean name comes from our alley — no medicinal herbs.' },
-    spicy:      { n: 'Daegu Spicy Beef Soup (Haejang-guk)', d: 'Daegu-style spicy beef soup from beef and beef bones simmered all day. Warming rather than fiery — in the line of Daegu’s ttaro-gukbap.' },
+    spicy:      { n: 'Daegu Spicy Beef Soup (Haejang-guk)', d: 'Daegu-style spicy beef soup from beef brisket and shank simmered all day. Warming rather than fiery — in the line of Daegu’s ttaro-gukbap.' },
     ribs:       { n: 'Garlic-Bomb Braised Short Ribs', d: 'Braised short ribs in our house sauce, piled with garlic. Daegu-style spicy jjim-galbi.' },
     oxtail:     { n: 'Braised Oxtail',            d: 'Rich, meaty oxtail with crisp chives in a tangy sauce. A centrepiece for groups.' },
     yukhoe:     { n: 'Yukhoe Bibimbap (Beef Tartare Rice Bowl)', d: 'Fresh raw beef over rice with our own aged soy dressing. Takeaway available.' },
@@ -43,11 +43,11 @@ export const menuNames = {
   ja: {
     naengmyeon: { n: '清友 平壌冷麺',           d: '牛肉だけでじっくり煮出した濃厚な牛肉スープの冷麺。夏季限定。' },
     galbitang:  { n: '薬田 牛カルビタン',       d: '澄んだ牛肉スープに、柔らかく煮た骨付きカルビ2本が基本。ご年配の方やお子さまにも食べやすい一杯です。「薬田」は店のある路地の名前で、韓方の薬材は入っていません。' },
-    spicy:      { n: '大邱 辛口ヘジャンクク（タロクッパ）', d: '牛肉と牛骨を一日じっくり煮込んだ、大邱式の牛肉スープ。激辛ではなく、じんわり温まる辛さ。タロクッパの系譜を継ぐ味です。' },
+    spicy:      { n: '大邱 辛口ヘジャンクク（タロクッパ）', d: '牛バラ肉とすね肉を一日じっくり煮込んだ、大邱式の牛肉スープ。激辛ではなく、じんわり温まる辛さ。タロクッパの系譜を継ぐ味です。' },
     ribs:       { n: 'ニンニク爆弾 牛カルビチム', d: '特製ダレにたっぷりのニンニクをのせた牛カルビの煮込み。大邱式の辛口です。' },
     oxtail:     { n: '牛テールの煮込み',         d: '弾力のある牛テールにシャキシャキのニラをのせた、酸味のきいた煮込み。ご家族の集まりや大人数での食事に。' },
     yukhoe:     { n: 'ユッケビビンバ',           d: '新鮮なユッケに、自家製の熟成醤油ダレを合わせたビビンバ。お持ち帰りもできます。' },
-    clear:      { n: '澄んだヘジャンクク',       d: '唐辛子を使わない、すっきり澄んだ牛肉スープ。牛肉と牛骨でとる羅州コムタン風で、辛くないので朝食にも。' },
+    clear:      { n: '澄んだヘジャンクク',       d: '唐辛子を使わない、すっきり澄んだ牛肉スープ。牛バラ肉とすね肉でとる羅州コムタン風で、辛くないので朝食にも。' },
     kalguksu:   { n: '辛味噌カルグクス',         d: '牛肉スープに製麺所の手作り麺を合わせた、ピリ辛の味噌カルグクス。秋冬限定、店内でのお食事のみ。' },
     jeongol:    { n: '牛すね肉の鍋（チョンゴル）', d: '牛すね肉とスジを煮込む鍋。みんなでシェアして召し上がれます。' },
     arong:      { n: '牛すね肉の冷菜',           d: 'じっくり茹でた牛すね肉を、自家製の甘酸っぱい冷菜ダレで和えた一品。' },
@@ -56,7 +56,7 @@ export const menuNames = {
   zh: {
     naengmyeon: { n: '清友平壤冷面',     d: '用牛肉慢火熬煮的浓郁牛肉汤底冷面。夏季限定。' },
     galbitang:  { n: '药田牛排骨汤',     d: '标配 2 根牛排骨，炖得软嫩，配清澈的牛肉汤，长辈和孩子都好入口。“药田”是本店所在胡同的名字，汤里不加中药材。' },
-    spicy:      { n: '大邱香辣解酒汤', d: '牛肉和牛骨熬一整天的大邱式香辣牛肉汤，辣得暖身。属于大邱十味之一 ttarogukbap（汤饭分开上）这一脉。' },
+    spicy:      { n: '大邱香辣解酒汤', d: '牛胸肉和牛腱肉熬一整天的大邱式香辣牛肉汤，辣得暖身。属于大邱十味之一 ttarogukbap（汤饭分开上）这一脉。' },
     ribs:       { n: '蒜香炸弹炖牛排骨', d: '特制酱汁配满满蒜瓣的炖牛排骨。大邱式辣味。' },
     oxtail:     { n: '炖牛尾',           d: '有嚼劲的牛尾配爽脆韭菜，酸香开胃。适合家庭聚餐。' },
     yukhoe:     { n: '生牛肉拌饭',       d: '新鲜生牛肉铺在米饭上，用本店熟成酱油调味，拌着吃。可以打包。' },
@@ -186,7 +186,7 @@ export const t = {
     storyLede:
       '무엇을 고를지, 누구와 오면 좋을지 미리 적어 두었습니다.',
     story: [
-      { h: '맑은 국물, 얼큰한 국물', p: `맑은 해장국(${W('clear')})은 고춧가루 없이 맑고 깔끔하게, 대구 얼큰해장국(${W('spicy')})은 얼큰하게 냅니다. 둘 다 소고기 양지·사태를 오래 고아 낸 국물입니다. 고르기 어려우시면 두 분이 하나씩 시켜 나눠 드셔 보세요. 「해장」이라는 이름이지만 아침·점심 든든한 한 끼로도 좋습니다.` },
+      { h: '맑은 국물, 얼큰한 국물', p: `맑은 해장국(${W('clear')})은 고춧가루 없이 맑고 깔끔하게, 대구 얼큰해장국(${W('spicy')})은 얼큰하게 냅니다. 둘 다 소고기 양지·사태를 오래 고아 낸 국물입니다. 고르기 어려우시면 두 분이 하나씩 시켜 나눠 드셔 보세요. 「해장」이라는 이름이지만 점심·저녁 든든한 한 끼로도 좋습니다.` },
       { h: '부모님·아이와 오실 때', p: `청우 약전 소갈비탕(${W('galbitang')})은 기본 갈빗대 2대에 맑은 국물을 부어 냅니다. 아롱사태 수육(소 ${W('suyuk')} · 대 23,000원)을 곁들이면 어르신·아이와 한 상에서 나눠 드시기 좋습니다.` },
       { h: '약령시 골목 구경길에', p: '약령시 한의약박물관에서 걸어서 약 3분, 진골목에서 약 8분, 반월당역 15번 출구에서 약 7분입니다. 360년 넘게 이어 온 대구약령시, 그 약전골목 안에 청우해장은 2016년에 문을 열었습니다. 메뉴 이름의 「약전」도 이 골목 이름에서 따왔고, 국물은 소고기 양지·사태로 냅니다.' },
       { h: '모임은 전화로 먼저', p: `홀은 40석이고 별도 룸은 없습니다. 단체는 40명까지 전화(053-255-7052)로 받습니다. 상 가운데 소꼬리찜(${W('oxtail')})이나 아롱사태 수육 전골(${W('jeongol')})을 두고 국·탕을 곁들이시면 한 상이 됩니다. 인원에 맞는 양은 전화로 여쭤 주세요.` },
@@ -292,7 +292,7 @@ export const t = {
       `<strong>Clear beef soup</strong> ${WP('clear')} · <strong>Daegu spicy beef soup</strong> ${WP('spicy')} · <strong>Galbitang</strong> (short rib soup) ${WP('galbitang')}. Come solo or share — late breakfast or lunch.`,
     // 여름 메뉴(냉면) 판매 중일 때만 쓰는 문단 — build.mjs 의 SUMMER_ON
     heroLedeSummer:
-      'Inside Yangnyeongsi, Daegu’s 360-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> simmers beef and beef bones all day — for clear or spicy beef soup, tender galbitang, and cold naengmyeon in summer. Good for a late breakfast, a meal with grandparents or a family lunch.',
+      'Inside Yangnyeongsi, Daegu’s 360-year-old herbal medicine alley, <strong>Cheongwoo Haejang</strong> simmers beef brisket and shank all day — for clear or spicy beef soup, tender galbitang, and cold naengmyeon in summer. Good for a late breakfast, a meal with grandparents or a family lunch.',
     heroNote: 'Good for parents and kids. Yangnyeongsi West Gate Public Parking is 1 min away.',
     heroCtaCall: 'Call to book or ask',
     heroCtaDir: 'Directions',
@@ -324,9 +324,9 @@ export const t = {
     storyLede:
       'What to order, and who it suits — a short guide before you come.',
     story: [
-      { h: 'Clear broth or spicy broth', p: `The clear beef soup (${WP('clear')}) is clean and light, with no chili powder. The Daegu spicy beef soup (${WP('spicy')}) is hearty and spicy. Both start from beef and beef bones simmered slowly. Can’t choose? Order one of each and share. <em>Haejang-guk</em> is often called “hangover soup”, but either makes a filling late breakfast or lunch — we open at ${H.open}.` },
+      { h: 'Clear broth or spicy broth', p: `The clear beef soup (${WP('clear')}) is clean and light, with no chili powder. The Daegu spicy beef soup (${WP('spicy')}) is hearty and spicy. Both start from beef brisket and shank simmered slowly. Can’t choose? Order one of each and share. <em>Haejang-guk</em> is often called “hangover soup”, but either makes a filling late breakfast or lunch — we open at ${H.open}.` },
       { h: 'Coming with parents or kids', p: `Our galbitang (${WP('galbitang')}) comes with two tender beef short ribs as standard, in clear beef broth. Add a plate of boiled beef shank (small ${WP('suyuk')} · large ₩23,000) and the whole family can share one table.` },
-      { h: 'On a walk through Yangnyeongsi', p: 'About 7 minutes on foot from Banwoldang Station Exit 15, 3 from the Yangnyeongsi Herbal Medicine Museum and 8 from Jin-golmok. We opened here in 2016, in Yakjeon-golmok — the lane of Yangnyeongsi, Daegu’s herbal medicine market for more than 360 years. “Yakjeon” in our galbitang’s Korean name comes from the alley; the broth is beef and beef bones, with no medicinal herbs.' },
+      { h: 'On a walk through Yangnyeongsi', p: 'About 7 minutes on foot from Banwoldang Station Exit 15, 3 from the Yangnyeongsi Herbal Medicine Museum and 8 from Jin-golmok. We opened here in 2016, in Yakjeon-golmok — the lane of Yangnyeongsi, Daegu’s herbal medicine market for more than 360 years. “Yakjeon” in our galbitang’s Korean name comes from the alley; the broth is beef brisket and shank, with no medicinal herbs.' },
       { h: 'Groups: please call first', p: `40 seats, no private room. Groups of up to 40 can book by phone (+82 53-255-7052). Put braised oxtail (${WP('oxtail')}) or the beef shank hot pot (${WP('jeongol')}) in the middle and add soups around it. Call to ask how much to order for your group.` },
       { h: 'Where ttaro-gukbap comes from', p: 'In 1929 the magazine Byeolgeongon ran a piece called “Daegu’s pride, Daegu tangban.” Ttaro-gukbap — beef soup with the rice served on the side — carries on that line and is now one of <a href="daegu-beef-soup-en.html" data-track="guide" data-track-label="home-story-beefsoup-en" style="text-decoration:underline">Daegu’s 10 delicacies</a>. Our Daegu spicy beef soup is cooked in that same Daegu style.' },
     ],
@@ -387,7 +387,7 @@ export const t = {
       { q: 'Where can I get galbitang or beef soup near Banwoldang Station?', a: `Here — Cheongwoo Haejang (청우해장), 11 Namseong-ro, inside the Yangnyeongsi herbal medicine alley, about a 7-minute walk (500 m) from Banwoldang Station Exit 15. We serve galbitang (beef short rib soup, 2 ribs as standard, ${WP('galbitang')}), a clear beef soup with no chili (${WP('clear')}) and the Daegu spicy beef soup (ttaro-gukbap style, ${WP('spicy')}).` },
       { q: 'Is it a good lunch stop after the Yangnyeongsi herbal medicine market?', a: `Yes. We are inside the Yangnyeongsi alley, about 3 minutes on foot from the Yangnyeongsi Herbal Medicine Museum. Open daily ${H.open}–${H.close}${hasBreak ? ` (break ${H.breakStart}–${H.breakEnd}${hasLastOrder ? `, last order ${H.lastOrder}` : ''})` : (hasLastOrder ? ` (last order ${H.lastOrder})` : '')}.` },
       { q: 'How much meat is in the galbitang?', a: `Our galbitang (${WP('galbitang')}) comes with two beef short ribs as standard, cooked tender and served in clear beef broth.` },
-      { q: 'Are there medicinal herbs in the soup?', a: 'No. “Yakjeon” in our dish names is the name of the alley. The broth is made from beef and beef bones, with no medicinal herbs.' },
+      { q: 'Are there medicinal herbs in the soup?', a: 'No. “Yakjeon” in our dish names is the name of the alley. The broth is made from beef brisket and shank, with no medicinal herbs.' },
     ],
 
     footerTagline: 'Korean restaurant in Yakjeon-golmok, Daegu',
@@ -403,7 +403,7 @@ export const t = {
     langName: '日本語',
     title: '大邱グルメ・大邱観光の食事に｜チョンウヘジャン — 薬令市の韓国料理店（半月堂 ランチ・カルビタン・カルビチム）',
     description:
-      `大邱観光・大邱グルメなら薬令市の韓国料理店チョンウヘジャン。牛肉と牛骨をじっくり煮出したカルビタン、大邱式ヘジャンクク、辛口カルビチム。日本語メニューはこのサイトに掲載。半月堂駅15番出口から徒歩約7分、ザ・現代 大邱から徒歩約6分。毎日${H.open}〜${H.close}${hasBreak ? `（休憩${H.breakStart.slice(0, 2)}〜${H.breakEnd.slice(0, 2)}時）` : ''}、電話予約 +82-53-255-7052。`,
+      `大邱観光・大邱グルメなら薬令市の韓国料理店チョンウヘジャン。牛バラ肉とすね肉をじっくり煮出したカルビタン、大邱式ヘジャンクク、辛口カルビチム。日本語メニューはこのサイトに掲載。半月堂駅15番出口から徒歩約7分、ザ・現代 大邱から徒歩約6分。毎日${H.open}〜${H.close}${hasBreak ? `（休憩${H.breakStart.slice(0, 2)}〜${H.breakEnd.slice(0, 2)}時）` : ''}、電話予約 +82-53-255-7052。`,
     keywords:
       '大邱 グルメ, 大邱 レストラン, 大邱 韓国料理, 大邱 名物, ヘジャンクク, カルビタン, カルビチム, 大邱 カルビチム, 辛口カルビチム, 半月堂, 薬令市, 大邱 近代路地, 大邱 旅行, 西門市場 グルメ, 東城路 グルメ, 大邱十味',
     ogLocale: 'ja_JP',
@@ -427,7 +427,7 @@ export const t = {
       `<strong>澄んだヘジャンクク</strong> ${WP('clear')} · <strong>大邱 辛口ヘジャンクク</strong> ${WP('spicy')} · <strong>牛カルビタン</strong> ${WP('galbitang')}。1人でも、1杯ずつ分け合っても。遅めの朝食にも。`,
     // 여름 메뉴(냉면) 판매 중일 때만 쓰는 문단 — build.mjs 의 SUMMER_ON
     heroLedeSummer:
-      '360年の歴史をもつ薬令市の路地で、<strong>チョンウヘジャン</strong>は牛肉と牛骨を一日かけて煮出したスープをお出しします。澄んだヘジャンククも辛口も、柔らかなカルビタンも。夏は平壌冷麺。朝食に、ご年配の方との食事に、家族そろっての外食に。',
+      '360年の歴史をもつ薬令市の路地で、<strong>チョンウヘジャン</strong>は牛バラ肉とすね肉を一日かけて煮出したスープをお出しします。澄んだヘジャンククも辛口も、柔らかなカルビタンも。夏は平壌冷麺。朝食に、ご年配の方との食事に、家族そろっての外食に。',
     heroNote: 'ご両親やお子さま連れでも気軽にどうぞ。お車は薬令市西門公営駐車場（徒歩1分）へ。',
     heroCtaCall: '電話予約・問合せ',
     heroCtaDir: '道順を見る',
@@ -459,9 +459,9 @@ export const t = {
     storyLede:
       '何を頼めばいいか、誰と来るといいか。ご来店前にまとめました。',
     story: [
-      { h: '澄んだスープか、辛口か', p: `澄んだヘジャンクク（${WP('clear')}）は唐辛子を使わず、すっきりと。大邱 辛口ヘジャンクク（${WP('spicy')}）は、じんわり温まる大邱式の辛さです。どちらも牛肉と牛骨をじっくり煮出したスープ。迷ったら、おふたりで1杯ずつ頼んで分けてみてください。「ヘジャン」は酔い覚ましの意味ですが、朝昼のしっかりした一食にも向いています。` },
+      { h: '澄んだスープか、辛口か', p: `澄んだヘジャンクク（${WP('clear')}）は唐辛子を使わず、すっきりと。大邱 辛口ヘジャンクク（${WP('spicy')}）は、じんわり温まる大邱式の辛さです。どちらも牛バラ肉とすね肉をじっくり煮出したスープ。迷ったら、おふたりで1杯ずつ頼んで分けてみてください。「ヘジャン」は酔い覚ましの意味ですが、朝昼のしっかりした一食にも向いています。` },
       { h: 'ご両親・お子さまとご一緒なら', p: `薬田 牛カルビタン（${WP('galbitang')}）は、柔らかく煮た骨付きカルビ2本が基本。澄んだ牛肉スープを注いでお出しします。牛すね肉のスユク（小 ${WP('suyuk')}・大 ₩23,000）を添えれば、ご年配の方やお子さまとも同じ食卓で分け合えます。` },
-      { h: '薬令市の路地歩きの途中に', p: '薬令市韓医薬博物館から徒歩約3分、近代路地のチンゴルモクから約8分、半月堂駅15番出口から約7分。360年以上続く大邱薬令市、その薬田横丁にチョンウヘジャンは2016年に店を開きました。メニュー名の「薬田」もこの路地の名前から。スープは牛肉と牛骨でとり、韓方の薬材は入れていません。' },
+      { h: '薬令市の路地歩きの途中に', p: '薬令市韓医薬博物館から徒歩約3分、近代路地のチンゴルモクから約8分、半月堂駅15番出口から約7分。360年以上続く大邱薬令市、その薬田横丁にチョンウヘジャンは2016年に店を開きました。メニュー名の「薬田」もこの路地の名前から。スープは牛バラ肉とすね肉でとり、韓方の薬材は入れていません。' },
       { h: '団体はまずお電話を', p: `ホールは40席、個室はありません。団体は40名様までお電話（+82 53-255-7052）で承ります。テーブルの真ん中に牛テールの煮込み（${WP('oxtail')}）や牛すね肉の鍋（${WP('jeongol')}）を置き、スープを添えれば、みんなで囲む食卓になります。人数に合った量はお電話でお尋ねください。` },
       { h: 'タロクッパのルーツ、大邱湯飯', p: '1929年、雑誌『別乾坤（ピョルゴンゴン）』は「大邱の誇り、大邱湯飯（テグタンバン）」という記事を載せました。ご飯を別に出すタロクッパがその系譜を受け継ぎ、今では<a href="daegu-banwoldang-food-ja.html" data-track="guide" data-track-label="home-story-banwoldang-ja" style="text-decoration:underline">大邱十味</a>のひとつです。チョンウヘジャンの大邱 辛口ヘジャンククは、この大邱式の牛肉スープにならっています。' },
     ],
@@ -524,7 +524,7 @@ export const t = {
       { q: 'カルビタンにお肉はどのくらい入っていますか。', a: `薬田 牛カルビタン（${WP('galbitang')}）には、骨付きカルビが基本で2本入っています。柔らかく煮たカルビに、澄んだ牛肉スープを注いでお出しします。` },
       { q: '東城路にあるお店ですか。', a: 'いいえ。大邱市中区 南城路11、薬令市の薬田横丁の中にあります。東城路の中心からは徒歩約15分、中央路駅から約10分、西門市場から東へ約16分（約1km）です。' },
       { q: '古くからあるお店ですか。', a: '路地は360年以上続く薬令市の薬田横丁ですが、チョンウヘジャンは2016年に開店しました。' },
-      { q: 'スープに韓方の薬材は入っていますか。', a: 'いいえ。メニュー名の「薬田」は路地の名前です。スープは牛肉と牛骨でとり、韓方の薬材は入れていません。' },
+      { q: 'スープに韓方の薬材は入っていますか。', a: 'いいえ。メニュー名の「薬田」は路地の名前です。スープは牛バラ肉とすね肉でとり、韓方の薬材は入れていません。' },
     ],
 
     footerTagline: '大邱・薬田横丁の韓国料理店',
@@ -540,7 +540,7 @@ export const t = {
     langName: '中文',
     title: '大邱美食・大邱旅游必吃｜青友解酲 — 药令市韩式餐厅（近代胡同旁・半月堂站）',
     description:
-      `大邱美食推荐：药令市（药田胡同）的韩式餐厅青友解酲。牛肉和牛骨熬的清汤、香辣两种解酒汤，软嫩牛排骨汤（标配 2 根排骨），蒜香炖牛排骨。本网站有中文菜单。距半月堂站15号出口步行约7分钟，距 The Hyundai 大邱步行约6分钟，近代胡同游览路线上。每天 ${H.open}–${H.close} 营业${hasBreak ? `（${H.breakStart}–${H.breakEnd} 休息）` : ''}，电话预订 +82-53-255-7052。`,
+      `大邱美食推荐：药令市（药田胡同）的韩式餐厅青友解酲。牛胸肉和牛腱肉熬的清汤、香辣两种解酒汤，软嫩牛排骨汤（标配 2 根排骨），蒜香炖牛排骨。本网站有中文菜单。距半月堂站15号出口步行约7分钟，距 The Hyundai 大邱步行约6分钟，近代胡同游览路线上。每天 ${H.open}–${H.close} 营业${hasBreak ? `（${H.breakStart}–${H.breakEnd} 休息）` : ''}，电话预订 +82-53-255-7052。`,
     keywords:
       '大邱美食, 大邱美食推荐, 大邱必吃, 大邱餐厅, 大邱韩餐, 大邱自由行, 解酒汤, 排骨汤, 炖排骨, 辣炖排骨, 大邱炖排骨, 半月堂, 药令市, 大邱近代胡同, 大邱旅游, 大邱景点, 西门市场美食, 东城路美食, 大邱十味',
     ogLocale: 'zh_CN',
@@ -564,7 +564,7 @@ export const t = {
       `<strong>清汤解酒汤</strong> ${WP('clear')} · <strong>大邱香辣解酒汤</strong> ${WP('spicy')} · <strong>药田牛排骨汤</strong> ${WP('galbitang')}。都是牛肉汤，当早午餐也合适；一个人来也行，两人各点一碗分着吃也好。`,
     // 여름 메뉴(냉면) 판매 중일 때만 쓰는 문단 — build.mjs 의 SUMMER_ON
     heroLedeSummer:
-      '在有 360 年历史的药令市胡同里，<strong>青友解酲</strong>用牛肉和牛骨熬上一整天，做清汤、香辣两种解酒汤和软嫩的牛排骨汤，夏天还有平壤冷面。当早午餐、陪长辈、全家人一起吃都合适。',
+      '在有 360 年历史的药令市胡同里，<strong>青友解酲</strong>用牛胸肉和牛腱肉熬上一整天，做清汤、香辣两种解酒汤和软嫩的牛排骨汤，夏天还有平壤冷面。当早午餐、陪长辈、全家人一起吃都合适。',
     heroNote: '带长辈、孩子来也很自在。不会韩语也没关系，把这个页面给店员看就能点单。',
     heroCtaCall: '电话预订·咨询',
     heroCtaDir: '查看路线',
@@ -596,9 +596,9 @@ export const t = {
     storyLede:
       '点什么、适合和谁一起来，先帮你整理好了。',
     story: [
-      { h: '清汤还是香辣', p: `清汤解酒汤（${WP('clear')}）不放辣椒粉，清爽干净；大邱香辣解酒汤（${WP('spicy')}）是香辣的红汤。两种都是用牛肉和牛骨慢慢熬出来的汤。选不出来，就两人各点一碗分着吃。名字里有“解酒”，不喝酒也照样好吃 — 当早午餐、当正餐，一碗都很顶饱。` },
+      { h: '清汤还是香辣', p: `清汤解酒汤（${WP('clear')}）不放辣椒粉，清爽干净；大邱香辣解酒汤（${WP('spicy')}）是香辣的红汤。两种都是用牛胸肉和牛腱肉慢慢熬出来的汤。选不出来，就两人各点一碗分着吃。名字里有“解酒”，不喝酒也照样好吃 — 当早午餐、当正餐，一碗都很顶饱。` },
       { h: '带长辈、孩子来', p: `药田牛排骨汤（${WP('galbitang')}）标配 2 根牛排骨，排骨炖得软嫩，配清澈的牛肉汤。再加一盘水煮牛腱片（小份 ${WP('suyuk')} · 大份 ₩23,000），全家一桌分着吃正好。` },
-      { h: '逛药令市，顺路来', p: '从药令市韩医药博物馆步行约 3 分钟，从半月堂站 15 号出口约 7 分钟。大邱药令市已有 360 多年历史，青友解酲 2016 年在这条药田胡同开店。菜名里的“药田”取自胡同的名字，汤用牛肉和牛骨熬成，不加中药材。' },
+      { h: '逛药令市，顺路来', p: '从药令市韩医药博物馆步行约 3 分钟，从半月堂站 15 号出口约 7 分钟。大邱药令市已有 360 多年历史，青友解酲 2016 年在这条药田胡同开店。菜名里的“药田”取自胡同的名字，汤用牛胸肉和牛腱肉熬成，不加中药材。' },
       { h: '团体请先来电', p: `店内 40 个座位，没有包间。40 人以内的团体请提前致电（+82 53-255-7052）。桌子中间放一份炖牛尾（${WP('oxtail')}）或牛腱火锅（${WP('jeongol')}），再配几碗汤，就是一桌。点多少合适，可以在电话里问。` },
       { h: '大邱汤饭，ttarogukbap 的源头', p: '1929 年，杂志《别乾坤》刊登了《大邱的骄傲——大邱汤饭》一文。饭和汤分开上的 ttarogukbap 延续了这一脉，如今是大邱十味之一。青友解酲的大邱香辣解酒汤，做的就是这种大邱式牛肉汤。' },
     ],
@@ -660,7 +660,7 @@ export const t = {
       { q: '逛完药令市，可以用中文菜单点餐吗？', a: `可以。本店距药令市韩医药博物馆步行约 3 分钟。简体中文、繁体中文、英文、日文菜单都在本网站上，把手机画面给店员看就能点单。每天 ${H.open}–${H.close}${hasBreak ? `（${H.breakStart}–${H.breakEnd} 休息${hasLastOrder ? `，最后点单 ${H.lastOrder}` : ''}）` : (hasLastOrder ? `（最后点单 ${H.lastOrder}）` : '')}。` },
       { q: '店在东城路吗？', a: '不在东城路上。地址是大邱中区南城路 11 号 1 楼，在药令市药田胡同里；从东城路中心步行约 15 分钟，从半月堂站 15 号出口约 7 分钟。' },
       { q: '是老店吗？', a: '胡同是有 360 多年历史的大邱药令市，青友解酲则是 2016 年开的店。' },
-      { q: '汤里有中药材吗？', a: '没有。菜名里的“药田”是胡同的名字，汤用牛肉和牛骨熬成，不加中药材。' },
+      { q: '汤里有中药材吗？', a: '没有。菜名里的“药田”是胡同的名字，汤用牛胸肉和牛腱肉熬成，不加中药材。' },
     ],
 
     footerTagline: '大邱药田胡同的韩式餐厅',
@@ -670,3 +670,4 @@ export const t = {
     langLabel: '语言',
   },
 };
+
