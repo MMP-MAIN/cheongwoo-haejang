@@ -34,7 +34,7 @@ const BUILD_DAY = process.env.BUILD_DATE || new Date(Date.now() + 9 * 60 * 60 * 
 const BUILD_NOW = process.env.BUILD_DATE ? Date.parse(`${process.env.BUILD_DATE}T00:00:00+09:00`) : Date.now();
 // 홈(5개 언어) 내용이 실제로 바뀐 날만 올린다. CI는 shallow clone이라 git 날짜를 쓸 수 없음.
 // 사이트맵 lastmod·RSS 날짜·홈 JSON-LD dateModified 에 쓰입니다(빌드할 때마다 오늘로 찍히면 검색엔진이 날짜를 믿지 않음).
-const HOME_MODIFIED = '2026-10-28';
+const HOME_MODIFIED = '2026-11-11';
 const FACTS_CHECKED = '2026-10-22'; // 사장님이 매장 사실을 마지막으로 확인한 날(육회비빔밥 포장 정정)
 
 // 번체 중국어를 나머지 언어와 같은 표에 합칩니다.
@@ -107,9 +107,7 @@ const links = {
   naverPlace: store.naverPlaceId
     ? `https://map.naver.com/p/entry/place/${store.naverPlaceId}`
     : `https://map.naver.com/p/search/${NAME_ENC}`,
-  naverDir: store.naverPlaceId
-    ? `https://map.naver.com/p/entry/place/${store.naverPlaceId}?c=15.00,0,0,0,dh`
-    : `https://map.naver.com/p/directions/-/${store.lng},${store.lat},${NAME_ENC}/-/transit`,
+  naverDir: `https://map.naver.com/p/directions/-/${store.lng},${store.lat},${NAME_ENC}/-/transit`,
 
   // ---- 카카오 ----
   // ---- 카카오 ---- (kakaoPlaceId 가 비어 있으면 버튼·링크가 전부 빠집니다)
@@ -851,7 +849,7 @@ ${L.why ? `<!-- ================= 이래서 (USP) ================= -->
         <footer>— ${esc(r.author)} · Google</footer>
       </blockquote>`).join('\n      ')}
     </div>
-    <p class="review-cta rv" style="text-align:center;margin-top:1.6rem"><a class="btn btn-primary" href="${links.googlePlace}" target="_blank" rel="noopener" data-track="reviewintent" data-track-label="write-review">${esc({ ko: '구글 리뷰 남기기', en: 'Write a Google review', ja: 'Googleレビューを書く', zh: '撰写谷歌评价', tw: '撰寫 Google 評論' }[lang])}</a></p>
+    <p class="review-cta rv" style="text-align:center;margin-top:1.6rem"><a class="btn btn-primary" href="${links.googlePlace}" target="_blank" rel="noopener" data-track="reviewintent" data-track-label="write-review">${esc({ ko: '구글 리뷰 보기', en: 'Read Google reviews', ja: 'Googleのクチコミを見る', zh: '查看谷歌评价', tw: '查看 Google 評論' }[lang])}</a></p>
   </div>
 </section>
 
@@ -1417,7 +1415,7 @@ ${SUMMER_ON ? '' : '- 청우 평양냉면: 2026년 판매 종료. 다른 사이�
 - Open daily 11:00–22:00 · break 15:00–17:00 · last order 21:00. Tel +82-53-255-7052 (phone reservations, groups up to 40, no private rooms).
 - About 7 min (500 m) from Banwoldang Station Exit 15 · 6 min from The Hyundai Daegu · 10 min from Jungangno Station · 3 min from the Yangnyeongsi Museum of Oriental Medicine. Not located in Dongseong-ro or Dongin-dong.
 - Non-spicy: galbitang (beef short rib soup with two ribs, ₩16,000), clear beef soup (₩12,000), boiled beef shank. Spicy: Daegu spicy beef soup / ttaro-gukbap (₩13,000), braised short ribs with garlic (₩22,000). Also braised oxtail with chives, tangy (₩49,000).
-- No medicinal herbs in the broth (“Yakjeon” is the alley's name); the broth is made from beef and beef bones.
+- No medicinal herbs in the broth (“Yakjeon” is the alley's name); the broth is made from beef brisket and shank.
 - English/Japanese/Chinese menus are on this website (en.html, ja.html, zh.html, tw.html) — show your phone to staff to order.
 - Takeaway by phone (except kalguksu); no delivery; no private parking (public car park 1 min walk).
 
@@ -1475,3 +1473,4 @@ if (site.customDomain) {
 }
 console.log(`  ✓ sitemap.xml (${site.langs.length + GUIDES.length + (news.length ? news.length + 1 : 0)} urls)`);
 console.log(`\n총 ${(bytes / 1024).toFixed(1)} KB · ${site.langs.length}개 언어 생성 완료`);
+
